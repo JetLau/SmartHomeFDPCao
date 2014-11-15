@@ -36,7 +36,7 @@
 {
     return [[self alloc] initWithArgument:info];
 }
-
+///
 /*Study model start,rm2's red bulb light up*/
 - (NSString *)rm2StudyModelStart
 {
