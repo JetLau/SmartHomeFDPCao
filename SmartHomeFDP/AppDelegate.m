@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MainTabBarViewController.h"
+#import "LoginViewController.h"
+#import "RootController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    
+    //MainTabBarViewController *mainTabBarController=[[MainTabBarViewController alloc]init];
+    //self.window.rootViewController=mainTabBarController;
+    //LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+    RootController *rootViewController = [[RootController alloc] init];
+    self.window.rootViewController = rootViewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

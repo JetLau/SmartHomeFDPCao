@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>buttonArray</key>
+		<array>
+			<dict>
+				<key>buttonId</key>
+				<integer>0</integer>
+				<key>buttonInfo</key>
+				<string></string>
+				<key>sendData</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>buttonId</key>
+				<integer>1</integer>
+				<key>buttonInfo</key>
+				<string></string>
+				<key>sendData</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>buttonId</key>
+				<integer>2</integer>
+				<key>buttonInfo</key>
+				<string></string>
+				<key>sendData</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>buttonId</key>
+				<integer>3</integer>
+				<key>buttonInfo</key>
+				<string></string>
+				<key>sendData</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>buttonId</key>
+				<integer>4</integer>
+				<key>buttonInfo</key>
+				<string></string>
+				<key>sendData</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>buttonId</key>
+				<integer>5</integer>
+				<key>buttonInfo</key>
+				<string></string>
+				<key>sendData</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>type</key>
+		<string>TV</string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TVViewController">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="oXE-ba-wi8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFf-zc-VNp">
+                    <rect key="frame" x="80" y="121" width="30" height="30"/>
+                    <state key="normal" backgroundImage="btn_tv_power_press.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="iP7-Hg-8xY"/>
+                        <outletCollection property="gestureRecognizers" destination="He0-Ns-wjb" appends="YES" id="TYa-5h-3mL"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpt-0U-Xps">
+                    <rect key="frame" x="148" y="248" width="30" height="11"/>
+                    <state key="normal" backgroundImage="btn_tv_up.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="P6D-Jg-Uch"/>
+                        <outletCollection property="gestureRecognizers" destination="EUy-Lc-zfd" appends="YES" id="ev3-FK-qmr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Oc-wQ-2Az">
+                    <rect key="frame" x="148" y="298" width="30" height="11"/>
+                    <state key="normal" backgroundImage="btn_tv_down.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="i4Q-iQ-DDw"/>
+                        <outletCollection property="gestureRecognizers" destination="5pQ-ar-Zzg" appends="YES" id="LsP-Vj-YtB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAZ-Ae-JYf">
+                    <rect key="frame" x="129" y="263" width="11" height="30"/>
+                    <state key="normal" backgroundImage="btn_tv_left.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="idL-3H-fBY"/>
+                        <outletCollection property="gestureRecognizers" destination="wnf-nU-iOq" appends="YES" id="5kX-Dz-Q1g"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chz-0G-GyC">
+                    <rect key="frame" x="185" y="263" width="11" height="30"/>
+                    <state key="normal" backgroundImage="btn_tv_right.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="KAZ-wI-Ruu"/>
+                        <outletCollection property="gestureRecognizers" destination="lhu-UL-TlV" appends="YES" id="1RL-dd-peK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTe-8Q-HpL">
+                    <rect key="frame" x="209" y="121" width="30" height="30"/>
+                    <state key="normal" backgroundImage="btn_mute_press.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClicked:" destination="-1" eventType="touchUpInside" id="oAw-I0-n0Z"/>
+                        <outletCollection property="gestureRecognizers" destination="gTR-Vh-YMf" appends="YES" id="OGb-i3-RJO"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.79999999999999993" id="He0-Ns-wjb">
+            <connections>
+                <action selector="btnLongPress:" destination="-1" id="eay-eX-tL1"/>
+                <outlet property="delegate" destination="-1" id="cO4-m4-uyE"/>
+            </connections>
+        </pongPressGestureRecognizer>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="EUy-Lc-zfd">
+            <connections>
+                <action selector="btnLongPress:" destination="-1" id="QVV-gm-3qo"/>
+                <outlet property="delegate" destination="-1" id="mjA-O8-pql"/>
+            </connections>
+        </pongPressGestureRecognizer>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5pQ-ar-Zzg">
+            <connections>
+                <action selector="btnLongPress:" destination="-1" id="jkG-38-Ebx"/>
+                <outlet property="delegate" destination="-1" id="TUe-ca-K6w"/>
+            </connections>
+        </pongPressGestureRecognizer>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="wnf-nU-iOq">
+            <connections>
+                <action selector="btnLongPress:" destination="-1" id="5eF-HE-MJg"/>
+                <outlet property="delegate" destination="-1" id="KBx-PX-sGV"/>
+            </connections>
+        </pongPressGestureRecognizer>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lhu-UL-TlV">
+            <connections>
+                <action selector="btnLongPress:" destination="-1" id="xC2-Dq-Odo"/>
+                <outlet property="delegate" destination="-1" id="BWt-Lo-cDs"/>
+            </connections>
+        </pongPressGestureRecognizer>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="gTR-Vh-YMf">
+            <connections>
+                <action selector="btnLongPress:" destination="-1" id="V5L-3s-SCY"/>
+                <outlet property="delegate" destination="-1" id="DcS-ek-zeX"/>
+            </connections>
+        </pongPressGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="btn_mute_press.png" width="30" height="30"/>
+        <image name="btn_tv_down.png" width="30" height="11"/>
+        <image name="btn_tv_left.png" width="11" height="30"/>
+        <image name="btn_tv_power_press.png" width="30" height="30"/>
+        <image name="btn_tv_right.png" width="11" height="30"/>
+        <image name="btn_tv_up.png" width="30" height="11"/>
+    </resources>
+</document>
