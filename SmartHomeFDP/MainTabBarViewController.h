@@ -7,7 +7,9 @@
 //
 
 #import "UIKit/UIKit.h"
+#import "InitBroadLink.h"
 
 @interface MainTabBarViewController : UITabBarController
+@property(strong,nonatomic)InitBroadLink *blEasyConfig;
 
 @end

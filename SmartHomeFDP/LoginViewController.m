@@ -7,10 +7,9 @@
 //
 
 #import "LoginViewController.h"
-//#import "MainTabBarViewController.h"
 #import "ProgressHUD.h"
 #import "RootController.h"
-
+#import "SmartHomeAPIs.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface LoginViewController ()
@@ -72,51 +71,25 @@
     self.view.userInteractionEnabled = false;
     
     dispatch_async(kBgQueue, ^{
-        if (TRUE)//登录成功
+        NSDictionary *status = [SmartHomeAPIs MobileLogin:username password:password];
+        NSString *loginSuccess = [[status objectForKey:@"jsonMap"] objectForKey:@"result"];
+//        NSString *loginSuccess = @"success";
+        if ([loginSuccess isEqualToString:@"success"])//登录成功
         {
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             [userDefaults setObject:username forKey:@"username"];
             [userDefaults setObject:password forKey:@"password"];
-            
+
             [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"登录成功" waitUntilDone:YES];
             [self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
             return ;
         }
         else//登录出错
         {
-            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"用户名或密码错误" waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"登录失败！" waitUntilDone:YES];
             return ;
         }
     });
-
-    
-//    dispatch_async(kBgQueue, ^{
-//        NSDictionary *status = [OEMSAPIs MobileLogin:username password:password];
-//        if (status == nil)
-//        {
-//            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"网络连接有误" waitUntilDone:YES];
-//            return ;
-//        }
-//        
-//        Boolean flag = [[[status objectForKey:@"resultMap"] objectForKey:@"flag"] boolValue];
-//        
-//        if (flag)//登录成功
-//        {
-//            [self dealWithData:[status objectForKey:@"resultMap"]];
-//            OEMSUserInfoData *userInfo = [OEMSUserInfoData instance];
-//            userInfo.userName = username;
-//            NSData *pic = [OEMSAPIs getPictureOfUser:username];
-//            userInfo.userPictureData = pic;
-//            [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"登录成功" waitUntilDone:YES];
-//            [self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
-//            return ;
-//        }
-//        else//登录出错
-//        {
-//            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"用户名或密码错误" waitUntilDone:YES];
-//            return ;
-//        }
-//    });
 
 }
 

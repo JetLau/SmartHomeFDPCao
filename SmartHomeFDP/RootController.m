@@ -9,6 +9,7 @@
 #import "RootController.h"
 #import "LoginViewController.h"
 #import "MainTabBarViewController.h"
+#import "SmartHomeAPIs.h"
 
 @interface RootController ()
 
@@ -23,7 +24,16 @@
 {
     [super viewDidLoad];
     
-    
+    //获取setting中设置的URL
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *ipAddr = [defaults stringForKey:@"ipAddr"];
+    if (ipAddr==nil || [ipAddr isEqualToString:@""])
+    {
+        ipAddr =  @"10.131.200.97:8080";
+    }
+    NSLog(@"IP : %@", ipAddr);
+    [SmartHomeAPIs setIpAddr:ipAddr];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -32,7 +42,7 @@
     NSString *userName = [userDefaults stringForKey:@"username"];
     NSString *password = [userDefaults stringForKey:@"password"];
     //[userDefaults setObject:password forKey:@"password"];
-    if ([userName isEqualToString:@"fudan"] && [password isEqualToString:@"admin"]) {
+    if (!(userName == nil) && !(password == nil)) {
         self.mainTabBarViewController = [[MainTabBarViewController alloc] init];
         [self.view addSubview:self.mainTabBarViewController.view];
     } else {

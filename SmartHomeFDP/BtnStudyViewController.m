@@ -36,6 +36,14 @@
     //NSLog(@"view  load");
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    RMDeviceManager * rmDeviceManager = [RMDeviceManager createRMDeviceManager];
+    NSString * voice = [[rmDeviceManager getRMButton:_rmDeviceIndex btnId:_btnId] objectForKey:@"buttonInfo"];
+   [_voiceTextField setText:voice];
+    rmDeviceManager = nil;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -48,11 +56,16 @@
 {
     [ProgressHUD show:@"正在学习按键"];
     self.view.userInteractionEnabled = NO;
+    self.navigationController.navigationBar.userInteractionEnabled=NO;
     dispatch_async(networkQueue, ^{
         //        UIButton *studyBtn = (UIButton *) sender;
         //        [studyBtn setEnabled:NO];
-        
-        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithArgument:_info];
+        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
+        [rmDeviceManager initRMDeviceManage];
+        //NSDictionary *btnDic = [rmDeviceManager getRMButton:_rmDeviceIndex btnId:_btnId];
+        RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
+        //BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithArgument:_info];
+        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
         NSString * code = [rm2StudyModel rm2StudyModelStart];
         NSString *data;
         if ([code intValue] == 0) {
@@ -65,9 +78,7 @@
             data = [rm2StudyModel rm2GetControlData];
             if (data != nil) {
                 //成功获得学习码
-                NSLog(@"get--%@",data);
-                RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-                [rmDeviceManager initRMDeviceManage];
+                //NSLog(@"get--%@",data);
                 //NSLog(@"btnId--%i",button.tag);
                 [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:data];
                 //[_showInfoLabel setText:@"成功学习！"];
@@ -98,7 +109,7 @@
 }
 
 - (IBAction)saveVoiceTextBtnClicked:(id)sender {
-    NSString *voiceText = [NSString stringWithString:self.vocieTextField.text];
+    NSString *voiceText = [NSString stringWithString:self.voiceTextField.text];
     if([voiceText isEqualToString:@""])
     {
         [ProgressHUD showError:@"语音命令不可为空！"];
@@ -109,8 +120,20 @@
         RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
         [rmDeviceManager initRMDeviceManage];
         //NSLog(@"btnId--%i",button.tag);
+        NSString * name = [[rmDeviceManager getRMDevice:_rmDeviceIndex] name];
         BOOL TORF = [rmDeviceManager saveVoiceInfo:_rmDeviceIndex btnId:_btnId voiceInfo:voiceText];
+        
         if (TORF) {
+            dispatch_async(remoteQueue, ^{
+                NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
+                [remoteDic setObject:@"saveButtonVoice" forKey:@"command"];
+                [remoteDic setObject:_info.mac forKey:@"mac"];
+                [remoteDic setObject:name forKey:@"name"];
+                [remoteDic setObject:[NSNumber numberWithInt:_btnId] forKey:@"buttonId"];
+                [remoteDic setObject:voiceText forKey:@"buttonInfo"];
+                [SmartHomeAPIs SaveButtonVoice:remoteDic];
+            });
+            
             [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"成功保存" waitUntilDone:YES];
             return;
         }else
@@ -122,13 +145,16 @@
     
 }
 
+
 - (void) successWithMessage:(NSString *)message {
     [self.view setUserInteractionEnabled:true];
+    self.navigationController.navigationBar.userInteractionEnabled=YES;
     [ProgressHUD showSuccess:message];
 }
 
 - (void) errorWithMessage:(NSString *)message {
     [self.view setUserInteractionEnabled:true];
+    self.navigationController.navigationBar.userInteractionEnabled=YES;
     [ProgressHUD showError:message];
 }
 

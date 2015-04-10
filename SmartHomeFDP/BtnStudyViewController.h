@@ -11,7 +11,7 @@
 @property (nonatomic, assign) int rmDeviceIndex;
 @property (nonatomic, assign) int btnId;
 
-@property (strong, nonatomic) IBOutlet UITextField *vocieTextField;
+@property (strong, nonatomic) IBOutlet UITextField *voiceTextField;
 - (IBAction)studyBtnClicked:(UIButton *)sender;
 - (IBAction)saveVoiceTextBtnClicked:(id)sender;
 

@@ -10,5 +10,5 @@
 #import "DeviceViewController.h"
 @interface AirConditionViewController : DeviceViewController
 
--(int)addDevice;
+//-(int)addDevice;
 @end

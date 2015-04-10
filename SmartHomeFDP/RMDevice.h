@@ -11,10 +11,11 @@
 @interface RMDevice:NSObject
 
 @property(strong,nonatomic)NSString *type;
-
+@property(strong,nonatomic)NSString *name;
+@property(strong,nonatomic)NSString *mac;
 @property(strong,nonatomic)NSMutableArray *RMButtonArray;
 
-+(instancetype) itemWithDevice:(RMDevice *)device;
++(instancetype) itemDevice;
 -(void) addRMButton:(NSDictionary *)buttonDic;
 
 @end

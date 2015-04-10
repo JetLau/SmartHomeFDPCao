@@ -11,9 +11,10 @@
 #import "MJExtension.h"
 @implementation RMDevice
 
-+(instancetype) itemWithDevice:(RMDevice *)device
++(instancetype) itemDevice
 {
     RMDevice *rmDevice = [[RMDevice alloc] init];
+    rmDevice.RMButtonArray = [[NSMutableArray alloc] init];
     return rmDevice;
 }
 
@@ -28,7 +29,8 @@
     rmButton.buttonId=[[buttonDic objectForKey:@"buttonId"]intValue];
     rmButton.sendData=[buttonDic objectForKey:@"sendData"];
     rmButton.buttonInfo=[buttonDic objectForKey:@"buttonInfo"];
-    
+    rmButton.btnName=[buttonDic objectForKey:@"btnName"];
+
     [self.RMButtonArray addObject:rmButton];
 }
 @end

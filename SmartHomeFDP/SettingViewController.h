@@ -8,7 +8,10 @@
 
 
 #import <UIKit/UIKit.h>
+#import "LJCommonViewController.h"
+#import "InitBroadLink.h"
 
-@interface SettingViewController : UITableViewController
+@interface SettingViewController : LJCommonViewController
+@property(strong,nonatomic)InitBroadLink *blEasyConfig;
 
 @end

@@ -13,11 +13,9 @@
 #import "VoiceViewController.h"
 #import "DeviceListViewController.h"
 #import "SettingViewController.h"
-#import "InitBroadLink.h"
 #define mtbvQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @implementation MainTabBarViewController
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,22 +37,24 @@
     
     DeviceListViewController *deviceListView=[[DeviceListViewController alloc]init];
     UINavigationController *deviceListNav=[[UINavigationController alloc]initWithRootViewController:deviceListView];
-    deviceListView.navigationItem.title=@"中控列表";
-    [self addOneChild:deviceListNav title:@"中控列表" imageName:@"list_dark" selectedImageName:@"list_light"];
+    deviceListView.navigationItem.title=@"设备列表";
+    [self addOneChild:deviceListNav title:@"设备列表" imageName:@"list_dark" selectedImageName:@"list_light"];
     
     SettingViewController *settingView=[[SettingViewController alloc]init];
     UINavigationController *settingNav=[[UINavigationController alloc]initWithRootViewController:settingView];
     settingView.navigationItem.title=@"设置";
     [self addOneChild:settingNav title:@"设置" imageName:@"setter_dark" selectedImageName:@"setter_light"];
+    
+    dispatch_async(mtbvQueue, ^{
+        self.blEasyConfig = [InitBroadLink initBroadLinkDevices];
+        [self.blEasyConfig networkInit];
+        [self.blEasyConfig addAllDevices];
+        
+    });
 }
-
 -(void) viewWillAppear:(BOOL)animated
 {
-    dispatch_async(mtbvQueue, ^{
-        InitBroadLink * initBL = [InitBroadLink initBroadLinkDevices];
-        [initBL networkInit];
-        [initBL addAllDevices];
-    });
+    
 }
 
 -(void)addOneChild:(UIViewController *)child title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName

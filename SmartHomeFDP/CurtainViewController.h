@@ -10,6 +10,6 @@
 #import "DeviceViewController.h"
 @interface CurtainViewController : DeviceViewController
 
--(int)addDevice;
+//-(int)addDevice;
 
 @end

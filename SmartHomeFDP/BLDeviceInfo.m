@@ -10,13 +10,13 @@
 
 @implementation BLDeviceInfo
 
-- (void)dealloc
-{
-    [self setName:nil];
-    [self setType:nil];
-    [self setMac:nil];
-    [self setKey:nil];
-}
+//- (void)dealloc
+//{
+//    [self setName:nil];
+//    [self setType:nil];
+//    [self setMac:nil];
+//    [self setKey:nil];
+//}
 
 -(void) setId:(int)id
 {

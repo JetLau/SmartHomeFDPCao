@@ -42,7 +42,8 @@
     
     //创建语音识别对象
     _iFlySpeechRecognizer = [RecognizerFactory CreateRecognizer:self Domain:@"iat"];
-    
+    //隐藏tabbar工具条
+    self.hidesBottomBarWhenPushed = YES;
     return self;
 }
 

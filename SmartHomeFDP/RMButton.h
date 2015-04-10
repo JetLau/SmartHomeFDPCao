@@ -13,5 +13,6 @@
 @property(assign,nonatomic)int buttonId;
 @property(strong,nonatomic)NSString *sendData;
 @property(strong,nonatomic)NSString *buttonInfo;
+@property(strong,nonatomic)NSString *btnName;
 
 @end

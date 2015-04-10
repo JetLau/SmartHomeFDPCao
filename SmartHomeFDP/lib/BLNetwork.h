@@ -10,6 +10,8 @@
 
 @interface BLNetwork : NSObject
 
++ (BLNetwork *)sharedBLNetwork;
+
 - (NSData *)requestDispatch:(NSData *)input;
 
 @end

@@ -31,7 +31,7 @@
 
 +(instancetype)itemWithTitle:(NSString *)title
 {
-    LJCommonItem *item = [[LJCommonItem alloc] init];
+    LJCommonItem *item = [[self alloc] init];
     item.title = title;
     return item;
 }

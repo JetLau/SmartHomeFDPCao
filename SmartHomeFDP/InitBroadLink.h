@@ -11,14 +11,18 @@
 #import "BLDeviceInfo.h"
 
 @interface InitBroadLink : NSObject
-
-@property (nonatomic, strong) BLDeviceInfo *info;
+//@property (nonatomic, strong) BLDeviceInfo *info;
+@property (nonatomic, strong) BLNetwork *network;
 
 + (instancetype)initBroadLinkDevices;
+
 - (void)networkInit;
 - (void)listRefresh;
 - (void)addAllDevices;
--(NSArray*)readDeviceInfoFromPlist;
+-(NSMutableArray*)readDeviceInfoFromPlist;
 -(void)saveDeviceInfoToPlist :(NSMutableArray *) deviceArray;
+
+-(void)startConfig:(NSString *)wifi password:(NSString *)password;
+-(void)cancelConfig;
 
 @end

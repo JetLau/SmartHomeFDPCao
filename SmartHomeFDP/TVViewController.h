@@ -11,14 +11,7 @@
 #import "DeviceViewController.h"
 @interface TVViewController : DeviceViewController
 
-//@property(strong,nonatomic)NSDictionary *parameterDic;
-//
-//@property(strong,nonatomic)NSNumber *mode;//mode=0,studyMode   mode=1,useMode
-
-//@property(assign,nonatomic)int rmDeviceIndex;
-
--(int)addDevice;
-//- (IBAction)buttonClicked:(UIButton *)sender;
+//-(int)addDevice;
 
 @end
 

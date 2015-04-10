@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DeviceViewController.h"
 @interface ProjectorViewController : DeviceViewController
--(int)addDevice;
+
+//-(int)addDevice;
 
 
 @end

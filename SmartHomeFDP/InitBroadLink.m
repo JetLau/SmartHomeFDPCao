@@ -20,27 +20,33 @@
 #import "BLNetwork.h"
 #import "JSONKit.h"
 #import "MJExtension.h"
-
+#import "ProgressHUD.h"
+#import "BLDeviceInfo.h"
+#import "BLDeviceManager.h"
 @interface InitBroadLink ()
 {
     dispatch_queue_t networkQueue;
+    
 }
-@property (nonatomic, strong) BLNetwork *network;
+
 @end
 
 @implementation InitBroadLink
 
 + (instancetype)initBroadLinkDevices
 {
-    InitBroadLink * initBL = [[InitBroadLink alloc] init];
-    [initBL initNetwork];
-    return initBL;
+    //    InitBroadLink * initBL = [[InitBroadLink alloc] init];
+    //    [initBL initNetwork];
+    return [[self alloc] initNetwork];
 }
 
--(void) initNetwork
+-(instancetype) initNetwork
 {
-    networkQueue = dispatch_queue_create("BroadLinkSP2NetworkQueue", DISPATCH_QUEUE_SERIAL);
-    _network = [[BLNetwork alloc] init];
+    if (self = [super init]) {
+        networkQueue = dispatch_queue_create("BroadLinkSP2NetworkQueue", DISPATCH_QUEUE_SERIAL);
+        _network = [[BLNetwork alloc] init];
+    }
+    return self;
 }
 
 - (void)networkInit
@@ -49,7 +55,7 @@
     [dic setObject:[NSNumber numberWithInt:1] forKey:@"api_id"];
     [dic setObject:@"network_init" forKey:@"command"];
     //warning input your license.
-    [dic setObject:@"U6mRbMpK5CLN5eikSIRuWuagtVKqWtjenPq/g/2Ttu2oOxJy8X4W2DW9uhsmcFyRZfgu3Y8bAoYR3BskKIH44p5BGQMZqg1X653Cg2jggev3yZ6Hag8=" forKey:@"license"];
+    [dic setObject:@"sZtBBTSA8lYqJ9RFCz4AuUh1bIUfKCkKkytZphsZqCpooN/f4kqfPPnbUxNFj8tz3Dy4RT2Ybz7eF2CCkRAap8rzKwTlMUEVLc6UhL/6UHFdRU78Ux8=" forKey:@"license"];
     NSData *requestData = [dic JSONData];
     
     NSData *responseData = [_network requestDispatch:requestData];
@@ -66,29 +72,41 @@
 - (void)listRefresh
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    //int x = 5000;
+    //while (x--) {
     [dic setObject:[NSNumber numberWithInt:11] forKey:@"api_id"];
     [dic setObject:@"probe_list" forKey:@"command"];
     
     NSData *requestData = [dic JSONData];
-    NSMutableArray *oldDeviceArray = [[NSMutableArray alloc] initWithArray:[self readDeviceInfoFromPlist]];
+    NSMutableArray *oldDeviceArray = [self readDeviceInfoFromPlist];
     
     dispatch_async(networkQueue, ^{
         
         NSData *responseData = [_network requestDispatch:requestData];
-        NSLog(@"-------%d",[[[responseData objectFromJSONData] objectForKey:@"code"] intValue]);
+        
         int code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
+        
+        
+        
         if (code == 0)
         {
             NSArray *newDeviceDicArray = [[responseData objectFromJSONData] objectForKey:@"list"];
-            NSArray *newDeviceArray = [BLDeviceInfo keyValuesArrayWithObjectArray:newDeviceDicArray];
-#warning 应该是直接把存的旧的device列表全删掉，直接存新的列表。但是现在搜索不到设备，所以现在算法是保存新设备列表且旧设备列表只改变状态
-            int count = oldDeviceArray.count;
-            for (BLDeviceInfo *info in newDeviceArray) {
-                int i = 0;
-                for (i = 0; i < count; i++)
+            for (NSDictionary *item in newDeviceDicArray)
+            {
+                int i;
+                BLDeviceInfo *info = [[BLDeviceInfo alloc] init];
+                [info setMac:[item objectForKey:@"mac"]];
+                [info setType:[item objectForKey:@"type"]];
+                [info setName:[item objectForKey:@"name"]];
+                [info setLock:[[item objectForKey:@"lock"] intValue]];
+                [info setPassword:[[item objectForKey:@"password"] unsignedIntValue]];
+                [info setId:[[item objectForKey:@"id"] intValue]];
+                [info setSubdevice:[[item objectForKey:@"subdevice"] intValue]];
+                [info setKey:[item objectForKey:@"key"]];
+                
+                for (i=0; i<oldDeviceArray.count; i++)
                 {
                     BLDeviceInfo *tmp = [oldDeviceArray objectAtIndex:i];
-                    
                     if ([tmp.mac isEqualToString:info.mac])
                     {
                         [oldDeviceArray replaceObjectAtIndex:i withObject:info];
@@ -96,54 +114,141 @@
                     }
                 }
                 
-                if (i >= count && ![info.type isEqualToString:@"Unknown"])
+                if (i >= oldDeviceArray.count && ![info.type isEqualToString:@"Unknown"])
                 {
                     [oldDeviceArray addObject:info];
-                    [self deviceAdd:info];
                     NSLog(@"add device %@",info.mac);
                 }
                 
+                info = nil;
+                
             }
             
-            //        for (BLDeviceInfo *info in oldDeviceArray) {
-            //            [self deviceAdd:info];
-            //            NSLog(@"info.name %@",info.name);
-            //        }
-            
-            [self saveDeviceInfoToPlist:oldDeviceArray];
+            [self saveDeviceInfoToPlist:[NSMutableArray arrayWithArray:[BLDeviceInfo keyValuesArrayWithObjectArray:oldDeviceArray]]];
+            [self addAllDevices];
+            NSLog(@"newDeviceDicArray：%d",[newDeviceDicArray count]);
             NSLog(@"硬件列表数量：%d",[oldDeviceArray count]);
         }else{
             NSLog(@"probe_list error");
         }
+        
+        responseData = nil;
+        
     });
+    //        if ([oldDeviceArray count]) {
+    //            break;
+    //        }
+    //
+    //        requestData = nil;
+    //        oldDeviceArray=nil;
+    //  }
+    
+    
+    //        if (code == 0)
+    //        {
+    //            NSArray *newDeviceDicArray = [[responseData objectFromJSONData] objectForKey:@"list"];
+    //            NSArray *newDeviceArray = [BLDeviceInfo keyValuesArrayWithObjectArray:newDeviceDicArray];
+    //            NSLog(@"newDeviceArray: %@",newDeviceDicArray);
+    //            if (newDeviceArray.count != 0) {
+    //#warning 应该是直接把存的旧的device列表全删掉，直接存新的列表。但是现在搜索不到设备，所以现在算法是保存新设备列表且旧设备列表只改变状态
+    //                int count = oldDeviceArray.count;
+    //                for (BLDeviceInfo *info in newDeviceArray) {
+    //                    int i = 0;
+    //                    for (i = 0; i < count; i++)
+    //                    {
+    //                        BLDeviceInfo *tmp = [oldDeviceArray objectAtIndex:i];
+    //
+    //                        if ([tmp.mac isEqualToString:info.mac])
+    //                        {
+    //                            [oldDeviceArray replaceObjectAtIndex:i withObject:info];
+    //                            break;
+    //                        }
+    //                    }
+    //
+    //                    if (i >= count && ![info.type isEqualToString:@"Unknown"])
+    //                    {
+    //                        [oldDeviceArray addObject:info];
+    //                        //[self deviceAdd:info];
+    //                        NSLog(@"add device %@",info.mac);
+    //                    }
+    //
+    //                }
+    //
+    //                //        for (BLDeviceInfo *info in oldDeviceArray) {
+    //                //            [self deviceAdd:info];
+    //                //            NSLog(@"info.name %@",info.name);
+    //                //        }
+    //
+    //                [self saveDeviceInfoToPlist:oldDeviceArray];
+    //                [self addAllDevices];
+    //            }
+    //            NSLog(@"硬件列表数量：%d",[oldDeviceArray count]);
+    //        }else{
+    //            NSLog(@"probe_list error");
+    //        }
+    //
     
 }
 
--(NSArray*)readDeviceInfoFromPlist
+//- (void)listRefresh
+//{
+//    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+//    [dic setObject:[NSNumber numberWithInt:11] forKey:@"api_id"];
+//    [dic setObject:@"probe_list" forKey:@"command"];
+//
+//    NSData *requestData = [dic JSONData];
+//
+//    dispatch_async(networkQueue, ^{
+//
+//        NSData *responseData = [_network requestDispatch:requestData];
+//
+//        int code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
+//        if (code == 0)
+//        {
+//            NSArray *newDeviceDicArray = [[responseData objectFromJSONData] objectForKey:@"list"];
+//            //NSArray *newDeviceArray = [BLDeviceInfo keyValuesArrayWithObjectArray:newDeviceDicArray];
+//            NSLog(@"newDeviceArray: %@",newDeviceDicArray);
+//            if (newDeviceDicArray != nil) {
+//#warning 应该是直接把存的旧的device列表全删掉，直接存新的列表。但是现在搜索不到设备，所以现在算法是保存新设备列表且旧设备列表只改变状态
+//                [self saveDeviceInfoToPlist:[NSMutableArray arrayWithArray:newDeviceDicArray]];
+//                [self addAllDevices];
+//            }
+//            NSLog(@"硬件列表数量：%d",[newDeviceDicArray count]);
+//        }else{
+//            NSLog(@"probe_list error");
+//        }
+//    });
+//
+//}
+
+
+-(NSMutableArray*)readDeviceInfoFromPlist
 {
-    //NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    //NSString *path = [doc stringByAppendingPathComponent:@"DeviceInfo.plist"];
-    NSString *path=[[NSBundle mainBundle]pathForResource:@"DeviceInfo" ofType:@"plist"];
-    
-    //读取数据
-    //NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-    //NSLog(@"读取数据  %@",dict);
-    //return [dict objectForKey:@"DeviceInfo"];
-    NSArray *dictArray = [[NSArray alloc] initWithContentsOfFile:path];
-    NSArray *devicesArray =[BLDeviceInfo objectArrayWithKeyValuesArray:dictArray];
-    
-    NSLog(@"读取数据  %@",devicesArray);
-    
-    if (devicesArray != nil) {
-        return  devicesArray;
-    }else{
-        return [[NSArray alloc]init];
-    }
+//    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [doc stringByAppendingPathComponent:@"DeviceInfo.plist"];
+//        NSArray *dictArray = [[NSArray alloc] initWithContentsOfFile:path];
+//    NSArray *devicesArray;
+//    if (dictArray) {
+//        devicesArray=[BLDeviceInfo objectArrayWithKeyValuesArray:dictArray];
+//    }
+//    if (devicesArray != nil) {
+//        doc=nil;
+//        path = nil;
+//        dictArray = nil;
+//        return  devicesArray;
+//    }else{
+//        doc=nil;
+//        path = nil;
+//        dictArray = nil;
+//        return [[NSArray alloc]init];
+//    }
+    BLDeviceManager *blDevManager = [BLDeviceManager createBLDeviceManager];
+    return blDevManager.readBLDeviceInfoFromPlist;
 }
 
 - (void)addAllDevices
 {
-    NSArray *deviceArray = [[NSArray alloc] initWithArray:[self readDeviceInfoFromPlist]];
+    NSMutableArray *deviceArray = [self readDeviceInfoFromPlist];
     for (BLDeviceInfo *info in deviceArray) {
         [self deviceAdd:info];
         //NSLog(@"add device %@",info.mac);
@@ -195,19 +300,82 @@
     //NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     // 拼接文件路径
     //NSString *path = [doc stringByAppendingPathComponent:@"DeviceInfo.plist"];
-    NSString *path=[[NSBundle mainBundle]pathForResource:@"DeviceInfo" ofType:@"plist"];
-    NSLog(@"DeviceInfo.plist path : %@", path);
-    
-    
-    //NSArray *deviceArray=[[NSArray alloc]initWithArray:deviceArray];
-    //    [array writeToFile:path atomically:YES];
-    NSArray *deviceDicArray = [BLDeviceInfo keyValuesArrayWithObjectArray:deviceArray];
-    //    [_deviceArray writeToFile:path atomically:YES];
-    [deviceDicArray writeToFile:path atomically:YES];
-    
+//    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [doc stringByAppendingPathComponent:@"DeviceInfo.plist"];
+//        [deviceArray writeToFile:path atomically:YES];
     //读取数据
     //NSDictionary *dict1 = [NSDictionary dictionaryWithContentsOfFile:path];
     // NSLog(@"读取数据1  %@",[[NSMutableArray alloc] initWithContentsOfFile:path]);
+    
+    BLDeviceManager *blDevManager = [BLDeviceManager createBLDeviceManager];
+    [blDevManager saveBLDeviceInfoToPlist:deviceArray];
+}
+
+-(void)startConfig:(NSString *)wifi password:(NSString *)password
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:[NSNumber numberWithInt:10000] forKey:@"api_id"];
+        [dic setObject:@"easyconfig" forKey:@"command"];
+        [dic setObject:wifi forKey:@"ssid"];
+        [dic setObject:password forKey:@"password"];
+#warning If your device is v1, this field set 0.
+        [dic setObject:[NSNumber numberWithInt:1] forKey:@"broadlinkv2"];
+#warning This filed is your route's gateway address.
+        //        [dic setObject:@"192.168.1.1" forKey:@"dst"];
+        
+        NSData *requestData = [dic JSONData];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ProgressHUD show:@"正在搜索中..."];
+        });
+        
+        NSData *responseData = [_network requestDispatch:requestData];
+        NSLog(@"%@", [responseData objectFromJSONData]);
+        NSDictionary *resultDic=[responseData objectFromJSONData];
+        
+        if([[resultDic objectForKey:@"code"]intValue]==0)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ProgressHUD showSuccess:@"配置成功"];
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ProgressHUD showError:@"配置失败"];
+            });
+        }
+        
+        //配置结束后(接口有问题，返回是失败，但设备其实已经配置上网)，调用listrefresh接口，将新添加的设备加入plist
+        [self listRefresh];
+        
+        
+        //        dispatch_async(dispatch_get_main_queue(), ^{
+        //
+        //            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[[responseData objectFromJSONData] objectForKey:@"msg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //            [alertView show];
+        //        });
+    });
+}
+
+-(void)cancelConfig
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:[NSNumber numberWithInt:10001] forKey:@"api_id"];
+        [dic setObject:@"cancel_easyconfig" forKey:@"command"];
+        
+        NSData *requestData = [dic JSONData];
+        
+        NSData *responseData = [_network requestDispatch:requestData];
+        NSLog(@"%@", [responseData objectFromJSONData]);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[[responseData objectFromJSONData] objectForKey:@"msg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alertView show];
+        });
+    });
 }
 
 @end
