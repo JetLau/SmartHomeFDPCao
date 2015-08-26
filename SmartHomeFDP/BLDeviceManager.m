@@ -106,10 +106,28 @@
 
 -(void)saveBLDeviceInfoToPlist :(NSMutableArray *) deviceArray
 {
+    NSMutableArray *deviceDicArray = [[NSMutableArray alloc]init];
+    for (NSDictionary *item in deviceArray)
+    {
+//        int i;
+//        BLDeviceInfo *info = [[BLDeviceInfo alloc] init];
+//        [info setMac:[item objectForKey:@"mac"]];
+//        [info setType:[item objectForKey:@"type"]];
+//        [info setName:[item objectForKey:@"name"]];
+//        [info setId:[[item objectForKey:@"id"] intValue]];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:[item objectForKey:@"mac"] forKey:@"mac"];
+        [dic setObject:[item objectForKey:@"type"] forKey:@"type"];
+        [dic setObject:[item objectForKey:@"name"] forKey:@"name"];
+        [dic setObject:[item objectForKey:@"id"] forKey:@"id"];
+        
+        [deviceDicArray addObject:dic];
+    }
+    
     self.BLDeviceArray = nil;
-    self.BLDeviceArray = [[NSMutableArray alloc] initWithArray:deviceArray];
+    self.BLDeviceArray = deviceDicArray;
 
-    [deviceArray writeToFile:self.path atomically:YES];
+    [self.BLDeviceArray writeToFile:self.path atomically:YES];
 
 }
 
@@ -118,5 +136,7 @@
     [self.BLDeviceArray removeObjectAtIndex:index];
     [self.BLDeviceArray writeToFile:self.path atomically:YES];
 }
+
+
 
 @end

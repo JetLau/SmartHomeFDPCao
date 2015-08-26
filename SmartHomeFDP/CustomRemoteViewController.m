@@ -9,7 +9,6 @@
 #import "CustomRemoteViewController.h"
 #import "AddOrChangeCustomBtnViewController.h"
 #import "RMDeviceManager.h"
-#import "BLRM2StudyModel.h"
 #import "StatisticFileManager.h"
 @interface CustomRemoteViewController ()
 {
@@ -139,14 +138,23 @@
     }else{
         dispatch_async(networkQueue, ^{
             RMDevice *btnDevice = [rmDeviceManager getRMDevice:self.rmDeviceIndex];
-            BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:self.info rmDevice:btnDevice btnId:btn.buttonId];
-            int code = [[rm2StudyModel rm2SendControlData:[dicBtn objectForKey:@"sendData"]] intValue];
-            if (code == 0) {
+            NSString *result = [SmartHomeAPIs CaoSendCodeWithMac:self.info.mac btnId:btn.buttonId remoteName:btnDevice.name data:btn.sendData];
+            
+            if ([result isEqualToString:@"success"]) {
                 [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"操作成功" waitUntilDone:YES];
             } else {
-                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"错误码＝%i",code] waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"message＝%@",result] waitUntilDone:YES];
                 
             }
+            
+//            BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:self.info rmDevice:btnDevice btnId:btn.buttonId];
+//            int code = [[rm2StudyModel rm2SendControlData:[dicBtn objectForKey:@"sendData"]] intValue];
+//            if (code == 0) {
+//                [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"操作成功" waitUntilDone:YES];
+//            } else {
+//                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"错误码＝%i",code] waitUntilDone:YES];
+//                
+//            }
         });
         
     }
@@ -181,12 +189,12 @@
         [rmDeviceManager initRMDeviceManage];
         [rmDeviceManager deleteCustomBtn:self.rmDeviceIndex btnId:self.btnId];
         for (id view in [self.view subviews]) {
-            if ([view isKindOfClass:[RCDraggableButton class]] && [view tag] ==self.btnId) {
+            if ([view isKindOfClass:[RCDraggableButton class]] && [view tag] == self.btnId) {
                 [view removeFromSuperview];
             }
         }
         RMDevice * rmDevice = [rmDeviceManager getRMDevice:self.rmDeviceIndex];
-        dispatch_async(remoteQueue, ^{
+        dispatch_async(networkQueue, ^{
             NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
             
             [remoteDic setObject:@"deleteBtn" forKey:@"command"];

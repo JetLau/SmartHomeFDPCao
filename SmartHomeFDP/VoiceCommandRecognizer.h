@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 @class RMDeviceManager;
 @class TCPDeviceManager;
-@class BLNetwork;
 
 @interface VoiceCommandRecognizer : NSObject
-@property (nonatomic, strong) BLNetwork *network;
 
 @property(strong,nonatomic)RMDeviceManager *rmDeviceManager;
 @property(strong,nonatomic)TCPDeviceManager *tcpDeviceManager;

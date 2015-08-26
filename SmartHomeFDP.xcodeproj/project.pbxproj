@@ -84,6 +84,12 @@
 		60032F481A1DEF9E00F07B8C /* CustomRemoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60032F471A1DEF9E00F07B8C /* CustomRemoteViewController.xib */; };
 		60032F511A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F4F1A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m */; };
 		60032F521A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60032F501A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib */; };
+		60156E261B8C88C700FC24C1 /* FTC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60156E191B8C88C700FC24C1 /* FTC.plist */; };
+		60156E271B8C88C700FC24C1 /* libFirstTimeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60156E1C1B8C88C700FC24C1 /* libFirstTimeConfig.a */; };
+		60156E281B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E221B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m */; };
+		60156E291B8C88C700FC24C1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E251B8C88C700FC24C1 /* Reachability.m */; };
+		60156E2C1B8C8B7A00FC24C1 /* CaoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E2B1B8C8B7A00FC24C1 /* CaoConfig.m */; };
+		60156E301B8D58DC00FC24C1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 60156E2F1B8D58DC00FC24C1 /* Podfile */; };
 		602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A78301AD4BF6A00A77E84 /* LightViewController.m */; };
 		602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A78311AD4BF6A00A77E84 /* LightViewController.xib */; };
 		60421DD41A0E7421007E868D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
@@ -97,15 +103,220 @@
 		60421DDC1A0E7421007E868D /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DCF1A0E7421007E868D /* NSObject+MJCoding.m */; };
 		60421DDD1A0E7421007E868D /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DD11A0E7421007E868D /* NSObject+MJKeyValue.m */; };
 		60421DDE1A0E7421007E868D /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DD31A0E7421007E868D /* NSObject+MJMember.m */; };
-		60421DE11A0E7549007E868D /* InitBroadLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DE01A0E7549007E868D /* InitBroadLink.m */; };
 		60421DE91A0F81C8007E868D /* RMDeviceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60421DE81A0F81C8007E868D /* RMDeviceInfo.plist */; };
 		60421DF01A0FAEDF007E868D /* BtnStudyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60421DEF1A0FAEDF007E868D /* BtnStudyViewController.xib */; };
 		60421DF21A0FB29F007E868D /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF11A0FB29F007E868D /* textField.png */; };
 		60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF31A0FB2AA007E868D /* textField@2x.png */; };
 		60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DF51A137CC5007E868D /* BtnStudyViewController.m */; };
-		606B35341AB2E9B600E6A8E3 /* libBLNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 606B35331AB2E9B600E6A8E3 /* libBLNetwork.a */; };
 		606C9B7D1A070D4C003BA6AD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B761A070D4C003BA6AD /* HomeViewController.m */; };
 		606C9B811A070D4C003BA6AD /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B7C1A070D4C003BA6AD /* DeviceListViewController.m */; };
+		606DC7A01B0C1FCF001B78E8 /* GpsDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606DC79E1B0C1FCF001B78E8 /* GpsDataTableViewController.m */; };
+		606DC7A11B0C1FCF001B78E8 /* GpsDataTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DC79F1B0C1FCF001B78E8 /* GpsDataTableViewController.xib */; };
+		606DCA4A1B0C712C001B78E8 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD081A1F4F03003A9EE8 /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		606DCA4B1B0C712C001B78E8 /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC51A0E7421007E868D /* MJIvar.m */; };
+		606DCA4C1B0C712C001B78E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B19C941A0209B100FFA873 /* AppDelegate.m */; };
+		606DCA4D1B0C712C001B78E8 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F681A0879FA002E3764 /* SBJson4StreamParserState.m */; };
+		606DCA4E1B0C712C001B78E8 /* CustomRemoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F421A1D7D0300F07B8C /* CustomRemoteViewController.m */; };
+		606DCA4F1B0C712C001B78E8 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A78301AD4BF6A00A77E84 /* LightViewController.m */; };
+		606DCA501B0C712C001B78E8 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F061A1A106F00F07B8C /* AFURLConnectionOperation.m */; };
+		606DCA511B0C712C001B78E8 /* AirConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4725720A1A0E033F002B12DE /* AirConditionViewController.m */; };
+		606DCA521B0C712C001B78E8 /* RecognizerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F491A087827002E3764 /* RecognizerFactory.m */; };
+		606DCA531B0C712C001B78E8 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DD11A0E7421007E868D /* NSObject+MJKeyValue.m */; };
+		606DCA541B0C712C001B78E8 /* VoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACF71A1F4E95003A9EE8 /* VoiceViewController.m */; };
+		606DCA551B0C712C001B78E8 /* MJTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DCD1A0E7421007E868D /* MJTypeEncoding.m */; };
+		606DCA561B0C712C001B78E8 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A2771B018E26005314A5 /* MyPoint.m */; };
+		606DCA571B0C712C001B78E8 /* LJCommonLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FD01A090A88002E3764 /* LJCommonLabelItem.m */; };
+		606DCA581B0C712C001B78E8 /* BLDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */; };
+		606DCA591B0C712C001B78E8 /* LJCommonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F851A08F19F002E3764 /* LJCommonItem.m */; };
+		606DCA5A1B0C712C001B78E8 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C020641A0A689A002E3764 /* DeviceViewController.m */; };
+		606DCA5B1B0C712C001B78E8 /* BtnStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DF51A137CC5007E868D /* BtnStudyViewController.m */; };
+		606DCA5C1B0C712C001B78E8 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F0A1A1A106F00F07B8C /* AFURLResponseSerialization.m */; };
+		606DCA5D1B0C712C001B78E8 /* ChangeTCPDeviceNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD1B1A21A455003A9EE8 /* ChangeTCPDeviceNameViewController.m */; };
+		606DCA5E1B0C712C001B78E8 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F041A1A106F00F07B8C /* AFSecurityPolicy.m */; };
+		606DCA5F1B0C712C001B78E8 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DD31A0E7421007E868D /* NSObject+MJMember.m */; };
+		606DCA601B0C712C001B78E8 /* UDPEasyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACED1A1F4E88003A9EE8 /* UDPEasyConfig.m */; };
+		606DCA611B0C712C001B78E8 /* TVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BEC04A1A0B083D00FD9CDC /* TVViewController.m */; };
+		606DCA621B0C712C001B78E8 /* ChangeTCPButtonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD201A21A4FE003A9EE8 /* ChangeTCPButtonInfoViewController.m */; };
+		606DCA631B0C712C001B78E8 /* BLDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F331A072567002E3764 /* BLDeviceInfo.m */; };
+		606DCA641B0C712C001B78E8 /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B7C1A070D4C003BA6AD /* DeviceListViewController.m */; };
+		606DCA651B0C712C001B78E8 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DCF1A0E7421007E868D /* NSObject+MJCoding.m */; };
+		606DCA661B0C712C001B78E8 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD001A1F4EAA003A9EE8 /* SettingViewController.m */; };
+		606DCA671B0C712C001B78E8 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F021A1A106F00F07B8C /* AFNetworkReachabilityManager.m */; };
+		606DCA681B0C712C001B78E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F8E1A0903E6002E3764 /* LoginViewController.m */; };
+		606DCA691B0C712C001B78E8 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC01A0E7421007E868D /* MJConst.m */; };
+		606DCA6A1B0C712C001B78E8 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A27A1B018EA7005314A5 /* MapViewController.mm */; };
+		606DCA6B1B0C712C001B78E8 /* LJCommonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F831A08F19F002E3764 /* LJCommonGroup.m */; };
+		606DCA6C1B0C712C001B78E8 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F6E1A0879FA002E3764 /* SBJson4StreamWriterState.m */; };
+		606DCA6D1B0C712C001B78E8 /* LJBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FD21A090A88002E3764 /* LJBadgeView.m */; };
+		606DCA6E1B0C712C001B78E8 /* LJCommonArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FCC1A090A88002E3764 /* LJCommonArrowItem.m */; };
+		606DCA6F1B0C712C001B78E8 /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F3F1A1D7CEC00F07B8C /* RCDraggableButton.m */; };
+		606DCA701B0C712C001B78E8 /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F641A0879FA002E3764 /* SBJson4Parser.m */; };
+		606DCA711B0C712C001B78E8 /* BLEasyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACEF1A1F4E88003A9EE8 /* BLEasyConfig.m */; };
+		606DCA721B0C712C001B78E8 /* VoiceCommandRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACFA1A1F4E95003A9EE8 /* VoiceCommandRecognizer.m */; };
+		606DCA731B0C712C001B78E8 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F6C1A0879FA002E3764 /* SBJson4StreamWriter.m */; };
+		606DCA741B0C712C001B78E8 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D5709C1A22CFA100646865 /* CustomCollectionViewCell.m */; };
+		606DCA751B0C712C001B78E8 /* TCPDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD141A21811E003A9EE8 /* TCPDeviceViewController.m */; };
+		606DCA761B0C712C001B78E8 /* TCPDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD101A203002003A9EE8 /* TCPDevice.m */; };
+		606DCA771B0C712C001B78E8 /* LJCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FE21A0A0626002E3764 /* LJCommonViewController.m */; };
+		606DCA781B0C712C001B78E8 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD061A1F4F03003A9EE8 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		606DCA791B0C712C001B78E8 /* ChangeRemoteNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F1B1A1B546A00F07B8C /* ChangeRemoteNameViewController.m */; };
+		606DCA7A1B0C712C001B78E8 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F081A1A106F00F07B8C /* AFURLRequestSerialization.m */; };
+		606DCA7B1B0C712C001B78E8 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC31A0E7421007E868D /* MJFoundation.m */; };
+		606DCA7C1B0C712C001B78E8 /* ProjectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DC4EEB1A0E0A9C00A7DBCD /* ProjectorViewController.m */; };
+		606DCA7D1B0C712C001B78E8 /* RMDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BEC0761A0DBB3200FD9CDC /* RMDeviceManager.m */; };
+		606DCA7E1B0C712C001B78E8 /* AddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACEA1A1F4E88003A9EE8 /* AddDeviceViewController.m */; };
+		606DCA7F1B0C712C001B78E8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032EFB1A1A106F00F07B8C /* AFHTTPRequestOperation.m */; };
+		606DCA801B0C712C001B78E8 /* GpsDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606DC79E1B0C1FCF001B78E8 /* GpsDataTableViewController.m */; };
+		606DCA811B0C712C001B78E8 /* SmartHomeAPIs.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F181A1AF27100F07B8C /* SmartHomeAPIs.m */; };
+		606DCA821B0C712C001B78E8 /* LJCommonSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FCE1A090A88002E3764 /* LJCommonSwitchItem.m */; };
+		606DCA831B0C712C001B78E8 /* MJType.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DCB1A0E7421007E868D /* MJType.m */; };
+		606DCA841B0C712C001B78E8 /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
+		606DCA851B0C712C001B78E8 /* TCPDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD0D1A202F8A003A9EE8 /* TCPDeviceManager.m */; };
+		606DCA861B0C712C001B78E8 /* StatisticFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7818C1A47AC3000F48B5F /* StatisticFileManager.m */; };
+		606DCA871B0C712C001B78E8 /* SBJson4Writer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F701A0879FA002E3764 /* SBJson4Writer.m */; };
+		606DCA881B0C712C001B78E8 /* SCRFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */; };
+		606DCA891B0C712C001B78E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B19C911A0209B100FFA873 /* main.m */; };
+		606DCA8A1B0C712C001B78E8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B761A070D4C003BA6AD /* HomeViewController.m */; };
+		606DCA8B1B0C712C001B78E8 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032EFF1A1A106F00F07B8C /* AFHTTPSessionManager.m */; };
+		606DCA8C1B0C712C001B78E8 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F0C1A1A106F00F07B8C /* AFURLSessionManager.m */; };
+		606DCA8D1B0C712C001B78E8 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FDA1A09152E002E3764 /* ProgressHUD.m */; };
+		606DCA8E1B0C712C001B78E8 /* LJCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F871A08F19F002E3764 /* LJCommonCell.m */; };
+		606DCA8F1B0C712C001B78E8 /* RMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BEC0791A0DDA2200FD9CDC /* RMButton.m */; };
+		606DCA901B0C712C001B78E8 /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F661A0879FA002E3764 /* SBJson4StreamParser.m */; };
+		606DCA911B0C712C001B78E8 /* AddOrChangeCustomBtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F4F1A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m */; };
+		606DCA921B0C712C001B78E8 /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC71A0E7421007E868D /* MJMember.m */; };
+		606DCA931B0C712C001B78E8 /* RemoteControlDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BEC0631A0B13F700FD9CDC /* RemoteControlDeviceViewController.m */; };
+		606DCA941B0C712C001B78E8 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F6A1A0879FA002E3764 /* SBJson4StreamTokeniser.m */; };
+		606DCA951B0C712C001B78E8 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032EFD1A1A106F00F07B8C /* AFHTTPRequestOperationManager.m */; };
+		606DCA961B0C712C001B78E8 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FDE1A09AFBD002E3764 /* RootController.m */; };
+		606DCA971B0C712C001B78E8 /* MJMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC91A0E7421007E868D /* MJMethod.m */; };
+		606DCA981B0C712C001B78E8 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7818F1A47AC7300F48B5F /* StatisticViewController.m */; };
+		606DCA991B0C712C001B78E8 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F471A087827002E3764 /* ISRDataHelper.m */; };
+		606DCA9A1B0C712C001B78E8 /* RMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BEC0731A0DB9F900FD9CDC /* RMDevice.m */; };
+		606DCA9B1B0C712C001B78E8 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F7C1A08C101002E3764 /* MainTabBarViewController.m */; };
+		606DCA9C1B0C712C001B78E8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F591A087966002E3764 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		606DCA9D1B0C712C001B78E8 /* CurtainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DC4EDE1A0E08F200A7DBCD /* CurtainViewController.m */; };
+		606DCA9E1B0C712C001B78E8 /* DeviceInfoManagerForCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D5709F1A22F83400646865 /* DeviceInfoManagerForCell.m */; };
+		606DCA9F1B0C712C001B78E8 /* VoiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACF51A1F4E95003A9EE8 /* VoiceManager.m */; };
+		606DCAA11B0C712C001B78E8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7A2741B018D71005314A5 /* MapKit.framework */; };
+		606DCAA21B0C712C001B78E8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7A2721B018D68005314A5 /* CoreLocation.framework */; };
+		606DCAA31B0C712C001B78E8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F391A087709002E3764 /* AddressBook.framework */; };
+		606DCAA41B0C712C001B78E8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F3A1A087709002E3764 /* AudioToolbox.framework */; };
+		606DCAA51B0C712C001B78E8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F3B1A087709002E3764 /* AVFoundation.framework */; };
+		606DCAA61B0C712C001B78E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F3C1A087709002E3764 /* CoreGraphics.framework */; };
+		606DCAA71B0C712C001B78E8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F3D1A087709002E3764 /* libz.dylib */; };
+		606DCAA81B0C712C001B78E8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F3E1A087709002E3764 /* SystemConfiguration.framework */; };
+		606DCAA91B0C712C001B78E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B19CC71A02190500FFA873 /* Foundation.framework */; };
+		606DCAAA1B0C712C001B78E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B19CCF1A0228D700FFA873 /* QuartzCore.framework */; };
+		606DCAAB1B0C712C001B78E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B19CC51A0218FB00FFA873 /* UIKit.framework */; };
+		606DCAAC1B0C712C001B78E8 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F371A0876AD002E3764 /* iflyMSC.framework */; };
+		606DCAAD1B0C712C001B78E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B19CC91A02191000FFA873 /* CoreData.framework */; };
+		606DCAAF1B0C712C001B78E8 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60C01FD81A09152E002E3764 /* ProgressHUD.bundle */; };
+		606DCAB01B0C712C001B78E8 /* StatisticInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60A781931A47F4C400F48B5F /* StatisticInfo.plist */; };
+		606DCAB11B0C712C001B78E8 /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0205C1A0A614C002E3764 /* light.png */; };
+		606DCAB21B0C712C001B78E8 /* ChangeRemoteNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60032F1C1A1B546A00F07B8C /* ChangeRemoteNameViewController.xib */; };
+		606DCAB31B0C712C001B78E8 /* ProjectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47DC4EED1A0E0AA700A7DBCD /* ProjectorViewController.xib */; };
+		606DCAB41B0C712C001B78E8 /* controller.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7A26F1B0095EB005314A5 /* controller.png */; };
+		606DCAB51B0C712C001B78E8 /* voiceImgLight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206B1A0A6E12002E3764 /* voiceImgLight.jpg */; };
+		606DCAB61B0C712C001B78E8 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7A27B1B018EA7005314A5 /* MapViewController.xib */; };
+		606DCAB71B0C712C001B78E8 /* RMDeviceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60421DE81A0F81C8007E868D /* RMDeviceInfo.plist */; };
+		606DCAB81B0C712C001B78E8 /* AirConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4725720C1A0E034C002B12DE /* AirConditionViewController.xib */; };
+		606DCAB91B0C712C001B78E8 /* projector.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020511A0A3C86002E3764 /* projector.png */; };
+		606DCABA1B0C712C001B78E8 /* add_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020231A0A3C67002E3764 /* add_light.png */; };
+		606DCABB1B0C712C001B78E8 /* login_textfield_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020181A0A3C67002E3764 /* login_textfield_bottom.png */; };
+		606DCABC1B0C712C001B78E8 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF11A0FB29F007E868D /* textField.png */; };
+		606DCABD1B0C712C001B78E8 /* StatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A781901A47AC7300F48B5F /* StatisticViewController.xib */; };
+		606DCABE1B0C712C001B78E8 /* list_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020281A0A3C67002E3764 /* list_light.png */; };
+		606DCABF1B0C712C001B78E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B19C9E1A0209B100FFA873 /* LaunchScreen.xib */; };
+		606DCAC01B0C712C001B78E8 /* login_textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020161A0A3C67002E3764 /* login_textfield.png */; };
+		606DCAC11B0C712C001B78E8 /* voiceImgLight@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206C1A0A6E12002E3764 /* voiceImgLight@2x.jpg */; };
+		606DCAC21B0C712C001B78E8 /* login_textfield_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0201C1A0A3C67002E3764 /* login_textfield_more@2x.png */; };
+		606DCAC31B0C712C001B78E8 /* login_dropdown_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020151A0A3C67002E3764 /* login_dropdown_bg@2x.png */; };
+		606DCAC41B0C712C001B78E8 /* voice_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0202B1A0A3C67002E3764 /* voice_dark.png */; };
+		606DCAC51B0C712C001B78E8 /* login_textfield_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020191A0A3C67002E3764 /* login_textfield_bottom@2x.png */; };
+		606DCAC61B0C712C001B78E8 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DAD011A1F4EAA003A9EE8 /* SettingViewController.xib */; };
+		606DCAC71B0C712C001B78E8 /* AddOrChangeCustomBtnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60032F501A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib */; };
+		606DCAC81B0C712C001B78E8 /* btn_stop_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F351A1CB8BD00F07B8C /* btn_stop_press.png */; };
+		606DCAC91B0C712C001B78E8 /* AirCondition_reduce_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F2F1A1CB70B00F07B8C /* AirCondition_reduce_press.png */; };
+		606DCACA1B0C712C001B78E8 /* home_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020241A0A3C67002E3764 /* home_dark.png */; };
+		606DCACB1B0C712C001B78E8 /* AddDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DACEB1A1F4E88003A9EE8 /* AddDeviceViewController.xib */; };
+		606DCACC1B0C712C001B78E8 /* login_textfield_mid.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0201A1A0A3C67002E3764 /* login_textfield_mid.png */; };
+		606DCACD1B0C712C001B78E8 /* login_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200B1A0A3C67002E3764 /* login_bg.jpg */; };
+		606DCACE1B0C712C001B78E8 /* btn_tv_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F241A1CA5E000F07B8C /* btn_tv_left.png */; };
+		606DCACF1B0C712C001B78E8 /* ChangeTCPButtonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DAD221A21A509003A9EE8 /* ChangeTCPButtonInfoViewController.xib */; };
+		606DCAD01B0C712C001B78E8 /* BtnStudyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60421DEF1A0FAEDF007E868D /* BtnStudyViewController.xib */; };
+		606DCAD11B0C712C001B78E8 /* voiceImg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206A1A0A6E12002E3764 /* voiceImg@2x.jpg */; };
+		606DCAD21B0C712C001B78E8 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A78311AD4BF6A00A77E84 /* LightViewController.xib */; };
+		606DCAD31B0C712C001B78E8 /* TVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BEC04C1A0B084D00FD9CDC /* TVViewController.xib */; };
+		606DCAD41B0C712C001B78E8 /* setter_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020291A0A3C67002E3764 /* setter_dark.png */; };
+		606DCAD51B0C712C001B78E8 /* curtain.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020501A0A3C86002E3764 /* curtain.png */; };
+		606DCAD61B0C712C001B78E8 /* btn_ok_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F221A1CA5E000F07B8C /* btn_ok_press.png */; };
+		606DCAD71B0C712C001B78E8 /* list_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020271A0A3C67002E3764 /* list_dark.png */; };
+		606DCAD81B0C712C001B78E8 /* login_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200C1A0A3C67002E3764 /* login_bg@2x.jpg */; };
+		606DCAD91B0C712C001B78E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B19C9C1A0209B100FFA873 /* Images.xcassets */; };
+		606DCADA1B0C712C001B78E8 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D570991A22CEF100646865 /* CustomCollectionViewCell.xib */; };
+		606DCADB1B0C712C001B78E8 /* btn_close_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F391A1CB90A00F07B8C /* btn_close_press.png */; };
+		606DCADC1B0C712C001B78E8 /* tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020521A0A3C86002E3764 /* tv.png */; };
+		606DCADD1B0C712C001B78E8 /* login_textfield_more_flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0201E1A0A3C67002E3764 /* login_textfield_more_flip@2x.png */; };
+		606DCADE1B0C712C001B78E8 /* login_btn_blue_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200F1A0A3C67002E3764 /* login_btn_blue_nor@2x.png */; };
+		606DCADF1B0C712C001B78E8 /* socket.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BBC6D21A3093120023906B /* socket.png */; };
+		606DCAE01B0C712C001B78E8 /* login_dropdown_avatar_border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020131A0A3C67002E3764 /* login_dropdown_avatar_border@2x.png */; };
+		606DCAE11B0C712C001B78E8 /* AirCondition_add_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F2D1A1CB70B00F07B8C /* AirCondition_add_press.png */; };
+		606DCAE21B0C712C001B78E8 /* textField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF31A0FB2AA007E868D /* textField@2x.png */; };
+		606DCAE31B0C712C001B78E8 /* setter_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0202A1A0A3C67002E3764 /* setter_light.png */; };
+		606DCAE41B0C712C001B78E8 /* login_btn_blue_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020101A0A3C67002E3764 /* login_btn_blue_press.png */; };
+		606DCAE51B0C712C001B78E8 /* GpsDataTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DC79F1B0C1FCF001B78E8 /* GpsDataTableViewController.xib */; };
+		606DCAE61B0C712C001B78E8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D570971A22CB6600646865 /* HomeViewController.xib */; };
+		606DCAE71B0C712C001B78E8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BBC6D01A2FFFD30023906B /* Default-568h@2x.png */; };
+		606DCAE81B0C712C001B78E8 /* VoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DACF81A1F4E95003A9EE8 /* VoiceViewController.xib */; };
+		606DCAE91B0C712C001B78E8 /* add_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020221A0A3C67002E3764 /* add_dark.png */; };
+		606DCAEA1B0C712C001B78E8 /* ChangeTCPDeviceNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DAD1D1A21A462003A9EE8 /* ChangeTCPDeviceNameViewController.xib */; };
+		606DCAEB1B0C712C001B78E8 /* RM2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0205E1A0A614C002E3764 /* RM2.png */; };
+		606DCAEC1B0C712C001B78E8 /* btn_open_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F3A1A1CB90A00F07B8C /* btn_open_press.png */; };
+		606DCAED1B0C712C001B78E8 /* custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F451A1D885000F07B8C /* custom.png */; };
+		606DCAEE1B0C712C001B78E8 /* btn_mute_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F211A1CA5E000F07B8C /* btn_mute_press.png */; };
+		606DCAEF1B0C712C001B78E8 /* TCPDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DAD181A21870D003A9EE8 /* TCPDeviceViewController.xib */; };
+		606DCAF01B0C712C001B78E8 /* login_btn_blue_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200E1A0A3C67002E3764 /* login_btn_blue_nor.png */; };
+		606DCAF11B0C712C001B78E8 /* btn_tv_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F261A1CA5E000F07B8C /* btn_tv_up.png */; };
+		606DCAF21B0C712C001B78E8 /* btn_tv_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F231A1CA5E000F07B8C /* btn_tv_down.png */; };
+		606DCAF31B0C712C001B78E8 /* login_bg_ip5@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200D1A0A3C67002E3764 /* login_bg_ip5@2x.jpg */; };
+		606DCAF41B0C712C001B78E8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C01F911A090654002E3764 /* LoginViewController.xib */; };
+		606DCAF51B0C712C001B78E8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60BBC6DB1A343BB60023906B /* Settings.bundle */; };
+		606DCAF61B0C712C001B78E8 /* DeviceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C01F7E1A08C28E002E3764 /* DeviceListViewController.xib */; };
+		606DCAF71B0C712C001B78E8 /* home_light_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020261A0A3C67002E3764 /* home_light_green.png */; };
+		606DCAF81B0C712C001B78E8 /* voiceImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C020691A0A6E12002E3764 /* voiceImg.jpg */; };
+		606DCAF91B0C712C001B78E8 /* login_textfield_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020201A0A3C67002E3764 /* login_textfield_top@2x.png */; };
+		606DCAFA1B0C712C001B78E8 /* AirCondition_power_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F2E1A1CB70B00F07B8C /* AirCondition_power_press.png */; };
+		606DCAFB1B0C712C001B78E8 /* login_textfield_more_flip.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0201D1A0A3C67002E3764 /* login_textfield_more_flip.png */; };
+		606DCAFC1B0C712C001B78E8 /* login_dropdown_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020141A0A3C67002E3764 /* login_dropdown_bg.png */; };
+		606DCAFD1B0C712C001B78E8 /* aircondition.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0204F1A0A3C86002E3764 /* aircondition.png */; };
+		606DCAFE1B0C712C001B78E8 /* voice_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0202C1A0A3C67002E3764 /* voice_light.png */; };
+		606DCAFF1B0C712C001B78E8 /* login_textfield_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0201B1A0A3C67002E3764 /* login_textfield_more.png */; };
+		606DCB001B0C712C001B78E8 /* login_dropdown_avatar_border.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020121A0A3C67002E3764 /* login_dropdown_avatar_border.png */; };
+		606DCB011B0C712C001B78E8 /* home_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020251A0A3C67002E3764 /* home_light.png */; };
+		606DCB021B0C712C001B78E8 /* login_textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020171A0A3C67002E3764 /* login_textfield@2x.png */; };
+		606DCB031B0C712C001B78E8 /* CustomRemoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60032F471A1DEF9E00F07B8C /* CustomRemoteViewController.xib */; };
+		606DCB041B0C712C001B78E8 /* DeviceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60C01F301A0724F3002E3764 /* DeviceInfo.plist */; };
+		606DCB051B0C712C001B78E8 /* btn_tv_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F251A1CA5E000F07B8C /* btn_tv_right.png */; };
+		606DCB061B0C712C001B78E8 /* login_textfield_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0201F1A0A3C67002E3764 /* login_textfield_top.png */; };
+		606DCB071B0C712C001B78E8 /* login_btn_blue_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020111A0A3C67002E3764 /* login_btn_blue_press@2x.png */; };
+		606DCB081B0C712C001B78E8 /* CurtainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47DC4EE01A0E090700A7DBCD /* CurtainViewController.xib */; };
+		606DCB091B0C712C001B78E8 /* icon_sp.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0205D1A0A614C002E3764 /* icon_sp.png */; };
+		606DCB0A1B0C712C001B78E8 /* RemoteControlDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47BEC06B1A0B522C00FD9CDC /* RemoteControlDeviceViewController.xib */; };
+		606DCB0B1B0C712C001B78E8 /* SP2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0205B1A0A614C002E3764 /* SP2.png */; };
+		606DCB0C1B0C712C001B78E8 /* btn_tv_power_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F1F1A1CA57F00F07B8C /* btn_tv_power_press.png */; };
+		606DCB141B12F62D001B78E8 /* GeocodeDemoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 606DCB131B12F62D001B78E8 /* GeocodeDemoViewController.mm */; };
+		606DCB161B12F639001B78E8 /* GeocodeDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DCB151B12F639001B78E8 /* GeocodeDemoViewController.xib */; };
+		606DCB1A1B12F91A001B78E8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB191B12F91A001B78E8 /* OpenGLES.framework */; };
+		606DCB1C1B12F93A001B78E8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB1B1B12F93A001B78E8 /* Security.framework */; };
+		606DCB221B1300E7001B78E8 /* GeocodeDemoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 606DCB131B12F62D001B78E8 /* GeocodeDemoViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		606DCB231B130582001B78E8 /* GeocodeDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DCB151B12F639001B78E8 /* GeocodeDemoViewController.xib */; };
+		606DCB2E1B131559001B78E8 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB2D1B131559001B78E8 /* BaiduMapAPI.framework */; };
+		606DCB341B13262D001B78E8 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB2D1B131559001B78E8 /* BaiduMapAPI.framework */; };
+		606DCB351B1326A0001B78E8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB191B12F91A001B78E8 /* OpenGLES.framework */; };
+		606DCB361B1326A0001B78E8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB1B1B12F93A001B78E8 /* Security.framework */; };
+		606DCB381B1326FD001B78E8 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 606DCB371B1326FD001B78E8 /* mapapi.bundle */; };
+		606DCB391B1326FD001B78E8 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 606DCB371B1326FD001B78E8 /* mapapi.bundle */; };
 		60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7818C1A47AC3000F48B5F /* StatisticFileManager.m */; };
 		60A781911A47AC7300F48B5F /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7818F1A47AC7300F48B5F /* StatisticViewController.m */; };
 		60A781921A47AC7300F48B5F /* StatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A781901A47AC7300F48B5F /* StatisticViewController.xib */; };
@@ -124,7 +335,6 @@
 		60C01F441A087709002E3764 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C01F3E1A087709002E3764 /* SystemConfiguration.framework */; };
 		60C01F4B1A087827002E3764 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F471A087827002E3764 /* ISRDataHelper.m */; };
 		60C01F4C1A087827002E3764 /* RecognizerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F491A087827002E3764 /* RecognizerFactory.m */; };
-		60C01F511A08790C002E3764 /* BLRM2StudyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F501A08790C002E3764 /* BLRM2StudyModel.m */; };
 		60C01F5C1A087966002E3764 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F591A087966002E3764 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60C01F711A0879FA002E3764 /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F641A0879FA002E3764 /* SBJson4Parser.m */; };
 		60C01F721A0879FA002E3764 /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F661A0879FA002E3764 /* SBJson4StreamParser.m */; };
@@ -185,7 +395,6 @@
 		60C020541A0A3C86002E3764 /* curtain.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020501A0A3C86002E3764 /* curtain.png */; };
 		60C020551A0A3C86002E3764 /* projector.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020511A0A3C86002E3764 /* projector.png */; };
 		60C020561A0A3C86002E3764 /* tv.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020521A0A3C86002E3764 /* tv.png */; };
-		60C0205A1A0A45AF002E3764 /* BLSP2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C020591A0A45AF002E3764 /* BLSP2ViewController.m */; };
 		60C0205F1A0A614C002E3764 /* SP2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0205B1A0A614C002E3764 /* SP2.png */; };
 		60C020601A0A614C002E3764 /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0205C1A0A614C002E3764 /* light.png */; };
 		60C020611A0A614C002E3764 /* icon_sp.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0205D1A0A614C002E3764 /* icon_sp.png */; };
@@ -195,6 +404,13 @@
 		60C0206E1A0A6E12002E3764 /* voiceImg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206A1A0A6E12002E3764 /* voiceImg@2x.jpg */; };
 		60C0206F1A0A6E12002E3764 /* voiceImgLight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206B1A0A6E12002E3764 /* voiceImgLight.jpg */; };
 		60C020701A0A6E12002E3764 /* voiceImgLight@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206C1A0A6E12002E3764 /* voiceImgLight@2x.jpg */; };
+		60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */; };
+		60C7A2701B0095EB005314A5 /* controller.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7A26F1B0095EB005314A5 /* controller.png */; };
+		60C7A2731B018D68005314A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7A2721B018D68005314A5 /* CoreLocation.framework */; };
+		60C7A2751B018D71005314A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7A2741B018D71005314A5 /* MapKit.framework */; };
+		60C7A2781B018E26005314A5 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A2771B018E26005314A5 /* MyPoint.m */; };
+		60C7A27C1B018EA7005314A5 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A27A1B018EA7005314A5 /* MapViewController.mm */; };
+		60C7A27D1B018EA7005314A5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7A27B1B018EA7005314A5 /* MapViewController.xib */; };
 		60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */; };
 /* End PBXBuildFile section */
 
@@ -247,7 +463,7 @@
 		4725720A1A0E033F002B12DE /* AirConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirConditionViewController.m; sourceTree = "<group>"; };
 		4725720C1A0E034C002B12DE /* AirConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirConditionViewController.xib; sourceTree = "<group>"; };
 		47B19C8C1A0209B100FFA873 /* SmartHomeFDP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHomeFDP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		47B19C901A0209B100FFA873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47B19C901A0209B100FFA873 /* SmartHomeFDP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartHomeFDP-Info.plist"; sourceTree = "<group>"; };
 		47B19C911A0209B100FFA873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47B19C931A0209B100FFA873 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		47B19C941A0209B100FFA873 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -330,6 +546,22 @@
 		60032F4E1A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOrChangeCustomBtnViewController.h; sourceTree = "<group>"; };
 		60032F4F1A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrChangeCustomBtnViewController.m; sourceTree = "<group>"; };
 		60032F501A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddOrChangeCustomBtnViewController.xib; sourceTree = "<group>"; };
+		60156E171B8C88C700FC24C1 /* FirstTimeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTimeConfig.h; sourceTree = "<group>"; };
+		60156E181B8C88C700FC24C1 /* FTC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FTC-Prefix.pch"; sourceTree = "<group>"; };
+		60156E191B8C88C700FC24C1 /* FTC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FTC.plist; sourceTree = "<group>"; };
+		60156E1A1B8C88C700FC24C1 /* Ftc20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ftc20.h; sourceTree = "<group>"; };
+		60156E1B1B8C88C700FC24C1 /* FtcEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtcEncode.h; sourceTree = "<group>"; };
+		60156E1C1B8C88C700FC24C1 /* libFirstTimeConfig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFirstTimeConfig.a; sourceTree = "<group>"; };
+		60156E1D1B8C88C700FC24C1 /* NetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
+		60156E1E1B8C88C700FC24C1 /* NSData+AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AESCrypt.h"; sourceTree = "<group>"; };
+		60156E1F1B8C88C700FC24C1 /* NSString+AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AESCrypt.h"; sourceTree = "<group>"; };
+		60156E211B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartConfigDiscoverMDNS.h; sourceTree = "<group>"; };
+		60156E221B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartConfigDiscoverMDNS.m; sourceTree = "<group>"; };
+		60156E241B8C88C700FC24C1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		60156E251B8C88C700FC24C1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		60156E2A1B8C8B7A00FC24C1 /* CaoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaoConfig.h; sourceTree = "<group>"; };
+		60156E2B1B8C8B7A00FC24C1 /* CaoConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaoConfig.m; sourceTree = "<group>"; };
+		60156E2F1B8D58DC00FC24C1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		602A782F1AD4BF6A00A77E84 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		602A78301AD4BF6A00A77E84 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		602A78311AD4BF6A00A77E84 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
@@ -356,20 +588,28 @@
 		60421DD11A0E7421007E868D /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
 		60421DD21A0E7421007E868D /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
 		60421DD31A0E7421007E868D /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
-		60421DDF1A0E7549007E868D /* InitBroadLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitBroadLink.h; sourceTree = "<group>"; };
-		60421DE01A0E7549007E868D /* InitBroadLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitBroadLink.m; sourceTree = "<group>"; };
 		60421DE81A0F81C8007E868D /* RMDeviceInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RMDeviceInfo.plist; sourceTree = "<group>"; };
 		60421DEE1A0FAD61007E868D /* BtnStudyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BtnStudyViewController.h; sourceTree = "<group>"; };
 		60421DEF1A0FAEDF007E868D /* BtnStudyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BtnStudyViewController.xib; sourceTree = "<group>"; };
 		60421DF11A0FB29F007E868D /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		60421DF31A0FB2AA007E868D /* textField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textField@2x.png"; sourceTree = "<group>"; };
 		60421DF51A137CC5007E868D /* BtnStudyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnStudyViewController.m; sourceTree = "<group>"; };
-		606B35251AAF2B9C00E6A8E3 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
-		606B35331AB2E9B600E6A8E3 /* libBLNetwork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBLNetwork.a; sourceTree = "<group>"; };
 		606C9B751A070D4C003BA6AD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		606C9B761A070D4C003BA6AD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		606C9B7B1A070D4C003BA6AD /* DeviceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListViewController.h; sourceTree = "<group>"; };
 		606C9B7C1A070D4C003BA6AD /* DeviceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListViewController.m; sourceTree = "<group>"; };
+		606DC79D1B0C1FCF001B78E8 /* GpsDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsDataTableViewController.h; sourceTree = "<group>"; };
+		606DC79E1B0C1FCF001B78E8 /* GpsDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsDataTableViewController.m; sourceTree = "<group>"; };
+		606DC79F1B0C1FCF001B78E8 /* GpsDataTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GpsDataTableViewController.xib; sourceTree = "<group>"; };
+		606DCB101B0C712C001B78E8 /* SmartHomeFDP1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHomeFDP1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		606DCB111B0C712C001B78E8 /* SmartHomeFDP1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SmartHomeFDP1-Info.plist"; path = "/Users/dyy/Desktop/SmartHomeFDP cao/SmartHomeFDP1-Info.plist"; sourceTree = "<absolute>"; };
+		606DCB121B12F62D001B78E8 /* GeocodeDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeocodeDemoViewController.h; sourceTree = "<group>"; };
+		606DCB131B12F62D001B78E8 /* GeocodeDemoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GeocodeDemoViewController.mm; sourceTree = "<group>"; };
+		606DCB151B12F639001B78E8 /* GeocodeDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeocodeDemoViewController.xib; sourceTree = "<group>"; };
+		606DCB191B12F91A001B78E8 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		606DCB1B1B12F93A001B78E8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		606DCB2D1B131559001B78E8 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI.framework; path = ../BaiduMapAPI.framework; sourceTree = "<group>"; };
+		606DCB371B1326FD001B78E8 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
 		60A7818B1A47AC3000F48B5F /* StatisticFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticFileManager.h; sourceTree = "<group>"; };
 		60A7818C1A47AC3000F48B5F /* StatisticFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticFileManager.m; sourceTree = "<group>"; };
 		60A7818E1A47AC7300F48B5F /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
@@ -395,8 +635,6 @@
 		60C01F481A087827002E3764 /* RecognizerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerFactory.h; sourceTree = "<group>"; };
 		60C01F491A087827002E3764 /* RecognizerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizerFactory.m; sourceTree = "<group>"; };
 		60C01F4A1A087827002E3764 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
-		60C01F4F1A08790C002E3764 /* BLRM2StudyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLRM2StudyModel.h; sourceTree = "<group>"; };
-		60C01F501A08790C002E3764 /* BLRM2StudyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLRM2StudyModel.m; sourceTree = "<group>"; };
 		60C01F581A087966002E3764 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		60C01F591A087966002E3764 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		60C01F621A0879FA002E3764 /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
@@ -478,8 +716,6 @@
 		60C020501A0A3C86002E3764 /* curtain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = curtain.png; sourceTree = "<group>"; };
 		60C020511A0A3C86002E3764 /* projector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projector.png; sourceTree = "<group>"; };
 		60C020521A0A3C86002E3764 /* tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tv.png; sourceTree = "<group>"; };
-		60C020581A0A45AF002E3764 /* BLSP2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSP2ViewController.h; sourceTree = "<group>"; };
-		60C020591A0A45AF002E3764 /* BLSP2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSP2ViewController.m; sourceTree = "<group>"; };
 		60C0205B1A0A614C002E3764 /* SP2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SP2.png; sourceTree = "<group>"; };
 		60C0205C1A0A614C002E3764 /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
 		60C0205D1A0A614C002E3764 /* icon_sp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_sp.png; sourceTree = "<group>"; };
@@ -490,6 +726,16 @@
 		60C0206A1A0A6E12002E3764 /* voiceImg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "voiceImg@2x.jpg"; sourceTree = "<group>"; };
 		60C0206B1A0A6E12002E3764 /* voiceImgLight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = voiceImgLight.jpg; sourceTree = "<group>"; };
 		60C0206C1A0A6E12002E3764 /* voiceImgLight@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "voiceImgLight@2x.jpg"; sourceTree = "<group>"; };
+		60C7A26C1AEF220B005314A5 /* SCRFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRFTPRequest.h; sourceTree = "<group>"; };
+		60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRFTPRequest.m; sourceTree = "<group>"; };
+		60C7A26F1B0095EB005314A5 /* controller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller.png; sourceTree = "<group>"; };
+		60C7A2721B018D68005314A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		60C7A2741B018D71005314A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		60C7A2761B018E26005314A5 /* MyPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPoint.h; sourceTree = "<group>"; };
+		60C7A2771B018E26005314A5 /* MyPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPoint.m; sourceTree = "<group>"; };
+		60C7A2791B018EA7005314A5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		60C7A27A1B018EA7005314A5 /* MapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MapViewController.mm; sourceTree = "<group>"; };
+		60C7A27B1B018EA7005314A5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		60D3E9A91A678BF9004FEF75 /* BLDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDeviceManager.h; sourceTree = "<group>"; };
 		60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDeviceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -499,15 +745,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				606B35341AB2E9B600E6A8E3 /* libBLNetwork.a in Frameworks */,
+				60C01F421A087709002E3764 /* CoreGraphics.framework in Frameworks */,
+				60C7A2731B018D68005314A5 /* CoreLocation.framework in Frameworks */,
+				606DCB351B1326A0001B78E8 /* OpenGLES.framework in Frameworks */,
+				47B19CD01A0228D700FFA873 /* QuartzCore.framework in Frameworks */,
+				606DCB361B1326A0001B78E8 /* Security.framework in Frameworks */,
+				60156E271B8C88C700FC24C1 /* libFirstTimeConfig.a in Frameworks */,
+				60C01F441A087709002E3764 /* SystemConfiguration.framework in Frameworks */,
+				606DCB341B13262D001B78E8 /* BaiduMapAPI.framework in Frameworks */,
+				60C7A2751B018D71005314A5 /* MapKit.framework in Frameworks */,
 				60C01F3F1A087709002E3764 /* AddressBook.framework in Frameworks */,
 				60C01F401A087709002E3764 /* AudioToolbox.framework in Frameworks */,
 				60C01F411A087709002E3764 /* AVFoundation.framework in Frameworks */,
-				60C01F421A087709002E3764 /* CoreGraphics.framework in Frameworks */,
 				60C01F431A087709002E3764 /* libz.dylib in Frameworks */,
-				60C01F441A087709002E3764 /* SystemConfiguration.framework in Frameworks */,
 				47B19CC81A02190500FFA873 /* Foundation.framework in Frameworks */,
-				47B19CD01A0228D700FFA873 /* QuartzCore.framework in Frameworks */,
 				47B19CC61A0218FB00FFA873 /* UIKit.framework in Frameworks */,
 				60C01F381A0876AD002E3764 /* iflyMSC.framework in Frameworks */,
 				47B19CCA1A02191000FFA873 /* CoreData.framework in Frameworks */,
@@ -518,6 +769,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		606DCAA01B0C712C001B78E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				606DCB2E1B131559001B78E8 /* BaiduMapAPI.framework in Frameworks */,
+				606DCB1C1B12F93A001B78E8 /* Security.framework in Frameworks */,
+				606DCAA61B0C712C001B78E8 /* CoreGraphics.framework in Frameworks */,
+				606DCB1A1B12F91A001B78E8 /* OpenGLES.framework in Frameworks */,
+				606DCAA11B0C712C001B78E8 /* MapKit.framework in Frameworks */,
+				606DCAA21B0C712C001B78E8 /* CoreLocation.framework in Frameworks */,
+				606DCAA31B0C712C001B78E8 /* AddressBook.framework in Frameworks */,
+				606DCAA41B0C712C001B78E8 /* AudioToolbox.framework in Frameworks */,
+				606DCAA51B0C712C001B78E8 /* AVFoundation.framework in Frameworks */,
+				606DCAA71B0C712C001B78E8 /* libz.dylib in Frameworks */,
+				606DCAA81B0C712C001B78E8 /* SystemConfiguration.framework in Frameworks */,
+				606DCAA91B0C712C001B78E8 /* Foundation.framework in Frameworks */,
+				606DCAAA1B0C712C001B78E8 /* QuartzCore.framework in Frameworks */,
+				606DCAAB1B0C712C001B78E8 /* UIKit.framework in Frameworks */,
+				606DCAAC1B0C712C001B78E8 /* iflyMSC.framework in Frameworks */,
+				606DCAAD1B0C712C001B78E8 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,8 +850,10 @@
 		47B19C831A0209B100FFA873 = {
 			isa = PBXGroup;
 			children = (
+				606DCB371B1326FD001B78E8 /* mapapi.bundle */,
 				60BBC6DB1A343BB60023906B /* Settings.bundle */,
 				60BBC6D01A2FFFD30023906B /* Default-568h@2x.png */,
+				60156E2F1B8D58DC00FC24C1 /* Podfile */,
 				47B19C8E1A0209B100FFA873 /* SmartHomeFDP */,
 				60C01F801A08C486002E3764 /* unuse */,
 				47B19CA81A0209B100FFA873 /* SmartHomeFDPTests */,
@@ -591,6 +867,7 @@
 			children = (
 				47B19C8C1A0209B100FFA873 /* SmartHomeFDP.app */,
 				47B19CA51A0209B100FFA873 /* SmartHomeFDPTests.xctest */,
+				606DCB101B0C712C001B78E8 /* SmartHomeFDP1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -598,6 +875,9 @@
 		47B19C8E1A0209B100FFA873 /* SmartHomeFDP */ = {
 			isa = PBXGroup;
 			children = (
+				60156E2E1B8D58AE00FC24C1 /* manager */,
+				60156E151B8C88C700FC24C1 /* Library */,
+				60C7A26B1AEF21E7005314A5 /* SCRFTPRequest */,
 				60032F161A1AF1F600F07B8C /* APIS */,
 				60032EF91A1A105400F07B8C /* AFNetworking */,
 				47B19C931A0209B100FFA873 /* AppDelegate.h */,
@@ -621,8 +901,9 @@
 		47B19C8F1A0209B100FFA873 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				606DCB111B0C712C001B78E8 /* SmartHomeFDP1-Info.plist */,
 				60C01F351A085D4F002E3764 /* SmartHomeFDP-Prefix.pch */,
-				47B19C901A0209B100FFA873 /* Info.plist */,
+				47B19C901A0209B100FFA873 /* SmartHomeFDP-Info.plist */,
 				47B19C911A0209B100FFA873 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -757,6 +1038,57 @@
 			name = Custom_RM;
 			sourceTree = "<group>";
 		};
+		60156E151B8C88C700FC24C1 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				60156E161B8C88C700FC24C1 /* FTC */,
+				60156E201B8C88C700FC24C1 /* mDNS */,
+				60156E231B8C88C700FC24C1 /* Reachability */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		60156E161B8C88C700FC24C1 /* FTC */ = {
+			isa = PBXGroup;
+			children = (
+				60156E171B8C88C700FC24C1 /* FirstTimeConfig.h */,
+				60156E181B8C88C700FC24C1 /* FTC-Prefix.pch */,
+				60156E191B8C88C700FC24C1 /* FTC.plist */,
+				60156E1A1B8C88C700FC24C1 /* Ftc20.h */,
+				60156E1B1B8C88C700FC24C1 /* FtcEncode.h */,
+				60156E1C1B8C88C700FC24C1 /* libFirstTimeConfig.a */,
+				60156E1D1B8C88C700FC24C1 /* NetworkHelper.h */,
+				60156E1E1B8C88C700FC24C1 /* NSData+AESCrypt.h */,
+				60156E1F1B8C88C700FC24C1 /* NSString+AESCrypt.h */,
+			);
+			path = FTC;
+			sourceTree = "<group>";
+		};
+		60156E201B8C88C700FC24C1 /* mDNS */ = {
+			isa = PBXGroup;
+			children = (
+				60156E211B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.h */,
+				60156E221B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m */,
+			);
+			path = mDNS;
+			sourceTree = "<group>";
+		};
+		60156E231B8C88C700FC24C1 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				60156E241B8C88C700FC24C1 /* Reachability.h */,
+				60156E251B8C88C700FC24C1 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		60156E2E1B8D58AE00FC24C1 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
 		60421DBC1A0E7420007E868D /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -863,6 +1195,8 @@
 				470DACE91A1F4E88003A9EE8 /* AddDeviceViewController.h */,
 				470DACEA1A1F4E88003A9EE8 /* AddDeviceViewController.m */,
 				470DACEB1A1F4E88003A9EE8 /* AddDeviceViewController.xib */,
+				60156E2A1B8C8B7A00FC24C1 /* CaoConfig.h */,
+				60156E2B1B8C8B7A00FC24C1 /* CaoConfig.m */,
 				470DACEC1A1F4E88003A9EE8 /* UDPEasyConfig.h */,
 				470DACED1A1F4E88003A9EE8 /* UDPEasyConfig.m */,
 				470DACEE1A1F4E88003A9EE8 /* BLEasyConfig.h */,
@@ -887,6 +1221,7 @@
 		60C01F2F1A0723B3002E3764 /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
+				60C7A2711B018C7D005314A5 /* map */,
 				60A781851A47AB3500F48B5F /* statistic */,
 				470DACFF1A1F4EAA003A9EE8 /* SettingViewController.h */,
 				470DAD001A1F4EAA003A9EE8 /* SettingViewController.m */,
@@ -898,6 +1233,11 @@
 		60C01F361A0873BF002E3764 /* FrameWorks */ = {
 			isa = PBXGroup;
 			children = (
+				606DCB2D1B131559001B78E8 /* BaiduMapAPI.framework */,
+				606DCB1B1B12F93A001B78E8 /* Security.framework */,
+				606DCB191B12F91A001B78E8 /* OpenGLES.framework */,
+				60C7A2741B018D71005314A5 /* MapKit.framework */,
+				60C7A2721B018D68005314A5 /* CoreLocation.framework */,
 				60C01F391A087709002E3764 /* AddressBook.framework */,
 				60C01F3A1A087709002E3764 /* AudioToolbox.framework */,
 				60C01F3B1A087709002E3764 /* AVFoundation.framework */,
@@ -931,15 +1271,8 @@
 		60C01F4D1A087836002E3764 /* BroadLink */ = {
 			isa = PBXGroup;
 			children = (
-				60C01F4F1A08790C002E3764 /* BLRM2StudyModel.h */,
-				60C01F501A08790C002E3764 /* BLRM2StudyModel.m */,
-				60C020581A0A45AF002E3764 /* BLSP2ViewController.h */,
-				60C020591A0A45AF002E3764 /* BLSP2ViewController.m */,
 				60C01F321A072567002E3764 /* BLDeviceInfo.h */,
 				60C01F331A072567002E3764 /* BLDeviceInfo.m */,
-				60421DDF1A0E7549007E868D /* InitBroadLink.h */,
-				60421DE01A0E7549007E868D /* InitBroadLink.m */,
-				60C01F5D1A0879CB002E3764 /* lib */,
 				60C01F521A087966002E3764 /* 3rd */,
 				60D3E9A91A678BF9004FEF75 /* BLDeviceManager.h */,
 				60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */,
@@ -962,15 +1295,6 @@
 				60C01F591A087966002E3764 /* JSONKit.m */,
 			);
 			path = JSONKit;
-			sourceTree = "<group>";
-		};
-		60C01F5D1A0879CB002E3764 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				606B35251AAF2B9C00E6A8E3 /* BLNetwork.h */,
-				606B35331AB2E9B600E6A8E3 /* libBLNetwork.a */,
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 		60C01F611A0879FA002E3764 /* SBJson */ = {
@@ -1127,6 +1451,7 @@
 		60C0204E1A0A3C70002E3764 /* device */ = {
 			isa = PBXGroup;
 			children = (
+				60C7A26F1B0095EB005314A5 /* controller.png */,
 				60C0205B1A0A614C002E3764 /* SP2.png */,
 				60BBC6D21A3093120023906B /* socket.png */,
 				60C0205C1A0A614C002E3764 /* light.png */,
@@ -1149,6 +1474,33 @@
 				60C0206C1A0A6E12002E3764 /* voiceImgLight@2x.jpg */,
 			);
 			name = voice;
+			sourceTree = "<group>";
+		};
+		60C7A26B1AEF21E7005314A5 /* SCRFTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				60C7A26C1AEF220B005314A5 /* SCRFTPRequest.h */,
+				60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */,
+			);
+			name = SCRFTPRequest;
+			sourceTree = "<group>";
+		};
+		60C7A2711B018C7D005314A5 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				60C7A2761B018E26005314A5 /* MyPoint.h */,
+				60C7A2771B018E26005314A5 /* MyPoint.m */,
+				60C7A2791B018EA7005314A5 /* MapViewController.h */,
+				60C7A27A1B018EA7005314A5 /* MapViewController.mm */,
+				60C7A27B1B018EA7005314A5 /* MapViewController.xib */,
+				606DCB121B12F62D001B78E8 /* GeocodeDemoViewController.h */,
+				606DCB131B12F62D001B78E8 /* GeocodeDemoViewController.mm */,
+				606DCB151B12F639001B78E8 /* GeocodeDemoViewController.xib */,
+				606DC79D1B0C1FCF001B78E8 /* GpsDataTableViewController.h */,
+				606DC79E1B0C1FCF001B78E8 /* GpsDataTableViewController.m */,
+				606DC79F1B0C1FCF001B78E8 /* GpsDataTableViewController.xib */,
+			);
+			name = map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1189,6 +1541,23 @@
 			productReference = 47B19CA51A0209B100FFA873 /* SmartHomeFDPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		606DCA481B0C712C001B78E8 /* SmartHomeFDP1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 606DCB0D1B0C712C001B78E8 /* Build configuration list for PBXNativeTarget "SmartHomeFDP1" */;
+			buildPhases = (
+				606DCA491B0C712C001B78E8 /* Sources */,
+				606DCAA01B0C712C001B78E8 /* Frameworks */,
+				606DCAAE1B0C712C001B78E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartHomeFDP1;
+			productName = SmartHomeFDP;
+			productReference = 606DCB101B0C712C001B78E8 /* SmartHomeFDP1.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1223,6 +1592,7 @@
 			targets = (
 				47B19C8B1A0209B100FFA873 /* SmartHomeFDP */,
 				47B19CA41A0209B100FFA873 /* SmartHomeFDPTests */,
+				606DCA481B0C712C001B78E8 /* SmartHomeFDP1 */,
 			);
 		};
 /* End PBXProject section */
@@ -1237,7 +1607,9 @@
 				60C020601A0A614C002E3764 /* light.png in Resources */,
 				60032F1E1A1B546A00F07B8C /* ChangeRemoteNameViewController.xib in Resources */,
 				47DC4EEE1A0E0AA700A7DBCD /* ProjectorViewController.xib in Resources */,
+				60C7A2701B0095EB005314A5 /* controller.png in Resources */,
 				60C0206F1A0A6E12002E3764 /* voiceImgLight.jpg in Resources */,
+				60C7A27D1B018EA7005314A5 /* MapViewController.xib in Resources */,
 				60421DE91A0F81C8007E868D /* RMDeviceInfo.plist in Resources */,
 				4725720D1A0E034C002B12DE /* AirConditionViewController.xib in Resources */,
 				60C020551A0A3C86002E3764 /* projector.png in Resources */,
@@ -1247,6 +1619,7 @@
 				60A781921A47AC7300F48B5F /* StatisticViewController.xib in Resources */,
 				60C020491A0A3C67002E3764 /* list_light.png in Resources */,
 				47B19CA01A0209B100FFA873 /* LaunchScreen.xib in Resources */,
+				60156E261B8C88C700FC24C1 /* FTC.plist in Resources */,
 				60C020381A0A3C67002E3764 /* login_textfield.png in Resources */,
 				60C020701A0A6E12002E3764 /* voiceImgLight@2x.jpg in Resources */,
 				60C0203E1A0A3C67002E3764 /* login_textfield_more@2x.png in Resources */,
@@ -1275,6 +1648,7 @@
 				47B19C9D1A0209B100FFA873 /* Images.xcassets in Resources */,
 				47D5709A1A22CEF100646865 /* CustomCollectionViewCell.xib in Resources */,
 				60032F3B1A1CB90A00F07B8C /* btn_close_press.png in Resources */,
+				606DCB381B1326FD001B78E8 /* mapapi.bundle in Resources */,
 				60C020561A0A3C86002E3764 /* tv.png in Resources */,
 				60C020401A0A3C67002E3764 /* login_textfield_more_flip@2x.png in Resources */,
 				60C020311A0A3C67002E3764 /* login_btn_blue_nor@2x.png in Resources */,
@@ -1284,6 +1658,7 @@
 				60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */,
 				60C0204B1A0A3C67002E3764 /* setter_light.png in Resources */,
 				60C020321A0A3C67002E3764 /* login_btn_blue_press.png in Resources */,
+				606DC7A11B0C1FCF001B78E8 /* GpsDataTableViewController.xib in Resources */,
 				47D570981A22CB6600646865 /* HomeViewController.xib in Resources */,
 				60BBC6D11A2FFFD30023906B /* Default-568h@2x.png in Resources */,
 				470DACFD1A1F4E95003A9EE8 /* VoiceViewController.xib in Resources */,
@@ -1295,6 +1670,7 @@
 				60032F271A1CA5E000F07B8C /* btn_mute_press.png in Resources */,
 				470DAD191A21870D003A9EE8 /* TCPDeviceViewController.xib in Resources */,
 				60C020301A0A3C67002E3764 /* login_btn_blue_nor.png in Resources */,
+				60156E301B8D58DC00FC24C1 /* Podfile in Resources */,
 				60032F2C1A1CA5E000F07B8C /* btn_tv_up.png in Resources */,
 				60032F291A1CA5E000F07B8C /* btn_tv_down.png in Resources */,
 				60C0202F1A0A3C67002E3764 /* login_bg_ip5@2x.jpg in Resources */,
@@ -1313,6 +1689,7 @@
 				60C020341A0A3C67002E3764 /* login_dropdown_avatar_border.png in Resources */,
 				60C020461A0A3C67002E3764 /* home_light.png in Resources */,
 				60C020391A0A3C67002E3764 /* login_textfield@2x.png in Resources */,
+				606DCB161B12F639001B78E8 /* GeocodeDemoViewController.xib in Resources */,
 				60032F481A1DEF9E00F07B8C /* CustomRemoteViewController.xib in Resources */,
 				60C01F311A0724F3002E3764 /* DeviceInfo.plist in Resources */,
 				60032F2B1A1CA5E000F07B8C /* btn_tv_right.png in Resources */,
@@ -1333,6 +1710,109 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		606DCAAE1B0C712C001B78E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				606DCAAF1B0C712C001B78E8 /* ProgressHUD.bundle in Resources */,
+				606DCAB01B0C712C001B78E8 /* StatisticInfo.plist in Resources */,
+				606DCAB11B0C712C001B78E8 /* light.png in Resources */,
+				606DCAB21B0C712C001B78E8 /* ChangeRemoteNameViewController.xib in Resources */,
+				606DCAB31B0C712C001B78E8 /* ProjectorViewController.xib in Resources */,
+				606DCAB41B0C712C001B78E8 /* controller.png in Resources */,
+				606DCAB51B0C712C001B78E8 /* voiceImgLight.jpg in Resources */,
+				606DCAB61B0C712C001B78E8 /* MapViewController.xib in Resources */,
+				606DCAB71B0C712C001B78E8 /* RMDeviceInfo.plist in Resources */,
+				606DCAB81B0C712C001B78E8 /* AirConditionViewController.xib in Resources */,
+				606DCAB91B0C712C001B78E8 /* projector.png in Resources */,
+				606DCABA1B0C712C001B78E8 /* add_light.png in Resources */,
+				606DCABB1B0C712C001B78E8 /* login_textfield_bottom.png in Resources */,
+				606DCABC1B0C712C001B78E8 /* textField.png in Resources */,
+				606DCABD1B0C712C001B78E8 /* StatisticViewController.xib in Resources */,
+				606DCABE1B0C712C001B78E8 /* list_light.png in Resources */,
+				606DCABF1B0C712C001B78E8 /* LaunchScreen.xib in Resources */,
+				606DCAC01B0C712C001B78E8 /* login_textfield.png in Resources */,
+				606DCAC11B0C712C001B78E8 /* voiceImgLight@2x.jpg in Resources */,
+				606DCAC21B0C712C001B78E8 /* login_textfield_more@2x.png in Resources */,
+				606DCAC31B0C712C001B78E8 /* login_dropdown_bg@2x.png in Resources */,
+				606DCAC41B0C712C001B78E8 /* voice_dark.png in Resources */,
+				606DCAC51B0C712C001B78E8 /* login_textfield_bottom@2x.png in Resources */,
+				606DCAC61B0C712C001B78E8 /* SettingViewController.xib in Resources */,
+				606DCAC71B0C712C001B78E8 /* AddOrChangeCustomBtnViewController.xib in Resources */,
+				606DCAC81B0C712C001B78E8 /* btn_stop_press.png in Resources */,
+				606DCAC91B0C712C001B78E8 /* AirCondition_reduce_press.png in Resources */,
+				606DCACA1B0C712C001B78E8 /* home_dark.png in Resources */,
+				606DCACB1B0C712C001B78E8 /* AddDeviceViewController.xib in Resources */,
+				606DCACC1B0C712C001B78E8 /* login_textfield_mid.png in Resources */,
+				606DCACD1B0C712C001B78E8 /* login_bg.jpg in Resources */,
+				606DCACE1B0C712C001B78E8 /* btn_tv_left.png in Resources */,
+				606DCACF1B0C712C001B78E8 /* ChangeTCPButtonInfoViewController.xib in Resources */,
+				606DCAD01B0C712C001B78E8 /* BtnStudyViewController.xib in Resources */,
+				606DCAD11B0C712C001B78E8 /* voiceImg@2x.jpg in Resources */,
+				606DCAD21B0C712C001B78E8 /* LightViewController.xib in Resources */,
+				606DCAD31B0C712C001B78E8 /* TVViewController.xib in Resources */,
+				606DCAD41B0C712C001B78E8 /* setter_dark.png in Resources */,
+				606DCAD51B0C712C001B78E8 /* curtain.png in Resources */,
+				606DCAD61B0C712C001B78E8 /* btn_ok_press.png in Resources */,
+				606DCAD71B0C712C001B78E8 /* list_dark.png in Resources */,
+				606DCAD81B0C712C001B78E8 /* login_bg@2x.jpg in Resources */,
+				606DCAD91B0C712C001B78E8 /* Images.xcassets in Resources */,
+				606DCADA1B0C712C001B78E8 /* CustomCollectionViewCell.xib in Resources */,
+				606DCADB1B0C712C001B78E8 /* btn_close_press.png in Resources */,
+				606DCB391B1326FD001B78E8 /* mapapi.bundle in Resources */,
+				606DCADC1B0C712C001B78E8 /* tv.png in Resources */,
+				606DCADD1B0C712C001B78E8 /* login_textfield_more_flip@2x.png in Resources */,
+				606DCADE1B0C712C001B78E8 /* login_btn_blue_nor@2x.png in Resources */,
+				606DCADF1B0C712C001B78E8 /* socket.png in Resources */,
+				606DCAE01B0C712C001B78E8 /* login_dropdown_avatar_border@2x.png in Resources */,
+				606DCAE11B0C712C001B78E8 /* AirCondition_add_press.png in Resources */,
+				606DCAE21B0C712C001B78E8 /* textField@2x.png in Resources */,
+				606DCAE31B0C712C001B78E8 /* setter_light.png in Resources */,
+				606DCAE41B0C712C001B78E8 /* login_btn_blue_press.png in Resources */,
+				606DCAE51B0C712C001B78E8 /* GpsDataTableViewController.xib in Resources */,
+				606DCAE61B0C712C001B78E8 /* HomeViewController.xib in Resources */,
+				606DCAE71B0C712C001B78E8 /* Default-568h@2x.png in Resources */,
+				606DCAE81B0C712C001B78E8 /* VoiceViewController.xib in Resources */,
+				606DCAE91B0C712C001B78E8 /* add_dark.png in Resources */,
+				606DCAEA1B0C712C001B78E8 /* ChangeTCPDeviceNameViewController.xib in Resources */,
+				606DCAEB1B0C712C001B78E8 /* RM2.png in Resources */,
+				606DCAEC1B0C712C001B78E8 /* btn_open_press.png in Resources */,
+				606DCAED1B0C712C001B78E8 /* custom.png in Resources */,
+				606DCAEE1B0C712C001B78E8 /* btn_mute_press.png in Resources */,
+				606DCAEF1B0C712C001B78E8 /* TCPDeviceViewController.xib in Resources */,
+				606DCAF01B0C712C001B78E8 /* login_btn_blue_nor.png in Resources */,
+				606DCAF11B0C712C001B78E8 /* btn_tv_up.png in Resources */,
+				606DCAF21B0C712C001B78E8 /* btn_tv_down.png in Resources */,
+				606DCAF31B0C712C001B78E8 /* login_bg_ip5@2x.jpg in Resources */,
+				606DCAF41B0C712C001B78E8 /* LoginViewController.xib in Resources */,
+				606DCAF51B0C712C001B78E8 /* Settings.bundle in Resources */,
+				606DCAF61B0C712C001B78E8 /* DeviceListViewController.xib in Resources */,
+				606DCAF71B0C712C001B78E8 /* home_light_green.png in Resources */,
+				606DCAF81B0C712C001B78E8 /* voiceImg.jpg in Resources */,
+				606DCAF91B0C712C001B78E8 /* login_textfield_top@2x.png in Resources */,
+				606DCAFA1B0C712C001B78E8 /* AirCondition_power_press.png in Resources */,
+				606DCAFB1B0C712C001B78E8 /* login_textfield_more_flip.png in Resources */,
+				606DCAFC1B0C712C001B78E8 /* login_dropdown_bg.png in Resources */,
+				606DCAFD1B0C712C001B78E8 /* aircondition.png in Resources */,
+				606DCAFE1B0C712C001B78E8 /* voice_light.png in Resources */,
+				606DCAFF1B0C712C001B78E8 /* login_textfield_more.png in Resources */,
+				606DCB001B0C712C001B78E8 /* login_dropdown_avatar_border.png in Resources */,
+				606DCB011B0C712C001B78E8 /* home_light.png in Resources */,
+				606DCB021B0C712C001B78E8 /* login_textfield@2x.png in Resources */,
+				606DCB231B130582001B78E8 /* GeocodeDemoViewController.xib in Resources */,
+				606DCB031B0C712C001B78E8 /* CustomRemoteViewController.xib in Resources */,
+				606DCB041B0C712C001B78E8 /* DeviceInfo.plist in Resources */,
+				606DCB051B0C712C001B78E8 /* btn_tv_right.png in Resources */,
+				606DCB061B0C712C001B78E8 /* login_textfield_top.png in Resources */,
+				606DCB071B0C712C001B78E8 /* login_btn_blue_press@2x.png in Resources */,
+				606DCB081B0C712C001B78E8 /* CurtainViewController.xib in Resources */,
+				606DCB091B0C712C001B78E8 /* icon_sp.png in Resources */,
+				606DCB0A1B0C712C001B78E8 /* RemoteControlDeviceViewController.xib in Resources */,
+				606DCB0B1B0C712C001B78E8 /* SP2.png in Resources */,
+				606DCB0C1B0C712C001B78E8 /* btn_tv_power_press.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1342,9 +1822,9 @@
 			files = (
 				470DAD0A1A1F4F03003A9EE8 /* GCDAsyncUdpSocket.m in Sources */,
 				60421DD71A0E7421007E868D /* MJIvar.m in Sources */,
+				60156E281B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m in Sources */,
 				47B19C951A0209B100FFA873 /* AppDelegate.m in Sources */,
 				60C01F731A0879FA002E3764 /* SBJson4StreamParserState.m in Sources */,
-				60C01F511A08790C002E3764 /* BLRM2StudyModel.m in Sources */,
 				60032F431A1D7D0300F07B8C /* CustomRemoteViewController.m in Sources */,
 				602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */,
 				60032F121A1A106F00F07B8C /* AFURLConnectionOperation.m in Sources */,
@@ -1353,9 +1833,11 @@
 				60421DDD1A0E7421007E868D /* NSObject+MJKeyValue.m in Sources */,
 				470DACFC1A1F4E95003A9EE8 /* VoiceViewController.m in Sources */,
 				60421DDB1A0E7421007E868D /* MJTypeEncoding.m in Sources */,
+				60C7A2781B018E26005314A5 /* MyPoint.m in Sources */,
 				60C01FD51A090A88002E3764 /* LJCommonLabelItem.m in Sources */,
 				60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */,
 				60C01F891A08F19F002E3764 /* LJCommonItem.m in Sources */,
+				60156E291B8C88C700FC24C1 /* Reachability.m in Sources */,
 				60C020651A0A689A002E3764 /* DeviceViewController.m in Sources */,
 				60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */,
 				60032F141A1A106F00F07B8C /* AFURLResponseSerialization.m in Sources */,
@@ -1372,6 +1854,7 @@
 				60032F101A1A106F00F07B8C /* AFNetworkReachabilityManager.m in Sources */,
 				60C01F901A0903E6002E3764 /* LoginViewController.m in Sources */,
 				60421DD51A0E7421007E868D /* MJConst.m in Sources */,
+				60C7A27C1B018EA7005314A5 /* MapViewController.mm in Sources */,
 				60C01F881A08F19F002E3764 /* LJCommonGroup.m in Sources */,
 				60C01F761A0879FA002E3764 /* SBJson4StreamWriterState.m in Sources */,
 				60C01FD61A090A88002E3764 /* LJBadgeView.m in Sources */,
@@ -1386,14 +1869,16 @@
 				470DAD111A203002003A9EE8 /* TCPDevice.m in Sources */,
 				60C01FE31A0A0626002E3764 /* LJCommonViewController.m in Sources */,
 				470DAD091A1F4F03003A9EE8 /* GCDAsyncSocket.m in Sources */,
-				60C0205A1A0A45AF002E3764 /* BLSP2ViewController.m in Sources */,
 				60032F1D1A1B546A00F07B8C /* ChangeRemoteNameViewController.m in Sources */,
 				60032F131A1A106F00F07B8C /* AFURLRequestSerialization.m in Sources */,
+				606DCB141B12F62D001B78E8 /* GeocodeDemoViewController.mm in Sources */,
 				60421DD61A0E7421007E868D /* MJFoundation.m in Sources */,
 				47DC4EEC1A0E0A9C00A7DBCD /* ProjectorViewController.m in Sources */,
 				47BEC0771A0DBB3200FD9CDC /* RMDeviceManager.m in Sources */,
 				470DACF01A1F4E88003A9EE8 /* AddDeviceViewController.m in Sources */,
 				60032F0D1A1A106F00F07B8C /* AFHTTPRequestOperation.m in Sources */,
+				60156E2C1B8C8B7A00FC24C1 /* CaoConfig.m in Sources */,
+				606DC7A01B0C1FCF001B78E8 /* GpsDataTableViewController.m in Sources */,
 				60032F191A1AF27100F07B8C /* SmartHomeAPIs.m in Sources */,
 				60C01FD41A090A88002E3764 /* LJCommonSwitchItem.m in Sources */,
 				60421DDA1A0E7421007E868D /* MJType.m in Sources */,
@@ -1401,6 +1886,7 @@
 				470DAD0E1A202F8A003A9EE8 /* TCPDeviceManager.m in Sources */,
 				60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */,
 				60C01F771A0879FA002E3764 /* SBJson4Writer.m in Sources */,
+				60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */,
 				47B19C921A0209B100FFA873 /* main.m in Sources */,
 				606C9B7D1A070D4C003BA6AD /* HomeViewController.m in Sources */,
 				60032F0F1A1A106F00F07B8C /* AFHTTPSessionManager.m in Sources */,
@@ -1422,7 +1908,6 @@
 				60C01F7D1A08C101002E3764 /* MainTabBarViewController.m in Sources */,
 				60C01F5C1A087966002E3764 /* JSONKit.m in Sources */,
 				47DC4EDF1A0E08F200A7DBCD /* CurtainViewController.m in Sources */,
-				60421DE11A0E7549007E868D /* InitBroadLink.m in Sources */,
 				47D570A01A22F83400646865 /* DeviceInfoManagerForCell.m in Sources */,
 				470DACFB1A1F4E95003A9EE8 /* VoiceManager.m in Sources */,
 			);
@@ -1433,6 +1918,100 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B19CAC1A0209B100FFA873 /* SmartHomeFDPTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		606DCA491B0C712C001B78E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				606DCB221B1300E7001B78E8 /* GeocodeDemoViewController.mm in Sources */,
+				606DCA4A1B0C712C001B78E8 /* GCDAsyncUdpSocket.m in Sources */,
+				606DCA4B1B0C712C001B78E8 /* MJIvar.m in Sources */,
+				606DCA4C1B0C712C001B78E8 /* AppDelegate.m in Sources */,
+				606DCA4D1B0C712C001B78E8 /* SBJson4StreamParserState.m in Sources */,
+				606DCA4E1B0C712C001B78E8 /* CustomRemoteViewController.m in Sources */,
+				606DCA4F1B0C712C001B78E8 /* LightViewController.m in Sources */,
+				606DCA501B0C712C001B78E8 /* AFURLConnectionOperation.m in Sources */,
+				606DCA511B0C712C001B78E8 /* AirConditionViewController.m in Sources */,
+				606DCA521B0C712C001B78E8 /* RecognizerFactory.m in Sources */,
+				606DCA531B0C712C001B78E8 /* NSObject+MJKeyValue.m in Sources */,
+				606DCA541B0C712C001B78E8 /* VoiceViewController.m in Sources */,
+				606DCA551B0C712C001B78E8 /* MJTypeEncoding.m in Sources */,
+				606DCA561B0C712C001B78E8 /* MyPoint.m in Sources */,
+				606DCA571B0C712C001B78E8 /* LJCommonLabelItem.m in Sources */,
+				606DCA581B0C712C001B78E8 /* BLDeviceManager.m in Sources */,
+				606DCA591B0C712C001B78E8 /* LJCommonItem.m in Sources */,
+				606DCA5A1B0C712C001B78E8 /* DeviceViewController.m in Sources */,
+				606DCA5B1B0C712C001B78E8 /* BtnStudyViewController.m in Sources */,
+				606DCA5C1B0C712C001B78E8 /* AFURLResponseSerialization.m in Sources */,
+				606DCA5D1B0C712C001B78E8 /* ChangeTCPDeviceNameViewController.m in Sources */,
+				606DCA5E1B0C712C001B78E8 /* AFSecurityPolicy.m in Sources */,
+				606DCA5F1B0C712C001B78E8 /* NSObject+MJMember.m in Sources */,
+				606DCA601B0C712C001B78E8 /* UDPEasyConfig.m in Sources */,
+				606DCA611B0C712C001B78E8 /* TVViewController.m in Sources */,
+				606DCA621B0C712C001B78E8 /* ChangeTCPButtonInfoViewController.m in Sources */,
+				606DCA631B0C712C001B78E8 /* BLDeviceInfo.m in Sources */,
+				606DCA641B0C712C001B78E8 /* DeviceListViewController.m in Sources */,
+				606DCA651B0C712C001B78E8 /* NSObject+MJCoding.m in Sources */,
+				606DCA661B0C712C001B78E8 /* SettingViewController.m in Sources */,
+				606DCA671B0C712C001B78E8 /* AFNetworkReachabilityManager.m in Sources */,
+				606DCA681B0C712C001B78E8 /* LoginViewController.m in Sources */,
+				606DCA691B0C712C001B78E8 /* MJConst.m in Sources */,
+				606DCA6A1B0C712C001B78E8 /* MapViewController.mm in Sources */,
+				606DCA6B1B0C712C001B78E8 /* LJCommonGroup.m in Sources */,
+				606DCA6C1B0C712C001B78E8 /* SBJson4StreamWriterState.m in Sources */,
+				606DCA6D1B0C712C001B78E8 /* LJBadgeView.m in Sources */,
+				606DCA6E1B0C712C001B78E8 /* LJCommonArrowItem.m in Sources */,
+				606DCA6F1B0C712C001B78E8 /* RCDraggableButton.m in Sources */,
+				606DCA701B0C712C001B78E8 /* SBJson4Parser.m in Sources */,
+				606DCA711B0C712C001B78E8 /* BLEasyConfig.m in Sources */,
+				606DCA721B0C712C001B78E8 /* VoiceCommandRecognizer.m in Sources */,
+				606DCA731B0C712C001B78E8 /* SBJson4StreamWriter.m in Sources */,
+				606DCA741B0C712C001B78E8 /* CustomCollectionViewCell.m in Sources */,
+				606DCA751B0C712C001B78E8 /* TCPDeviceViewController.m in Sources */,
+				606DCA761B0C712C001B78E8 /* TCPDevice.m in Sources */,
+				606DCA771B0C712C001B78E8 /* LJCommonViewController.m in Sources */,
+				606DCA781B0C712C001B78E8 /* GCDAsyncSocket.m in Sources */,
+				606DCA791B0C712C001B78E8 /* ChangeRemoteNameViewController.m in Sources */,
+				606DCA7A1B0C712C001B78E8 /* AFURLRequestSerialization.m in Sources */,
+				606DCA7B1B0C712C001B78E8 /* MJFoundation.m in Sources */,
+				606DCA7C1B0C712C001B78E8 /* ProjectorViewController.m in Sources */,
+				606DCA7D1B0C712C001B78E8 /* RMDeviceManager.m in Sources */,
+				606DCA7E1B0C712C001B78E8 /* AddDeviceViewController.m in Sources */,
+				606DCA7F1B0C712C001B78E8 /* AFHTTPRequestOperation.m in Sources */,
+				606DCA801B0C712C001B78E8 /* GpsDataTableViewController.m in Sources */,
+				606DCA811B0C712C001B78E8 /* SmartHomeAPIs.m in Sources */,
+				606DCA821B0C712C001B78E8 /* LJCommonSwitchItem.m in Sources */,
+				606DCA831B0C712C001B78E8 /* MJType.m in Sources */,
+				606DCA841B0C712C001B78E8 /* MJArgument.m in Sources */,
+				606DCA851B0C712C001B78E8 /* TCPDeviceManager.m in Sources */,
+				606DCA861B0C712C001B78E8 /* StatisticFileManager.m in Sources */,
+				606DCA871B0C712C001B78E8 /* SBJson4Writer.m in Sources */,
+				606DCA881B0C712C001B78E8 /* SCRFTPRequest.m in Sources */,
+				606DCA891B0C712C001B78E8 /* main.m in Sources */,
+				606DCA8A1B0C712C001B78E8 /* HomeViewController.m in Sources */,
+				606DCA8B1B0C712C001B78E8 /* AFHTTPSessionManager.m in Sources */,
+				606DCA8C1B0C712C001B78E8 /* AFURLSessionManager.m in Sources */,
+				606DCA8D1B0C712C001B78E8 /* ProgressHUD.m in Sources */,
+				606DCA8E1B0C712C001B78E8 /* LJCommonCell.m in Sources */,
+				606DCA8F1B0C712C001B78E8 /* RMButton.m in Sources */,
+				606DCA901B0C712C001B78E8 /* SBJson4StreamParser.m in Sources */,
+				606DCA911B0C712C001B78E8 /* AddOrChangeCustomBtnViewController.m in Sources */,
+				606DCA921B0C712C001B78E8 /* MJMember.m in Sources */,
+				606DCA931B0C712C001B78E8 /* RemoteControlDeviceViewController.m in Sources */,
+				606DCA941B0C712C001B78E8 /* SBJson4StreamTokeniser.m in Sources */,
+				606DCA951B0C712C001B78E8 /* AFHTTPRequestOperationManager.m in Sources */,
+				606DCA961B0C712C001B78E8 /* RootController.m in Sources */,
+				606DCA971B0C712C001B78E8 /* MJMethod.m in Sources */,
+				606DCA981B0C712C001B78E8 /* StatisticViewController.m in Sources */,
+				606DCA991B0C712C001B78E8 /* ISRDataHelper.m in Sources */,
+				606DCA9A1B0C712C001B78E8 /* RMDevice.m in Sources */,
+				606DCA9B1B0C712C001B78E8 /* MainTabBarViewController.m in Sources */,
+				606DCA9C1B0C712C001B78E8 /* JSONKit.m in Sources */,
+				606DCA9D1B0C712C001B78E8 /* CurtainViewController.m in Sources */,
+				606DCA9E1B0C712C001B78E8 /* DeviceInfoManagerForCell.m in Sources */,
+				606DCA9F1B0C712C001B78E8 /* VoiceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,9 +2131,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
-				INFOPLIST_FILE = SmartHomeFDP/Info.plist;
+				INFOPLIST_FILE = "SmartHomeFDP/SmartHomeFDP-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1563,8 +2143,10 @@
 					/Users/dyy/Desktop/lab/open,
 					API,
 					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
+					"$(PROJECT_DIR)/SmartHomeFDP/Library/FTC",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartHomeFDP/SmartHomeFDP-Bridging-Header.h";
@@ -1588,9 +2170,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
-				INFOPLIST_FILE = SmartHomeFDP/Info.plist;
+				INFOPLIST_FILE = "SmartHomeFDP/SmartHomeFDP-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1599,8 +2182,10 @@
 					/Users/dyy/Desktop/lab/open,
 					API,
 					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
+					"$(PROJECT_DIR)/SmartHomeFDP/Library/FTC",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartHomeFDP/SmartHomeFDP-Bridging-Header.h";
@@ -1642,6 +2227,79 @@
 			};
 			name = Release;
 		};
+		606DCB0E1B0C712C001B78E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "armv7s,armv7";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartHomeFDP",
+					"$(PROJECT_DIR)/SmartHomeFDP/lib/BaiduMap_IOSSDK_v2.7.0_Lib/Release-iphoneos",
+					"$(PROJECT_DIR)/SmartHomeFDP/lib",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SmartHomeFDP1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartHomeFDP/lib",
+					/Users/dyy/Desktop/lab/open,
+					API,
+					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SmartHomeFDP1;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SmartHomeFDP/SmartHomeFDP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "armv7s armv7";
+			};
+			name = Debug;
+		};
+		606DCB0F1B0C712C001B78E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "armv7s,armv7";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartHomeFDP",
+					"$(PROJECT_DIR)/SmartHomeFDP/lib/BaiduMap_IOSSDK_v2.7.0_Lib/Release-iphoneos",
+					"$(PROJECT_DIR)/SmartHomeFDP/lib",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SmartHomeFDP1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartHomeFDP/lib",
+					/Users/dyy/Desktop/lab/open,
+					API,
+					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SmartHomeFDP1;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SmartHomeFDP/SmartHomeFDP-Bridging-Header.h";
+				VALID_ARCHS = "armv7s armv7";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1668,6 +2326,15 @@
 			buildConfigurations = (
 				47B19CB31A0209B100FFA873 /* Debug */,
 				47B19CB41A0209B100FFA873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		606DCB0D1B0C712C001B78E8 /* Build configuration list for PBXNativeTarget "SmartHomeFDP1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				606DCB0E1B0C712C001B78E8 /* Debug */,
+				606DCB0F1B0C712C001B78E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

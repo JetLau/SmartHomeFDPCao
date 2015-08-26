@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class BLNetwork;
 
 @interface BLEasyConfig :NSObject
 
-@property(nonatomic,strong)BLNetwork *netWork;
--(void)initEasyConfig;
--(void)startConfig:(NSString *)wifi password:(NSString *)password;
--(void)cancelConfig;
+//@property(nonatomic,strong)BLNetwork *netWork;
+//-(void)initEasyConfig;
+//-(void)startConfig:(NSString *)wifi password:(NSString *)password;
+//-(void)cancelConfig;
 
 @end

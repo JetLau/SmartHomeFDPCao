@@ -51,6 +51,19 @@ NSString *ipAddr;
 //3.4 设备解锁
 + (NSString *)AuthTCPDevice:(NSString *)mac type:(NSString *)type;
 
-//Voice
+//4.Voice
 + (NSString *)OperateVoiceCommand:(NSString *)urlStr;
+
+//5.曹浩哲设备
+//进入学习状态，获取code，发送code，由dic中内容决定
++ (NSDictionary *)CaoDevice:(NSMutableDictionary*)dic;
+//5.1 进入学习状态
++ (NSString *)CaoEnterStudyWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName;
+//5.2 获取控制码
++ (NSDictionary *)CaoGetCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName;
+//5.3 发送控制码
++ (NSString *)CaoSendCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName data:(NSString*)data;
+
+//6.获取gps数据
++ (NSDictionary *)GetGPSData:(int)num;
 @end

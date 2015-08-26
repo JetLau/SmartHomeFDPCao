@@ -9,9 +9,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LJCommonViewController.h"
-#import "InitBroadLink.h"
+#import "SCRFTPRequest.h"
 
-@interface SettingViewController : LJCommonViewController
-@property(strong,nonatomic)InitBroadLink *blEasyConfig;
+@interface SettingViewController : LJCommonViewController<SCRFTPRequestDelegate>
 
 @end
+

@@ -65,7 +65,7 @@
     return [fileManager fileExistsAtPath:self.path isDirectory:NO];
 }
 
--(void)saveTCPDeviceInfoToFile:(NSArray *)deviceArray
+-(void)saveTCPDeviceInfoToFile:(NSMutableArray *)deviceArray
 {
     if(deviceArray==nil)
     {

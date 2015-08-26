@@ -10,12 +10,9 @@
 #import "BLDeviceInfo.h"
 #import "LJCommonGroup.h"
 #import "LJCommonItem.h"
-#import "BLSP2ViewController.h"
 #import "JSONKit.h"
-#import "BLNetwork.h"
 #import "RemoteControlDeviceViewController.h"
 #import "ProgressHUD.h"
-#import "InitBroadLink.h"
 #import "TCPDeviceManager.h"
 #import "TCPDevice.h"
 #import "TCPDeviceViewController.h"
@@ -27,7 +24,6 @@
 }
 @property (nonatomic,strong) NSMutableArray *groups;
 @property (nonatomic,strong) NSMutableArray *deviceArray;
-@property (nonatomic, strong) BLNetwork *network;
 @property (nonatomic,strong) NSMutableArray *tcpDeviceArray;
 
 @end
@@ -69,7 +65,6 @@
     /*Init network queue.*/
     networkQueue = dispatch_queue_create("BroadLinkNetworkQueue", DISPATCH_QUEUE_CONCURRENT);
     /*Init network library*/
-    _network = [[BLNetwork alloc] init];
     
     
     //初始化模型
@@ -202,44 +197,12 @@
         self.tabBarController.tabBar.userInteractionEnabled = false;
         if ([info.type isEqualToString:@"SP2"])
         {
-            //[self enterSP2ViewController:info status:0];
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-            [dic setObject:[NSNumber numberWithInt:71] forKey:@"api_id"];
-            [dic setObject:@"sp2_refresh" forKey:@"command"];
-            [dic setObject:info.mac forKey:@"mac"];
-            NSData *requestData = [dic JSONData];
-            //NSLog(@"MAC: %@", dic);
-            dispatch_async(networkQueue, ^{
-                NSData *responseData = [_network requestDispatch:requestData];
-                NSLog(@"%@", [responseData objectFromJSONData]);
-                int code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
-                if (code == 0)
-                {
-                    [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"" waitUntilDone:YES];
-                    int state = [[[responseData objectFromJSONData] objectForKey:@"status"] intValue];
-                    [self enterSP2ViewController:info status:state];
-                    return;
-                }
-                else
-                {
-                    [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"错误码＝%i",code] waitUntilDone:YES];
-                    return;
-                }
-            });
-        }
-        else if ([info.type isEqualToString:@"RM2"])
-        {
-            //[self enterRM2ViewController:info];
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-            [dic setObject:[NSNumber numberWithInt:131] forKey:@"api_id"];
-            [dic setObject:@"rm2_refresh" forKey:@"command"];
-            [dic setObject:info.mac forKey:@"mac"];
-            NSData *requestData = [dic JSONData];
             
+        }
+        else if ([info.type isEqualToString:@"controller"])
+        {
             dispatch_async(networkQueue, ^{
-                NSData *responseData = [_network requestDispatch:requestData];
-                NSLog(@"%@", [responseData objectFromJSONData]);
-                int code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
+                int code = 0;
                 if (code == 0)
                 {
                     [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"" waitUntilDone:YES];
@@ -293,12 +256,12 @@
 
 - (void)enterSP2ViewController:(BLDeviceInfo *)info status:(int)status
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        BLSP2ViewController *viewController = [[BLSP2ViewController alloc] init];
-        [viewController setInfo:info];
-        [viewController setStatus:status];
-        [self.navigationController pushViewController:viewController animated:YES];
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        BLSP2ViewController *viewController = [[BLSP2ViewController alloc] init];
+//        [viewController setInfo:info];
+//        [viewController setStatus:status];
+//        [self.navigationController pushViewController:viewController animated:YES];
+//    });
 }
 
 - (void)enterRM2ViewController:(BLDeviceInfo *)info

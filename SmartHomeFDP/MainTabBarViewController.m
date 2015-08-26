@@ -13,7 +13,7 @@
 #import "VoiceViewController.h"
 #import "DeviceListViewController.h"
 #import "SettingViewController.h"
-#define mtbvQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+//#define mtbvQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @implementation MainTabBarViewController
 -(void)viewDidLoad
@@ -45,12 +45,7 @@
     settingView.navigationItem.title=@"设置";
     [self addOneChild:settingNav title:@"设置" imageName:@"setter_dark" selectedImageName:@"setter_light"];
     
-    dispatch_async(mtbvQueue, ^{
-        self.blEasyConfig = [InitBroadLink initBroadLinkDevices];
-        [self.blEasyConfig networkInit];
-        [self.blEasyConfig addAllDevices];
-        
-    });
+    
 }
 -(void) viewWillAppear:(BOOL)animated
 {

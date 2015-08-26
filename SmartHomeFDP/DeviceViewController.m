@@ -10,7 +10,6 @@
 #import "RMDeviceManager.h"
 #import "BtnStudyViewController.h"
 #import "ChangeRemoteNameViewController.h"
-#import "BLRM2StudyModel.h"
 #import "ProgressHUD.h"
 #import "StatisticFileManager.h"
 @interface DeviceViewController ()
@@ -133,7 +132,7 @@
         [SmartHomeAPIs AddRemote:remoteDic];
     });
     
-    NSLog(@"%@ add to plist",_remoteType);
+    NSLog(@"%@ add to plist",rmDevice);
     return [rmDeviceManager addRMDeviceInfoIntoFile:rmDevice];
 }
 
@@ -160,14 +159,18 @@
         dispatch_async(networkQueue, ^{
             //BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithArgument:_info];
             RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
-            BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:button.tag];
-            NSString * code = [rm2StudyModel rm2SendControlData:[dicBtn objectForKey:@"sendData"]];
-            if ([code intValue] == 0) {
+//            BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:button.tag];
+//            NSString * code = [rm2StudyModel rm2SendControlData:[dicBtn objectForKey:@"sendData"]];
+            
+            NSString *result = [SmartHomeAPIs CaoSendCodeWithMac:_info.mac btnId:button.tag remoteName:btnDevice.name data:[dicBtn objectForKey:@"sendData"]];
+            
+            if ([result isEqualToString:@"success"]) {
                 [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"操作成功" waitUntilDone:YES];
             } else {
-                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"失败，请重试！" waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"message＝%@",result] waitUntilDone:YES];
                 
             }
+          
         });
         //NSLog(@"发送 %@",[dicBtn objectForKey:@"sendData"]);
         

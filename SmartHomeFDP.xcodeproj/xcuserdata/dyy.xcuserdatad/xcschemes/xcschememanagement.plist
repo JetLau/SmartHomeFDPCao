@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SmartHomeFDP1.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>47B19CA41A0209B100FFA873</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>606DCA481B0C712C001B78E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

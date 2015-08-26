@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "BtnStudyViewController.h"
-#import "BLRM2StudyModel.h"
 #import "RMDeviceManager.h"
 #import "ProgressHUD.h"
+#import "SmartHomeAPIs.h"
 @interface BtnStudyViewController()
 {
     dispatch_queue_t networkQueue;
@@ -65,42 +65,46 @@
         //NSDictionary *btnDic = [rmDeviceManager getRMButton:_rmDeviceIndex btnId:_btnId];
         RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
         //BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithArgument:_info];
-        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
-        NSString * code = [rm2StudyModel rm2StudyModelStart];
-        NSString *data;
-        if ([code intValue] == 0) {
+//        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
+//        NSString * code = [rm2StudyModel rm2StudyModelStart];
+        NSDictionary *data;
+        NSString * result = [SmartHomeAPIs CaoEnterStudyWithMac:_info.mac btnId:_btnId remoteName:btnDevice.name];
+        if ([result isEqualToString:@"success"]) {
             //成功进入学习模式，提示用户操作遥控器
             //[NSTimer scheduledTimerWithTimeInterval:1.0 target:rm2StudyModel selector:@selector(rm2StudyControlData) userInfo:nil repeats:YES];
             //[_showInfoLabel setText:@"已经进入学习模式，请操作遥控器！"];
             
             //[ProgressHUD show:@"已经进入学习模式，请操作遥控器！"];
             
-            data = [rm2StudyModel rm2GetControlData];
-            if (data != nil) {
+            data = [SmartHomeAPIs CaoGetCodeWithMac:_info.mac btnId:_btnId remoteName:btnDevice.name];
+            if ([[data objectForKey:@"result"] isEqualToString:@"success"]) {
                 //成功获得学习码
                 //NSLog(@"get--%@",data);
                 //NSLog(@"btnId--%i",button.tag);
-                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:data];
+                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:[data objectForKey:@"code"]];
                 //[_showInfoLabel setText:@"成功学习！"];
                 [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"学习成功！"waitUntilDone:YES];
                 //[ProgressHUD showSuccess:@"学习成功！"];
                 //self.view.userInteractionEnabled = YES;
                 
                 return;
+
             } else {
+                
                 //学习码获取失败
                 NSLog(@"\n学习码获取失败\n");
                 //[_showInfoLabel setText:@"学习失败，请重试！"];
-//                [ProgressHUD showError:@"学习失败，请重试！"];
-//                self.view.userInteractionEnabled = YES;
-                  [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"学习失败，请重试！"waitUntilDone:YES];
+                //                [ProgressHUD showError:@"学习失败，请重试！"];
+                //                self.view.userInteractionEnabled = YES;
+                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"学习失败，请重试！%@",[data objectForKey:@"message"]] waitUntilDone:YES];
                 return;
+
             }
         } else {
             //[_showInfoLabel setText:@"未能成功进入学习模式，请重试！"];
 //            [ProgressHUD showError:@"未能成功进入学习模式，请重试！"];
 //            self.view.userInteractionEnabled = YES;
-            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"未能成功进入学习模式，请重试！" waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"未能成功进入学习模式，请重试！%@",result] waitUntilDone:YES];
             return;
         }
         
@@ -124,7 +128,7 @@
         BOOL TORF = [rmDeviceManager saveVoiceInfo:_rmDeviceIndex btnId:_btnId voiceInfo:voiceText];
         
         if (TORF) {
-            dispatch_async(remoteQueue, ^{
+            dispatch_async(networkQueue, ^{
                 NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
                 [remoteDic setObject:@"saveButtonVoice" forKey:@"command"];
                 [remoteDic setObject:_info.mac forKey:@"mac"];

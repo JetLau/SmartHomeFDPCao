@@ -10,7 +10,6 @@
 #import "TCPDeviceManager.h"
 #import "RMDeviceManager.h"
 #import "JSONKit.h"
-#import "BLNetwork.h"
 #import "SmartHomeAPIs.h"
 #import "ProgressHUD.h"
 #import "StatisticFileManager.h"
@@ -23,7 +22,6 @@
     VoiceCommandRecognizer *voiceCommandRecognizer=[[VoiceCommandRecognizer alloc]init];
     voiceCommandRecognizer.rmDeviceManager=[RMDeviceManager createRMDeviceManager];
     voiceCommandRecognizer.tcpDeviceManager=[TCPDeviceManager createTCPDeviceManager];
-    voiceCommandRecognizer.network=[[BLNetwork alloc]init];
     
     return voiceCommandRecognizer;
 }
@@ -73,11 +71,10 @@
                 [dic setObject:@"rm2_send" forKey:@"command"];
                 [dic setObject:mac forKey:@"mac"];
                 [dic setObject:sendData forKey:@"data"];
-                NSData *requestData = [dic JSONData];
-                NSData *responseData = [_network requestDispatch:requestData];
-
+                NSString *result = [SmartHomeAPIs CaoSendCodeWithMac:mac btnId:[buttonId intValue] remoteName:name data:sendData];
+                
                 dispatch_async(remoteQueue, ^{
-                    int success = ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue]==0) ? 0:1;
+                    int success = ([result isEqualToString:@"success"]) ? 0:1;
                     //NSLog(@"success = %d",success);
                     NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
                     [remoteDic setObject:@"rm2Send" forKey:@"command"];

@@ -487,4 +487,124 @@
     }
     return @"Fail";
 }
+
+//5曹浩哲设备
+//进入学习状态，获取code，发送code，由dic中内容决定
++ (NSDictionary *)CaoDevice:(NSMutableDictionary*)dic
+{
+    NSData *requestData = [dic JSONData];
+    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    //NSLog(@"jsonString: %@",str);
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/controlMode_cao?remoteCtlRequest=%@",ipAddr,josnString];
+    NSLog(@"%@",urlString);
+    
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    
+    if (data)
+    {
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+    }
+    //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
+    
+    return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",@"未得到服务器返回",@"message",nil];
+}
+//5.1 进入学习状态
++ (NSString *)CaoEnterStudyWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:102] forKey:@"api_id"];
+    [dic setObject:@"rm1_study" forKey:@"command"];
+    [dic setObject:mac forKey:@"mac"];
+    [dic setObject:[NSNumber numberWithInt:btnId] forKey:@"buttonId"];
+    [dic setObject:remoteName forKey:@"remoteName"];
+
+    NSDictionary * resultDic = [SmartHomeAPIs CaoDevice:dic];
+    if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
+    {
+        NSLog(@"result: %@",resultDic);
+        
+        return @"success";
+    }
+    
+    return [resultDic objectForKey:@"message"];
+}
+
+//5.2 获取控制码
++ (NSDictionary *)CaoGetCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
+    [dic setObject:@"rm1_code" forKey:@"command"];
+    [dic setObject:mac forKey:@"mac"];
+    [dic setObject:[NSNumber numberWithInt:btnId] forKey:@"buttonId"];
+    [dic setObject:remoteName forKey:@"remoteName"];
+    
+    NSDictionary * resultDic = [SmartHomeAPIs CaoDevice:dic];
+    return resultDic;
+//    NSLog(@"message: %@",resultDic);
+//    if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
+//    {
+//        NSLog(@"result: %@",resultDic);
+//        
+//        return [resultDic objectForKey:@"code"];
+//    }
+//    
+//    return @"fail";
+
+}
+
+//5.3 发送控制码
++ (NSString *)CaoSendCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName data:(NSString*)data
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:104] forKey:@"api_id"];
+    [dic setObject:@"rm1_send" forKey:@"command"];
+    [dic setObject:mac forKey:@"mac"];
+    [dic setObject:[NSNumber numberWithInt:btnId] forKey:@"buttonId"];
+    [dic setObject:remoteName forKey:@"remoteName"];
+    [dic setObject:data forKey:@"data"];
+    
+    NSDictionary * resultDic = [SmartHomeAPIs CaoDevice:dic];
+    if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
+    {
+        NSLog(@"result: %@",resultDic);
+        
+        return @"success";
+    }
+    
+    return [resultDic objectForKey:@"message"];
+    
+}
+
+//6获取gps数据
++ (NSDictionary *)GetGPSData:(int)num
+{
+//    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+//    [dic setObject:[NSNumber numberWithInt:num] forKey:@"gpsDataNum"];
+//    [dic setObject:@"860719021423573" forKey:@"IEME"];
+//    NSData *requestData = [dic JSONData];
+//    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+//    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/getGPSData.action?IMEI=%@&gpsDataNum=%d",ipAddr,@"860719021423573",num];
+    NSLog(@"获取遥控列表url %@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    NSLog(@"GetGPSData error = %@", error);
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+
+}
+
 @end

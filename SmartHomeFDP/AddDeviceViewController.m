@@ -8,17 +8,19 @@
 
 #import "AddDeviceViewController.h"
 #import "JSONKit.h"
-#import "BLNetwork.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "ProgressHUD.h"
-#import "UDPEasyConfig.h"
-#import "InitBroadLink.h"
+#import "CaoConfig.h"
 
 #define kDegreesToRadian(x) (M_PI * (x) / 180.0)
 
 #define kRadianToDegrees(radian) (radian*180.0)/(M_PI)
 
-@interface AddDeviceViewController ()
+int const discoveryTimeout = 40;
+
+@interface AddDeviceViewController (){
+    int countDown;
+}
 
 @end
 
@@ -41,8 +43,8 @@
     
     // Do any additional setup after loading the view from its nib.
     [self.navigationItem setTitle:@"添加中控"];
+    //设置成no，则状态栏及导航样不为透明的，界面上的组件就是紧挨着导航栏显示了
     [self.navigationController.navigationBar setTranslucent:NO];
-    
     [segmentControl addTarget:self action:@selector(segmentChangedValue:) forControlEvents:UIControlEventValueChanged];
     segmentIndex=0;
     
@@ -58,15 +60,25 @@
     [self.searchButton.layer setBorderWidth:1.0];
     [self.searchButton setTitle:@"搜索设备，进行配置" forState:UIControlStateNormal];
     
+    [self.stopBtn.layer setMasksToBounds:YES];
+    [self.stopBtn.layer setCornerRadius:10.0];
+    [self.stopBtn.layer setBorderWidth:1.0];
+    [self.stopBtn setTitle:@"停止" forState:UIControlStateNormal];
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 0.1, 0.1, 0.1, 1 });
     [self.searchButton.layer setBorderColor:colorref];
-    
+    [self.stopBtn.layer setBorderColor:colorref];
+
     self.startConfig=false;
-    self.udpEasyConfig=[[UDPEasyConfig alloc]init];
-    [self.udpEasyConfig initEasyConfig];
-    self.blEasyConfig=[InitBroadLink initBroadLinkDevices];
+    self.caoConfig=[[CaoConfig alloc]init];
+    //[self initEasyConfig];
+    
+    // add notification for discovered device
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(deviceAdded:)
+//                                                 name:@"deviceFound"
+//                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -121,7 +133,6 @@
     switch (segmentIndex) {
         case 0:
         {
-            [self.blEasyConfig startConfig:wifi password:password];
 
 //            if(self.startConfig==true) //cancel easyconfig
 //            {
@@ -140,7 +151,9 @@
         }
         case 1:
         {
-            [self.udpEasyConfig startConfig:wifi password:password];
+            [self continueStartAction];
+            [self.caoConfig startConfig:wifi password:password];
+
 //            self.startConfig=true;
 //            [self.searchButton setTitle:@"搜索设备，进行配置" forState:UIControlStateNormal];
             break;
@@ -171,5 +184,35 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+
+- (void) continueStartAction{
+    self.searchButton.hidden = YES;
+    self.stopBtn.hidden = NO;
+    
+    self.discoveryTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
+    countDown =  discoveryTimeout;
+    self.showInfo.text = [NSString stringWithFormat:@"%d秒后停止配置",countDown];
+    // start discovery using TI lib
+}
+
+-(void)updateProgress {
+    countDown -= 1 ;
+    self.showInfo.text = [NSString stringWithFormat:@"%d秒后停止配置",countDown];
+    if (countDown <= 0) {
+        [self stopDiscovery];
+    }
+}
+
+-(void) stopDiscovery {
+    self.showInfo.text = @"";
+    [self.searchButton setHidden:NO];
+    [self.stopBtn setHidden:YES];
+    [self.discoveryTimer invalidate];
+    [self.caoConfig stopDiscovery];
+    
+}
+- (IBAction)stopSearch:(UIButton *)sender {
+    [self stopDiscovery];
 }
 @end
