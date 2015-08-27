@@ -89,7 +89,23 @@
 		60156E281B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E221B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m */; };
 		60156E291B8C88C700FC24C1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E251B8C88C700FC24C1 /* Reachability.m */; };
 		60156E2C1B8C8B7A00FC24C1 /* CaoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E2B1B8C8B7A00FC24C1 /* CaoConfig.m */; };
-		60156E301B8D58DC00FC24C1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 60156E2F1B8D58DC00FC24C1 /* Podfile */; };
+		60156E3C1B8D5E7300FC24C1 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E331B8D5E7300FC24C1 /* RECommonFunctions.m */; };
+		60156E3D1B8D5E7300FC24C1 /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E351B8D5E7300FC24C1 /* REMenu.m */; };
+		60156E3E1B8D5E7300FC24C1 /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E371B8D5E7300FC24C1 /* REMenuContainerView.m */; };
+		60156E3F1B8D5E7300FC24C1 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E391B8D5E7300FC24C1 /* REMenuItem.m */; };
+		60156E401B8D5E7300FC24C1 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E3B1B8D5E7300FC24C1 /* REMenuItemView.m */; };
+		60156E441B8D5F4B00FC24C1 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E431B8D5F4B00FC24C1 /* NavigationViewController.m */; };
+		60156E581B8D639A00FC24C1 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60156E571B8D639A00FC24C1 /* BaiduMapAPI.framework */; };
+		60156E5C1B8D66E100FC24C1 /* MSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E5A1B8D66E100FC24C1 /* MSettingViewController.m */; };
+		60156E5D1B8D66E100FC24C1 /* MSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E5B1B8D66E100FC24C1 /* MSettingViewController.xib */; };
+		60156E611B8D670A00FC24C1 /* MDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E5F1B8D670A00FC24C1 /* MDeviceManageViewController.m */; };
+		60156E621B8D670A00FC24C1 /* MDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E601B8D670A00FC24C1 /* MDeviceManageViewController.xib */; };
+		60156E661B8D672100FC24C1 /* MHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E641B8D672100FC24C1 /* MHomeViewController.m */; };
+		60156E671B8D672100FC24C1 /* MHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E651B8D672100FC24C1 /* MHomeViewController.xib */; };
+		60156E6B1B8EABA400FC24C1 /* OEMSQueryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E691B8EABA400FC24C1 /* OEMSQueryTableViewCell.m */; };
+		60156E6C1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E6A1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib */; };
+		60156E711B8F2F5B00FC24C1 /* MStatisicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E6F1B8F2F5B00FC24C1 /* MStatisicViewController.m */; };
+		60156E721B8F2F5B00FC24C1 /* MStatisicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E701B8F2F5B00FC24C1 /* MStatisicViewController.xib */; };
 		602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A78301AD4BF6A00A77E84 /* LightViewController.m */; };
 		602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A78311AD4BF6A00A77E84 /* LightViewController.xib */; };
 		60421DD41A0E7421007E868D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
@@ -561,7 +577,34 @@
 		60156E251B8C88C700FC24C1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		60156E2A1B8C8B7A00FC24C1 /* CaoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaoConfig.h; sourceTree = "<group>"; };
 		60156E2B1B8C8B7A00FC24C1 /* CaoConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaoConfig.m; sourceTree = "<group>"; };
-		60156E2F1B8D58DC00FC24C1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		60156E321B8D5E7300FC24C1 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		60156E331B8D5E7300FC24C1 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		60156E341B8D5E7300FC24C1 /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
+		60156E351B8D5E7300FC24C1 /* REMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenu.m; sourceTree = "<group>"; };
+		60156E361B8D5E7300FC24C1 /* REMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuContainerView.h; sourceTree = "<group>"; };
+		60156E371B8D5E7300FC24C1 /* REMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuContainerView.m; sourceTree = "<group>"; };
+		60156E381B8D5E7300FC24C1 /* REMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItem.h; sourceTree = "<group>"; };
+		60156E391B8D5E7300FC24C1 /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
+		60156E3A1B8D5E7300FC24C1 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
+		60156E3B1B8D5E7300FC24C1 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
+		60156E421B8D5F4B00FC24C1 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		60156E431B8D5F4B00FC24C1 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		60156E571B8D639A00FC24C1 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
+		60156E591B8D66E100FC24C1 /* MSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSettingViewController.h; sourceTree = "<group>"; };
+		60156E5A1B8D66E100FC24C1 /* MSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSettingViewController.m; sourceTree = "<group>"; };
+		60156E5B1B8D66E100FC24C1 /* MSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSettingViewController.xib; sourceTree = "<group>"; };
+		60156E5E1B8D670A00FC24C1 /* MDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDeviceManageViewController.h; sourceTree = "<group>"; };
+		60156E5F1B8D670A00FC24C1 /* MDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDeviceManageViewController.m; sourceTree = "<group>"; };
+		60156E601B8D670A00FC24C1 /* MDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDeviceManageViewController.xib; sourceTree = "<group>"; };
+		60156E631B8D672100FC24C1 /* MHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHomeViewController.h; sourceTree = "<group>"; };
+		60156E641B8D672100FC24C1 /* MHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHomeViewController.m; sourceTree = "<group>"; };
+		60156E651B8D672100FC24C1 /* MHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHomeViewController.xib; sourceTree = "<group>"; };
+		60156E681B8EABA400FC24C1 /* OEMSQueryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSQueryTableViewCell.h; sourceTree = "<group>"; };
+		60156E691B8EABA400FC24C1 /* OEMSQueryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSQueryTableViewCell.m; sourceTree = "<group>"; };
+		60156E6A1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSQueryTableViewCell.xib; sourceTree = "<group>"; };
+		60156E6E1B8F2F5B00FC24C1 /* MStatisicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisicViewController.h; sourceTree = "<group>"; };
+		60156E6F1B8F2F5B00FC24C1 /* MStatisicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisicViewController.m; sourceTree = "<group>"; };
+		60156E701B8F2F5B00FC24C1 /* MStatisicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisicViewController.xib; sourceTree = "<group>"; };
 		602A782F1AD4BF6A00A77E84 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		602A78301AD4BF6A00A77E84 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		602A78311AD4BF6A00A77E84 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
@@ -759,6 +802,7 @@
 				60C01F411A087709002E3764 /* AVFoundation.framework in Frameworks */,
 				60C01F431A087709002E3764 /* libz.dylib in Frameworks */,
 				47B19CC81A02190500FFA873 /* Foundation.framework in Frameworks */,
+				60156E581B8D639A00FC24C1 /* BaiduMapAPI.framework in Frameworks */,
 				47B19CC61A0218FB00FFA873 /* UIKit.framework in Frameworks */,
 				60C01F381A0876AD002E3764 /* iflyMSC.framework in Frameworks */,
 				47B19CCA1A02191000FFA873 /* CoreData.framework in Frameworks */,
@@ -853,7 +897,6 @@
 				606DCB371B1326FD001B78E8 /* mapapi.bundle */,
 				60BBC6DB1A343BB60023906B /* Settings.bundle */,
 				60BBC6D01A2FFFD30023906B /* Default-568h@2x.png */,
-				60156E2F1B8D58DC00FC24C1 /* Podfile */,
 				47B19C8E1A0209B100FFA873 /* SmartHomeFDP */,
 				60C01F801A08C486002E3764 /* unuse */,
 				47B19CA81A0209B100FFA873 /* SmartHomeFDPTests */,
@@ -1085,8 +1128,84 @@
 		60156E2E1B8D58AE00FC24C1 /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				60156E311B8D5E7300FC24C1 /* REMenu */,
+				60156E411B8D5F1E00FC24C1 /* classes */,
 			);
 			path = manager;
+			sourceTree = "<group>";
+		};
+		60156E311B8D5E7300FC24C1 /* REMenu */ = {
+			isa = PBXGroup;
+			children = (
+				60156E321B8D5E7300FC24C1 /* RECommonFunctions.h */,
+				60156E331B8D5E7300FC24C1 /* RECommonFunctions.m */,
+				60156E341B8D5E7300FC24C1 /* REMenu.h */,
+				60156E351B8D5E7300FC24C1 /* REMenu.m */,
+				60156E361B8D5E7300FC24C1 /* REMenuContainerView.h */,
+				60156E371B8D5E7300FC24C1 /* REMenuContainerView.m */,
+				60156E381B8D5E7300FC24C1 /* REMenuItem.h */,
+				60156E391B8D5E7300FC24C1 /* REMenuItem.m */,
+				60156E3A1B8D5E7300FC24C1 /* REMenuItemView.h */,
+				60156E3B1B8D5E7300FC24C1 /* REMenuItemView.m */,
+			);
+			path = REMenu;
+			sourceTree = "<group>";
+		};
+		60156E411B8D5F1E00FC24C1 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				60156E421B8D5F4B00FC24C1 /* NavigationViewController.h */,
+				60156E431B8D5F4B00FC24C1 /* NavigationViewController.m */,
+				60156E6D1B8F2F0C00FC24C1 /* statistics */,
+				60156E451B8D5F7E00FC24C1 /* home */,
+				60156E4B1B8D601000FC24C1 /* devicemanager */,
+				60156E511B8D60FF00FC24C1 /* setting */,
+			);
+			name = classes;
+			path = REMenu/classes;
+			sourceTree = "<group>";
+		};
+		60156E451B8D5F7E00FC24C1 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				60156E631B8D672100FC24C1 /* MHomeViewController.h */,
+				60156E641B8D672100FC24C1 /* MHomeViewController.m */,
+				60156E651B8D672100FC24C1 /* MHomeViewController.xib */,
+			);
+			name = home;
+			sourceTree = "<group>";
+		};
+		60156E4B1B8D601000FC24C1 /* devicemanager */ = {
+			isa = PBXGroup;
+			children = (
+				60156E681B8EABA400FC24C1 /* OEMSQueryTableViewCell.h */,
+				60156E691B8EABA400FC24C1 /* OEMSQueryTableViewCell.m */,
+				60156E6A1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib */,
+				60156E5E1B8D670A00FC24C1 /* MDeviceManageViewController.h */,
+				60156E5F1B8D670A00FC24C1 /* MDeviceManageViewController.m */,
+				60156E601B8D670A00FC24C1 /* MDeviceManageViewController.xib */,
+			);
+			name = devicemanager;
+			sourceTree = "<group>";
+		};
+		60156E511B8D60FF00FC24C1 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				60156E591B8D66E100FC24C1 /* MSettingViewController.h */,
+				60156E5A1B8D66E100FC24C1 /* MSettingViewController.m */,
+				60156E5B1B8D66E100FC24C1 /* MSettingViewController.xib */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
+		60156E6D1B8F2F0C00FC24C1 /* statistics */ = {
+			isa = PBXGroup;
+			children = (
+				60156E6E1B8F2F5B00FC24C1 /* MStatisicViewController.h */,
+				60156E6F1B8F2F5B00FC24C1 /* MStatisicViewController.m */,
+				60156E701B8F2F5B00FC24C1 /* MStatisicViewController.xib */,
+			);
+			name = statistics;
 			sourceTree = "<group>";
 		};
 		60421DBC1A0E7420007E868D /* MJExtension */ = {
@@ -1234,6 +1353,7 @@
 			isa = PBXGroup;
 			children = (
 				606DCB2D1B131559001B78E8 /* BaiduMapAPI.framework */,
+				60156E571B8D639A00FC24C1 /* BaiduMapAPI.framework */,
 				606DCB1B1B12F93A001B78E8 /* Security.framework */,
 				606DCB191B12F91A001B78E8 /* OpenGLES.framework */,
 				60C7A2741B018D71005314A5 /* MapKit.framework */,
@@ -1602,6 +1722,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60156E671B8D672100FC24C1 /* MHomeViewController.xib in Resources */,
 				60C01FDB1A09152E002E3764 /* ProgressHUD.bundle in Resources */,
 				60A781941A47F4C400F48B5F /* StatisticInfo.plist in Resources */,
 				60C020601A0A614C002E3764 /* light.png in Resources */,
@@ -1615,11 +1736,13 @@
 				60C020551A0A3C86002E3764 /* projector.png in Resources */,
 				60C020441A0A3C67002E3764 /* add_light.png in Resources */,
 				60C0203A1A0A3C67002E3764 /* login_textfield_bottom.png in Resources */,
+				60156E621B8D670A00FC24C1 /* MDeviceManageViewController.xib in Resources */,
 				60421DF21A0FB29F007E868D /* textField.png in Resources */,
 				60A781921A47AC7300F48B5F /* StatisticViewController.xib in Resources */,
 				60C020491A0A3C67002E3764 /* list_light.png in Resources */,
 				47B19CA01A0209B100FFA873 /* LaunchScreen.xib in Resources */,
 				60156E261B8C88C700FC24C1 /* FTC.plist in Resources */,
+				60156E721B8F2F5B00FC24C1 /* MStatisicViewController.xib in Resources */,
 				60C020381A0A3C67002E3764 /* login_textfield.png in Resources */,
 				60C020701A0A6E12002E3764 /* voiceImgLight@2x.jpg in Resources */,
 				60C0203E1A0A3C67002E3764 /* login_textfield_more@2x.png in Resources */,
@@ -1670,7 +1793,6 @@
 				60032F271A1CA5E000F07B8C /* btn_mute_press.png in Resources */,
 				470DAD191A21870D003A9EE8 /* TCPDeviceViewController.xib in Resources */,
 				60C020301A0A3C67002E3764 /* login_btn_blue_nor.png in Resources */,
-				60156E301B8D58DC00FC24C1 /* Podfile in Resources */,
 				60032F2C1A1CA5E000F07B8C /* btn_tv_up.png in Resources */,
 				60032F291A1CA5E000F07B8C /* btn_tv_down.png in Resources */,
 				60C0202F1A0A3C67002E3764 /* login_bg_ip5@2x.jpg in Resources */,
@@ -1678,6 +1800,7 @@
 				60BBC6DC1A343BB60023906B /* Settings.bundle in Resources */,
 				60C01F7F1A08C28E002E3764 /* DeviceListViewController.xib in Resources */,
 				60C020471A0A3C67002E3764 /* home_light_green.png in Resources */,
+				60156E5D1B8D66E100FC24C1 /* MSettingViewController.xib in Resources */,
 				60C0206D1A0A6E12002E3764 /* voiceImg.jpg in Resources */,
 				60C020421A0A3C67002E3764 /* login_textfield_top@2x.png in Resources */,
 				60032F311A1CB70B00F07B8C /* AirCondition_power_press.png in Resources */,
@@ -1700,6 +1823,7 @@
 				47BEC06C1A0B522C00FD9CDC /* RemoteControlDeviceViewController.xib in Resources */,
 				60C0205F1A0A614C002E3764 /* SP2.png in Resources */,
 				60032F201A1CA57F00F07B8C /* btn_tv_power_press.png in Resources */,
+				60156E6C1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1837,6 +1961,7 @@
 				60C01FD51A090A88002E3764 /* LJCommonLabelItem.m in Sources */,
 				60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */,
 				60C01F891A08F19F002E3764 /* LJCommonItem.m in Sources */,
+				60156E661B8D672100FC24C1 /* MHomeViewController.m in Sources */,
 				60156E291B8C88C700FC24C1 /* Reachability.m in Sources */,
 				60C020651A0A689A002E3764 /* DeviceViewController.m in Sources */,
 				60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */,
@@ -1847,6 +1972,7 @@
 				470DACF21A1F4E88003A9EE8 /* UDPEasyConfig.m in Sources */,
 				47BEC04B1A0B083D00FD9CDC /* TVViewController.m in Sources */,
 				470DAD211A21A4FE003A9EE8 /* ChangeTCPButtonInfoViewController.m in Sources */,
+				60156E401B8D5E7300FC24C1 /* REMenuItemView.m in Sources */,
 				60C01F341A072567002E3764 /* BLDeviceInfo.m in Sources */,
 				606C9B811A070D4C003BA6AD /* DeviceListViewController.m in Sources */,
 				60421DDC1A0E7421007E868D /* NSObject+MJCoding.m in Sources */,
@@ -1858,10 +1984,13 @@
 				60C01F881A08F19F002E3764 /* LJCommonGroup.m in Sources */,
 				60C01F761A0879FA002E3764 /* SBJson4StreamWriterState.m in Sources */,
 				60C01FD61A090A88002E3764 /* LJBadgeView.m in Sources */,
+				60156E6B1B8EABA400FC24C1 /* OEMSQueryTableViewCell.m in Sources */,
 				60C01FD31A090A88002E3764 /* LJCommonArrowItem.m in Sources */,
 				60032F401A1D7CEC00F07B8C /* RCDraggableButton.m in Sources */,
 				60C01F711A0879FA002E3764 /* SBJson4Parser.m in Sources */,
+				60156E3C1B8D5E7300FC24C1 /* RECommonFunctions.m in Sources */,
 				470DACF31A1F4E88003A9EE8 /* BLEasyConfig.m in Sources */,
+				60156E3D1B8D5E7300FC24C1 /* REMenu.m in Sources */,
 				470DACFE1A1F4E95003A9EE8 /* VoiceCommandRecognizer.m in Sources */,
 				60C01F751A0879FA002E3764 /* SBJson4StreamWriter.m in Sources */,
 				47D5709D1A22CFA100646865 /* CustomCollectionViewCell.m in Sources */,
@@ -1869,6 +1998,7 @@
 				470DAD111A203002003A9EE8 /* TCPDevice.m in Sources */,
 				60C01FE31A0A0626002E3764 /* LJCommonViewController.m in Sources */,
 				470DAD091A1F4F03003A9EE8 /* GCDAsyncSocket.m in Sources */,
+				60156E711B8F2F5B00FC24C1 /* MStatisicViewController.m in Sources */,
 				60032F1D1A1B546A00F07B8C /* ChangeRemoteNameViewController.m in Sources */,
 				60032F131A1A106F00F07B8C /* AFURLRequestSerialization.m in Sources */,
 				606DCB141B12F62D001B78E8 /* GeocodeDemoViewController.mm in Sources */,
@@ -1876,14 +2006,18 @@
 				47DC4EEC1A0E0A9C00A7DBCD /* ProjectorViewController.m in Sources */,
 				47BEC0771A0DBB3200FD9CDC /* RMDeviceManager.m in Sources */,
 				470DACF01A1F4E88003A9EE8 /* AddDeviceViewController.m in Sources */,
+				60156E611B8D670A00FC24C1 /* MDeviceManageViewController.m in Sources */,
 				60032F0D1A1A106F00F07B8C /* AFHTTPRequestOperation.m in Sources */,
+				60156E3E1B8D5E7300FC24C1 /* REMenuContainerView.m in Sources */,
 				60156E2C1B8C8B7A00FC24C1 /* CaoConfig.m in Sources */,
 				606DC7A01B0C1FCF001B78E8 /* GpsDataTableViewController.m in Sources */,
 				60032F191A1AF27100F07B8C /* SmartHomeAPIs.m in Sources */,
+				60156E5C1B8D66E100FC24C1 /* MSettingViewController.m in Sources */,
 				60C01FD41A090A88002E3764 /* LJCommonSwitchItem.m in Sources */,
 				60421DDA1A0E7421007E868D /* MJType.m in Sources */,
 				60421DD41A0E7421007E868D /* MJArgument.m in Sources */,
 				470DAD0E1A202F8A003A9EE8 /* TCPDeviceManager.m in Sources */,
+				60156E441B8D5F4B00FC24C1 /* NavigationViewController.m in Sources */,
 				60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */,
 				60C01F771A0879FA002E3764 /* SBJson4Writer.m in Sources */,
 				60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */,
@@ -1907,6 +2041,7 @@
 				47BEC0741A0DB9F900FD9CDC /* RMDevice.m in Sources */,
 				60C01F7D1A08C101002E3764 /* MainTabBarViewController.m in Sources */,
 				60C01F5C1A087966002E3764 /* JSONKit.m in Sources */,
+				60156E3F1B8D5E7300FC24C1 /* REMenuItem.m in Sources */,
 				47DC4EDF1A0E08F200A7DBCD /* CurtainViewController.m in Sources */,
 				47D570A01A22F83400646865 /* DeviceInfoManagerForCell.m in Sources */,
 				470DACFB1A1F4E95003A9EE8 /* VoiceManager.m in Sources */,
@@ -2119,10 +2254,6 @@
 		47B19CB01A0209B100FFA873 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
@@ -2158,10 +2289,6 @@
 		47B19CB11A0209B100FFA873 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
@@ -2230,7 +2357,6 @@
 		606DCB0E1B0C712C001B78E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "armv7s,armv7";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
@@ -2267,7 +2393,6 @@
 		606DCB0F1B0C712C001B78E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "armv7s,armv7";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
