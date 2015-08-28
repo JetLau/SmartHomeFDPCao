@@ -40,15 +40,14 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.navigationViewController = [[NavigationViewController alloc] initWithRootViewController:[[MHomeViewController alloc] init]];
-    [self.view addSubview:self.navigationViewController.view];
-    return;
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *userName = [userDefaults stringForKey:@"username"];
     NSString *password = [userDefaults stringForKey:@"password"];
     //[userDefaults setObject:password forKey:@"password"];
     if (!(userName == nil) && !(password == nil)) {
-
+        self.navigationViewController = [[NavigationViewController alloc] initWithRootViewController:[[MHomeViewController alloc] init]];
+        [self.view addSubview:self.navigationViewController.view];
         
 //        self.mainTabBarViewController = [[MainTabBarViewController alloc] init];
 //        [self.view addSubview:self.mainTabBarViewController.view];
@@ -67,6 +66,16 @@
     
     self.mainTabBarViewController = [[MainTabBarViewController alloc] init];
     [self.view addSubview:self.mainTabBarViewController.view];
+}
+
+- (void)switchToManagerView
+{
+    [self.loginViewController.view removeFromSuperview];
+    self.loginViewController = nil;
+    self.navigationViewController = [[NavigationViewController alloc] initWithRootViewController:[[MHomeViewController alloc] init]];
+    [self.view addSubview:self.navigationViewController.view];
+    
+    
 }
 
 - (void)switchToLoginView

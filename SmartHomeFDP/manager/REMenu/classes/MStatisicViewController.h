@@ -9,14 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "REMenu.h"
 
-@interface MStatisicViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *adressTableView;
-@property (weak, nonatomic) IBOutlet UILabel *currentAdress;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *moldSegmentControl;
 
 
+@interface MStatisicViewController : UIViewController{
+    
+    __weak IBOutlet UISegmentedControl *addressSegment;
+    __weak IBOutlet UITableView *addressTableView;
+    __weak IBOutlet UISegmentedControl *enquiryTypeSegment;
+}
+
+
+
+
+@property (strong,nonatomic) NSArray *city;
 @property (strong,nonatomic) NSArray *district;
 @property (strong,nonatomic) NSArray *street;
-@property int currentRank; //0:市，1:区，2:街道
+
+//查询的地址范围
+@property (strong,nonatomic) NSNumber *address;
 
 @end

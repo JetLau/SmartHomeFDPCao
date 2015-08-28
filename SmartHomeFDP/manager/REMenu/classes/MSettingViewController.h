@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "REMenu.h"
-
-@interface MSettingViewController : UIViewController
+#import "LJCommonViewController.h"
+@interface MSettingViewController : LJCommonViewController
 
 @end

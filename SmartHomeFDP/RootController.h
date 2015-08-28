@@ -11,5 +11,5 @@
 
 - (void)switchToLoginView;
 - (void)switchToMainTabBarView;
-
+- (void)switchToManagerView;
 @end

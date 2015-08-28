@@ -10,6 +10,7 @@
 #import "ProgressHUD.h"
 #import "RootController.h"
 #import "SmartHomeAPIs.h"
+#import "RegisterViewController.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface LoginViewController ()
@@ -73,13 +74,17 @@
     dispatch_async(kBgQueue, ^{
         NSDictionary *status = [SmartHomeAPIs MobileLogin:username password:password];
         NSString *loginSuccess = [[status objectForKey:@"jsonMap"] objectForKey:@"result"];
-//        NSString *loginSuccess = @"success";
+        loginSuccess = @"success";
         if ([loginSuccess isEqualToString:@"success"])//登录成功
         {
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setObject:username forKey:@"username"];
-            [userDefaults setObject:password forKey:@"password"];
-
+            [userDefaults setObject:@"test" forKey:@"username"];
+            [userDefaults setObject:@"test" forKey:@"password"];
+            [userDefaults setObject:@"test" forKey:@"phone"];
+            [userDefaults setObject:@"man" forKey:@"gender"];
+            [userDefaults setObject:[NSNumber numberWithInt:0] forKey:@"address"];
+            [userDefaults setObject:[NSNumber numberWithInt:1] forKey:@"roleId"];
+            
             [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"登录成功" waitUntilDone:YES];
             [self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
             return ;
@@ -91,6 +96,15 @@
         }
     });
 
+}
+
+- (IBAction)registerNewUser:(UIButton *)sender {
+    RegisterViewController *registerVC = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:registerVC];
+    [nav.navigationBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:130/255.0 green:206/255.0 blue:59/255.0 alpha:1]];
+
+    [registerVC.navigationItem setTitle:@"注册新用户"];
+    [self.view.window.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 - (void) successWithMessage:(NSString *)message {
@@ -106,6 +120,11 @@
 - (void)switchNextViewController
 {
     RootController *rootController = (RootController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    [rootController switchToMainTabBarView];
+    int id = 0;
+    if (id == 0) {
+        [rootController switchToManagerView];
+    }else if (id == 1) {
+        [rootController switchToMainTabBarView];
+    }
 }
 @end

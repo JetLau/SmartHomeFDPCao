@@ -9,8 +9,9 @@
 #import "MDeviceManageViewController.h"
 #import "NavigationViewController.h"
 #import "OEMSQueryTableViewCell.h"
+#import "DiffEnqueryDeviceTableViewController.h"
+
 @interface MDeviceManageViewController ()<UITableViewDataSource, UITableViewDelegate>
-@property int selectorSignal; //1:start 2:end 0:nothing
 
 @end
 
@@ -44,24 +45,16 @@
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.view.bounds];
     self.view.layer.shadowPath = shadowPath.CGPath;
     
-    [self.segmentControl addTarget:self action:@selector(segmentChangedValue:) forControlEvents:UIControlEventValueChanged];
-    self.segmentIndex=0;
+    [addressSegment addTarget:self action:@selector(addressSegmentChangedValue:) forControlEvents:UIControlEventValueChanged];
     
+    [addressTableView registerNib:[UINib nibWithNibName:@"OEMSQueryTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    [self.tableView registerNib:[UINib nibWithNibName:@"OEMSQueryTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.city = [[NSArray alloc] initWithObjects:@"北京",@"上海",@"南京", nil];
     self.district = [[NSArray alloc] initWithObjects:@"朝阳",@"通州",@"五道口", nil];
     self.street = [[NSArray alloc] initWithObjects:@"张衡",@"蔡伦",@"张江高科", nil];
 
-    NSDate *today = [[NSDate alloc]init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    self.startDate.text = [dateFormatter stringFromDate:today];
-    self.endDate.text = [dateFormatter stringFromDate:today];
-    self.dateSelector.maximumDate = today;
+    self.address = [NSNumber numberWithInt:1];
 
-    self.selectorSignal = 0;
 
 
 }
@@ -89,14 +82,38 @@
 {
     return 1;
 }
+-(void)addressSegmentChangedValue:(id)sender
+{
+    switch ([(UISegmentedControl *)sender selectedSegmentIndex]) {
+        case 0:
+            [addressTableView reloadData];
+            [addressSegment setTitle:@"区" forSegmentAtIndex:1];
+            //[self.addressDic setValue:@"" forKey:@"district"];
+            [addressSegment setTitle:@"街道" forSegmentAtIndex:2];
+            //[self.addressDic setValue:@"" forKey:@"street"];
+            [addressSegment setEnabled:NO forSegmentAtIndex:2];
+            break;
+        case 1:
+            [addressTableView reloadData];
+            [addressSegment setTitle:@"街道" forSegmentAtIndex:2];
+            //[self.addressDic setValue:@"" forKey:@"street"];
+            break;
+        case 2:
+            [addressTableView reloadData];
+        default:
+            break;
+    }
+    
+    
+}
 
 - (OEMSQueryTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     OEMSQueryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if(self.segmentIndex == 0) {
+    if([addressSegment selectedSegmentIndex] == 0) {
         cell.name.text = [self.city objectAtIndex:[indexPath row]];
-    } else if(self.segmentIndex == 1) {
+    } else if([addressSegment selectedSegmentIndex] == 1) {
         cell.name.text = [self.district objectAtIndex:[indexPath row]];
     } else {
         cell.name.text = [self.street objectAtIndex:[indexPath row]];
@@ -104,21 +121,15 @@
         
     }
     
-    BOOL isPicked = [(NSNumber *)[self.cellsInfo objectAtIndex:[indexPath row]] boolValue];
-    if(isPicked) {
-        cell.tick.image = [UIImage imageNamed:@"greenTick.png"];
-    } else {
-        cell.tick.image = [UIImage imageNamed:@"greyTick.png"];
-    }
     return cell;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(self.segmentIndex == 0) {
+    if([addressSegment selectedSegmentIndex] == 0) {
         return [self.city count];
-    } else if (self.segmentIndex == 1) {
+    } else if ([addressSegment selectedSegmentIndex] == 1) {
         return [self.district count];
     } else {
         return [self.street count];
@@ -132,95 +143,41 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int n = [self.cellsInfo count];
-    [self.cellsInfo removeAllObjects];
-    for(int i = 0; i < n; i++) {
-        NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:0];
-        OEMSQueryTableViewCell *cell = (OEMSQueryTableViewCell *)[self.tableView cellForRowAtIndexPath:index];
-        if(i == [indexPath row]) {
-            cell.tick.image = [UIImage imageNamed:@"greenTick.png"];
-            [self.cellsInfo addObject:[NSNumber numberWithBool:YES]];
-            
-            [self.segmentControl setTitle:cell.name.text forSegmentAtIndex:self.segmentIndex];
-        } else {
-            cell.tick.image = [UIImage imageNamed:@"greyTick.png"];
-            [self.cellsInfo addObject:[NSNumber numberWithBool:NO]];
-        }
-    }
-    
-}
-
-
-- (IBAction)chooseStartDate:(UIButton *)sender {
-    
-    self.dateSelector.minimumDate = nil;
-    CGRect frame = self.dateSelectorBlock.frame;
-    frame.origin.y = 100;
-    self.dateSelectorBlock.frame = frame;
-    self.dateSelectorBlock.hidden = false;
-    self.selectorSignal = 1;
-}
-
-- (IBAction)chooseEndDate:(id)sender {
-    CGRect frame = self.dateSelectorBlock.frame;
-    frame.origin.y = 100;
-    self.dateSelectorBlock.frame = frame;
-    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *date =[dateFormat dateFromString:[NSString stringWithFormat:@"%@ 00:00:01",self.startDate.text]];
-    self.dateSelector.minimumDate = date;
-    self.dateSelectorBlock.hidden = false;
-    self.selectorSignal = 2;
-}
-
-- (IBAction)dateSelected:(id)sender {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    if(self.selectorSignal == 1) {
-        self.startDate.text = [dateFormatter stringFromDate:self.dateSelector.date];
+    if([addressSegment selectedSegmentIndex] == 0) {
+        [addressSegment setTitle:[self.city objectAtIndex:indexPath.row] forSegmentAtIndex:0];
+        //[self.addressDic setValue:[self.city objectAtIndex:indexPath.row] forKey:@"city"];
+        [addressSegment setEnabled:YES forSegmentAtIndex:1];
+    } else if ([addressSegment selectedSegmentIndex] == 1) {
+        [addressSegment setTitle:[self.district objectAtIndex:indexPath.row] forSegmentAtIndex:1];
+        //[self.addressDic setValue:[self.district objectAtIndex:indexPath.row] forKey:@"district"];
+        [addressSegment setEnabled:YES forSegmentAtIndex:2];
+        
     } else {
-        self.endDate.text = [dateFormatter stringFromDate:self.dateSelector.date];
+        [addressSegment setTitle:[self.street objectAtIndex:indexPath.row] forSegmentAtIndex:2];
+        //[self.addressDic setValue:[self.street objectAtIndex:indexPath.row] forKey:@"street"];
+        
     }
-    self.selectorSignal = 0;
-    self.dateSelectorBlock.hidden = true;
+    self.address = [NSNumber numberWithInt:1];
 }
 
--(void)segmentChangedValue:(id)sender
-{
-    switch ([(UISegmentedControl *)sender selectedSegmentIndex]) {
-        case 0:
-            //city
-            self.segmentIndex=0;
-            self.cellsInfo = [[NSMutableArray alloc]init];
-            for(int i = 0; i < [self.city count]; i++) {
-                [self.cellsInfo addObject:[NSNumber numberWithBool:NO]];
-            }
-            [self.tableView reloadData];
-
-            break;
-        case 1:
-            //district
-            self.segmentIndex=1;
-            self.cellsInfo = [[NSMutableArray alloc]init];
-            for(int i = 0; i < [self.district count]; i++) {
-                [self.cellsInfo addObject:[NSNumber numberWithBool:NO]];
-            }
-            [self.tableView reloadData];
-
-            break;
-        case 2:
-            //street
-            self.segmentIndex=2;
-            self.cellsInfo = [[NSMutableArray alloc]init];
-            for(int i = 0; i < [self.street count]; i++) {
-                [self.cellsInfo addObject:[NSNumber numberWithBool:NO]];
-            }
-            [self.tableView reloadData];
-
-            break;
-        default:
-            break;
+- (IBAction)queryBtnClicked:(UIButton *)sender {
+    NSLog(@"address=%@,type = %d",self.address,[enquiryTypeSegment selectedSegmentIndex]);
+    int type = [enquiryTypeSegment selectedSegmentIndex];
+    
+    DiffEnqueryDeviceTableViewController *enqueryVCtl = [[DiffEnqueryDeviceTableViewController alloc] initWithNibName:@"DiffEnqueryDeviceTableViewController" bundle:nil];
+    
+    if (type ==0) {
+        [enqueryVCtl.navigationItem  setTitle:@"已申请中控"];
+    }else if (type ==1) {
+        [enqueryVCtl.navigationItem  setTitle:@"设备列表"];
+    }else if (type ==2) {
+        [enqueryVCtl.navigationItem  setTitle:@"设备申请"];
+    }else{
+        [enqueryVCtl.navigationItem  setTitle:@"用户反馈"];
     }
+    [self.navigationController pushViewController:enqueryVCtl animated:YES];
+
 }
+
 
 @end
