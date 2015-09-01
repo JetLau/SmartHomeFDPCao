@@ -118,6 +118,10 @@
 		60156EA21B90336000FC24C1 /* MStatisticGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156EA01B90336000FC24C1 /* MStatisticGraphViewController.m */; };
 		60156EA31B90336000FC24C1 /* MStatisticGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156EA11B90336000FC24C1 /* MStatisticGraphViewController.xib */; };
 		60156FB91B903A4500FC24C1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 60156FB81B903A4500FC24C1 /* Podfile */; };
+		60156FBC1B953C5100FC24C1 /* OEMSPieGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156FBB1B953C5100FC24C1 /* OEMSPieGraph.m */; };
+		60156FC01B953CB400FC24C1 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156FBF1B953CB400FC24C1 /* FXLabel.m */; };
+		60156FC41B953D2400FC24C1 /* OEMSEnergyGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156FC21B953D2400FC24C1 /* OEMSEnergyGraphViewController.m */; };
+		60156FC51B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156FC31B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib */; };
 		602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A78301AD4BF6A00A77E84 /* LightViewController.m */; };
 		602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A78311AD4BF6A00A77E84 /* LightViewController.xib */; };
 		60421DD41A0E7421007E868D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
@@ -636,6 +640,13 @@
 		60156EA01B90336000FC24C1 /* MStatisticGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisticGraphViewController.m; sourceTree = "<group>"; };
 		60156EA11B90336000FC24C1 /* MStatisticGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisticGraphViewController.xib; sourceTree = "<group>"; };
 		60156FB81B903A4500FC24C1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		60156FBA1B953C5100FC24C1 /* OEMSPieGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSPieGraph.h; sourceTree = "<group>"; };
+		60156FBB1B953C5100FC24C1 /* OEMSPieGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSPieGraph.m; sourceTree = "<group>"; };
+		60156FBE1B953CB400FC24C1 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
+		60156FBF1B953CB400FC24C1 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
+		60156FC11B953D2400FC24C1 /* OEMSEnergyGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSEnergyGraphViewController.h; sourceTree = "<group>"; };
+		60156FC21B953D2400FC24C1 /* OEMSEnergyGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSEnergyGraphViewController.m; sourceTree = "<group>"; };
+		60156FC31B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSEnergyGraphViewController.xib; sourceTree = "<group>"; };
 		602A782F1AD4BF6A00A77E84 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		602A78301AD4BF6A00A77E84 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		602A78311AD4BF6A00A77E84 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
@@ -1264,6 +1275,9 @@
 				60156E9F1B90336000FC24C1 /* MStatisticGraphViewController.h */,
 				60156EA01B90336000FC24C1 /* MStatisticGraphViewController.m */,
 				60156EA11B90336000FC24C1 /* MStatisticGraphViewController.xib */,
+				60156FC11B953D2400FC24C1 /* OEMSEnergyGraphViewController.h */,
+				60156FC21B953D2400FC24C1 /* OEMSEnergyGraphViewController.m */,
+				60156FC31B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib */,
 			);
 			name = statistics;
 			sourceTree = "<group>";
@@ -1271,8 +1285,20 @@
 		60156EA41B90340F00FC24C1 /* graph */ = {
 			isa = PBXGroup;
 			children = (
+				60156FBD1B953CB400FC24C1 /* FXLabel */,
+				60156FBA1B953C5100FC24C1 /* OEMSPieGraph.h */,
+				60156FBB1B953C5100FC24C1 /* OEMSPieGraph.m */,
 			);
 			name = graph;
+			sourceTree = "<group>";
+		};
+		60156FBD1B953CB400FC24C1 /* FXLabel */ = {
+			isa = PBXGroup;
+			children = (
+				60156FBE1B953CB400FC24C1 /* FXLabel.h */,
+				60156FBF1B953CB400FC24C1 /* FXLabel.m */,
+			);
+			path = FXLabel;
 			sourceTree = "<group>";
 		};
 		60421DBC1A0E7420007E868D /* MJExtension */ = {
@@ -1867,6 +1893,7 @@
 				60C020321A0A3C67002E3764 /* login_btn_blue_press.png in Resources */,
 				606DC7A11B0C1FCF001B78E8 /* GpsDataTableViewController.xib in Resources */,
 				47D570981A22CB6600646865 /* HomeViewController.xib in Resources */,
+				60156FC51B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib in Resources */,
 				60BBC6D11A2FFFD30023906B /* Default-568h@2x.png in Resources */,
 				470DACFD1A1F4E95003A9EE8 /* VoiceViewController.xib in Resources */,
 				60C020431A0A3C67002E3764 /* add_dark.png in Resources */,
@@ -2082,10 +2109,12 @@
 				60421DDB1A0E7421007E868D /* MJTypeEncoding.m in Sources */,
 				60C7A2781B018E26005314A5 /* MyPoint.m in Sources */,
 				60C01FD51A090A88002E3764 /* LJCommonLabelItem.m in Sources */,
+				60156FBC1B953C5100FC24C1 /* OEMSPieGraph.m in Sources */,
 				60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */,
 				60C01F891A08F19F002E3764 /* LJCommonItem.m in Sources */,
 				60156E661B8D672100FC24C1 /* MHomeViewController.m in Sources */,
 				60156E291B8C88C700FC24C1 /* Reachability.m in Sources */,
+				60156FC01B953CB400FC24C1 /* FXLabel.m in Sources */,
 				60C020651A0A689A002E3764 /* DeviceViewController.m in Sources */,
 				60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */,
 				60032F141A1A106F00F07B8C /* AFURLResponseSerialization.m in Sources */,
@@ -2142,6 +2171,7 @@
 				60C01FD41A090A88002E3764 /* LJCommonSwitchItem.m in Sources */,
 				60421DDA1A0E7421007E868D /* MJType.m in Sources */,
 				60421DD41A0E7421007E868D /* MJArgument.m in Sources */,
+				60156FC41B953D2400FC24C1 /* OEMSEnergyGraphViewController.m in Sources */,
 				470DAD0E1A202F8A003A9EE8 /* TCPDeviceManager.m in Sources */,
 				60156E441B8D5F4B00FC24C1 /* NavigationViewController.m in Sources */,
 				60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */,

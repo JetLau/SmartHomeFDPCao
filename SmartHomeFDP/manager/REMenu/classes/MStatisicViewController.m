@@ -10,6 +10,7 @@
 #import "NavigationViewController.h"
 #import "OEMSQueryTableViewCell.h"
 #import "MStatisticGraphViewController.h"
+#import "OEMSEnergyGraphViewController.h"
 @interface MStatisicViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -144,7 +145,10 @@
     if (type ==0) {
         [graphVCtrl.navigationItem  setTitle:@"用户数量"];
     }else if (type ==1) {
-        [graphVCtrl.navigationItem  setTitle:@"设备数量"];
+        OEMSEnergyGraphViewController *egVctrl = [[OEMSEnergyGraphViewController alloc] initWithNibName:@"OEMSEnergyGraphViewController" bundle:nil];
+        [egVctrl.navigationItem  setTitle:@"设备数量"];
+        [self.navigationController pushViewController:egVctrl animated:YES];
+        return;
     }else if (type ==2) {
         [graphVCtrl.navigationItem  setTitle:@"使用频率"];
     }

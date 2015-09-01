@@ -12,9 +12,13 @@
 @interface MStatisticGraphViewController : UIViewController<PNChartDelegate>
 
 @property int type;
-@property (nonatomic) PNBarChart * barChart;
+@property (strong,nonatomic) NSMutableArray *statisticsData;
+
+//@property (nonatomic) PNBarChart * barChart;
 @property (nonatomic) PNCircleChart * circleChart;
 @property (nonatomic) PNPieChart *pieChart;
 
+@property (weak, nonatomic) IBOutlet PNBarChart *barChart;
+@property (weak, nonatomic) IBOutlet UITableView *dataTableView;
 
 @end
