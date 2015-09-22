@@ -18,8 +18,5 @@
 //    [self setKey:nil];
 //}
 
--(void) setId:(int)id
-{
-    _id = id;
-}
+
 @end

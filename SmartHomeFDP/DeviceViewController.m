@@ -12,6 +12,7 @@
 #import "ChangeRemoteNameViewController.h"
 #import "ProgressHUD.h"
 #import "StatisticFileManager.h"
+#import "CaoStudyModel.h"
 @interface DeviceViewController ()
 {
     //RMDeviceManager *rmDeviceManager;
@@ -161,16 +162,14 @@
             RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
 //            BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:button.tag];
 //            NSString * code = [rm2StudyModel rm2SendControlData:[dicBtn objectForKey:@"sendData"]];
-            
-            NSString *result = [SmartHomeAPIs CaoSendCodeWithMac:_info.mac btnId:button.tag remoteName:btnDevice.name data:[dicBtn objectForKey:@"sendData"]];
-            
-            if ([result isEqualToString:@"success"]) {
+            CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:button.tag];
+            int code = [[caoStudyModel caoSendControlData:[dicBtn objectForKey:@"sendData"]] intValue];
+            if (code == 0) {
                 [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"操作成功" waitUntilDone:YES];
             } else {
-                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"message＝%@",result] waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"失败，请重试！" waitUntilDone:YES];
                 
             }
-          
         });
         //NSLog(@"发送 %@",[dicBtn objectForKey:@"sendData"]);
         

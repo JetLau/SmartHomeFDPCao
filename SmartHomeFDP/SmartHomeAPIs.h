@@ -9,18 +9,31 @@
 #import <Foundation/Foundation.h>
 
 NSString *ipAddr;
+NSString *lanIp;
+NSString *userQu;
 
 @interface SmartHomeAPIs : NSObject
 
+//配置服务器ip
 + (void)setIpAddr:(NSString *)setting;
 +(NSString *)GetIPAddress;
+
+//获取用户所在区
++ (void)SetQu:(NSString *)currentQu;
++(NSString *)GetQu;
+//获取曹中控器局域网ip
++ (void)SetLanIp:(NSString *)currentLanIp;
++(NSString *)GetLanIp;
 
 //1.1用户帐户登录
 + (NSDictionary *)MobileLogin:(NSString *)email password:(NSString *)password;
 
 //1.2注销登录
 + (NSDictionary *)MobileLogout;
-
+//1.3 注册用户
++ (NSDictionary *)MobileRegister:(NSDictionary*)dic andQuNum:(NSString*)quNum;
+//1.4 修改用户信息
++ (NSDictionary *)ChangeUserDetail:(NSDictionary*)dic;
 //Remote
 //2.1 添加遥控
 + (NSString *)AddRemote:(NSMutableDictionary*)dic;
@@ -54,16 +67,33 @@ NSString *ipAddr;
 //4.Voice
 + (NSString *)OperateVoiceCommand:(NSString *)urlStr;
 
+
 //5.曹浩哲设备
-//进入学习状态，获取code，发送code，由dic中内容决定
-+ (NSDictionary *)CaoDevice:(NSMutableDictionary*)dic;
-//5.1 进入学习状态
-+ (NSString *)CaoEnterStudyWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName;
+//5.1进入学习状态，获取code，发送code，由dic中内容决定
++ (NSDictionary *)CaoEnterStudy:(NSMutableDictionary*)dic;
 //5.2 获取控制码
-+ (NSDictionary *)CaoGetCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName;
++ (NSDictionary *)CaoGetCode:(NSMutableDictionary*)dic;
 //5.3 发送控制码
-+ (NSString *)CaoSendCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName data:(NSString*)data;
++ (NSDictionary *)CaoSendCode:(NSMutableDictionary*)dic;
 
 //6.获取gps数据
 + (NSDictionary *)GetGPSData:(int)num;
++ (NSDictionary *)GetOneDayGPSData:(NSString *)date;
+
+//7.管理用户接口
+//7.1 返回子地址列表
++ (NSDictionary *)GetChildAddressList:(NSString *)address;
+
+//7.2 按区域统计用户数目
++ (NSDictionary *)GetRegionUserNumber:(NSString*)address;
+//7.3 按区域统计设备数目
++ (NSDictionary *)GetRegionDeviceNumber:(NSString *)address;
+//7.4 按区域统计设备使用次数
++ (NSDictionary *)GetRegionDeviceUseNumber:(NSString *)address;
+//7.5 获取中控列表
++ (NSDictionary *)GetControllerList:(NSString *)address;
+//7.6 按设备种类统计用户数量
++ (NSDictionary *)GetUserNumberListByDevice:(NSString *)address;
+//7.7 按控制方式统计使用次数
++ (NSDictionary *)GetOperateNumberListByMethod:(NSString *)address;
 @end

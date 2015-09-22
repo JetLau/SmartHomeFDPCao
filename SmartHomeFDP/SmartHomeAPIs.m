@@ -14,19 +14,10 @@
 
 @implementation SmartHomeAPIs
 
+//配置服务器ip
 + (void)setIpAddr:(NSString *)setting
 {
     ipAddr = setting;
-}
-
-+ (NSDictionary *)toDictionary:(NSData *)data
-{
-    NSError *error;
-//    if ([data isEqual:nil]) {
-//        return nil;
-//    }
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    return json;
 }
 
 +(NSString *)GetIPAddress
@@ -34,17 +25,42 @@
     return ipAddr;
 }
 
-//1.1
+//获取用户所在区
++ (void)SetQu:(NSString *)currentQu{
+    userQu = currentQu;
+}
++(NSString *)GetQu{
+    return userQu;
+}
+//获取曹中控器局域网ip
++ (void)SetLanIp:(NSString *)currentLanIp{
+    lanIp = currentLanIp;
+}
++(NSString *)GetLanIp{
+    return lanIp;
+}
+
++ (NSDictionary *)toDictionary:(NSData *)data
+{
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    return json;
+}
+
+//1.1用户帐户登录
 + (NSDictionary *)MobileLogin:(NSString *)username password:(NSString *)password
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/login.action?username=%@&&password=%@",ipAddr,username,password];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
+    NSData *requestData = [dic JSONData];
+    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_login.action?qu=11&&requestStr=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error = nil;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
     NSLog(@"error = %@",error);
-
+    
     if (data)
     {
         NSLog(@"login in success %@",[self toDictionary:data]);
@@ -57,17 +73,6 @@
     }
     
     
-    //__block NSDictionary *resultDic;
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    AFHTTPRequestOperation *operation = [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@",responseObject);
-//        //NSLog(@"is : %@",[[responseObject valueForKey:@"jsonMap"] valueForKey:@"result"]);
-//        //resultDic = responseObject;
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
-//    NSLog(@"dic: %@",operation.responseObject);
-//    return nil;
 }
 //1.2
 + (NSDictionary *)MobileLogout
@@ -80,24 +85,53 @@
         return [SmartHomeAPIs toDictionary:data];
     else
         return nil;
-    
-//    __block NSDictionary *resultDic;
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@",responseObject);
-//        resultDic = [SmartHomeAPIs toDictionary:responseObject];
-//        NSLog(@"dic: %@",resultDic);
-//
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
-//    
-//    return resultDic;
 }
-//1.3
-+ (NSDictionary *)MobileRegister:(NSMutableDictionary*)dic
+//1.3 注册用户
++ (NSDictionary *)MobileRegister:(NSDictionary*)dic andQuNum:(NSString*)quNum
 {
-    return nil;
+    NSData *requestData = [dic JSONData];
+    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_register.action?qu=%@&&requestStr=%@",ipAddr,quNum,josnString];
+    NSLog(@"%@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+}
+
+//1.4 修改用户信息
++ (NSDictionary *)ChangeUserDetail:(NSDictionary*)dic{
+    NSData *requestData = [dic JSONData];
+    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_change_information.action?qu=%@&&flag=1&&requestStr=%@",ipAddr,userQu,josnString];
+    NSLog(@"%@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+    
 }
 
 //Remote
@@ -107,14 +141,14 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/updateRemote?updateRemoteRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error = nil;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
-
+    
     NSLog(@"error = %@",error);
-
+    
     if (data)
     {
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
@@ -133,9 +167,9 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
@@ -145,7 +179,7 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
@@ -158,7 +192,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/studyMode.action?studyRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http:/%@/disableCommunityAOP/studyMode.action?studyRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
@@ -169,20 +203,19 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
     return @"fail";
 }
-
 //2.4 保存按钮的语音字段
 + (NSString *)SaveButtonVoice:(NSMutableDictionary*)dic
 {
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/saveVoice.action?saveVoiceRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/saveVoice.action?saveVoiceRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
@@ -193,12 +226,12 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
     NSLog(@"result: %@",data);
-
+    
     return @"fail";
 }
 
@@ -208,9 +241,9 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/updateBtn.action?updateBtnRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateBtn.action?updateBtnRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
@@ -220,12 +253,12 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
-  //  NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+    //  NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
+    
     return @"fail";
 }
 
@@ -235,9 +268,9 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
@@ -247,14 +280,15 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
-   // NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+    // NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
+    
     return @"fail";
 }
+
 
 //2.7 发送遥控命令
 + (NSString *)Rm2SendData:(NSMutableDictionary*)dic
@@ -262,9 +296,9 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/controlRemoteMode.action?ctlRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/controlRemoteMode.action?ctlRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
@@ -274,12 +308,12 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
     //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+    
     return @"fail";
 }
 
@@ -289,9 +323,9 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/updateBtn.action?updateBtnRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateBtn.action?updateBtnRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
@@ -301,18 +335,19 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
     //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+    
     return @"fail";
 }
+
 //2.9 获取遥控列表
 + (NSDictionary *)GetRemoteList:(NSString *)username
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/refreshRemote?username=%@",ipAddr,username];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/refreshRemote.action?username=%@",ipAddr,username];
     NSLog(@"获取遥控列表url %@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
@@ -329,9 +364,8 @@
     {
         return nil;
     }
-
+    
 }
-
 
 //3.1 获取TCP设备列表
 + (NSDictionary *)GetTCPDeviceList:(NSString *)username
@@ -345,9 +379,9 @@
     if(data)
     {
         NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
-
+        
         return [SmartHomeAPIs toDictionary:data];
-
+        
     }
     else
     {
@@ -371,19 +405,19 @@
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/controlMode.action?remoteCtlRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
     
     NSLog(@"error = %@",error);
-
+    
     if (data)
     {
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
         else
@@ -411,7 +445,7 @@
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/controlMode.action?remoteCtlRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
-
+    
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
@@ -421,7 +455,7 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
         else
@@ -458,7 +492,7 @@
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }
     }
@@ -472,13 +506,13 @@
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
     NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+    
     if (data)
     {
         if ([[[[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"] objectForKey:@"result"] isEqualToString:@"success"])
         {
             NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
-
+            
             return @"success";
         }else
         {
@@ -489,13 +523,12 @@
 }
 
 //5曹浩哲设备
-//进入学习状态，获取code，发送code，由dic中内容决定
-+ (NSDictionary *)CaoDevice:(NSMutableDictionary*)dic
-{
+//5.1进入学习状态，获取code，发送code，由dic中内容决定
++ (NSDictionary *)CaoEnterStudy:(NSMutableDictionary*)dic{
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/controlMode_cao?remoteCtlRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/%@",lanIp,josnString];
     NSLog(@"%@",urlString);
     
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -504,89 +537,70 @@
     
     if (data)
     {
-        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        return [SmartHomeAPIs toDictionary:data];
     }
     //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
     
-    return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",@"未得到服务器返回",@"message",nil];
+    return [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"code",@"未得到服务器返回",@"msg",nil];
 }
-//5.1 进入学习状态
-+ (NSString *)CaoEnterStudyWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName
-{
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:102] forKey:@"api_id"];
-    [dic setObject:@"rm1_study" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    [dic setObject:[NSNumber numberWithInt:btnId] forKey:@"buttonId"];
-    [dic setObject:remoteName forKey:@"remoteName"];
 
-    NSDictionary * resultDic = [SmartHomeAPIs CaoDevice:dic];
-    if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
-    {
-        NSLog(@"result: %@",resultDic);
-        
-        return @"success";
-    }
-    
-    return [resultDic objectForKey:@"message"];
-}
+
 
 //5.2 获取控制码
-+ (NSDictionary *)CaoGetCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName
-{
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
-    [dic setObject:@"rm1_code" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    [dic setObject:[NSNumber numberWithInt:btnId] forKey:@"buttonId"];
-    [dic setObject:remoteName forKey:@"remoteName"];
+
++ (NSDictionary *)CaoGetCode:(NSMutableDictionary*)dic{
+    NSData *requestData = [dic JSONData];
+    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    //NSLog(@"jsonString: %@",str);
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/%@",lanIp,josnString];
+    NSLog(@"%@",urlString);
     
-    NSDictionary * resultDic = [SmartHomeAPIs CaoDevice:dic];
-    return resultDic;
-//    NSLog(@"message: %@",resultDic);
-//    if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
-//    {
-//        NSLog(@"result: %@",resultDic);
-//        
-//        return [resultDic objectForKey:@"code"];
-//    }
-//    
-//    return @"fail";
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    
+    if (data)
+    {
+        return [SmartHomeAPIs toDictionary:data];
+    }
+    //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
+    
+    return [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"code",@"未得到服务器返回",@"msg",nil];
 
 }
 
 //5.3 发送控制码
-+ (NSString *)CaoSendCodeWithMac:(NSString *)mac btnId:(int)btnId remoteName:(NSString*)remoteName data:(NSString*)data
-{
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:104] forKey:@"api_id"];
-    [dic setObject:@"rm1_send" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    [dic setObject:[NSNumber numberWithInt:btnId] forKey:@"buttonId"];
-    [dic setObject:remoteName forKey:@"remoteName"];
-    [dic setObject:data forKey:@"data"];
++ (NSDictionary *)CaoSendCode:(NSMutableDictionary*)dic{
     
-    NSDictionary * resultDic = [SmartHomeAPIs CaoDevice:dic];
-    if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
+    NSData *requestData = [dic JSONData];
+    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    //NSLog(@"jsonString: %@",str);
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/%@",lanIp,josnString];
+    NSLog(@"%@",urlString);
+    
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    
+    if (data)
     {
-        NSLog(@"result: %@",resultDic);
-        
-        return @"success";
+        return [SmartHomeAPIs toDictionary:data];
     }
+    //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
     
-    return [resultDic objectForKey:@"message"];
+    return [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"code",@"未得到服务器返回",@"msg",nil];
     
 }
 
-//6获取gps数据
+//6.1获取gps数据
 + (NSDictionary *)GetGPSData:(int)num
 {
-//    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-//    [dic setObject:[NSNumber numberWithInt:num] forKey:@"gpsDataNum"];
-//    [dic setObject:@"860719021423573" forKey:@"IEME"];
-//    NSData *requestData = [dic JSONData];
-//    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
-//    
+    //    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    //    [dic setObject:[NSNumber numberWithInt:num] forKey:@"gpsDataNum"];
+    //    [dic setObject:@"860719021423573" forKey:@"IEME"];
+    //    NSData *requestData = [dic JSONData];
+    //    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    
     NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/getGPSData.action?IMEI=%@&gpsDataNum=%d",ipAddr,@"860719021423573",num];
     NSLog(@"获取遥控列表url %@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -604,7 +618,178 @@
     {
         return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
     }
-
+    
 }
+//6.2获取某一天中每个小时的GPS数据
++ (NSDictionary *)GetOneDayGPSData:(NSString *)date{
+    //    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    //    [dic setObject:[NSNumber numberWithInt:num] forKey:@"gpsDataNum"];
+    //    [dic setObject:@"860719021423573" forKey:@"IEME"];
+    //    NSData *requestData = [dic JSONData];
+    //    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/getOneDayGPSData?IMEI=%@&date=%@",ipAddr,@"860719021423573",date];
+    NSLog(@"获取遥控列表url %@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    NSLog(@"GetOneDayGPSData error = %@", error);
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+    
+}
+
+//7.1 返回子地址列表
++ (NSDictionary *)GetChildAddressList:(NSString *)address{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/address/get_address_child_list.action?id=%@",ipAddr,address];
+    NSLog(@"返回子地址列表 %@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    //NSLog(@"GetOneDayGPSData error = %@", error);
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+    
+}
+//7.2 按区域统计用户数目
++ (NSDictionary *)GetRegionUserNumber:(NSString*)address{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/statistic/get_user_number_by_area_mobile.action?id=%@",ipAddr,address];
+    NSLog(@"%@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+}
+//7.3 按区域统计设备数目
++ (NSDictionary *)GetRegionDeviceNumber:(NSString *)address{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/statistic/get_device_number_by_area.action?id=%@",ipAddr,address];
+    NSLog(@"返回子地址列表 %@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+}
+//7.4 按区域统计设备使用次数
++ (NSDictionary *)GetRegionDeviceUseNumber:(NSString *)address{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/statistic/get_device_rate.action?id=%@",ipAddr,address];
+    NSLog(@"%@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+}
+
+//7.5 获取中控列表
++ (NSDictionary *)GetControllerList:(NSString *)address{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/device/getMyControllerListByAddressId?addressId=%@",ipAddr,address];
+    NSLog(@"获取中控列表 %@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+}
+
+//7.6 按设备种类统计用户数量
++ (NSDictionary *)GetUserNumberListByDevice:(NSString *)address{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/statistic/get_user_number_by_device.action?id=%@",ipAddr,address];
+    NSLog(@"%@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+    
+}
+//7.7 按控制方式统计使用次数
++ (NSDictionary *)GetOperateNumberListByMethod:(NSString *)address{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/statistic/get_operator_number_by_method.action?id=%@",ipAddr,address];
+    NSLog(@"%@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+    
+}
+
+
+
+
 
 @end

@@ -15,7 +15,7 @@
 
 @property(strong,nonatomic)NSString *username;
 @property(strong,nonatomic)NSString *password;
-@property(nonatomic)NSNumber *address;
+@property(strong,nonatomic)NSString *address;
 @property(strong,nonatomic)NSString *gender;
 @property(strong,nonatomic)NSString *phone;
 @property(nonatomic)NSInteger roleId;

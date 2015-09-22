@@ -16,12 +16,12 @@
     __weak IBOutlet UISegmentedControl *enquiryTypeSegment;
 }
 
-@property (strong,nonatomic) NSArray *city;
-@property (strong,nonatomic) NSArray *district;
-@property (strong,nonatomic) NSArray *street;
+@property (strong,nonatomic) NSMutableArray *city;
+@property (strong,nonatomic) NSMutableArray *district;
+@property (strong,nonatomic) NSMutableArray *street;
 
-//查询的地址范围
-@property (strong,nonatomic) NSNumber *address;
+//当前要查询的address
+@property (strong,nonatomic) NSString *address;
 
 
 

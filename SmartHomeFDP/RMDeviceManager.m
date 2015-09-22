@@ -111,7 +111,7 @@
     [deviceDic setValue:rmDeviceArray forKey:@"buttonArray"];
     //NSLog(@"deviceDic = %@",deviceDic);
     [self.RMDeviceArray addObject:deviceDic];
-    NSLog(@"RMDeviceArray = %@",self.RMDeviceArray);
+    //NSLog(@"RMDeviceArray = %@",self.RMDeviceArray);
 
     [self.RMDeviceArray writeToFile:self.path atomically:YES];
     

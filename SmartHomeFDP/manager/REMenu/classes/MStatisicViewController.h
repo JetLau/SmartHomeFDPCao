@@ -15,17 +15,17 @@
     
     __weak IBOutlet UISegmentedControl *addressSegment;
     __weak IBOutlet UITableView *addressTableView;
-    __weak IBOutlet UISegmentedControl *enquiryTypeSegment;
+//__weak IBOutlet UISegmentedControl *enquiryTypeSegment;
 }
 
 
+@property (strong,nonatomic) NSMutableArray *city;
+@property (strong,nonatomic) NSMutableArray *district;
+@property (strong,nonatomic) NSMutableArray *street;
 
+//当前要查询的address
+@property (strong,nonatomic) NSString *address;
 
-@property (strong,nonatomic) NSArray *city;
-@property (strong,nonatomic) NSArray *district;
-@property (strong,nonatomic) NSArray *street;
-
-//查询的地址范围
-@property (strong,nonatomic) NSNumber *address;
-
+//当前查询类型
+@property int SearchType;
 @end

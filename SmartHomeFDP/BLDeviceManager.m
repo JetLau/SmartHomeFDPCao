@@ -9,7 +9,7 @@
 #import "BLDeviceManager.h"
 #import "BLDeviceInfo.h"
 #import "MJExtension.h"
-
+#import "SmartHomeAPIs.h"
 @implementation BLDeviceManager
 
 +(instancetype) createBLDeviceManager
@@ -119,16 +119,20 @@
         [dic setObject:[item objectForKey:@"mac"] forKey:@"mac"];
         [dic setObject:[item objectForKey:@"type"] forKey:@"type"];
         [dic setObject:[item objectForKey:@"name"] forKey:@"name"];
-        [dic setObject:[item objectForKey:@"id"] forKey:@"id"];
-        
+        [dic setObject:[item objectForKey:@"ip"] forKey:@"ip"];
         [deviceDicArray addObject:dic];
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:[item objectForKey:@"ip"] forKey:@"lanIp"];
+        [SmartHomeAPIs SetLanIp:[item objectForKey:@"ip"]];
     }
     
     self.BLDeviceArray = nil;
     self.BLDeviceArray = deviceDicArray;
 
     [self.BLDeviceArray writeToFile:self.path atomically:YES];
-
+   
+    
 }
 
 -(void)removeBLDevcie:(int)index

@@ -128,10 +128,12 @@
     [userDefaults removeObjectForKey:@"phone"];
     [userDefaults removeObjectForKey:@"address"];
     [userDefaults removeObjectForKey:@"roleId"];
+    [userDefaults removeObjectForKey:@"addressName"];
 
 
     RootController *rootController=(RootController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    [rootController switchToLoginView];}
+    [rootController switchToLoginView];
+}
 
 - (void) successWithMessage:(NSString *)message {
     [self.view setUserInteractionEnabled:true];

@@ -21,12 +21,11 @@
 @property(nonatomic,strong)IBOutlet UITextField *wifiTextField;
 @property(nonatomic,strong)IBOutlet UITextField *passwordTextField;
 @property(nonatomic,strong)IBOutlet UIButton *searchButton;
-@property(nonatomic,strong)IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UILabel *showInfo;
 @property (weak, nonatomic) IBOutlet UIButton *stopBtn;
-@property int segmentIndex;
 
 -(IBAction)searchButtonClick:(id)sender;
 - (IBAction)stopSearch:(UIButton *)sender;
+- (IBAction)getControllerIP:(UIButton *)sender;
 
 @end

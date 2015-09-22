@@ -10,6 +10,7 @@
 #import "AddOrChangeCustomBtnViewController.h"
 #import "RMDeviceManager.h"
 #import "StatisticFileManager.h"
+#import "CaoStudyModel.h"
 @interface CustomRemoteViewController ()
 {
     dispatch_queue_t networkQueue;
@@ -138,12 +139,13 @@
     }else{
         dispatch_async(networkQueue, ^{
             RMDevice *btnDevice = [rmDeviceManager getRMDevice:self.rmDeviceIndex];
-            NSString *result = [SmartHomeAPIs CaoSendCodeWithMac:self.info.mac btnId:btn.buttonId remoteName:btnDevice.name data:btn.sendData];
+            CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:self.info rmDevice:btnDevice btnId:btn.buttonId];
+            int code = [[caoStudyModel caoSendControlData:[dicBtn objectForKey:@"sendData"]] intValue];
             
-            if ([result isEqualToString:@"success"]) {
+            if (code == 0) {
                 [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"操作成功" waitUntilDone:YES];
             } else {
-                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"message＝%@",result] waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"错误码＝%i",code] waitUntilDone:YES];
                 
             }
             

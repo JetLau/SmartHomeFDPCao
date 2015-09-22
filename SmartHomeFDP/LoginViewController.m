@@ -74,19 +74,32 @@
     dispatch_async(kBgQueue, ^{
         NSDictionary *status = [SmartHomeAPIs MobileLogin:username password:password];
         NSString *loginSuccess = [[status objectForKey:@"jsonMap"] objectForKey:@"result"];
-        loginSuccess = @"success";
+        //loginSuccess = @"success";
         if ([loginSuccess isEqualToString:@"success"])//登录成功
         {
+            NSDictionary *userDic = [status objectForKey:@"jsonMap"];
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setObject:@"test" forKey:@"username"];
-            [userDefaults setObject:@"test" forKey:@"password"];
-            [userDefaults setObject:@"test" forKey:@"phone"];
-            [userDefaults setObject:@"man" forKey:@"gender"];
-            [userDefaults setObject:[NSNumber numberWithInt:0] forKey:@"address"];
-            [userDefaults setObject:[NSNumber numberWithInt:1] forKey:@"roleId"];
+            [userDefaults setObject:[userDic objectForKey:@"userId"] forKey:@"userId"];
+            [userDefaults setObject:[userDic objectForKey:@"username"] forKey:@"username"];
+            [userDefaults setObject:password forKey:@"password"];
+            [userDefaults setObject:[userDic objectForKey:@"phone"] forKey:@"phone"];
+            [userDefaults setObject:[userDic objectForKey:@"gender"] forKey:@"gender"];
+            [userDefaults setObject:[userDic objectForKey:@"address"] forKey:@"address"];
+            [userDefaults setObject:[userDic objectForKey:@"addressName"] forKey:@"addressName"];
+            [userDefaults setObject:[userDic objectForKey:@"role_id"] forKey:@"roleId"];
+            [userDefaults setObject:[NSString stringWithFormat:@"%@",[userDic objectForKey:@"qu"]] forKey:@"qu"];
+            
+            NSString *qu = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"qu"]];
+            if (qu==nil || [qu isEqualToString:@"(null)"])
+            {
+                qu = @"null";
+            }
+            NSLog(@"qu=%@",qu);
+            [SmartHomeAPIs SetQu:qu];
+            
             
             [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"登录成功" waitUntilDone:YES];
-            [self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(switchNextViewController:) withObject:[userDefaults objectForKey:@"roleId"] waitUntilDone:YES];
             return ;
         }
         else//登录出错
@@ -117,14 +130,14 @@
     [ProgressHUD showError:message];
 }
 
-- (void)switchNextViewController
+- (void)switchNextViewController:(NSString *)roleId
 {
     RootController *rootController = (RootController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    int id = 0;
-    if (id == 0) {
-        [rootController switchToManagerView];
-    }else if (id == 1) {
+    int id = [roleId intValue];
+    if (id == 4) {
         [rootController switchToMainTabBarView];
+    }else {
+        [rootController switchToManagerView];
     }
 }
 @end

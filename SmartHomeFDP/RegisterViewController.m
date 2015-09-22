@@ -11,6 +11,9 @@
 #import "ProgressHUD.h"
 #import "RootController.h"
 #import "OEMSQueryTableViewCell.h"
+#import "SmartHomeAPIs.h"
+#import "MJExtension.h"
+
 @interface RegisterViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -32,10 +35,9 @@
     [addressSegment addTarget:self action:@selector(addressSegmentChangedValue:) forControlEvents:UIControlEventValueChanged];
     
     [addressTableView registerNib:[UINib nibWithNibName:@"OEMSQueryTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    self.city = [[NSArray alloc] initWithObjects:@"北京",@"上海",@"南京", nil];
-    self.district = [[NSArray alloc] initWithObjects:@"朝阳",@"通州",@"五道口", nil];
-    self.street = [[NSArray alloc] initWithObjects:@"张衡",@"蔡伦",@"张江高科", nil];
-    self.addressDic=[[NSDictionary alloc]initWithObjectsAndKeys: @"",@"city",@"",@"district",@"",@"street",nil];
+    
+    //self.addressDic=[[NSDictionary alloc]initWithObjectsAndKeys: @"",@"city",@"",@"district",@"",@"street",nil];
+    [self getChildAddressList:@"1" andRank:@"city"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,30 +54,33 @@
     [self.user setPassword:[NSString stringWithString:password.text]];
     [self.user setPhone:[NSString stringWithString:phone.text]];
     if ([genderSegment selectedSegmentIndex] == 0) {
-        self.user.gender = @"man";
+        self.user.gender = @"男";
     }else if([genderSegment selectedSegmentIndex] == 1) {
-        self.user.gender = @"woman";
+        self.user.gender = @"女";
+    }
+    if (self.quNumber == nil) {
+        self.quNumber = @"null";
     }
     BOOL isInfoRight = [self.user verifyInfo:[NSString stringWithString:verifyPassword.text]];
     if (isInfoRight== TRUE) {
         [ProgressHUD show:@"正在注册"];
         self.view.userInteractionEnabled = false;
+        NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:self.user.username,@"username",self.user.password,@"password",self.user.address,@"address",self.user.gender,@"gender",@"4",@"roleId",self.user.phone,@"phone",nil];
+                dispatch_async(serverQueue, ^{
+                    NSDictionary *resultDic = [SmartHomeAPIs MobileRegister:dic andQuNum:self.quNumber];
+                    if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"]) {
         
-//        dispatch_async(serverQueue, ^{
-//            NSDictionary *resultDic = [ShareBarrierFreeAPIS RegisterUser:self.user];
-//            if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"]) {
-//                
-//                [self.user setRoleId:[[resultDic objectForKey:@"roleId"] integerValue]];
-//                [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"注册成功" waitUntilDone:YES];
-//               // [self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
-//
-//            }else//登录出错
-//            {
-//                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"注册失败！" waitUntilDone:YES];
-//                return ;
-//            }
-//        });
-        [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"注册成功" waitUntilDone:YES];
+                        [self.user setRoleId:[[resultDic objectForKey:@"roleId"] integerValue]];
+                        [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"注册成功" waitUntilDone:YES];
+                        //[self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
+        
+                    }else//登录出错
+                    {
+                        [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"注册失败！" waitUntilDone:YES];
+                        return ;
+                    }
+                });
+        //[self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"注册成功" waitUntilDone:YES];
     }
 }
 
@@ -85,7 +90,7 @@
     if (sender.tag>0) {
         frame.origin.y = -25*sender.tag;
         //NSLog(@"frame = %f",frame.origin.y);
-
+        
         [UIView animateWithDuration:0.5f
                               delay:0
              usingSpringWithDamping:1
@@ -117,14 +122,14 @@
 - (void) successWithMessage:(NSString *)message {
     [self.view setUserInteractionEnabled:true];
     [ProgressHUD showSuccess:message];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:@"test" forKey:@"username"];
-    [userDefaults setObject:@"test" forKey:@"password"];
-    [userDefaults setObject:@"test" forKey:@"phone"];
-    [userDefaults setObject:@"man" forKey:@"gender"];
-    [userDefaults setObject:[NSNumber numberWithInt:0] forKey:@"address"];
-    [userDefaults setObject:[NSNumber numberWithInt:1] forKey:@"roleId"];
-
+    //    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //    [userDefaults setObject:@"test" forKey:@"username"];
+    //    [userDefaults setObject:@"test" forKey:@"password"];
+    //    [userDefaults setObject:@"test" forKey:@"phone"];
+    //    [userDefaults setObject:@"man" forKey:@"gender"];
+    //    [userDefaults setObject:[NSNumber numberWithInt:0] forKey:@"address"];
+    //    [userDefaults setObject:[NSNumber numberWithInt:1] forKey:@"roleId"];
+    
     [self returnToLogin];
 }
 - (void) errorWithMessage:(NSString *)message {
@@ -136,28 +141,49 @@
 {
     switch ([(UISegmentedControl *)sender selectedSegmentIndex]) {
         case 0:
-            [addressTableView reloadData];
-            addressTableView.hidden = false;
-            [addressSegment setTitle:@"区" forSegmentAtIndex:1];
-            //[self.addressDic setValue:@"" forKey:@"district"];
-            [addressSegment setTitle:@"街道" forSegmentAtIndex:2];
-            //[self.addressDic setValue:@"" forKey:@"street"];
-            [addressSegment setEnabled:NO forSegmentAtIndex:2];
+            if (self.city == nil) {
+                [ProgressHUD showError:@"市列表获取失败!"];
+            }else{
+                [addressTableView reloadData];
+                addressTableView.hidden = false;
+                [addressSegment setTitle:@"区" forSegmentAtIndex:1];
+                //[self.addressDic setValue:@"" forKey:@"district"];
+                [addressSegment setTitle:@"街道" forSegmentAtIndex:2];
+                //[self.addressDic setValue:@"" forKey:@"street"];
+                [addressSegment setEnabled:NO forSegmentAtIndex:2];
+                self.user.address = nil;
+            }
+            
             break;
         case 1:
-            [addressTableView reloadData];
-            addressTableView.hidden = false;
-            [addressSegment setTitle:@"街道" forSegmentAtIndex:2];
-            //[self.addressDic setValue:@"" forKey:@"street"];
+            
+            if (self.district == nil) {
+                [ProgressHUD showError:@"区列表获取失败!"];
+            }else{
+                [addressTableView reloadData];
+                addressTableView.hidden = false;
+                [addressSegment setTitle:@"街道" forSegmentAtIndex:2];
+                //[self.addressDic setValue:@"" forKey:@"street"];
+                self.user.address = nil;
+            }
+            
+            
             break;
         case 2:
-            [addressTableView reloadData];
-            addressTableView.hidden = false;
+            
+            
+            if (self.district == nil) {
+                [ProgressHUD showError:@"街道列表获取失败!"];
+            }else{
+                [addressTableView reloadData];
+                addressTableView.hidden = false;
+                self.user.address = nil;
+            }
         default:
             break;
     }
     
-
+    
 }
 
 
@@ -171,14 +197,15 @@
     
     OEMSQueryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if([addressSegment selectedSegmentIndex] == 0) {
-        cell.name.text = [self.city objectAtIndex:[indexPath row]];
+        cell.name.text = [[self.city objectAtIndex:[indexPath row]] objectForKey:@"address_name"];
     } else if([addressSegment selectedSegmentIndex] == 1) {
-        cell.name.text = [self.district objectAtIndex:[indexPath row]];
+        cell.name.text = [[self.district objectAtIndex:[indexPath row]] objectForKey:@"address_name"];
     } else {
-        cell.name.text = [self.street objectAtIndex:[indexPath row]];
+        cell.name.text = [[self.street objectAtIndex:[indexPath row]] objectForKey:@"address_name"];
         
         
     }
+    
     
     
     return cell;
@@ -204,20 +231,74 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if([addressSegment selectedSegmentIndex] == 0) {
-        [addressSegment setTitle:[self.city objectAtIndex:indexPath.row] forSegmentAtIndex:0];
+        [addressSegment setTitle:[[self.city objectAtIndex:indexPath.row] objectForKey:@"address_name"] forSegmentAtIndex:0];
         //[self.addressDic setValue:[self.city objectAtIndex:indexPath.row] forKey:@"city"];
         [addressSegment setEnabled:YES forSegmentAtIndex:1];
+        [self getChildAddressList:[[self.city objectAtIndex:indexPath.row] objectForKey:@"address_id"] andRank:@"district"];
+        self.address = [[self.city objectAtIndex:indexPath.row] objectForKey:@"address_id"];
+        
     } else if ([addressSegment selectedSegmentIndex] == 1) {
-        [addressSegment setTitle:[self.district objectAtIndex:indexPath.row] forSegmentAtIndex:1];
+        [addressSegment setTitle:[[self.district objectAtIndex:indexPath.row] objectForKey:@"address_name"] forSegmentAtIndex:1];
         //[self.addressDic setValue:[self.district objectAtIndex:indexPath.row] forKey:@"district"];
         [addressSegment setEnabled:YES forSegmentAtIndex:2];
-
+        
+        [self getChildAddressList:[[self.district objectAtIndex:indexPath.row] objectForKey:@"address_id"] andRank:@"street"];
+        self.address = [[self.district objectAtIndex:indexPath.row] objectForKey:@"address_id"];
+        self.quNumber = self.address;
+        
     } else {
-        [addressSegment setTitle:[self.street objectAtIndex:indexPath.row] forSegmentAtIndex:2];
+        [addressSegment setTitle:[[self.street objectAtIndex:indexPath.row] objectForKey:@"address_name"] forSegmentAtIndex:2];
         //[self.addressDic setValue:[self.street objectAtIndex:indexPath.row] forKey:@"street"];
-
+        self.user.address = [[self.street objectAtIndex:indexPath.row] objectForKey:@"address_id"];
+        
     }
-    self.user.address = [NSNumber numberWithInt:1];
+    
     [addressTableView setHidden:YES];
+}
+
+-(void)getChildAddressList:(NSString *)address andRank:(NSString *)rank{
+    dispatch_async(serverQueue, ^{
+        NSDictionary *resultDic = [SmartHomeAPIs GetChildAddressList:address];
+        if([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if ([rank isEqualToString:@"city"]) {
+                    if ([[resultDic objectForKey:@"addressList"] count] == 0) {
+                        [ProgressHUD showError:@"市列表没有数据，该区域暂不支持！"];
+                        self.city = nil;
+                    }else{
+                        self.city = [resultDic objectForKey:@"addressList"];
+                    }
+                }else if ([rank isEqualToString:@"district"]){
+                    if ([[resultDic objectForKey:@"addressList"] count] == 0) {
+                        [ProgressHUD showError:@"区列表没有数据，该区域暂不支持！"];
+                        self.district = nil;
+                    }else{
+                        self.district = [resultDic objectForKey:@"addressList"];
+                    }
+                }else if ([rank isEqualToString:@"street"]){
+                    
+                    if ([[resultDic objectForKey:@"addressList"] count] == 0) {
+                        [ProgressHUD showError:@"街道列表没有数据，该区域暂不支持！"];
+                        self.street = nil;
+                    }else{
+                        self.street = [resultDic objectForKey:@"addressList"];
+                    }
+                }
+            });
+        }else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([rank isEqualToString:@"city"]) {
+                    [ProgressHUD showError:@"市列表获取失败，请检查网络！"];
+                }else if ([rank isEqualToString:@"district"]){
+                    [ProgressHUD showError:@"区列表获取失败，请检查网络！"];
+                }else if ([rank isEqualToString:@"street"]){
+                    [ProgressHUD showError:@"街道列表获取失败，请检查网络！"];
+                }
+            });
+        }
+    });
 }
 @end

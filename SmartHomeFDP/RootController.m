@@ -40,17 +40,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *userName = [userDefaults stringForKey:@"username"];
     NSString *password = [userDefaults stringForKey:@"password"];
+    NSString *roleId = [userDefaults stringForKey:@"roleId"];
     //[userDefaults setObject:password forKey:@"password"];
-    if (!(userName == nil) && !(password == nil)) {
-        self.navigationViewController = [[NavigationViewController alloc] initWithRootViewController:[[MHomeViewController alloc] init]];
-        [self.view addSubview:self.navigationViewController.view];
-        
-//        self.mainTabBarViewController = [[MainTabBarViewController alloc] init];
-//        [self.view addSubview:self.mainTabBarViewController.view];
+    if (!(roleId == nil)) {
+        [self switchNextViewController:roleId];
     } else {
         self.loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
         [self.view addSubview:self.loginViewController.view];
@@ -87,5 +83,13 @@
     [self.view addSubview:self.loginViewController.view];
 }
 
-
+- (void)switchNextViewController:(NSString*)roleId
+{
+    int id = [roleId intValue];
+    if (id == 4) {
+        [self switchToMainTabBarView];
+    }else {
+        [self switchToManagerView];
+    }
+}
 @end

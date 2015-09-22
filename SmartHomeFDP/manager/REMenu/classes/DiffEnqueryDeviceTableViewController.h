@@ -10,4 +10,6 @@
 
 @interface DiffEnqueryDeviceTableViewController : UITableViewController
 
+@property int type;
+@property (strong,nonatomic) NSMutableArray *controllerList;
 @end

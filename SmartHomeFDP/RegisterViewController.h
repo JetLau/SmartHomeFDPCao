@@ -26,10 +26,13 @@
 - (IBAction)registerBtnClicked:(UIButton *)sender;
 - (IBAction)moveView:(UITextField *)sender;
 
-@property(strong, nonatomic)NSDictionary * addressDic;
-@property (strong,nonatomic) NSArray *city;
-@property (strong,nonatomic) NSArray *district;
-@property (strong,nonatomic) NSArray *street;
+//@property(strong, nonatomic)NSDictionary * addressDic;
+@property (strong,nonatomic) NSMutableArray *city;
+@property (strong,nonatomic) NSMutableArray *district;
+@property (strong,nonatomic) NSMutableArray *street;
 
-
+//当前的address
+@property (strong,nonatomic) NSString *address;
+//当前的区number
+@property (strong,nonatomic) NSString *quNumber;
 @end

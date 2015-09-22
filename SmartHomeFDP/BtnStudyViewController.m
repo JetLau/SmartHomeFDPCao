@@ -11,6 +11,7 @@
 #import "RMDeviceManager.h"
 #import "ProgressHUD.h"
 #import "SmartHomeAPIs.h"
+#import "CaoStudyModel.h"
 @interface BtnStudyViewController()
 {
     dispatch_queue_t networkQueue;
@@ -58,57 +59,36 @@
     self.view.userInteractionEnabled = NO;
     self.navigationController.navigationBar.userInteractionEnabled=NO;
     dispatch_async(networkQueue, ^{
-        //        UIButton *studyBtn = (UIButton *) sender;
-        //        [studyBtn setEnabled:NO];
+        
         RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
         [rmDeviceManager initRMDeviceManage];
-        //NSDictionary *btnDic = [rmDeviceManager getRMButton:_rmDeviceIndex btnId:_btnId];
         RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
-        //BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithArgument:_info];
-//        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
-//        NSString * code = [rm2StudyModel rm2StudyModelStart];
-        NSDictionary *data;
-        NSString * result = [SmartHomeAPIs CaoEnterStudyWithMac:_info.mac btnId:_btnId remoteName:btnDevice.name];
-        if ([result isEqualToString:@"success"]) {
+        //        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
+        //        NSString * code = [rm2StudyModel rm2StudyModelStart];
+        CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
+        NSString * code = [caoStudyModel caoStudyModelStart];
+        NSString *data;
+        if ([code intValue] == 0) {
             //成功进入学习模式，提示用户操作遥控器
-            //[NSTimer scheduledTimerWithTimeInterval:1.0 target:rm2StudyModel selector:@selector(rm2StudyControlData) userInfo:nil repeats:YES];
-            //[_showInfoLabel setText:@"已经进入学习模式，请操作遥控器！"];
-            
-            //[ProgressHUD show:@"已经进入学习模式，请操作遥控器！"];
-            
-            data = [SmartHomeAPIs CaoGetCodeWithMac:_info.mac btnId:_btnId remoteName:btnDevice.name];
-            if ([[data objectForKey:@"result"] isEqualToString:@"success"]) {
+            data = [caoStudyModel caoGetControlData];
+            if (data != nil) {
                 //成功获得学习码
                 //NSLog(@"get--%@",data);
                 //NSLog(@"btnId--%i",button.tag);
-                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:[data objectForKey:@"code"]];
-                //[_showInfoLabel setText:@"成功学习！"];
+                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:data];
+                
                 [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"学习成功！"waitUntilDone:YES];
-                //[ProgressHUD showSuccess:@"学习成功！"];
-                //self.view.userInteractionEnabled = YES;
-                
                 return;
-
             } else {
-                
                 //学习码获取失败
                 NSLog(@"\n学习码获取失败\n");
-                //[_showInfoLabel setText:@"学习失败，请重试！"];
-                //                [ProgressHUD showError:@"学习失败，请重试！"];
-                //                self.view.userInteractionEnabled = YES;
-                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"学习失败，请重试！%@",[data objectForKey:@"message"]] waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"学习失败，请重试！"waitUntilDone:YES];
                 return;
-
             }
         } else {
-            //[_showInfoLabel setText:@"未能成功进入学习模式，请重试！"];
-//            [ProgressHUD showError:@"未能成功进入学习模式，请重试！"];
-//            self.view.userInteractionEnabled = YES;
-            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"未能成功进入学习模式，请重试！%@",result] waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"未能成功进入学习模式，请重试！" waitUntilDone:YES];
             return;
         }
-        
-        //        [studyBtn setEnabled:YES];
     });
 }
 

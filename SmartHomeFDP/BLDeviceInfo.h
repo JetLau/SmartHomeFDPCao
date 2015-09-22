@@ -14,5 +14,5 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *name;
 //@property (nonatomic, assign) NSString *password;
-@property (nonatomic, assign) int id;
+@property (nonatomic, strong) NSString *ip;
 @end

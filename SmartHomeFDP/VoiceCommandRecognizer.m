@@ -67,14 +67,15 @@
                 NSString *sendData=[buttonDic objectForKey:@"sendData"];
                 
                 NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-                [dic setObject:[NSNumber numberWithInt:134] forKey:@"api_id"];
-                [dic setObject:@"rm2_send" forKey:@"command"];
+                [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
+                [dic setObject:@"send data" forKey:@"command"];
                 [dic setObject:mac forKey:@"mac"];
                 [dic setObject:sendData forKey:@"data"];
-                NSString *result = [SmartHomeAPIs CaoSendCodeWithMac:mac btnId:[buttonId intValue] remoteName:name data:sendData];
-                
+                [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
+                NSDictionary *result = [SmartHomeAPIs CaoSendCode:dic];
+
                 dispatch_async(remoteQueue, ^{
-                    int success = ([result isEqualToString:@"success"]) ? 0:1;
+                    int success = ([[result objectForKey:@"code"] intValue]==0) ? 0:1;
                     //NSLog(@"success = %d",success);
                     NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
                     [remoteDic setObject:@"rm2Send" forKey:@"command"];

@@ -9,6 +9,7 @@
 #import "ProgressHUD.h"
 #import "RMDeviceManager.h"
 #import "SmartHomeAPIs.h"
+#import "CaoStudyModel.h"
 #define remoteQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface AddOrChangeCustomBtnViewController ()
@@ -111,27 +112,28 @@
         RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
 //        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
 //        NSString * code = [rm2StudyModel rm2StudyModelStart];
-        
-        NSString * result = [SmartHomeAPIs CaoEnterStudyWithMac:_info.mac btnId:_btnId remoteName:btnDevice.name];
-        NSDictionary *data;
-        if ([result isEqualToString:@"success"]) {
+        CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
+        NSString * code = [caoStudyModel caoStudyModelStart];
+        NSString *data;
+        if ([code intValue] == 0) {
             //成功进入学习模式，提示用户操作遥控器
-            data = [SmartHomeAPIs CaoGetCodeWithMac:_info.mac btnId:_btnId remoteName:btnDevice.name];
-            if ([[data objectForKey:@"result"] isEqualToString:@"success"]) {
+            data = [caoStudyModel caoGetControlData];
+            if (data != nil) {
                 //成功获得学习码
                 //NSLog(@"get--%@",data);
                 //NSLog(@"btnId--%i",button.tag);
-                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:[data objectForKey:@"code"]];
+                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:data];
+
                 [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"学习成功！"waitUntilDone:YES];
                 return;
             } else {
                 //学习码获取失败
                 NSLog(@"\n学习码获取失败\n");
-                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"学习失败，请重试！%@",[data objectForKey:@"message"]] waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"学习失败，请重试！"waitUntilDone:YES];
                 return;
             }
         } else {
-            [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"未能成功进入学习模式，请重试！%@",result] waitUntilDone:YES];
+             [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:@"未能成功进入学习模式，请重试！" waitUntilDone:YES];
             return;
         }
     });

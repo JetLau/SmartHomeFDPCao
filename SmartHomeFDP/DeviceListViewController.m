@@ -192,41 +192,27 @@
     if (indexPath.section == 0) {
         BLDeviceInfo *info = [_deviceArray objectAtIndex:indexPath.row];
         
-        [ProgressHUD show:@"状态查询中..."];
-        self.view.userInteractionEnabled = false;
+        //self.view.userInteractionEnabled = false;
         self.tabBarController.tabBar.userInteractionEnabled = false;
-        if ([info.type isEqualToString:@"SP2"])
-        {
-            
-        }
-        else if ([info.type isEqualToString:@"controller"])
-        {
-            dispatch_async(networkQueue, ^{
-                int code = 0;
-                if (code == 0)
-                {
-                    [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"" waitUntilDone:YES];
-                    [self enterRM2ViewController:info];
-                    return;
-                }
-                else
-                {
-                    [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"错误码＝%i",code] waitUntilDone:YES];
-                    return;
-                }
-            });
-            
-        }
+//        if ([info.type isEqualToString:@"SP2"])
+//        {
+//            
+//        }
+//        else if ([info.type isEqualToString:@"USR-c322"])
+//        {
+            [self enterRM2ViewController:info];
+            return;
+//        }
 
     }else if (indexPath.section==1){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            TCPDevice *deviceInfo=[_tcpDeviceArray objectAtIndex:indexPath.row];
-            TCPDeviceViewController *tcpDeviceViewController=[[TCPDeviceViewController alloc]init];
-            tcpDeviceViewController.deviceInfo=deviceInfo;
-        
-            [self.navigationController pushViewController:tcpDeviceViewController animated:YES];
-        });
-        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            TCPDevice *deviceInfo=[_tcpDeviceArray objectAtIndex:indexPath.row];
+//            TCPDeviceViewController *tcpDeviceViewController=[[TCPDeviceViewController alloc]init];
+//            tcpDeviceViewController.deviceInfo=deviceInfo;
+//        
+//            [self.navigationController pushViewController:tcpDeviceViewController animated:YES];
+//        });
+//        
         return;
     }
 }

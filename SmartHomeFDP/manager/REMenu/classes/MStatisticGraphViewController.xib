@@ -23,7 +23,7 @@
                         <constraint firstAttribute="height" constant="200" id="WNg-gA-RqA"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dDO-6W-HJo">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dDO-6W-HJo">
                     <rect key="frame" x="0.0" y="200" width="320" height="368"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="B9S-mL-uR6"/>

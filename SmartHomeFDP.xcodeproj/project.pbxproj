@@ -10,7 +10,6 @@
 		470DACF01A1F4E88003A9EE8 /* AddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACEA1A1F4E88003A9EE8 /* AddDeviceViewController.m */; };
 		470DACF11A1F4E88003A9EE8 /* AddDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DACEB1A1F4E88003A9EE8 /* AddDeviceViewController.xib */; };
 		470DACF21A1F4E88003A9EE8 /* UDPEasyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACED1A1F4E88003A9EE8 /* UDPEasyConfig.m */; };
-		470DACF31A1F4E88003A9EE8 /* BLEasyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACEF1A1F4E88003A9EE8 /* BLEasyConfig.m */; };
 		470DACFB1A1F4E95003A9EE8 /* VoiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACF51A1F4E95003A9EE8 /* VoiceManager.m */; };
 		470DACFC1A1F4E95003A9EE8 /* VoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACF71A1F4E95003A9EE8 /* VoiceViewController.m */; };
 		470DACFD1A1F4E95003A9EE8 /* VoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470DACF81A1F4E95003A9EE8 /* VoiceViewController.xib */; };
@@ -94,34 +93,10 @@
 		60156E3E1B8D5E7300FC24C1 /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E371B8D5E7300FC24C1 /* REMenuContainerView.m */; };
 		60156E3F1B8D5E7300FC24C1 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E391B8D5E7300FC24C1 /* REMenuItem.m */; };
 		60156E401B8D5E7300FC24C1 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E3B1B8D5E7300FC24C1 /* REMenuItemView.m */; };
-		60156E441B8D5F4B00FC24C1 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E431B8D5F4B00FC24C1 /* NavigationViewController.m */; };
 		60156E581B8D639A00FC24C1 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60156E571B8D639A00FC24C1 /* BaiduMapAPI.framework */; };
-		60156E5C1B8D66E100FC24C1 /* MSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E5A1B8D66E100FC24C1 /* MSettingViewController.m */; };
-		60156E5D1B8D66E100FC24C1 /* MSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E5B1B8D66E100FC24C1 /* MSettingViewController.xib */; };
-		60156E611B8D670A00FC24C1 /* MDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E5F1B8D670A00FC24C1 /* MDeviceManageViewController.m */; };
-		60156E621B8D670A00FC24C1 /* TestMDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E601B8D670A00FC24C1 /* TestMDeviceManageViewController.xib */; };
-		60156E661B8D672100FC24C1 /* MHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E641B8D672100FC24C1 /* MHomeViewController.m */; };
-		60156E671B8D672100FC24C1 /* MHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E651B8D672100FC24C1 /* MHomeViewController.xib */; };
-		60156E6B1B8EABA400FC24C1 /* OEMSQueryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E691B8EABA400FC24C1 /* OEMSQueryTableViewCell.m */; };
-		60156E6C1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E6A1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib */; };
-		60156E711B8F2F5B00FC24C1 /* MStatisicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E6F1B8F2F5B00FC24C1 /* MStatisicViewController.m */; };
-		60156E721B8F2F5B00FC24C1 /* MStatisicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E701B8F2F5B00FC24C1 /* MStatisicViewController.xib */; };
-		60156E7B1B8FECEB00FC24C1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E791B8FECEB00FC24C1 /* RegisterViewController.m */; };
-		60156E7C1B8FECEB00FC24C1 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E7A1B8FECEB00FC24C1 /* RegisterViewController.xib */; };
-		60156E7F1B8FEFF800FC24C1 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E7E1B8FEFF800FC24C1 /* UserInfo.m */; };
-		60156E831B9019E000FC24C1 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E811B9019E000FC24C1 /* UserDetailViewController.m */; };
-		60156E841B9019E000FC24C1 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E821B9019E000FC24C1 /* UserDetailViewController.xib */; };
-		60156E8A1B90267200FC24C1 /* MDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E891B90267200FC24C1 /* MDeviceManageViewController.xib */; };
-		60156E941B9026DF00FC24C1 /* TestMDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E931B9026DF00FC24C1 /* TestMDeviceManageViewController.m */; };
-		60156E9D1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156E9B1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.m */; };
-		60156E9E1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156E9C1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.xib */; };
-		60156EA21B90336000FC24C1 /* MStatisticGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156EA01B90336000FC24C1 /* MStatisticGraphViewController.m */; };
-		60156EA31B90336000FC24C1 /* MStatisticGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156EA11B90336000FC24C1 /* MStatisticGraphViewController.xib */; };
 		60156FB91B903A4500FC24C1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 60156FB81B903A4500FC24C1 /* Podfile */; };
 		60156FBC1B953C5100FC24C1 /* OEMSPieGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156FBB1B953C5100FC24C1 /* OEMSPieGraph.m */; };
 		60156FC01B953CB400FC24C1 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156FBF1B953CB400FC24C1 /* FXLabel.m */; };
-		60156FC41B953D2400FC24C1 /* OEMSEnergyGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156FC21B953D2400FC24C1 /* OEMSEnergyGraphViewController.m */; };
-		60156FC51B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60156FC31B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib */; };
 		602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A78301AD4BF6A00A77E84 /* LightViewController.m */; };
 		602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A78311AD4BF6A00A77E84 /* LightViewController.xib */; };
 		60421DD41A0E7421007E868D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
@@ -174,7 +149,6 @@
 		606DCA651B0C712C001B78E8 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DCF1A0E7421007E868D /* NSObject+MJCoding.m */; };
 		606DCA661B0C712C001B78E8 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DAD001A1F4EAA003A9EE8 /* SettingViewController.m */; };
 		606DCA671B0C712C001B78E8 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F021A1A106F00F07B8C /* AFNetworkReachabilityManager.m */; };
-		606DCA681B0C712C001B78E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F8E1A0903E6002E3764 /* LoginViewController.m */; };
 		606DCA691B0C712C001B78E8 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC01A0E7421007E868D /* MJConst.m */; };
 		606DCA6A1B0C712C001B78E8 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A27A1B018EA7005314A5 /* MapViewController.mm */; };
 		606DCA6B1B0C712C001B78E8 /* LJCommonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F831A08F19F002E3764 /* LJCommonGroup.m */; };
@@ -183,7 +157,6 @@
 		606DCA6E1B0C712C001B78E8 /* LJCommonArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FCC1A090A88002E3764 /* LJCommonArrowItem.m */; };
 		606DCA6F1B0C712C001B78E8 /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032F3F1A1D7CEC00F07B8C /* RCDraggableButton.m */; };
 		606DCA701B0C712C001B78E8 /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F641A0879FA002E3764 /* SBJson4Parser.m */; };
-		606DCA711B0C712C001B78E8 /* BLEasyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACEF1A1F4E88003A9EE8 /* BLEasyConfig.m */; };
 		606DCA721B0C712C001B78E8 /* VoiceCommandRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DACFA1A1F4E95003A9EE8 /* VoiceCommandRecognizer.m */; };
 		606DCA731B0C712C001B78E8 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F6C1A0879FA002E3764 /* SBJson4StreamWriter.m */; };
 		606DCA741B0C712C001B78E8 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D5709C1A22CFA100646865 /* CustomCollectionViewCell.m */; };
@@ -220,7 +193,6 @@
 		606DCA931B0C712C001B78E8 /* RemoteControlDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BEC0631A0B13F700FD9CDC /* RemoteControlDeviceViewController.m */; };
 		606DCA941B0C712C001B78E8 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F6A1A0879FA002E3764 /* SBJson4StreamTokeniser.m */; };
 		606DCA951B0C712C001B78E8 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60032EFD1A1A106F00F07B8C /* AFHTTPRequestOperationManager.m */; };
-		606DCA961B0C712C001B78E8 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FDE1A09AFBD002E3764 /* RootController.m */; };
 		606DCA971B0C712C001B78E8 /* MJMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC91A0E7421007E868D /* MJMethod.m */; };
 		606DCA981B0C712C001B78E8 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7818F1A47AC7300F48B5F /* StatisticViewController.m */; };
 		606DCA991B0C712C001B78E8 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F471A087827002E3764 /* ISRDataHelper.m */; };
@@ -312,7 +284,6 @@
 		606DCAF11B0C712C001B78E8 /* btn_tv_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F261A1CA5E000F07B8C /* btn_tv_up.png */; };
 		606DCAF21B0C712C001B78E8 /* btn_tv_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 60032F231A1CA5E000F07B8C /* btn_tv_down.png */; };
 		606DCAF31B0C712C001B78E8 /* login_bg_ip5@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200D1A0A3C67002E3764 /* login_bg_ip5@2x.jpg */; };
-		606DCAF41B0C712C001B78E8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C01F911A090654002E3764 /* LoginViewController.xib */; };
 		606DCAF51B0C712C001B78E8 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60BBC6DB1A343BB60023906B /* Settings.bundle */; };
 		606DCAF61B0C712C001B78E8 /* DeviceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C01F7E1A08C28E002E3764 /* DeviceListViewController.xib */; };
 		606DCAF71B0C712C001B78E8 /* home_light_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C020261A0A3C67002E3764 /* home_light_green.png */; };
@@ -380,15 +351,12 @@
 		60C01F881A08F19F002E3764 /* LJCommonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F831A08F19F002E3764 /* LJCommonGroup.m */; };
 		60C01F891A08F19F002E3764 /* LJCommonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F851A08F19F002E3764 /* LJCommonItem.m */; };
 		60C01F8A1A08F19F002E3764 /* LJCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F871A08F19F002E3764 /* LJCommonCell.m */; };
-		60C01F901A0903E6002E3764 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01F8E1A0903E6002E3764 /* LoginViewController.m */; };
-		60C01F921A090654002E3764 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C01F911A090654002E3764 /* LoginViewController.xib */; };
 		60C01FD31A090A88002E3764 /* LJCommonArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FCC1A090A88002E3764 /* LJCommonArrowItem.m */; };
 		60C01FD41A090A88002E3764 /* LJCommonSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FCE1A090A88002E3764 /* LJCommonSwitchItem.m */; };
 		60C01FD51A090A88002E3764 /* LJCommonLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FD01A090A88002E3764 /* LJCommonLabelItem.m */; };
 		60C01FD61A090A88002E3764 /* LJBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FD21A090A88002E3764 /* LJBadgeView.m */; };
 		60C01FDB1A09152E002E3764 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60C01FD81A09152E002E3764 /* ProgressHUD.bundle */; };
 		60C01FDC1A09152E002E3764 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FDA1A09152E002E3764 /* ProgressHUD.m */; };
-		60C01FDF1A09AFBD002E3764 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FDE1A09AFBD002E3764 /* RootController.m */; };
 		60C01FE31A0A0626002E3764 /* LJCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C01FE21A0A0626002E3764 /* LJCommonViewController.m */; };
 		60C0202D1A0A3C67002E3764 /* login_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200B1A0A3C67002E3764 /* login_bg.jpg */; };
 		60C0202E1A0A3C67002E3764 /* login_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0200C1A0A3C67002E3764 /* login_bg@2x.jpg */; };
@@ -443,6 +411,36 @@
 		60C7A2781B018E26005314A5 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A2771B018E26005314A5 /* MyPoint.m */; };
 		60C7A27C1B018EA7005314A5 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A27A1B018EA7005314A5 /* MapViewController.mm */; };
 		60C7A27D1B018EA7005314A5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7A27B1B018EA7005314A5 /* MapViewController.xib */; };
+		60CCFC111BB0E04E0067AE44 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC101BB0E04E0067AE44 /* NavigationViewController.m */; };
+		60CCFC151BB0E0700067AE44 /* MHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC131BB0E0700067AE44 /* MHomeViewController.m */; };
+		60CCFC161BB0E0700067AE44 /* MHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC141BB0E0700067AE44 /* MHomeViewController.xib */; };
+		60CCFC231BB0E08B0067AE44 /* OEMSQueryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC181BB0E08B0067AE44 /* OEMSQueryTableViewCell.m */; };
+		60CCFC241BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC191BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib */; };
+		60CCFC251BB0E08B0067AE44 /* MDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC1B1BB0E08B0067AE44 /* MDeviceManageViewController.m */; };
+		60CCFC261BB0E08B0067AE44 /* MDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC1C1BB0E08B0067AE44 /* MDeviceManageViewController.xib */; };
+		60CCFC271BB0E08B0067AE44 /* TestMDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC1E1BB0E08B0067AE44 /* TestMDeviceManageViewController.m */; };
+		60CCFC281BB0E08B0067AE44 /* TestMDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC1F1BB0E08B0067AE44 /* TestMDeviceManageViewController.xib */; };
+		60CCFC291BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC211BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m */; };
+		60CCFC2A1BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC221BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib */; };
+		60CCFC341BB0E0BE0067AE44 /* MStatisicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC2C1BB0E0BE0067AE44 /* MStatisicViewController.m */; };
+		60CCFC351BB0E0BE0067AE44 /* MStatisicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC2D1BB0E0BE0067AE44 /* MStatisicViewController.xib */; };
+		60CCFC361BB0E0BE0067AE44 /* MStatisticGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC2F1BB0E0BE0067AE44 /* MStatisticGraphViewController.m */; };
+		60CCFC371BB0E0BE0067AE44 /* MStatisticGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC301BB0E0BE0067AE44 /* MStatisticGraphViewController.xib */; };
+		60CCFC381BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC321BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m */; };
+		60CCFC391BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC331BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib */; };
+		60CCFC401BB0E0DB0067AE44 /* MSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC3B1BB0E0DB0067AE44 /* MSettingViewController.m */; };
+		60CCFC411BB0E0DB0067AE44 /* MSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC3C1BB0E0DB0067AE44 /* MSettingViewController.xib */; };
+		60CCFC421BB0E0DB0067AE44 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC3E1BB0E0DB0067AE44 /* UserDetailViewController.m */; };
+		60CCFC431BB0E0DB0067AE44 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC3F1BB0E0DB0067AE44 /* UserDetailViewController.xib */; };
+		60CCFC461BB0E20C0067AE44 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC451BB0E20C0067AE44 /* RootController.m */; };
+		60CCFC4F1BB0E2410067AE44 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC481BB0E2410067AE44 /* RegisterViewController.m */; };
+		60CCFC501BB0E2410067AE44 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC491BB0E2410067AE44 /* RegisterViewController.xib */; };
+		60CCFC511BB0E2410067AE44 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC4A1BB0E2410067AE44 /* LoginViewController.xib */; };
+		60CCFC521BB0E2410067AE44 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC4C1BB0E2410067AE44 /* LoginViewController.m */; };
+		60CCFC531BB0E2410067AE44 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC4E1BB0E2410067AE44 /* UserInfo.m */; };
+		60CCFC561BB0E4C90067AE44 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */; };
+		60CCFC591BB0E5DC0067AE44 /* UDPCaoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC581BB0E5DC0067AE44 /* UDPCaoConfig.m */; };
+		60CCFC611BB11C230067AE44 /* CaoStudyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC601BB11C230067AE44 /* CaoStudyModel.m */; };
 		60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */; };
 		69774F93F4E091DFF265B7C0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7078683096A9AE8A10EFBB0E /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -463,8 +461,6 @@
 		470DACEB1A1F4E88003A9EE8 /* AddDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDeviceViewController.xib; sourceTree = "<group>"; };
 		470DACEC1A1F4E88003A9EE8 /* UDPEasyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPEasyConfig.h; sourceTree = "<group>"; };
 		470DACED1A1F4E88003A9EE8 /* UDPEasyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPEasyConfig.m; sourceTree = "<group>"; };
-		470DACEE1A1F4E88003A9EE8 /* BLEasyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEasyConfig.h; sourceTree = "<group>"; };
-		470DACEF1A1F4E88003A9EE8 /* BLEasyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEasyConfig.m; sourceTree = "<group>"; };
 		470DACF41A1F4E95003A9EE8 /* VoiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceManager.h; sourceTree = "<group>"; };
 		470DACF51A1F4E95003A9EE8 /* VoiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceManager.m; sourceTree = "<group>"; };
 		470DACF61A1F4E95003A9EE8 /* VoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceViewController.h; sourceTree = "<group>"; };
@@ -604,49 +600,12 @@
 		60156E391B8D5E7300FC24C1 /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
 		60156E3A1B8D5E7300FC24C1 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
 		60156E3B1B8D5E7300FC24C1 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
-		60156E421B8D5F4B00FC24C1 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
-		60156E431B8D5F4B00FC24C1 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		60156E571B8D639A00FC24C1 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
-		60156E591B8D66E100FC24C1 /* MSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSettingViewController.h; sourceTree = "<group>"; };
-		60156E5A1B8D66E100FC24C1 /* MSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSettingViewController.m; sourceTree = "<group>"; };
-		60156E5B1B8D66E100FC24C1 /* MSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSettingViewController.xib; sourceTree = "<group>"; };
-		60156E5E1B8D670A00FC24C1 /* MDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDeviceManageViewController.h; sourceTree = "<group>"; };
-		60156E5F1B8D670A00FC24C1 /* MDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDeviceManageViewController.m; sourceTree = "<group>"; };
-		60156E601B8D670A00FC24C1 /* TestMDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMDeviceManageViewController.xib; sourceTree = "<group>"; };
-		60156E631B8D672100FC24C1 /* MHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHomeViewController.h; sourceTree = "<group>"; };
-		60156E641B8D672100FC24C1 /* MHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHomeViewController.m; sourceTree = "<group>"; };
-		60156E651B8D672100FC24C1 /* MHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHomeViewController.xib; sourceTree = "<group>"; };
-		60156E681B8EABA400FC24C1 /* OEMSQueryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSQueryTableViewCell.h; sourceTree = "<group>"; };
-		60156E691B8EABA400FC24C1 /* OEMSQueryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSQueryTableViewCell.m; sourceTree = "<group>"; };
-		60156E6A1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSQueryTableViewCell.xib; sourceTree = "<group>"; };
-		60156E6E1B8F2F5B00FC24C1 /* MStatisicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisicViewController.h; sourceTree = "<group>"; };
-		60156E6F1B8F2F5B00FC24C1 /* MStatisicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisicViewController.m; sourceTree = "<group>"; };
-		60156E701B8F2F5B00FC24C1 /* MStatisicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisicViewController.xib; sourceTree = "<group>"; };
-		60156E781B8FECEB00FC24C1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		60156E791B8FECEB00FC24C1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		60156E7A1B8FECEB00FC24C1 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		60156E7D1B8FEFF800FC24C1 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
-		60156E7E1B8FEFF800FC24C1 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
-		60156E801B9019E000FC24C1 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
-		60156E811B9019E000FC24C1 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
-		60156E821B9019E000FC24C1 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
-		60156E891B90267200FC24C1 /* MDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDeviceManageViewController.xib; sourceTree = "<group>"; };
-		60156E921B9026DF00FC24C1 /* TestMDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMDeviceManageViewController.h; sourceTree = "<group>"; };
-		60156E931B9026DF00FC24C1 /* TestMDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMDeviceManageViewController.m; sourceTree = "<group>"; };
-		60156E9A1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffEnqueryDeviceTableViewController.h; sourceTree = "<group>"; };
-		60156E9B1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffEnqueryDeviceTableViewController.m; sourceTree = "<group>"; };
-		60156E9C1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiffEnqueryDeviceTableViewController.xib; sourceTree = "<group>"; };
-		60156E9F1B90336000FC24C1 /* MStatisticGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisticGraphViewController.h; sourceTree = "<group>"; };
-		60156EA01B90336000FC24C1 /* MStatisticGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisticGraphViewController.m; sourceTree = "<group>"; };
-		60156EA11B90336000FC24C1 /* MStatisticGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisticGraphViewController.xib; sourceTree = "<group>"; };
-		60156FB81B903A4500FC24C1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		60156FB81B903A4500FC24C1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		60156FBA1B953C5100FC24C1 /* OEMSPieGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSPieGraph.h; sourceTree = "<group>"; };
 		60156FBB1B953C5100FC24C1 /* OEMSPieGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSPieGraph.m; sourceTree = "<group>"; };
 		60156FBE1B953CB400FC24C1 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
 		60156FBF1B953CB400FC24C1 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
-		60156FC11B953D2400FC24C1 /* OEMSEnergyGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSEnergyGraphViewController.h; sourceTree = "<group>"; };
-		60156FC21B953D2400FC24C1 /* OEMSEnergyGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSEnergyGraphViewController.m; sourceTree = "<group>"; };
-		60156FC31B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSEnergyGraphViewController.xib; sourceTree = "<group>"; };
 		602A782F1AD4BF6A00A77E84 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		602A78301AD4BF6A00A77E84 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		602A78311AD4BF6A00A77E84 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
@@ -746,9 +705,6 @@
 		60C01F851A08F19F002E3764 /* LJCommonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommonItem.m; sourceTree = "<group>"; };
 		60C01F861A08F19F002E3764 /* LJCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommonCell.h; sourceTree = "<group>"; };
 		60C01F871A08F19F002E3764 /* LJCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommonCell.m; sourceTree = "<group>"; };
-		60C01F8D1A0903E6002E3764 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		60C01F8E1A0903E6002E3764 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		60C01F911A090654002E3764 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		60C01FCB1A090A88002E3764 /* LJCommonArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommonArrowItem.h; sourceTree = "<group>"; };
 		60C01FCC1A090A88002E3764 /* LJCommonArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommonArrowItem.m; sourceTree = "<group>"; };
 		60C01FCD1A090A88002E3764 /* LJCommonSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommonSwitchItem.h; sourceTree = "<group>"; };
@@ -760,8 +716,6 @@
 		60C01FD81A09152E002E3764 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		60C01FD91A09152E002E3764 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		60C01FDA1A09152E002E3764 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
-		60C01FDD1A09AFBD002E3764 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
-		60C01FDE1A09AFBD002E3764 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
 		60C01FE11A0A0626002E3764 /* LJCommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCommonViewController.h; sourceTree = "<group>"; };
 		60C01FE21A0A0626002E3764 /* LJCommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCommonViewController.m; sourceTree = "<group>"; };
 		60C0200B1A0A3C67002E3764 /* login_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_bg.jpg; sourceTree = "<group>"; };
@@ -821,6 +775,54 @@
 		60C7A2791B018EA7005314A5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		60C7A27A1B018EA7005314A5 /* MapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MapViewController.mm; sourceTree = "<group>"; };
 		60C7A27B1B018EA7005314A5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		60CCFC0F1BB0E04E0067AE44 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		60CCFC101BB0E04E0067AE44 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		60CCFC121BB0E0700067AE44 /* MHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHomeViewController.h; sourceTree = "<group>"; };
+		60CCFC131BB0E0700067AE44 /* MHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHomeViewController.m; sourceTree = "<group>"; };
+		60CCFC141BB0E0700067AE44 /* MHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHomeViewController.xib; sourceTree = "<group>"; };
+		60CCFC171BB0E08B0067AE44 /* OEMSQueryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSQueryTableViewCell.h; sourceTree = "<group>"; };
+		60CCFC181BB0E08B0067AE44 /* OEMSQueryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSQueryTableViewCell.m; sourceTree = "<group>"; };
+		60CCFC191BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSQueryTableViewCell.xib; sourceTree = "<group>"; };
+		60CCFC1A1BB0E08B0067AE44 /* MDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDeviceManageViewController.h; sourceTree = "<group>"; };
+		60CCFC1B1BB0E08B0067AE44 /* MDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDeviceManageViewController.m; sourceTree = "<group>"; };
+		60CCFC1C1BB0E08B0067AE44 /* MDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDeviceManageViewController.xib; sourceTree = "<group>"; };
+		60CCFC1D1BB0E08B0067AE44 /* TestMDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMDeviceManageViewController.h; sourceTree = "<group>"; };
+		60CCFC1E1BB0E08B0067AE44 /* TestMDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMDeviceManageViewController.m; sourceTree = "<group>"; };
+		60CCFC1F1BB0E08B0067AE44 /* TestMDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMDeviceManageViewController.xib; sourceTree = "<group>"; };
+		60CCFC201BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffEnqueryDeviceTableViewController.h; sourceTree = "<group>"; };
+		60CCFC211BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffEnqueryDeviceTableViewController.m; sourceTree = "<group>"; };
+		60CCFC221BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiffEnqueryDeviceTableViewController.xib; sourceTree = "<group>"; };
+		60CCFC2B1BB0E0BE0067AE44 /* MStatisicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisicViewController.h; sourceTree = "<group>"; };
+		60CCFC2C1BB0E0BE0067AE44 /* MStatisicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisicViewController.m; sourceTree = "<group>"; };
+		60CCFC2D1BB0E0BE0067AE44 /* MStatisicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisicViewController.xib; sourceTree = "<group>"; };
+		60CCFC2E1BB0E0BE0067AE44 /* MStatisticGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisticGraphViewController.h; sourceTree = "<group>"; };
+		60CCFC2F1BB0E0BE0067AE44 /* MStatisticGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisticGraphViewController.m; sourceTree = "<group>"; };
+		60CCFC301BB0E0BE0067AE44 /* MStatisticGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisticGraphViewController.xib; sourceTree = "<group>"; };
+		60CCFC311BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSEnergyGraphViewController.h; sourceTree = "<group>"; };
+		60CCFC321BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSEnergyGraphViewController.m; sourceTree = "<group>"; };
+		60CCFC331BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSEnergyGraphViewController.xib; sourceTree = "<group>"; };
+		60CCFC3A1BB0E0DB0067AE44 /* MSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSettingViewController.h; sourceTree = "<group>"; };
+		60CCFC3B1BB0E0DB0067AE44 /* MSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSettingViewController.m; sourceTree = "<group>"; };
+		60CCFC3C1BB0E0DB0067AE44 /* MSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSettingViewController.xib; sourceTree = "<group>"; };
+		60CCFC3D1BB0E0DB0067AE44 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
+		60CCFC3E1BB0E0DB0067AE44 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
+		60CCFC3F1BB0E0DB0067AE44 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
+		60CCFC441BB0E20C0067AE44 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
+		60CCFC451BB0E20C0067AE44 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
+		60CCFC471BB0E2410067AE44 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		60CCFC481BB0E2410067AE44 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		60CCFC491BB0E2410067AE44 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		60CCFC4A1BB0E2410067AE44 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		60CCFC4B1BB0E2410067AE44 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		60CCFC4C1BB0E2410067AE44 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		60CCFC4D1BB0E2410067AE44 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		60CCFC4E1BB0E2410067AE44 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		60CCFC541BB0E4C90067AE44 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		60CCFC571BB0E5DC0067AE44 /* UDPCaoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPCaoConfig.h; sourceTree = "<group>"; };
+		60CCFC581BB0E5DC0067AE44 /* UDPCaoConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPCaoConfig.m; sourceTree = "<group>"; };
+		60CCFC5F1BB11C230067AE44 /* CaoStudyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaoStudyModel.h; sourceTree = "<group>"; };
+		60CCFC601BB11C230067AE44 /* CaoStudyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaoStudyModel.m; sourceTree = "<group>"; };
 		60D3E9A91A678BF9004FEF75 /* BLDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDeviceManager.h; sourceTree = "<group>"; };
 		60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDeviceManager.m; sourceTree = "<group>"; };
 		7078683096A9AE8A10EFBB0E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -976,19 +978,20 @@
 		47B19C8E1A0209B100FFA873 /* SmartHomeFDP */ = {
 			isa = PBXGroup;
 			children = (
+				47B19C931A0209B100FFA873 /* AppDelegate.h */,
+				47B19C941A0209B100FFA873 /* AppDelegate.m */,
+				60CCFC441BB0E20C0067AE44 /* RootController.h */,
+				60CCFC451BB0E20C0067AE44 /* RootController.m */,
+				60032F161A1AF1F600F07B8C /* APIS */,
+				60C01F8B1A0903D4002E3764 /* Login */,
 				60156E2E1B8D58AE00FC24C1 /* manager */,
 				60156E151B8C88C700FC24C1 /* Library */,
 				60C7A26B1AEF21E7005314A5 /* SCRFTPRequest */,
-				60032F161A1AF1F600F07B8C /* APIS */,
 				60032EF91A1A105400F07B8C /* AFNetworking */,
-				47B19C931A0209B100FFA873 /* AppDelegate.h */,
-				47B19C941A0209B100FFA873 /* AppDelegate.m */,
-				60C01FDD1A09AFBD002E3764 /* RootController.h */,
-				60C01FDE1A09AFBD002E3764 /* RootController.m */,
 				60421DBC1A0E7420007E868D /* MJExtension */,
 				60C01FD71A09152E002E3764 /* ProgressHUD */,
 				60C01F811A08F181002E3764 /* CustomCell */,
-				60C01F4D1A087836002E3764 /* BroadLink */,
+				60C01F4D1A087836002E3764 /* ControllerManager */,
 				60C01F451A08781A002E3764 /* MSC */,
 				606C9B561A065879003BA6AD /* MainViewLists */,
 				47B19C9C1A0209B100FFA873 /* Images.xcassets */,
@@ -1212,8 +1215,8 @@
 		60156E411B8D5F1E00FC24C1 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				60156E421B8D5F4B00FC24C1 /* NavigationViewController.h */,
-				60156E431B8D5F4B00FC24C1 /* NavigationViewController.m */,
+				60CCFC0F1BB0E04E0067AE44 /* NavigationViewController.h */,
+				60CCFC101BB0E04E0067AE44 /* NavigationViewController.m */,
 				60156E451B8D5F7E00FC24C1 /* home */,
 				60156E4B1B8D601000FC24C1 /* devicemanager */,
 				60156E6D1B8F2F0C00FC24C1 /* statistics */,
@@ -1226,9 +1229,9 @@
 		60156E451B8D5F7E00FC24C1 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				60156E631B8D672100FC24C1 /* MHomeViewController.h */,
-				60156E641B8D672100FC24C1 /* MHomeViewController.m */,
-				60156E651B8D672100FC24C1 /* MHomeViewController.xib */,
+				60CCFC121BB0E0700067AE44 /* MHomeViewController.h */,
+				60CCFC131BB0E0700067AE44 /* MHomeViewController.m */,
+				60CCFC141BB0E0700067AE44 /* MHomeViewController.xib */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -1236,18 +1239,18 @@
 		60156E4B1B8D601000FC24C1 /* devicemanager */ = {
 			isa = PBXGroup;
 			children = (
-				60156E681B8EABA400FC24C1 /* OEMSQueryTableViewCell.h */,
-				60156E691B8EABA400FC24C1 /* OEMSQueryTableViewCell.m */,
-				60156E6A1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib */,
-				60156E5E1B8D670A00FC24C1 /* MDeviceManageViewController.h */,
-				60156E5F1B8D670A00FC24C1 /* MDeviceManageViewController.m */,
-				60156E891B90267200FC24C1 /* MDeviceManageViewController.xib */,
-				60156E921B9026DF00FC24C1 /* TestMDeviceManageViewController.h */,
-				60156E931B9026DF00FC24C1 /* TestMDeviceManageViewController.m */,
-				60156E601B8D670A00FC24C1 /* TestMDeviceManageViewController.xib */,
-				60156E9A1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.h */,
-				60156E9B1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.m */,
-				60156E9C1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.xib */,
+				60CCFC171BB0E08B0067AE44 /* OEMSQueryTableViewCell.h */,
+				60CCFC181BB0E08B0067AE44 /* OEMSQueryTableViewCell.m */,
+				60CCFC191BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib */,
+				60CCFC1A1BB0E08B0067AE44 /* MDeviceManageViewController.h */,
+				60CCFC1B1BB0E08B0067AE44 /* MDeviceManageViewController.m */,
+				60CCFC1C1BB0E08B0067AE44 /* MDeviceManageViewController.xib */,
+				60CCFC1D1BB0E08B0067AE44 /* TestMDeviceManageViewController.h */,
+				60CCFC1E1BB0E08B0067AE44 /* TestMDeviceManageViewController.m */,
+				60CCFC1F1BB0E08B0067AE44 /* TestMDeviceManageViewController.xib */,
+				60CCFC201BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.h */,
+				60CCFC211BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m */,
+				60CCFC221BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib */,
 			);
 			name = devicemanager;
 			sourceTree = "<group>";
@@ -1255,12 +1258,12 @@
 		60156E511B8D60FF00FC24C1 /* setting */ = {
 			isa = PBXGroup;
 			children = (
-				60156E801B9019E000FC24C1 /* UserDetailViewController.h */,
-				60156E811B9019E000FC24C1 /* UserDetailViewController.m */,
-				60156E821B9019E000FC24C1 /* UserDetailViewController.xib */,
-				60156E591B8D66E100FC24C1 /* MSettingViewController.h */,
-				60156E5A1B8D66E100FC24C1 /* MSettingViewController.m */,
-				60156E5B1B8D66E100FC24C1 /* MSettingViewController.xib */,
+				60CCFC3A1BB0E0DB0067AE44 /* MSettingViewController.h */,
+				60CCFC3B1BB0E0DB0067AE44 /* MSettingViewController.m */,
+				60CCFC3C1BB0E0DB0067AE44 /* MSettingViewController.xib */,
+				60CCFC3D1BB0E0DB0067AE44 /* UserDetailViewController.h */,
+				60CCFC3E1BB0E0DB0067AE44 /* UserDetailViewController.m */,
+				60CCFC3F1BB0E0DB0067AE44 /* UserDetailViewController.xib */,
 			);
 			name = setting;
 			sourceTree = "<group>";
@@ -1269,15 +1272,15 @@
 			isa = PBXGroup;
 			children = (
 				60156EA41B90340F00FC24C1 /* graph */,
-				60156E6E1B8F2F5B00FC24C1 /* MStatisicViewController.h */,
-				60156E6F1B8F2F5B00FC24C1 /* MStatisicViewController.m */,
-				60156E701B8F2F5B00FC24C1 /* MStatisicViewController.xib */,
-				60156E9F1B90336000FC24C1 /* MStatisticGraphViewController.h */,
-				60156EA01B90336000FC24C1 /* MStatisticGraphViewController.m */,
-				60156EA11B90336000FC24C1 /* MStatisticGraphViewController.xib */,
-				60156FC11B953D2400FC24C1 /* OEMSEnergyGraphViewController.h */,
-				60156FC21B953D2400FC24C1 /* OEMSEnergyGraphViewController.m */,
-				60156FC31B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib */,
+				60CCFC2B1BB0E0BE0067AE44 /* MStatisicViewController.h */,
+				60CCFC2C1BB0E0BE0067AE44 /* MStatisicViewController.m */,
+				60CCFC2D1BB0E0BE0067AE44 /* MStatisicViewController.xib */,
+				60CCFC2E1BB0E0BE0067AE44 /* MStatisticGraphViewController.h */,
+				60CCFC2F1BB0E0BE0067AE44 /* MStatisticGraphViewController.m */,
+				60CCFC301BB0E0BE0067AE44 /* MStatisticGraphViewController.xib */,
+				60CCFC311BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.h */,
+				60CCFC321BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m */,
+				60CCFC331BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib */,
 			);
 			name = statistics;
 			sourceTree = "<group>";
@@ -1362,7 +1365,6 @@
 		606C9B561A065879003BA6AD /* MainViewLists */ = {
 			isa = PBXGroup;
 			children = (
-				60C01F8B1A0903D4002E3764 /* Login */,
 				47B19CB51A020AA800FFA873 /* MainTabBarView */,
 				60C01F2C1A072375002E3764 /* HomeView */,
 				60C01F2D1A072384002E3764 /* AddDeviceView */,
@@ -1411,8 +1413,10 @@
 				60156E2B1B8C8B7A00FC24C1 /* CaoConfig.m */,
 				470DACEC1A1F4E88003A9EE8 /* UDPEasyConfig.h */,
 				470DACED1A1F4E88003A9EE8 /* UDPEasyConfig.m */,
-				470DACEE1A1F4E88003A9EE8 /* BLEasyConfig.h */,
-				470DACEF1A1F4E88003A9EE8 /* BLEasyConfig.m */,
+				60CCFC541BB0E4C90067AE44 /* AsyncUdpSocket.h */,
+				60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */,
+				60CCFC571BB0E5DC0067AE44 /* UDPCaoConfig.h */,
+				60CCFC581BB0E5DC0067AE44 /* UDPCaoConfig.m */,
 			);
 			name = AddDeviceView;
 			sourceTree = "<group>";
@@ -1481,7 +1485,7 @@
 			name = MSC;
 			sourceTree = "<group>";
 		};
-		60C01F4D1A087836002E3764 /* BroadLink */ = {
+		60C01F4D1A087836002E3764 /* ControllerManager */ = {
 			isa = PBXGroup;
 			children = (
 				60C01F321A072567002E3764 /* BLDeviceInfo.h */,
@@ -1489,8 +1493,10 @@
 				60C01F521A087966002E3764 /* 3rd */,
 				60D3E9A91A678BF9004FEF75 /* BLDeviceManager.h */,
 				60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */,
+				60CCFC5F1BB11C230067AE44 /* CaoStudyModel.h */,
+				60CCFC601BB11C230067AE44 /* CaoStudyModel.m */,
 			);
-			name = BroadLink;
+			name = ControllerManager;
 			sourceTree = "<group>";
 		};
 		60C01F521A087966002E3764 /* 3rd */ = {
@@ -1580,14 +1586,14 @@
 		60C01F8B1A0903D4002E3764 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				60156E781B8FECEB00FC24C1 /* RegisterViewController.h */,
-				60156E791B8FECEB00FC24C1 /* RegisterViewController.m */,
-				60156E7A1B8FECEB00FC24C1 /* RegisterViewController.xib */,
-				60C01F911A090654002E3764 /* LoginViewController.xib */,
-				60C01F8D1A0903E6002E3764 /* LoginViewController.h */,
-				60C01F8E1A0903E6002E3764 /* LoginViewController.m */,
-				60156E7D1B8FEFF800FC24C1 /* UserInfo.h */,
-				60156E7E1B8FEFF800FC24C1 /* UserInfo.m */,
+				60CCFC471BB0E2410067AE44 /* RegisterViewController.h */,
+				60CCFC481BB0E2410067AE44 /* RegisterViewController.m */,
+				60CCFC491BB0E2410067AE44 /* RegisterViewController.xib */,
+				60CCFC4A1BB0E2410067AE44 /* LoginViewController.xib */,
+				60CCFC4B1BB0E2410067AE44 /* LoginViewController.h */,
+				60CCFC4C1BB0E2410067AE44 /* LoginViewController.m */,
+				60CCFC4D1BB0E2410067AE44 /* UserInfo.h */,
+				60CCFC4E1BB0E2410067AE44 /* UserInfo.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -1830,7 +1836,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60156E671B8D672100FC24C1 /* MHomeViewController.xib in Resources */,
 				60C01FDB1A09152E002E3764 /* ProgressHUD.bundle in Resources */,
 				60A781941A47F4C400F48B5F /* StatisticInfo.plist in Resources */,
 				60C020601A0A614C002E3764 /* light.png in Resources */,
@@ -1840,18 +1845,15 @@
 				60C0206F1A0A6E12002E3764 /* voiceImgLight.jpg in Resources */,
 				60C7A27D1B018EA7005314A5 /* MapViewController.xib in Resources */,
 				60421DE91A0F81C8007E868D /* RMDeviceInfo.plist in Resources */,
-				60156E9E1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.xib in Resources */,
 				4725720D1A0E034C002B12DE /* AirConditionViewController.xib in Resources */,
 				60C020551A0A3C86002E3764 /* projector.png in Resources */,
 				60C020441A0A3C67002E3764 /* add_light.png in Resources */,
 				60C0203A1A0A3C67002E3764 /* login_textfield_bottom.png in Resources */,
-				60156E621B8D670A00FC24C1 /* TestMDeviceManageViewController.xib in Resources */,
 				60421DF21A0FB29F007E868D /* textField.png in Resources */,
 				60A781921A47AC7300F48B5F /* StatisticViewController.xib in Resources */,
 				60C020491A0A3C67002E3764 /* list_light.png in Resources */,
 				47B19CA01A0209B100FFA873 /* LaunchScreen.xib in Resources */,
 				60156E261B8C88C700FC24C1 /* FTC.plist in Resources */,
-				60156E721B8F2F5B00FC24C1 /* MStatisicViewController.xib in Resources */,
 				60C020381A0A3C67002E3764 /* login_textfield.png in Resources */,
 				60C020701A0A6E12002E3764 /* voiceImgLight@2x.jpg in Resources */,
 				60C0203E1A0A3C67002E3764 /* login_textfield_more@2x.png in Resources */,
@@ -1859,9 +1861,9 @@
 				60C0204C1A0A3C67002E3764 /* voice_dark.png in Resources */,
 				60C0203B1A0A3C67002E3764 /* login_textfield_bottom@2x.png in Resources */,
 				470DAD031A1F4EAA003A9EE8 /* SettingViewController.xib in Resources */,
+				60CCFC411BB0E0DB0067AE44 /* MSettingViewController.xib in Resources */,
 				60032F521A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib in Resources */,
 				60032F381A1CB8BD00F07B8C /* btn_stop_press.png in Resources */,
-				60156EA31B90336000FC24C1 /* MStatisticGraphViewController.xib in Resources */,
 				60032F321A1CB70B00F07B8C /* AirCondition_reduce_press.png in Resources */,
 				60C020451A0A3C67002E3764 /* home_dark.png in Resources */,
 				470DACF11A1F4E88003A9EE8 /* AddDeviceViewController.xib in Resources */,
@@ -1871,15 +1873,20 @@
 				470DAD231A21A509003A9EE8 /* ChangeTCPButtonInfoViewController.xib in Resources */,
 				60421DF01A0FAEDF007E868D /* BtnStudyViewController.xib in Resources */,
 				60C0206E1A0A6E12002E3764 /* voiceImg@2x.jpg in Resources */,
+				60CCFC2A1BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib in Resources */,
 				602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */,
 				47BEC04D1A0B084D00FD9CDC /* TVViewController.xib in Resources */,
 				60C0204A1A0A3C67002E3764 /* setter_dark.png in Resources */,
 				60C020541A0A3C86002E3764 /* curtain.png in Resources */,
+				60CCFC241BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib in Resources */,
 				60032F281A1CA5E000F07B8C /* btn_ok_press.png in Resources */,
 				60C020481A0A3C67002E3764 /* list_dark.png in Resources */,
+				60CCFC371BB0E0BE0067AE44 /* MStatisticGraphViewController.xib in Resources */,
+				60CCFC281BB0E08B0067AE44 /* TestMDeviceManageViewController.xib in Resources */,
 				60C0202E1A0A3C67002E3764 /* login_bg@2x.jpg in Resources */,
 				47B19C9D1A0209B100FFA873 /* Images.xcassets in Resources */,
 				47D5709A1A22CEF100646865 /* CustomCollectionViewCell.xib in Resources */,
+				60CCFC511BB0E2410067AE44 /* LoginViewController.xib in Resources */,
 				60032F3B1A1CB90A00F07B8C /* btn_close_press.png in Resources */,
 				606DCB381B1326FD001B78E8 /* mapapi.bundle in Resources */,
 				60C020561A0A3C86002E3764 /* tv.png in Resources */,
@@ -1888,12 +1895,14 @@
 				60BBC6D31A3093120023906B /* socket.png in Resources */,
 				60C020351A0A3C67002E3764 /* login_dropdown_avatar_border@2x.png in Resources */,
 				60032F301A1CB70B00F07B8C /* AirCondition_add_press.png in Resources */,
+				60CCFC351BB0E0BE0067AE44 /* MStatisicViewController.xib in Resources */,
+				60CCFC501BB0E2410067AE44 /* RegisterViewController.xib in Resources */,
 				60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */,
 				60C0204B1A0A3C67002E3764 /* setter_light.png in Resources */,
 				60C020321A0A3C67002E3764 /* login_btn_blue_press.png in Resources */,
 				606DC7A11B0C1FCF001B78E8 /* GpsDataTableViewController.xib in Resources */,
 				47D570981A22CB6600646865 /* HomeViewController.xib in Resources */,
-				60156FC51B953D2400FC24C1 /* OEMSEnergyGraphViewController.xib in Resources */,
+				60CCFC391BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib in Resources */,
 				60BBC6D11A2FFFD30023906B /* Default-568h@2x.png in Resources */,
 				470DACFD1A1F4E95003A9EE8 /* VoiceViewController.xib in Resources */,
 				60C020431A0A3C67002E3764 /* add_dark.png in Resources */,
@@ -1905,15 +1914,13 @@
 				470DAD191A21870D003A9EE8 /* TCPDeviceViewController.xib in Resources */,
 				60C020301A0A3C67002E3764 /* login_btn_blue_nor.png in Resources */,
 				60032F2C1A1CA5E000F07B8C /* btn_tv_up.png in Resources */,
+				60CCFC261BB0E08B0067AE44 /* MDeviceManageViewController.xib in Resources */,
 				60032F291A1CA5E000F07B8C /* btn_tv_down.png in Resources */,
 				60C0202F1A0A3C67002E3764 /* login_bg_ip5@2x.jpg in Resources */,
-				60C01F921A090654002E3764 /* LoginViewController.xib in Resources */,
 				60BBC6DC1A343BB60023906B /* Settings.bundle in Resources */,
 				60156FB91B903A4500FC24C1 /* Podfile in Resources */,
 				60C01F7F1A08C28E002E3764 /* DeviceListViewController.xib in Resources */,
 				60C020471A0A3C67002E3764 /* home_light_green.png in Resources */,
-				60156E5D1B8D66E100FC24C1 /* MSettingViewController.xib in Resources */,
-				60156E7C1B8FECEB00FC24C1 /* RegisterViewController.xib in Resources */,
 				60C0206D1A0A6E12002E3764 /* voiceImg.jpg in Resources */,
 				60C020421A0A3C67002E3764 /* login_textfield_top@2x.png in Resources */,
 				60032F311A1CB70B00F07B8C /* AirCondition_power_press.png in Resources */,
@@ -1925,20 +1932,19 @@
 				60C020341A0A3C67002E3764 /* login_dropdown_avatar_border.png in Resources */,
 				60C020461A0A3C67002E3764 /* home_light.png in Resources */,
 				60C020391A0A3C67002E3764 /* login_textfield@2x.png in Resources */,
+				60CCFC161BB0E0700067AE44 /* MHomeViewController.xib in Resources */,
 				606DCB161B12F639001B78E8 /* GeocodeDemoViewController.xib in Resources */,
 				60032F481A1DEF9E00F07B8C /* CustomRemoteViewController.xib in Resources */,
 				60C01F311A0724F3002E3764 /* DeviceInfo.plist in Resources */,
-				60156E841B9019E000FC24C1 /* UserDetailViewController.xib in Resources */,
 				60032F2B1A1CA5E000F07B8C /* btn_tv_right.png in Resources */,
 				60C020411A0A3C67002E3764 /* login_textfield_top.png in Resources */,
 				60C020331A0A3C67002E3764 /* login_btn_blue_press@2x.png in Resources */,
 				47DC4EE11A0E090700A7DBCD /* CurtainViewController.xib in Resources */,
 				60C020611A0A614C002E3764 /* icon_sp.png in Resources */,
 				47BEC06C1A0B522C00FD9CDC /* RemoteControlDeviceViewController.xib in Resources */,
+				60CCFC431BB0E0DB0067AE44 /* UserDetailViewController.xib in Resources */,
 				60C0205F1A0A614C002E3764 /* SP2.png in Resources */,
 				60032F201A1CA57F00F07B8C /* btn_tv_power_press.png in Resources */,
-				60156E8A1B90267200FC24C1 /* MDeviceManageViewController.xib in Resources */,
-				60156E6C1B8EABA400FC24C1 /* OEMSQueryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2023,7 +2029,6 @@
 				606DCAF11B0C712C001B78E8 /* btn_tv_up.png in Resources */,
 				606DCAF21B0C712C001B78E8 /* btn_tv_down.png in Resources */,
 				606DCAF31B0C712C001B78E8 /* login_bg_ip5@2x.jpg in Resources */,
-				606DCAF41B0C712C001B78E8 /* LoginViewController.xib in Resources */,
 				606DCAF51B0C712C001B78E8 /* Settings.bundle in Resources */,
 				606DCAF61B0C712C001B78E8 /* DeviceListViewController.xib in Resources */,
 				606DCAF71B0C712C001B78E8 /* home_light_green.png in Resources */,
@@ -2093,13 +2098,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				470DAD0A1A1F4F03003A9EE8 /* GCDAsyncUdpSocket.m in Sources */,
-				60156E7B1B8FECEB00FC24C1 /* RegisterViewController.m in Sources */,
-				60156E9D1B902DFD00FC24C1 /* DiffEnqueryDeviceTableViewController.m in Sources */,
 				60421DD71A0E7421007E868D /* MJIvar.m in Sources */,
 				60156E281B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m in Sources */,
+				60CCFC341BB0E0BE0067AE44 /* MStatisicViewController.m in Sources */,
 				47B19C951A0209B100FFA873 /* AppDelegate.m in Sources */,
+				60CCFC521BB0E2410067AE44 /* LoginViewController.m in Sources */,
 				60C01F731A0879FA002E3764 /* SBJson4StreamParserState.m in Sources */,
 				60032F431A1D7D0300F07B8C /* CustomRemoteViewController.m in Sources */,
+				60CCFC531BB0E2410067AE44 /* UserInfo.m in Sources */,
 				602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */,
 				60032F121A1A106F00F07B8C /* AFURLConnectionOperation.m in Sources */,
 				4725720B1A0E033F002B12DE /* AirConditionViewController.m in Sources */,
@@ -2112,96 +2118,97 @@
 				60156FBC1B953C5100FC24C1 /* OEMSPieGraph.m in Sources */,
 				60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */,
 				60C01F891A08F19F002E3764 /* LJCommonItem.m in Sources */,
-				60156E661B8D672100FC24C1 /* MHomeViewController.m in Sources */,
 				60156E291B8C88C700FC24C1 /* Reachability.m in Sources */,
 				60156FC01B953CB400FC24C1 /* FXLabel.m in Sources */,
+				60CCFC231BB0E08B0067AE44 /* OEMSQueryTableViewCell.m in Sources */,
 				60C020651A0A689A002E3764 /* DeviceViewController.m in Sources */,
 				60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */,
 				60032F141A1A106F00F07B8C /* AFURLResponseSerialization.m in Sources */,
 				470DAD1C1A21A455003A9EE8 /* ChangeTCPDeviceNameViewController.m in Sources */,
 				60032F111A1A106F00F07B8C /* AFSecurityPolicy.m in Sources */,
+				60CCFC151BB0E0700067AE44 /* MHomeViewController.m in Sources */,
 				60421DDE1A0E7421007E868D /* NSObject+MJMember.m in Sources */,
 				470DACF21A1F4E88003A9EE8 /* UDPEasyConfig.m in Sources */,
 				47BEC04B1A0B083D00FD9CDC /* TVViewController.m in Sources */,
+				60CCFC4F1BB0E2410067AE44 /* RegisterViewController.m in Sources */,
 				470DAD211A21A4FE003A9EE8 /* ChangeTCPButtonInfoViewController.m in Sources */,
+				60CCFC111BB0E04E0067AE44 /* NavigationViewController.m in Sources */,
 				60156E401B8D5E7300FC24C1 /* REMenuItemView.m in Sources */,
 				60C01F341A072567002E3764 /* BLDeviceInfo.m in Sources */,
 				606C9B811A070D4C003BA6AD /* DeviceListViewController.m in Sources */,
 				60421DDC1A0E7421007E868D /* NSObject+MJCoding.m in Sources */,
 				470DAD021A1F4EAA003A9EE8 /* SettingViewController.m in Sources */,
+				60CCFC561BB0E4C90067AE44 /* AsyncUdpSocket.m in Sources */,
 				60032F101A1A106F00F07B8C /* AFNetworkReachabilityManager.m in Sources */,
-				60C01F901A0903E6002E3764 /* LoginViewController.m in Sources */,
 				60421DD51A0E7421007E868D /* MJConst.m in Sources */,
 				60C7A27C1B018EA7005314A5 /* MapViewController.mm in Sources */,
 				60C01F881A08F19F002E3764 /* LJCommonGroup.m in Sources */,
+				60CCFC591BB0E5DC0067AE44 /* UDPCaoConfig.m in Sources */,
 				60C01F761A0879FA002E3764 /* SBJson4StreamWriterState.m in Sources */,
 				60C01FD61A090A88002E3764 /* LJBadgeView.m in Sources */,
-				60156E6B1B8EABA400FC24C1 /* OEMSQueryTableViewCell.m in Sources */,
 				60C01FD31A090A88002E3764 /* LJCommonArrowItem.m in Sources */,
 				60032F401A1D7CEC00F07B8C /* RCDraggableButton.m in Sources */,
-				60156E7F1B8FEFF800FC24C1 /* UserInfo.m in Sources */,
 				60C01F711A0879FA002E3764 /* SBJson4Parser.m in Sources */,
 				60156E3C1B8D5E7300FC24C1 /* RECommonFunctions.m in Sources */,
-				470DACF31A1F4E88003A9EE8 /* BLEasyConfig.m in Sources */,
 				60156E3D1B8D5E7300FC24C1 /* REMenu.m in Sources */,
 				470DACFE1A1F4E95003A9EE8 /* VoiceCommandRecognizer.m in Sources */,
 				60C01F751A0879FA002E3764 /* SBJson4StreamWriter.m in Sources */,
 				47D5709D1A22CFA100646865 /* CustomCollectionViewCell.m in Sources */,
 				470DAD151A21811E003A9EE8 /* TCPDeviceViewController.m in Sources */,
 				470DAD111A203002003A9EE8 /* TCPDevice.m in Sources */,
+				60CCFC421BB0E0DB0067AE44 /* UserDetailViewController.m in Sources */,
 				60C01FE31A0A0626002E3764 /* LJCommonViewController.m in Sources */,
 				470DAD091A1F4F03003A9EE8 /* GCDAsyncSocket.m in Sources */,
-				60156E711B8F2F5B00FC24C1 /* MStatisicViewController.m in Sources */,
 				60032F1D1A1B546A00F07B8C /* ChangeRemoteNameViewController.m in Sources */,
 				60032F131A1A106F00F07B8C /* AFURLRequestSerialization.m in Sources */,
 				606DCB141B12F62D001B78E8 /* GeocodeDemoViewController.mm in Sources */,
 				60421DD61A0E7421007E868D /* MJFoundation.m in Sources */,
 				47DC4EEC1A0E0A9C00A7DBCD /* ProjectorViewController.m in Sources */,
-				60156E941B9026DF00FC24C1 /* TestMDeviceManageViewController.m in Sources */,
 				47BEC0771A0DBB3200FD9CDC /* RMDeviceManager.m in Sources */,
 				470DACF01A1F4E88003A9EE8 /* AddDeviceViewController.m in Sources */,
-				60156E611B8D670A00FC24C1 /* MDeviceManageViewController.m in Sources */,
 				60032F0D1A1A106F00F07B8C /* AFHTTPRequestOperation.m in Sources */,
 				60156E3E1B8D5E7300FC24C1 /* REMenuContainerView.m in Sources */,
 				60156E2C1B8C8B7A00FC24C1 /* CaoConfig.m in Sources */,
 				606DC7A01B0C1FCF001B78E8 /* GpsDataTableViewController.m in Sources */,
 				60032F191A1AF27100F07B8C /* SmartHomeAPIs.m in Sources */,
-				60156E831B9019E000FC24C1 /* UserDetailViewController.m in Sources */,
-				60156E5C1B8D66E100FC24C1 /* MSettingViewController.m in Sources */,
 				60C01FD41A090A88002E3764 /* LJCommonSwitchItem.m in Sources */,
+				60CCFC401BB0E0DB0067AE44 /* MSettingViewController.m in Sources */,
 				60421DDA1A0E7421007E868D /* MJType.m in Sources */,
 				60421DD41A0E7421007E868D /* MJArgument.m in Sources */,
-				60156FC41B953D2400FC24C1 /* OEMSEnergyGraphViewController.m in Sources */,
 				470DAD0E1A202F8A003A9EE8 /* TCPDeviceManager.m in Sources */,
-				60156E441B8D5F4B00FC24C1 /* NavigationViewController.m in Sources */,
 				60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */,
+				60CCFC381BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m in Sources */,
 				60C01F771A0879FA002E3764 /* SBJson4Writer.m in Sources */,
 				60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */,
 				47B19C921A0209B100FFA873 /* main.m in Sources */,
 				606C9B7D1A070D4C003BA6AD /* HomeViewController.m in Sources */,
 				60032F0F1A1A106F00F07B8C /* AFHTTPSessionManager.m in Sources */,
 				60032F151A1A106F00F07B8C /* AFURLSessionManager.m in Sources */,
+				60CCFC611BB11C230067AE44 /* CaoStudyModel.m in Sources */,
 				60C01FDC1A09152E002E3764 /* ProgressHUD.m in Sources */,
 				60C01F8A1A08F19F002E3764 /* LJCommonCell.m in Sources */,
 				47BEC07A1A0DDA2200FD9CDC /* RMButton.m in Sources */,
+				60CCFC461BB0E20C0067AE44 /* RootController.m in Sources */,
+				60CCFC361BB0E0BE0067AE44 /* MStatisticGraphViewController.m in Sources */,
 				60C01F721A0879FA002E3764 /* SBJson4StreamParser.m in Sources */,
 				60032F511A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m in Sources */,
 				60421DD81A0E7421007E868D /* MJMember.m in Sources */,
 				47BEC0641A0B13F700FD9CDC /* RemoteControlDeviceViewController.m in Sources */,
 				60C01F741A0879FA002E3764 /* SBJson4StreamTokeniser.m in Sources */,
 				60032F0E1A1A106F00F07B8C /* AFHTTPRequestOperationManager.m in Sources */,
-				60C01FDF1A09AFBD002E3764 /* RootController.m in Sources */,
 				60421DD91A0E7421007E868D /* MJMethod.m in Sources */,
 				60A781911A47AC7300F48B5F /* StatisticViewController.m in Sources */,
 				60C01F4B1A087827002E3764 /* ISRDataHelper.m in Sources */,
 				47BEC0741A0DB9F900FD9CDC /* RMDevice.m in Sources */,
 				60C01F7D1A08C101002E3764 /* MainTabBarViewController.m in Sources */,
 				60C01F5C1A087966002E3764 /* JSONKit.m in Sources */,
+				60CCFC291BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m in Sources */,
 				60156E3F1B8D5E7300FC24C1 /* REMenuItem.m in Sources */,
 				47DC4EDF1A0E08F200A7DBCD /* CurtainViewController.m in Sources */,
+				60CCFC271BB0E08B0067AE44 /* TestMDeviceManageViewController.m in Sources */,
 				47D570A01A22F83400646865 /* DeviceInfoManagerForCell.m in Sources */,
+				60CCFC251BB0E08B0067AE44 /* MDeviceManageViewController.m in Sources */,
 				470DACFB1A1F4E95003A9EE8 /* VoiceManager.m in Sources */,
-				60156EA21B90336000FC24C1 /* MStatisticGraphViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2248,7 +2255,6 @@
 				606DCA651B0C712C001B78E8 /* NSObject+MJCoding.m in Sources */,
 				606DCA661B0C712C001B78E8 /* SettingViewController.m in Sources */,
 				606DCA671B0C712C001B78E8 /* AFNetworkReachabilityManager.m in Sources */,
-				606DCA681B0C712C001B78E8 /* LoginViewController.m in Sources */,
 				606DCA691B0C712C001B78E8 /* MJConst.m in Sources */,
 				606DCA6A1B0C712C001B78E8 /* MapViewController.mm in Sources */,
 				606DCA6B1B0C712C001B78E8 /* LJCommonGroup.m in Sources */,
@@ -2257,7 +2263,6 @@
 				606DCA6E1B0C712C001B78E8 /* LJCommonArrowItem.m in Sources */,
 				606DCA6F1B0C712C001B78E8 /* RCDraggableButton.m in Sources */,
 				606DCA701B0C712C001B78E8 /* SBJson4Parser.m in Sources */,
-				606DCA711B0C712C001B78E8 /* BLEasyConfig.m in Sources */,
 				606DCA721B0C712C001B78E8 /* VoiceCommandRecognizer.m in Sources */,
 				606DCA731B0C712C001B78E8 /* SBJson4StreamWriter.m in Sources */,
 				606DCA741B0C712C001B78E8 /* CustomCollectionViewCell.m in Sources */,
@@ -2294,7 +2299,6 @@
 				606DCA931B0C712C001B78E8 /* RemoteControlDeviceViewController.m in Sources */,
 				606DCA941B0C712C001B78E8 /* SBJson4StreamTokeniser.m in Sources */,
 				606DCA951B0C712C001B78E8 /* AFHTTPRequestOperationManager.m in Sources */,
-				606DCA961B0C712C001B78E8 /* RootController.m in Sources */,
 				606DCA971B0C712C001B78E8 /* MJMethod.m in Sources */,
 				606DCA981B0C712C001B78E8 /* StatisticViewController.m in Sources */,
 				606DCA991B0C712C001B78E8 /* ISRDataHelper.m in Sources */,

@@ -11,6 +11,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "ProgressHUD.h"
 #import "CaoConfig.h"
+#import "UDPCaoConfig.h"
 
 #define kDegreesToRadian(x) (M_PI * (x) / 180.0)
 
@@ -25,8 +26,7 @@ int const discoveryTimeout = 40;
 @end
 
 @implementation AddDeviceViewController
-@synthesize segmentControl;
-@synthesize segmentIndex;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,8 +45,7 @@ int const discoveryTimeout = 40;
     [self.navigationItem setTitle:@"添加中控"];
     //设置成no，则状态栏及导航样不为透明的，界面上的组件就是紧挨着导航栏显示了
     [self.navigationController.navigationBar setTranslucent:NO];
-    [segmentControl addTarget:self action:@selector(segmentChangedValue:) forControlEvents:UIControlEventValueChanged];
-    segmentIndex=0;
+
     
     NSString *wifiSSID=[self getCurrentWiFiSSID];
     if(wifiSSID!=nil&&![wifiSSID isEqualToString:@""])
@@ -130,55 +129,12 @@ int const discoveryTimeout = 40;
         return;
     }
 
-    switch (segmentIndex) {
-        case 0:
-        {
 
-//            if(self.startConfig==true) //cancel easyconfig
-//            {
-//                [self.blEasyConfig cancelConfig];
-//                self.startConfig=false;
-//                [self.searchButton setTitle:@"搜索设备，进行配置" forState:UIControlStateNormal];
-//            }
-//            else  //start easy config
-//            {
-//                [self.blEasyConfig startConfig:wifi password:password];
-//                self.startConfig=true;
-//                [self.searchButton setTitle:@"配置中...点击取消" forState:UIControlStateNormal];
-//            }
-            
-            break;
-        }
-        case 1:
-        {
-            [self continueStartAction];
-            [self.caoConfig startConfig:wifi password:password];
-
-//            self.startConfig=true;
-//            [self.searchButton setTitle:@"搜索设备，进行配置" forState:UIControlStateNormal];
-            break;
-        }
-        default:
-            break;
-    }
+    [self continueStartAction];
+    [self.caoConfig startConfig:wifi password:password];
 
 }
 
--(void)segmentChangedValue:(id)sender
-{
-    switch ([(UISegmentedControl *)sender selectedSegmentIndex]) {
-        case 0:
-            //BroadLinkConfig
-            segmentIndex=0;
-            break;
-        case 1:
-            //UDPConfig
-            segmentIndex=1;
-            break;
-        default:
-            break;
-    }
-}
 
 //点击空白区域，键盘收起
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -214,5 +170,10 @@ int const discoveryTimeout = 40;
 }
 - (IBAction)stopSearch:(UIButton *)sender {
     [self stopDiscovery];
+}
+
+- (IBAction)getControllerIP:(UIButton *)sender {
+    [[UDPCaoConfig alloc] initUDPCaoConfig];
+
 }
 @end

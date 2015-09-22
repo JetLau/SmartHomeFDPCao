@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="passwordTextField" destination="Htc-Sq-cJI" id="9y3-Ch-H1Z"/>
                 <outlet property="searchButton" destination="FVD-JF-wCt" id="eRK-JI-87Y"/>
-                <outlet property="segmentControl" destination="uRC-5m-qMp" id="zxc-Sx-Dnr"/>
                 <outlet property="showInfo" destination="8Qu-PX-kRd" id="PEY-ry-RXT"/>
                 <outlet property="stopBtn" destination="brv-My-kGK" id="9xO-wJ-bv1"/>
                 <outlet property="view" destination="Qm1-eR-LCj" id="Emh-6D-C4A"/>
@@ -26,56 +25,58 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WiFi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OVS-jv-akb">
-                    <rect key="frame" x="44" y="104" width="42" height="21"/>
+                    <rect key="frame" x="47" y="40" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入WiFi名称" minimumFontSize="17" clearButtonMode="whileEditing" id="Crl-5G-tjr">
-                    <rect key="frame" x="100" y="101" width="170" height="30"/>
+                    <rect key="frame" x="103" y="37" width="170" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入WiFi密码" minimumFontSize="17" clearButtonMode="whileEditing" id="Htc-Sq-cJI">
-                    <rect key="frame" x="100" y="165" width="170" height="30"/>
+                    <rect key="frame" x="103" y="101" width="170" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aos-ib-b20">
-                    <rect key="frame" x="44" y="169" width="42" height="21"/>
+                    <rect key="frame" x="47" y="105" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DQH-JQ-2Xo">
+                    <rect key="frame" x="123" y="296" width="74" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="获取设备IP">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="getControllerIP:" destination="-1" eventType="touchUpInside" id="Q93-jv-gx3"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FVD-JF-wCt">
-                    <rect key="frame" x="60" y="270" width="200" height="30"/>
+                    <rect key="frame" x="60" y="197" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="搜索设备，进行配置"/>
                     <connections>
                         <action selector="searchButtonClick:" destination="-1" eventType="touchUpInside" id="20I-Ym-Zgq"/>
                     </connections>
                 </button>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="uRC-5m-qMp">
-                    <rect key="frame" x="80" y="40" width="160" height="29"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <segments>
-                        <segment title="BroadLink"/>
-                        <segment title="UDP"/>
-                    </segments>
-                </segmentedControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Qu-PX-kRd">
-                    <rect key="frame" x="10" y="317" width="300" height="21"/>
+                    <rect key="frame" x="10" y="244" width="300" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="brv-My-kGK">
-                    <rect key="frame" x="60" y="270" width="200" height="30"/>
+                    <rect key="frame" x="60" y="197" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="停止">
                         <color key="titleColor" red="0.97647058819999999" green="0.01059568854" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
