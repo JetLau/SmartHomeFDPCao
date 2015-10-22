@@ -99,6 +99,14 @@
 		60156FC01B953CB400FC24C1 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60156FBF1B953CB400FC24C1 /* FXLabel.m */; };
 		602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A78301AD4BF6A00A77E84 /* LightViewController.m */; };
 		602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A78311AD4BF6A00A77E84 /* LightViewController.xib */; };
+		60350DA11BBA372600E919F5 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DA01BBA372600E919F5 /* AsyncSocket.m */; };
+		60350DA41BBA373B00E919F5 /* LGSocketServe.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DA31BBA373B00E919F5 /* LGSocketServe.m */; };
+		60350DAD1BD8786700E919F5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DA61BD8786700E919F5 /* RegisterViewController.m */; };
+		60350DAE1BD8786700E919F5 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60350DA71BD8786700E919F5 /* RegisterViewController.xib */; };
+		60350DAF1BD8786700E919F5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60350DA81BD8786700E919F5 /* LoginViewController.xib */; };
+		60350DB01BD8786700E919F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DAA1BD8786700E919F5 /* LoginViewController.m */; };
+		60350DB11BD8786700E919F5 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DAC1BD8786700E919F5 /* UserInfo.m */; };
+		60350DB41BD8791300E919F5 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DB31BD8791300E919F5 /* RootController.m */; };
 		60421DD41A0E7421007E868D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
 		60421DD51A0E7421007E868D /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC01A0E7421007E868D /* MJConst.m */; };
 		60421DD61A0E7421007E868D /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC31A0E7421007E868D /* MJFoundation.m */; };
@@ -432,12 +440,6 @@
 		60CCFC411BB0E0DB0067AE44 /* MSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC3C1BB0E0DB0067AE44 /* MSettingViewController.xib */; };
 		60CCFC421BB0E0DB0067AE44 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC3E1BB0E0DB0067AE44 /* UserDetailViewController.m */; };
 		60CCFC431BB0E0DB0067AE44 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC3F1BB0E0DB0067AE44 /* UserDetailViewController.xib */; };
-		60CCFC461BB0E20C0067AE44 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC451BB0E20C0067AE44 /* RootController.m */; };
-		60CCFC4F1BB0E2410067AE44 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC481BB0E2410067AE44 /* RegisterViewController.m */; };
-		60CCFC501BB0E2410067AE44 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC491BB0E2410067AE44 /* RegisterViewController.xib */; };
-		60CCFC511BB0E2410067AE44 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC4A1BB0E2410067AE44 /* LoginViewController.xib */; };
-		60CCFC521BB0E2410067AE44 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC4C1BB0E2410067AE44 /* LoginViewController.m */; };
-		60CCFC531BB0E2410067AE44 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC4E1BB0E2410067AE44 /* UserInfo.m */; };
 		60CCFC561BB0E4C90067AE44 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */; };
 		60CCFC591BB0E5DC0067AE44 /* UDPCaoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC581BB0E5DC0067AE44 /* UDPCaoConfig.m */; };
 		60CCFC611BB11C230067AE44 /* CaoStudyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC601BB11C230067AE44 /* CaoStudyModel.m */; };
@@ -609,6 +611,20 @@
 		602A782F1AD4BF6A00A77E84 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		602A78301AD4BF6A00A77E84 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		602A78311AD4BF6A00A77E84 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
+		60350D9F1BBA372600E919F5 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		60350DA01BBA372600E919F5 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		60350DA21BBA373B00E919F5 /* LGSocketServe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSocketServe.h; sourceTree = "<group>"; };
+		60350DA31BBA373B00E919F5 /* LGSocketServe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSocketServe.m; sourceTree = "<group>"; };
+		60350DA51BD8786700E919F5 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		60350DA61BD8786700E919F5 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		60350DA71BD8786700E919F5 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		60350DA81BD8786700E919F5 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		60350DA91BD8786700E919F5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		60350DAA1BD8786700E919F5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		60350DAB1BD8786700E919F5 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		60350DAC1BD8786700E919F5 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		60350DB21BD8791300E919F5 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
+		60350DB31BD8791300E919F5 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
 		60421DBD1A0E7420007E868D /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		60421DBE1A0E7420007E868D /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		60421DBF1A0E7421007E868D /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
@@ -807,16 +823,6 @@
 		60CCFC3D1BB0E0DB0067AE44 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
 		60CCFC3E1BB0E0DB0067AE44 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
 		60CCFC3F1BB0E0DB0067AE44 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
-		60CCFC441BB0E20C0067AE44 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
-		60CCFC451BB0E20C0067AE44 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
-		60CCFC471BB0E2410067AE44 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		60CCFC481BB0E2410067AE44 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		60CCFC491BB0E2410067AE44 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		60CCFC4A1BB0E2410067AE44 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		60CCFC4B1BB0E2410067AE44 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		60CCFC4C1BB0E2410067AE44 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		60CCFC4D1BB0E2410067AE44 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
-		60CCFC4E1BB0E2410067AE44 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		60CCFC541BB0E4C90067AE44 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 		60CCFC571BB0E5DC0067AE44 /* UDPCaoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPCaoConfig.h; sourceTree = "<group>"; };
@@ -980,8 +986,8 @@
 			children = (
 				47B19C931A0209B100FFA873 /* AppDelegate.h */,
 				47B19C941A0209B100FFA873 /* AppDelegate.m */,
-				60CCFC441BB0E20C0067AE44 /* RootController.h */,
-				60CCFC451BB0E20C0067AE44 /* RootController.m */,
+				60350DB21BD8791300E919F5 /* RootController.h */,
+				60350DB31BD8791300E919F5 /* RootController.m */,
 				60032F161A1AF1F600F07B8C /* APIS */,
 				60C01F8B1A0903D4002E3764 /* Login */,
 				60156E2E1B8D58AE00FC24C1 /* manager */,
@@ -1304,6 +1310,19 @@
 			path = FXLabel;
 			sourceTree = "<group>";
 		};
+		60350D9E1BBA371700E919F5 /* socket */ = {
+			isa = PBXGroup;
+			children = (
+				60350D9F1BBA372600E919F5 /* AsyncSocket.h */,
+				60350DA01BBA372600E919F5 /* AsyncSocket.m */,
+				60CCFC541BB0E4C90067AE44 /* AsyncUdpSocket.h */,
+				60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */,
+				60350DA21BBA373B00E919F5 /* LGSocketServe.h */,
+				60350DA31BBA373B00E919F5 /* LGSocketServe.m */,
+			);
+			name = socket;
+			sourceTree = "<group>";
+		};
 		60421DBC1A0E7420007E868D /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1365,6 +1384,7 @@
 		606C9B561A065879003BA6AD /* MainViewLists */ = {
 			isa = PBXGroup;
 			children = (
+				60350D9E1BBA371700E919F5 /* socket */,
 				47B19CB51A020AA800FFA873 /* MainTabBarView */,
 				60C01F2C1A072375002E3764 /* HomeView */,
 				60C01F2D1A072384002E3764 /* AddDeviceView */,
@@ -1413,8 +1433,6 @@
 				60156E2B1B8C8B7A00FC24C1 /* CaoConfig.m */,
 				470DACEC1A1F4E88003A9EE8 /* UDPEasyConfig.h */,
 				470DACED1A1F4E88003A9EE8 /* UDPEasyConfig.m */,
-				60CCFC541BB0E4C90067AE44 /* AsyncUdpSocket.h */,
-				60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */,
 				60CCFC571BB0E5DC0067AE44 /* UDPCaoConfig.h */,
 				60CCFC581BB0E5DC0067AE44 /* UDPCaoConfig.m */,
 			);
@@ -1586,14 +1604,14 @@
 		60C01F8B1A0903D4002E3764 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				60CCFC471BB0E2410067AE44 /* RegisterViewController.h */,
-				60CCFC481BB0E2410067AE44 /* RegisterViewController.m */,
-				60CCFC491BB0E2410067AE44 /* RegisterViewController.xib */,
-				60CCFC4A1BB0E2410067AE44 /* LoginViewController.xib */,
-				60CCFC4B1BB0E2410067AE44 /* LoginViewController.h */,
-				60CCFC4C1BB0E2410067AE44 /* LoginViewController.m */,
-				60CCFC4D1BB0E2410067AE44 /* UserInfo.h */,
-				60CCFC4E1BB0E2410067AE44 /* UserInfo.m */,
+				60350DA51BD8786700E919F5 /* RegisterViewController.h */,
+				60350DA61BD8786700E919F5 /* RegisterViewController.m */,
+				60350DA71BD8786700E919F5 /* RegisterViewController.xib */,
+				60350DA81BD8786700E919F5 /* LoginViewController.xib */,
+				60350DA91BD8786700E919F5 /* LoginViewController.h */,
+				60350DAA1BD8786700E919F5 /* LoginViewController.m */,
+				60350DAB1BD8786700E919F5 /* UserInfo.h */,
+				60350DAC1BD8786700E919F5 /* UserInfo.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -1886,7 +1904,7 @@
 				60C0202E1A0A3C67002E3764 /* login_bg@2x.jpg in Resources */,
 				47B19C9D1A0209B100FFA873 /* Images.xcassets in Resources */,
 				47D5709A1A22CEF100646865 /* CustomCollectionViewCell.xib in Resources */,
-				60CCFC511BB0E2410067AE44 /* LoginViewController.xib in Resources */,
+				60350DAF1BD8786700E919F5 /* LoginViewController.xib in Resources */,
 				60032F3B1A1CB90A00F07B8C /* btn_close_press.png in Resources */,
 				606DCB381B1326FD001B78E8 /* mapapi.bundle in Resources */,
 				60C020561A0A3C86002E3764 /* tv.png in Resources */,
@@ -1896,7 +1914,7 @@
 				60C020351A0A3C67002E3764 /* login_dropdown_avatar_border@2x.png in Resources */,
 				60032F301A1CB70B00F07B8C /* AirCondition_add_press.png in Resources */,
 				60CCFC351BB0E0BE0067AE44 /* MStatisicViewController.xib in Resources */,
-				60CCFC501BB0E2410067AE44 /* RegisterViewController.xib in Resources */,
+				60350DAE1BD8786700E919F5 /* RegisterViewController.xib in Resources */,
 				60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */,
 				60C0204B1A0A3C67002E3764 /* setter_light.png in Resources */,
 				60C020321A0A3C67002E3764 /* login_btn_blue_press.png in Resources */,
@@ -2102,10 +2120,8 @@
 				60156E281B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m in Sources */,
 				60CCFC341BB0E0BE0067AE44 /* MStatisicViewController.m in Sources */,
 				47B19C951A0209B100FFA873 /* AppDelegate.m in Sources */,
-				60CCFC521BB0E2410067AE44 /* LoginViewController.m in Sources */,
 				60C01F731A0879FA002E3764 /* SBJson4StreamParserState.m in Sources */,
 				60032F431A1D7D0300F07B8C /* CustomRemoteViewController.m in Sources */,
-				60CCFC531BB0E2410067AE44 /* UserInfo.m in Sources */,
 				602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */,
 				60032F121A1A106F00F07B8C /* AFURLConnectionOperation.m in Sources */,
 				4725720B1A0E033F002B12DE /* AirConditionViewController.m in Sources */,
@@ -2130,7 +2146,6 @@
 				60421DDE1A0E7421007E868D /* NSObject+MJMember.m in Sources */,
 				470DACF21A1F4E88003A9EE8 /* UDPEasyConfig.m in Sources */,
 				47BEC04B1A0B083D00FD9CDC /* TVViewController.m in Sources */,
-				60CCFC4F1BB0E2410067AE44 /* RegisterViewController.m in Sources */,
 				470DAD211A21A4FE003A9EE8 /* ChangeTCPButtonInfoViewController.m in Sources */,
 				60CCFC111BB0E04E0067AE44 /* NavigationViewController.m in Sources */,
 				60156E401B8D5E7300FC24C1 /* REMenuItemView.m in Sources */,
@@ -2139,6 +2154,8 @@
 				60421DDC1A0E7421007E868D /* NSObject+MJCoding.m in Sources */,
 				470DAD021A1F4EAA003A9EE8 /* SettingViewController.m in Sources */,
 				60CCFC561BB0E4C90067AE44 /* AsyncUdpSocket.m in Sources */,
+				60350DB41BD8791300E919F5 /* RootController.m in Sources */,
+				60350DAD1BD8786700E919F5 /* RegisterViewController.m in Sources */,
 				60032F101A1A106F00F07B8C /* AFNetworkReachabilityManager.m in Sources */,
 				60421DD51A0E7421007E868D /* MJConst.m in Sources */,
 				60C7A27C1B018EA7005314A5 /* MapViewController.mm in Sources */,
@@ -2146,6 +2163,7 @@
 				60CCFC591BB0E5DC0067AE44 /* UDPCaoConfig.m in Sources */,
 				60C01F761A0879FA002E3764 /* SBJson4StreamWriterState.m in Sources */,
 				60C01FD61A090A88002E3764 /* LJBadgeView.m in Sources */,
+				60350DA41BBA373B00E919F5 /* LGSocketServe.m in Sources */,
 				60C01FD31A090A88002E3764 /* LJCommonArrowItem.m in Sources */,
 				60032F401A1D7CEC00F07B8C /* RCDraggableButton.m in Sources */,
 				60C01F711A0879FA002E3764 /* SBJson4Parser.m in Sources */,
@@ -2188,7 +2206,6 @@
 				60C01FDC1A09152E002E3764 /* ProgressHUD.m in Sources */,
 				60C01F8A1A08F19F002E3764 /* LJCommonCell.m in Sources */,
 				47BEC07A1A0DDA2200FD9CDC /* RMButton.m in Sources */,
-				60CCFC461BB0E20C0067AE44 /* RootController.m in Sources */,
 				60CCFC361BB0E0BE0067AE44 /* MStatisticGraphViewController.m in Sources */,
 				60C01F721A0879FA002E3764 /* SBJson4StreamParser.m in Sources */,
 				60032F511A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m in Sources */,
@@ -2198,8 +2215,10 @@
 				60032F0E1A1A106F00F07B8C /* AFHTTPRequestOperationManager.m in Sources */,
 				60421DD91A0E7421007E868D /* MJMethod.m in Sources */,
 				60A781911A47AC7300F48B5F /* StatisticViewController.m in Sources */,
+				60350DB11BD8786700E919F5 /* UserInfo.m in Sources */,
 				60C01F4B1A087827002E3764 /* ISRDataHelper.m in Sources */,
 				47BEC0741A0DB9F900FD9CDC /* RMDevice.m in Sources */,
+				60350DB01BD8786700E919F5 /* LoginViewController.m in Sources */,
 				60C01F7D1A08C101002E3764 /* MainTabBarViewController.m in Sources */,
 				60C01F5C1A087966002E3764 /* JSONKit.m in Sources */,
 				60CCFC291BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m in Sources */,
@@ -2207,6 +2226,7 @@
 				47DC4EDF1A0E08F200A7DBCD /* CurtainViewController.m in Sources */,
 				60CCFC271BB0E08B0067AE44 /* TestMDeviceManageViewController.m in Sources */,
 				47D570A01A22F83400646865 /* DeviceInfoManagerForCell.m in Sources */,
+				60350DA11BBA372600E919F5 /* AsyncSocket.m in Sources */,
 				60CCFC251BB0E08B0067AE44 /* MDeviceManageViewController.m in Sources */,
 				470DACFB1A1F4E95003A9EE8 /* VoiceManager.m in Sources */,
 			);

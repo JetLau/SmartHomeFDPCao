@@ -20,6 +20,7 @@ BMKMapManager* _mapManager;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"FnqD5vNliBfGhT5MqGSL2UBk" generalDelegate:self];

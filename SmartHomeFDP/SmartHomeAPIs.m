@@ -9,6 +9,8 @@
 #import "SmartHomeAPIs.h"
 #import "JSONKit.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "LGSocketServe.h"
+
 //#define ipAddr @"218.193.130.166"
 //#define ipAddr @"192.168.0.7:8080"
 
@@ -525,23 +527,53 @@
 //5曹浩哲设备
 //5.1进入学习状态，获取code，发送code，由dic中内容决定
 + (NSDictionary *)CaoEnterStudy:(NSMutableDictionary*)dic{
-    NSData *requestData = [dic JSONData];
-    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
-    //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/%@",lanIp,josnString];
-    NSLog(@"%@",urlString);
+    __block NSDictionary *resultDic;
+    //dispatch_async(dispatch_get_main_queue(), ^{
+        LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
+        
+        socketServe.block = ^(NSDictionary *dic){
+            
+            resultDic = dic;
+
+        };
+        //socket连接前先断开连接以免之前socket连接没有断开导致闪退
+        [socketServe cutOffSocket];
+        socketServe.socket.userData = SocketOfflineByServer;
+        [socketServe startConnectSocket];
+        //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
+        //NSLog(@"dic=%@",dic);
+        //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
+        NSData *requestData = [dic JSONData];
+        NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+        
+        [socketServe sendMessage:josnString];
+        return resultDic;
+
     
-    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSError *error;
-    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
-    
-    if (data)
-    {
-        return [SmartHomeAPIs toDictionary:data];
-    }
+
+//        dispatch_async(dispatch_queue_create("BroadLinkRM2NetworkQueue", DISPATCH_QUEUE_SERIAL), ^{
+//            return resultDic;
+//        });
+//    });
+//   
+
+//    NSData *requestData = [dic JSONData];
+//    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+//    //NSLog(@"jsonString: %@",str);
+//    NSString *urlString = [NSString stringWithFormat:@"http://%@/%@",lanIp,josnString];
+//    NSLog(@"%@",urlString);
+//    
+//    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+//    NSError *error;
+//    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+//    
+//    if (data)
+//    {
+//        return [SmartHomeAPIs toDictionary:data];
+//    }
     //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
     
-    return [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"code",@"未得到服务器返回",@"msg",nil];
+   // return [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"code",@"未得到服务器返回",@"msg",nil];
 }
 
 

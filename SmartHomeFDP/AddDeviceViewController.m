@@ -78,6 +78,8 @@ int const discoveryTimeout = 40;
 //                                             selector:@selector(deviceAdded:)
 //                                                 name:@"deviceFound"
 //                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getIpNotification:) name:@"GetIpNotification" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -174,6 +176,12 @@ int const discoveryTimeout = 40;
 
 - (IBAction)getControllerIP:(UIButton *)sender {
     [[UDPCaoConfig alloc] initUDPCaoConfig];
+
+}
+-(void) getIpNotification:(NSNotification*)notification{
+    
+    NSDictionary *dic = [notification userInfo];
+    [ProgressHUD showSuccess:[dic objectForKey:@"result"]];
 
 }
 @end

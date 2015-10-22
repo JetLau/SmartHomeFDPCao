@@ -21,5 +21,6 @@
 - (IBAction)studyBtnClicked:(UIButton *)sender;
 - (IBAction)saveNameOrVoiceBtnClicked:(UIButton *)sender;
 - (IBAction)moveView:(id)sender;
+- (IBAction)dataSaveBtnClicked:(UIButton *)sender;
 
 @end

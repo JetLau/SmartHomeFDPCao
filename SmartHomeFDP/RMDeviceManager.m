@@ -78,12 +78,17 @@
         BOOL plistExist=[self RMDeviceInfoPlistExist];
         if(!plistExist)
         {
-            //[self createRMDeviceInfoPlist];
+            [self createRMDeviceInfoPlist];
             self.RMDeviceArray=[[NSMutableArray alloc]init];
         }
         else
         {
             self.RMDeviceArray=[[NSMutableArray alloc]initWithContentsOfFile:self.path];
+            if (self.RMDeviceArray == nil) {
+                [self createRMDeviceInfoPlist];
+                self.RMDeviceArray=[[NSMutableArray alloc]init];
+            }
+            
         }
     }
     

@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *voiceTextField;
 - (IBAction)studyBtnClicked:(UIButton *)sender;
 - (IBAction)saveVoiceTextBtnClicked:(id)sender;
+- (IBAction)dataSaveBtnClicked:(UIButton *)sender;
 
 @end

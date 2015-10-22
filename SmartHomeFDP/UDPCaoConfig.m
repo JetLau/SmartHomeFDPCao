@@ -11,6 +11,8 @@
 #import "BLDeviceManager.h"
 #import "JSONKit.h"
 #import "MJExtension.h"
+#import <ifaddrs.h>
+#import <arpa/inet.h>
 @implementation UDPCaoConfig
 - (void)initUDPCaoConfig{
     
@@ -28,10 +30,10 @@
     
     UInt16 port=48899;
     
-    
-    
-    
-    [udpSocket sendData :data toHost:@"192.168.1.255" port:port withTimeout:timeout tag:0];
+    NSString *broadCastIP = [NSString stringWithFormat:@"%@255",[[self getIPAddress] substringToIndex:10]];
+    NSLog(@"broadCastIP==%@",broadCastIP);
+
+    [udpSocket sendData :data toHost:broadCastIP port:port withTimeout:timeout tag:0];
     
     [udpSocket receiveWithTimeout:-1 tag:0];
     
@@ -50,7 +52,16 @@
 
     BLDeviceInfo *info = [[BLDeviceInfo alloc] init];
     //对应曹设备mac
-    [info setMac:[resultArray objectAtIndex:1]];
+    NSString *ipStr = [resultArray objectAtIndex:1];
+    NSString *string = [ipStr substringWithRange:NSMakeRange(0,2)];
+    
+    for(int i=2;i<=10;i+=2){
+        string = [string stringByAppendingFormat:@":%@",[ipStr substringWithRange:NSMakeRange(i,2)]];
+    }
+    NSLog(@"string = %@",string);
+    
+    
+    [info setMac:string];
     //对应曹设备version
     [info setType:[resultArray objectAtIndex:3]];
     //对应曹设备模块名称MID
@@ -61,6 +72,9 @@
     [array addObject:info];
     [self saveDeviceInfoToPlist:[NSMutableArray arrayWithArray:[BLDeviceInfo keyValuesArrayWithObjectArray:array]]];
     NSLog(@"received");
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"GetIpNotification" object:self userInfo:[[NSDictionary alloc] initWithObjectsAndKeys:@"成功获取",@"result",nil]];
+    
     return TRUE;
     
 }
@@ -104,4 +118,28 @@
 }
 
 
+- (NSString *)getIPAddress {
+    NSString *address = @"error";
+    struct ifaddrs *interfaces = NULL;
+    struct ifaddrs *temp_addr = NULL;
+    int success = 0;
+    // retrieve the current interfaces - returns 0 on success
+    success = getifaddrs(&interfaces);
+    if (success == 0) {
+        // Loop through linked list of interfaces
+        temp_addr = interfaces;
+        while(temp_addr != NULL) {
+            if(temp_addr->ifa_addr->sa_family == AF_INET) {
+                // Check if interface is en0 which is the wifi connection on the iPhone
+                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {
+                    // Get NSString from C String
+                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
+                }
+            }
+            temp_addr = temp_addr->ifa_next;
+        }
+    }
+    // Free memory
+    freeifaddrs(interfaces);
+    return address;}
 @end

@@ -11,6 +11,7 @@
 #import "MJExtension.h"
 #import "RMButton.h"
 #import "SmartHomeAPIs.h"
+#import "LGSocketServe.h"
 @implementation CaoStudyModel
 
 - (instancetype)initWithBLDeviceInfo :(BLDeviceInfo*)info  rmDevice:(RMDevice*) rmDevice btnId:(int)btnId;
@@ -72,8 +73,13 @@
     [dic setObject:@"study mode" forKey:@"command"];
     [dic setObject:_info.mac forKey:@"mac"];
     [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
+    
+    
+   
+    
     return [[SmartHomeAPIs CaoEnterStudy:dic] objectForKey:@"code"];
-
+        
+   // [socketServe ]
 }
 
 
