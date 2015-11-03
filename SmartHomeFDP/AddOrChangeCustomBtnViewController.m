@@ -12,7 +12,7 @@
 #import "CaoStudyModel.h"
 #import "LGSocketServe.h"
 #import "JSONKit.h"
-
+#import "NetworkStatus.h"
 #define remoteQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface AddOrChangeCustomBtnViewController ()
@@ -140,52 +140,82 @@
 //            return;
 //        }
 //    });
-    
-    [ProgressHUD show:@"正在学习按键"];
-    //    self.view.userInteractionEnabled = NO;
-    //    self.navigationController.navigationBar.userInteractionEnabled=NO;
-    //dispatch_async(networkQueue, ^{
-    
-    
-    //        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
-    //        NSString * code = [rm2StudyModel rm2StudyModelStart];
-    
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:102] forKey:@"api_id"];
-    [dic setObject:@"study mode" forKey:@"command"];
-    [dic setObject:_info.mac forKey:@"mac"];
-    [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
-    
-    
-    LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
-    
-    socketServe.block = ^(NSDictionary *dic){
+    NSString *wifiName = [[NetworkStatus sharedNetworkStatus] getCurrentWiFiSSID];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([wifiName isEqualToString:[defaults objectForKey:@"wifiName"]]) {
+        [ProgressHUD show:@"正在学习按键"];
+        //    self.view.userInteractionEnabled = NO;
+        //    self.navigationController.navigationBar.userInteractionEnabled=NO;
+        //dispatch_async(networkQueue, ^{
         
-        NSString * code = [dic objectForKey:@"code"];
-        if ([code intValue] == 0) {
-            //成功进入学习模式，提示用户操作遥控器
-            //data = [caoStudyModel caoGetControlData];
-            
-            [ProgressHUD showSuccess:@"成功进入学习模式！"];
-            
-        } else {
-            [ProgressHUD showError:@"未能成功进入学习模式，请重试！"];
-        }
         
-    };
+        //        BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
+        //        NSString * code = [rm2StudyModel rm2StudyModelStart];
+        
+        
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:[NSNumber numberWithInt:102] forKey:@"api_id"];
+        [dic setObject:@"study mode" forKey:@"command"];
+        [dic setObject:_info.mac forKey:@"mac"];
+        [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
+        
+        
+        LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
+        socketServe.mac = _info.mac;
+        socketServe.block = ^(NSDictionary *dic){
+            
+            NSString * code = [dic objectForKey:@"code"];
+            if ([code intValue] == 0) {
+                //成功进入学习模式，提示用户操作遥控器
+                //data = [caoStudyModel caoGetControlData];
+                
+                [ProgressHUD showSuccess:@"成功进入学习模式！"];
+                
+            } else {
+                [ProgressHUD showError:@"未能成功进入学习模式，请重试！"];
+            }
+            
+        };
+        
+        //socket连接前先断开连接以免之前socket连接没有断开导致闪退
+        [socketServe cutOffSocket];
+        socketServe.socket.userData = SocketOfflineByServer;
+        [socketServe startConnectSocket];
+        //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
+        //NSLog(@"dic=%@",dic);
+        //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
+        NSData *requestData = [dic JSONData];
+        NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+        
+        [socketServe sendMessage:josnString];
+
+    }else{
+        [ProgressHUD show:@"正在学习按键"];
+//        self.view.userInteractionEnabled = NO;
+//        self.navigationController.navigationBar.userInteractionEnabled=NO;
+        dispatch_async(networkQueue, ^{
+            
+            RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
+            [rmDeviceManager initRMDeviceManage];
+            RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
+            CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
+            NSString * code = [caoStudyModel caoStudyModelStart];
+            if ([code intValue] == 0) {
+                //成功进入学习模式，提示用户操作遥控器
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ProgressHUD showSuccess:@"成功进入学习模式！"];
+                });
+                
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ProgressHUD showError:@"未能成功进入学习模式，请重试！"];
+                });
+            }
+           
+        });
+
+    }
     
-    //socket连接前先断开连接以免之前socket连接没有断开导致闪退
-    [socketServe cutOffSocket];
-    socketServe.socket.userData = SocketOfflineByServer;
-    [socketServe startConnectSocket];
-    //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
-    //NSLog(@"dic=%@",dic);
-    //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
-    NSData *requestData = [dic JSONData];
-    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
-    
-    [socketServe sendMessage:josnString];
     
 }
 
@@ -280,59 +310,92 @@
     
     //NSDictionary *result = [SmartHomeAPIs CaoGetCode:dic];
     
-    LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
-    socketServe.block = ^(NSDictionary *dic){
+    NSString *wifiName = [[NetworkStatus sharedNetworkStatus] getCurrentWiFiSSID];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([wifiName isEqualToString:[defaults objectForKey:@"wifiName"]]) {
+        LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
+        socketServe.mac = _info.mac;
         
-        if ([[dic objectForKey:@"code"] intValue] == 0)
-        {
-            data = [dic objectForKey:@"data"];
-            //NSLog(@"get code : %@",data);
+        socketServe.block = ^(NSDictionary *dic){
             
-            //                        dispatch_async(serverQueue, ^{
-            //                            NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
-            //                            [remoteDic setObject:@"rm2Study" forKey:@"command"];
-            //                            [remoteDic setObject:_info.mac forKey:@"mac"];
-            //                            [remoteDic setObject:[NSNumber numberWithInt:0] forKey:@"success"];
-            //                            [remoteDic setObject:btnDevice.name forKey:@"name"];
-            //                            [remoteDic setObject:[NSNumber numberWithInt:_btnId] forKey:@"buttonId"];
-            //                            [remoteDic setObject:data forKey:@"sendData"];
-            //                            [SmartHomeAPIs Rm2StudyData:remoteDic];
-            //                        });
+            if ([[dic objectForKey:@"code"] intValue] == 0)
+            {
+                data = [dic objectForKey:@"data"];
+                //NSLog(@"get code : %@",data);
+            }else{
+                
+            }
+            
+            if (data != nil) {
+                //成功获得学习码
+                //NSLog(@"get--%@",data);
+                //NSLog(@"btnId--%i",button.tag);
+                
+                dispatch_async(serverQueue, ^{
+                    NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
+                    [remoteDic setObject:@"rm2Study" forKey:@"command"];
+                    [remoteDic setObject:_info.mac forKey:@"mac"];
+                    [remoteDic setObject:[NSNumber numberWithInt:0] forKey:@"success"];
+                    [remoteDic setObject:btnDevice.name forKey:@"name"];
+                    [remoteDic setObject:[NSNumber numberWithInt:_btnId] forKey:@"buttonId"];
+                    [remoteDic setObject:data forKey:@"sendData"];
+                    [SmartHomeAPIs Rm2StudyData:remoteDic];
+                });
+                
+                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:data];
+                [ProgressHUD showSuccess:@"学习成功！"];
+                return;
+            } else {
+                //学习码获取失败
+                NSLog(@"\n学习码获取失败\n");
+                [ProgressHUD showError:@"学习失败，请重试！"];
+                
+                return;
+            }
             
             
-        }else{
-            
-        }
+        };
+        //socket连接前先断开连接以免之前socket连接没有断开导致闪退
+        [socketServe cutOffSocket];
+        socketServe.socket.userData = SocketOfflineByServer;
+        [socketServe startConnectSocket];
+        //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
+        //NSLog(@"dic=%@",dic);
+        //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
+        NSData *requestData = [dic JSONData];
+        NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
         
-        if (data != nil) {
-            //成功获得学习码
-            //NSLog(@"get--%@",data);
-            //NSLog(@"btnId--%i",button.tag);
-            [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:data];
-            [ProgressHUD showSuccess:@"学习成功！"];
-            return;
-        } else {
-            //学习码获取失败
-            NSLog(@"\n学习码获取失败\n");
-            [ProgressHUD showError:@"学习失败，请重试！"];
-            
-            return;
-        }
-        
-        
-    };
-    //socket连接前先断开连接以免之前socket连接没有断开导致闪退
-    [socketServe cutOffSocket];
-    socketServe.socket.userData = SocketOfflineByServer;
-    [socketServe startConnectSocket];
-    //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
-    //NSLog(@"dic=%@",dic);
-    //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
-    NSData *requestData = [dic JSONData];
-    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
-    
-    [socketServe sendMessage:josnString];
+        [socketServe sendMessage:josnString];
 
+    }else{
+        [ProgressHUD show:@"正在获取操作码"];
+        //        self.view.userInteractionEnabled = NO;
+        //        self.navigationController.navigationBar.userInteractionEnabled=NO;
+        dispatch_async(networkQueue, ^{
+            
+            RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
+            [rmDeviceManager initRMDeviceManage];
+            RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
+            CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
+            NSString * data = [caoStudyModel caoGetControlData];
+            if (data != nil) {
+                //成功进入学习模式，提示用户操作遥控器
+                [rmDeviceManager saveSendData:_rmDeviceIndex btnId:_btnId sendData:data];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ProgressHUD showSuccess:@"学习成功！"];
+                });
+                
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ProgressHUD showError:@"学习失败，请重试！"];
+                });
+            }
+            
+        });
+    }
+    
+    
+    
 }
 
 - (void) successWithMessage:(NSString *)message {

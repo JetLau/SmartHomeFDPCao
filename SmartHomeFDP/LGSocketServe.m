@@ -7,9 +7,11 @@
 //
 
 #import "LGSocketServe.h"
-
+#import "ProgressHUD.h"
+#import "BLDeviceManager.h"
+#import "BLDeviceInfo.h"
 //自己设定
-#define HOST @"192.168.2.101"
+//#define HOST @"192.168.2.101"
 #define PORT 8899
 
 //设置连接超时
@@ -59,13 +61,34 @@ static LGSocketServe *socketServe = nil;
 
 - (void)startConnectSocket
 {
+    self.deviceArray = [self readDeviceInfoFromPlist];
+    BLDeviceInfo *info;
+    for(info in self.deviceArray)
+    {
+        if ([info.mac isEqualToString:self.mac]) {
+            self.host = info.ip;
+            break;
+        }
+    }
+    
+    
+    if (self.host==nil) {
+        self.host = @"192.168.2.101";
+        [ProgressHUD showError:@"未获取中控局域网IP"];
+
+    }
     self.socket = [[AsyncSocket alloc] initWithDelegate:self];
     [self.socket setRunLoopModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
-    if ( ![self SocketOpen:HOST port:PORT] )
+    if ( ![self SocketOpen:self.host port:PORT] )
     {
         
     }
     
+}
+
+-(NSMutableArray*)readDeviceInfoFromPlist{
+    BLDeviceManager *blDevManager = [BLDeviceManager createBLDeviceManager];
+    return blDevManager.readBLDeviceInfoFromPlist;
 }
 
 - (NSInteger)SocketOpen:(NSString*)addr port:(NSInteger)port

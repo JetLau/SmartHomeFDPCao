@@ -107,6 +107,9 @@
 		60350DB01BD8786700E919F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DAA1BD8786700E919F5 /* LoginViewController.m */; };
 		60350DB11BD8786700E919F5 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DAC1BD8786700E919F5 /* UserInfo.m */; };
 		60350DB41BD8791300E919F5 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DB31BD8791300E919F5 /* RootController.m */; };
+		60350DB81BD9CB3200E919F5 /* VoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DB61BD9CB3200E919F5 /* VoiceTableViewController.m */; };
+		60350DB91BD9CB3200E919F5 /* VoiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60350DB71BD9CB3200E919F5 /* VoiceTableViewController.xib */; };
+		60350DBC1BDDBAEA00E919F5 /* NetworkStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 60350DBB1BDDBAEA00E919F5 /* NetworkStatus.m */; };
 		60421DD41A0E7421007E868D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
 		60421DD51A0E7421007E868D /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC01A0E7421007E868D /* MJConst.m */; };
 		60421DD61A0E7421007E868D /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DC31A0E7421007E868D /* MJFoundation.m */; };
@@ -625,6 +628,11 @@
 		60350DAC1BD8786700E919F5 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		60350DB21BD8791300E919F5 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
 		60350DB31BD8791300E919F5 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
+		60350DB51BD9CB3200E919F5 /* VoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceTableViewController.h; sourceTree = "<group>"; };
+		60350DB61BD9CB3200E919F5 /* VoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceTableViewController.m; sourceTree = "<group>"; };
+		60350DB71BD9CB3200E919F5 /* VoiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceTableViewController.xib; sourceTree = "<group>"; };
+		60350DBA1BDDBAEA00E919F5 /* NetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkStatus.h; sourceTree = "<group>"; };
+		60350DBB1BDDBAEA00E919F5 /* NetworkStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkStatus.m; sourceTree = "<group>"; };
 		60421DBD1A0E7420007E868D /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		60421DBE1A0E7420007E868D /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		60421DBF1A0E7421007E868D /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
@@ -1319,6 +1327,8 @@
 				60CCFC551BB0E4C90067AE44 /* AsyncUdpSocket.m */,
 				60350DA21BBA373B00E919F5 /* LGSocketServe.h */,
 				60350DA31BBA373B00E919F5 /* LGSocketServe.m */,
+				60350DBA1BDDBAEA00E919F5 /* NetworkStatus.h */,
+				60350DBB1BDDBAEA00E919F5 /* NetworkStatus.m */,
 			);
 			name = socket;
 			sourceTree = "<group>";
@@ -1566,6 +1576,9 @@
 				470DACF81A1F4E95003A9EE8 /* VoiceViewController.xib */,
 				470DACF91A1F4E95003A9EE8 /* VoiceCommandRecognizer.h */,
 				470DACFA1A1F4E95003A9EE8 /* VoiceCommandRecognizer.m */,
+				60350DB51BD9CB3200E919F5 /* VoiceTableViewController.h */,
+				60350DB61BD9CB3200E919F5 /* VoiceTableViewController.m */,
+				60350DB71BD9CB3200E919F5 /* VoiceTableViewController.xib */,
 			);
 			name = VoiceView;
 			sourceTree = "<group>";
@@ -1886,6 +1899,7 @@
 				60C020451A0A3C67002E3764 /* home_dark.png in Resources */,
 				470DACF11A1F4E88003A9EE8 /* AddDeviceViewController.xib in Resources */,
 				60C0203C1A0A3C67002E3764 /* login_textfield_mid.png in Resources */,
+				60350DB91BD9CB3200E919F5 /* VoiceTableViewController.xib in Resources */,
 				60C0202D1A0A3C67002E3764 /* login_bg.jpg in Resources */,
 				60032F2A1A1CA5E000F07B8C /* btn_tv_left.png in Resources */,
 				470DAD231A21A509003A9EE8 /* ChangeTCPButtonInfoViewController.xib in Resources */,
@@ -2135,6 +2149,7 @@
 				60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */,
 				60C01F891A08F19F002E3764 /* LJCommonItem.m in Sources */,
 				60156E291B8C88C700FC24C1 /* Reachability.m in Sources */,
+				60350DBC1BDDBAEA00E919F5 /* NetworkStatus.m in Sources */,
 				60156FC01B953CB400FC24C1 /* FXLabel.m in Sources */,
 				60CCFC231BB0E08B0067AE44 /* OEMSQueryTableViewCell.m in Sources */,
 				60C020651A0A689A002E3764 /* DeviceViewController.m in Sources */,
@@ -2194,6 +2209,7 @@
 				60421DDA1A0E7421007E868D /* MJType.m in Sources */,
 				60421DD41A0E7421007E868D /* MJArgument.m in Sources */,
 				470DAD0E1A202F8A003A9EE8 /* TCPDeviceManager.m in Sources */,
+				60350DB81BD9CB3200E919F5 /* VoiceTableViewController.m in Sources */,
 				60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */,
 				60CCFC381BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m in Sources */,
 				60C01F771A0879FA002E3764 /* SBJson4Writer.m in Sources */,
@@ -2448,7 +2464,7 @@
 				);
 				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
 				INFOPLIST_FILE = "SmartHomeFDP/SmartHomeFDP-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2483,7 +2499,7 @@
 				);
 				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
 				INFOPLIST_FILE = "SmartHomeFDP/SmartHomeFDP-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

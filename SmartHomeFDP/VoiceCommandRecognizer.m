@@ -13,7 +13,17 @@
 #import "SmartHomeAPIs.h"
 #import "ProgressHUD.h"
 #import "StatisticFileManager.h"
+#import "LGSocketServe.h"
+#import "BLDeviceManager.h"
+#import "BLDeviceInfo.h"
+#import "NetworkStatus.h"
+#import "CaoStudyModel.h"
 #define remoteQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+@interface VoiceCommandRecognizer ()
+{
+    
+}
+@end
 
 @implementation VoiceCommandRecognizer
 
@@ -60,48 +70,88 @@
             {
                 //匹配成功
                // [self operateStatistics:0];
-                
                 NSString *mac=[dic objectForKey:@"mac"];
                 NSString *name=[dic objectForKey:@"name"];
                 NSNumber *buttonId=[buttonDic objectForKey:@"buttonId"];
                 NSString *sendData=[buttonDic objectForKey:@"sendData"];
                 
                 NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-                [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
+                [dic setObject:[NSNumber numberWithInt:104] forKey:@"api_id"];
                 [dic setObject:@"send data" forKey:@"command"];
                 [dic setObject:mac forKey:@"mac"];
                 [dic setObject:sendData forKey:@"data"];
                 [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
-                NSDictionary *result = [SmartHomeAPIs CaoSendCode:dic];
+                NSLog(@"dic=%@",dic);
 
-                dispatch_async(remoteQueue, ^{
-                    int success = ([[result objectForKey:@"code"] intValue]==0) ? 0:1;
-                    //NSLog(@"success = %d",success);
-                    NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
-                    [remoteDic setObject:@"rm2Send" forKey:@"command"];
-                    [remoteDic setObject:mac forKey:@"mac"];
-                    [remoteDic setObject:name forKey:@"name"];
-                    [remoteDic setObject:buttonId forKey:@"buttonId"];
-                    [remoteDic setObject:sendData forKey:@"sendData"];
-                    [remoteDic setObject:[NSNumber numberWithInt:success] forKey:@"success"];
-                    [remoteDic setObject:[NSNumber numberWithInt:1] forKey:@"op_method"];
-
-                    NSString *result=[SmartHomeAPIs Rm2SendData:remoteDic];
-                    if([result isEqualToString:@"success"])
-                    {
-                        dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *wifiName = [[NetworkStatus sharedNetworkStatus] getCurrentWiFiSSID];
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                if ([wifiName isEqualToString:[defaults objectForKey:@"wifiName"]]) {
+                    LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
+                    socketServe.mac = mac;
+                    
+                    
+                    socketServe.block = ^(NSDictionary *dic){
+                        NSString * code = [dic objectForKey:@"code"];
+                        if ([code intValue] == 0) {
+                            //成功进入学习模式，提示用户操作遥控器
+                            //data = [caoStudyModel caoGetControlData];
+                            
                             [ProgressHUD showSuccess:@"语音控制成功"];
+                            
+                        } else {
+                            [ProgressHUD showError:[NSString stringWithFormat:@"错误码＝%i",[code intValue]]];
+                        }
+                        
+                        //NSLog(@"%@", [responseData objectFromJSONData]);
+                        dispatch_async(serverQueue, ^{
+                            int success = ([[dic objectForKey:@"code"] intValue]==0) ? 0:1;
+                            //NSLog(@"success = %d",success);
+                            NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
+                            [remoteDic setObject:@"rm2Send" forKey:@"command"];
+                            [remoteDic setObject:mac forKey:@"mac"];
+                            [remoteDic setObject:name forKey:@"name"];
+                            [remoteDic setObject:buttonId forKey:@"buttonId"];
+                            [remoteDic setObject:sendData forKey:@"sendData"];
+                            [remoteDic setObject:[NSNumber numberWithInt:success] forKey:@"success"];
+                            [remoteDic setObject:[NSNumber numberWithInt:1] forKey:@"op_method"];
+                            [SmartHomeAPIs Rm2SendData:remoteDic];
                         });
-                    }
-                    else
-                    {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [ProgressHUD showSuccess:@"语音控制失败，请检查中控器"];
-                        });
-                    }
-                });
+                    };
+                    
+                    //socket连接前先断开连接以免之前socket连接没有断开导致闪退
+                    [socketServe cutOffSocket];
+                    socketServe.socket.userData = SocketOfflineByServer;
+                    [socketServe startConnectSocket];
+                    //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
+                    //NSLog(@"dic=%@",dic);
+                    //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
+                    NSData *requestData = [dic JSONData];
+                    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+                    
+                    [socketServe sendMessage:josnString];
+                    
+                    return;
 
-                return;
+                }else{
+                    dispatch_async(remoteQueue, ^{
+                        RMDeviceManager *rmDeviceManager = [RMDeviceManager createRMDeviceManager];
+                        RMDevice *btnDevice = [rmDeviceManager getRMDevice:i];
+                        BLDeviceInfo *info=[[BLDeviceInfo alloc]init];
+                        info.mac=mac;
+                        CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:info rmDevice:btnDevice btnId:[[buttonDic objectForKey:@"buttonId"] intValue]];
+                        int code = [[caoStudyModel caoSendControlData:sendData] intValue];
+                        if (code == 0) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [ProgressHUD showSuccess:@"语音控制成功"];
+                            });
+                        } else {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [ProgressHUD showError:[NSString stringWithFormat:@"错误码＝%i",code]];
+                            });
+                        }
+                    });
+
+                }
             }
         }
     }
@@ -169,9 +219,7 @@
     }
     
     //[self operateStatistics:1];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [ProgressHUD showSuccess:@"未找到匹配的语音命令"];
-    });
+    [ProgressHUD showSuccess:@"未找到匹配的语音命令"];
     
     return;
 }
@@ -183,5 +231,7 @@
         [statisticManager statisticOperateWithType:@"Voice" andBtnId:btnId];
     });
 }
+
+
 
 @end

@@ -21,6 +21,9 @@ enum{
 
 @property (nonatomic, strong) AsyncSocket         *socket;       // socket
 @property (nonatomic, retain) NSTimer             *heartTimer;   // 心跳计时器
+@property (nonatomic, strong) NSString         *host;       // 中控ip
+@property (nonatomic, strong) NSString         *mac;       // 中控mac
+@property (nonatomic,strong) NSMutableArray *deviceArray;
 
 //sendMessage结果回调
 typedef void (^ablock)(NSDictionary *dic);

@@ -14,6 +14,7 @@
 #import "LGSocketServe.h"
 #import "JSONKit.h"
 #import "ProgressHUD.h"
+#import "NetworkStatus.h"
 @interface CustomRemoteViewController ()
 {
     dispatch_queue_t networkQueue;
@@ -128,7 +129,7 @@
     RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
     [rmDeviceManager initRMDeviceManage];
     NSDictionary * dicBtn = [rmDeviceManager getRMButton:self.rmDeviceIndex btnId:btn.buttonId];
-   
+    
     //NSLog(@"_rmDeviceIndex %i dicBtn %@",_rmDeviceIndex,dicBtn);
     if ([[dicBtn objectForKey:@"sendData"] isEqualToString:@""]) {
         AddOrChangeCustomBtnViewController *aOrChCustomBtnViewController = [[AddOrChangeCustomBtnViewController alloc] init];
@@ -140,21 +141,9 @@
         aOrChCustomBtnViewController.style = @"edit";
         [self.navigationController pushViewController:aOrChCustomBtnViewController animated:YES];
     }else{
-//        dispatch_async(networkQueue, ^{
-//            RMDevice *btnDevice = [rmDeviceManager getRMDevice:self.rmDeviceIndex];
-//            CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:self.info rmDevice:btnDevice btnId:btn.buttonId];
-//            int code = [[caoStudyModel caoSendControlData:[dicBtn objectForKey:@"sendData"]] intValue];
-//            
-//            if (code == 0) {
-//                [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"操作成功" waitUntilDone:YES];
-//            } else {
-//                [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"错误码＝%i",code] waitUntilDone:YES];
-//                
-//            }
-//        });
         
         RMDevice *btnDevice = [rmDeviceManager getRMDevice:self.rmDeviceIndex];
-
+        
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         [dic setObject:[NSNumber numberWithInt:104] forKey:@"api_id"];
         [dic setObject:@"send data" forKey:@"command"];
@@ -162,63 +151,83 @@
         [dic setObject:[dicBtn objectForKey:@"sendData"] forKey:@"data"];
         [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
         
-        LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
-        socketServe.block = ^(NSDictionary *dic){
-            NSString * code = [dic objectForKey:@"code"];
-            if ([code intValue] == 0) {
-                //成功进入学习模式，提示用户操作遥控器
-                //data = [caoStudyModel caoGetControlData];
+        NSString *wifiName = [[NetworkStatus sharedNetworkStatus] getCurrentWiFiSSID];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([wifiName isEqualToString:[defaults objectForKey:@"wifiName"]]) {
+            
+            LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
+            socketServe.mac = self.info.mac;
+            
+            socketServe.block = ^(NSDictionary *dic){
+                NSString * code = [dic objectForKey:@"code"];
+                if ([code intValue] == 0) {
+                    //成功进入学习模式，提示用户操作遥控器
+                    //data = [caoStudyModel caoGetControlData];
+                    
+                    [ProgressHUD showSuccess:@"操作成功"];
+                    
+                } else {
+                    [ProgressHUD showError:[NSString stringWithFormat:@"错误码＝%i",[code intValue]]];
+                }
                 
-                [ProgressHUD showSuccess:@"操作成功"];
+                //NSLog(@"%@", [responseData objectFromJSONData]);
+                dispatch_async(serverQueue, ^{
+                    int success = ([[dic objectForKey:@"code"] intValue]==0) ? 0:1;
+                    //NSLog(@"success = %d",success);
+                    NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
+                    [remoteDic setObject:@"rm2Send" forKey:@"command"];
+                    [remoteDic setObject:self.info.mac forKey:@"mac"];
+                    [remoteDic setObject:btnDevice.name forKey:@"name"];
+                    [remoteDic setObject:[NSNumber numberWithInt:btn.buttonId] forKey:@"buttonId"];
+                    [remoteDic setObject:[dicBtn objectForKey:@"sendData"] forKey:@"sendData"];
+                    [remoteDic setObject:[NSNumber numberWithInt:success] forKey:@"success"];
+                    [remoteDic setObject:[NSNumber numberWithInt:0] forKey:@"op_method"];
+                    [SmartHomeAPIs Rm2SendData:remoteDic];
+                });
+            };
+            
+            //socket连接前先断开连接以免之前socket连接没有断开导致闪退
+            [socketServe cutOffSocket];
+            socketServe.socket.userData = SocketOfflineByServer;
+            [socketServe startConnectSocket];
+            //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
+            //NSLog(@"dic=%@",dic);
+            //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
+            NSData *requestData = [dic JSONData];
+            NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+            
+            [socketServe sendMessage:josnString];
+        }else{
+            dispatch_async(networkQueue, ^{
+                RMDevice *btnDevice = [rmDeviceManager getRMDevice:self.rmDeviceIndex];
+                CaoStudyModel *caoStudyModel = [CaoStudyModel studyModelWithBLDeviceInfo:self.info rmDevice:btnDevice btnId:btn.buttonId];
+                int code = [[caoStudyModel caoSendControlData:[dicBtn objectForKey:@"sendData"]] intValue];
                 
-            } else {
-                [ProgressHUD showError:[NSString stringWithFormat:@"错误码＝%i",[code intValue]]];
-            }
-
-            //NSLog(@"%@", [responseData objectFromJSONData]);
-            dispatch_async(serverQueue, ^{
-                int success = ([[dic objectForKey:@"code"] intValue]==0) ? 0:1;
-                //NSLog(@"success = %d",success);
-                NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
-                [remoteDic setObject:@"rm2Send" forKey:@"command"];
-                [remoteDic setObject:self.info.mac forKey:@"mac"];
-                [remoteDic setObject:btnDevice.name forKey:@"name"];
-                [remoteDic setObject:[NSNumber numberWithInt:btn.buttonId] forKey:@"buttonId"];
-                [remoteDic setObject:[dicBtn objectForKey:@"sendData"] forKey:@"sendData"];
-                [remoteDic setObject:[NSNumber numberWithInt:success] forKey:@"success"];
-                [remoteDic setObject:[NSNumber numberWithInt:0] forKey:@"op_method"];
-                [SmartHomeAPIs Rm2SendData:remoteDic];
+                if (code == 0) {
+                    [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"操作成功" waitUntilDone:YES];
+                } else {
+                    [self performSelectorOnMainThread:@selector(errorWithMessage:) withObject:[NSString stringWithFormat:@"错误码＝%i",code] waitUntilDone:YES];
+                    
+                }
             });
-        };
-        
-        //socket连接前先断开连接以免之前socket连接没有断开导致闪退
-        [socketServe cutOffSocket];
-        socketServe.socket.userData = SocketOfflineByServer;
-        [socketServe startConnectSocket];
-        //[dic setObject:@"54:4A:16:2E:2F:F3" forKey:@"mac"];
-        //NSLog(@"dic=%@",dic);
-        //发送消息 @"hello world"只是举个列子，具体根据服务端的消息格式
-        NSData *requestData = [dic JSONData];
-        NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
-        
-        [socketServe sendMessage:josnString];
-        
+            
+        }
         
     }
 }
 
 -(void) customBtnLongPress:(RCDraggableButton *) btn
 {
-        //NSLog(@"长按成功！！！！！！！！！！！%i",btn.tag);
-        self.btnId = btn.buttonId;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"编辑Button" message:@"删除或重新编辑按钮？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"编辑", @"删除",nil];
-        [alert show];
+    //NSLog(@"长按成功！！！！！！！！！！！%i",btn.tag);
+    self.btnId = btn.buttonId;
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"编辑Button" message:@"删除或重新编辑按钮？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"编辑", @"删除",nil];
+    [alert show];
     
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-   // NSLog(@"buttonIndex = %d", buttonIndex);
+    // NSLog(@"buttonIndex = %d", buttonIndex);
     if(buttonIndex==1)
     {
         AddOrChangeCustomBtnViewController *aOrChCustomBtnViewController = [[AddOrChangeCustomBtnViewController alloc] init];

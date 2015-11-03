@@ -389,6 +389,28 @@
     return buttonArray;
 }
 
+-(NSMutableArray *) getVoiceList
+{
+    if (self.RMDeviceArray == nil || [self.RMDeviceArray count] == 0) {
+        return nil;
+    }else{
+        NSMutableArray *voicelist = [[NSMutableArray alloc] init];
+        for (NSDictionary *dic in self.RMDeviceArray) {
+            NSArray *btnArray = [dic objectForKey:@"buttonArray"];
+            for (NSDictionary *btnDic in btnArray) {
+                if (![[btnDic objectForKey:@"buttonInfo"] isEqualToString:@""]) {
+                    [voicelist addObject:[btnDic objectForKey:@"buttonInfo"]];
+                }
+            }
+        }
+        if([voicelist count] == 0){
+            return nil;
+        }else{
+            return voicelist;
+        }
+    }
+}
+
 -(void)deleteCustomBtn:(int)rmDeviceIndex btnId:(int)btnId
 {
     NSMutableDictionary *dicDevices=[self.RMDeviceArray objectAtIndex:rmDeviceIndex];

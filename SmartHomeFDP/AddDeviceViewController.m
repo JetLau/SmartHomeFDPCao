@@ -134,7 +134,12 @@ int const discoveryTimeout = 40;
 
     [self continueStartAction];
     [self.caoConfig startConfig:wifi password:password];
-
+    NSString *wifiName = [self getCurrentWiFiSSID];
+    if (wifiName != nil) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:wifiName forKey:@"wifiName"];
+        NSLog(@"wifiName = %@",wifiName);
+    }
 }
 
 

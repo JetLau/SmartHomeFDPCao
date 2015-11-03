@@ -72,59 +72,52 @@
     [dic setObject:[NSNumber numberWithInt:102] forKey:@"api_id"];
     [dic setObject:@"study mode" forKey:@"command"];
     [dic setObject:_info.mac forKey:@"mac"];
-    [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
+    //[dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
     
     
-   
+    
     
     return [[SmartHomeAPIs CaoEnterStudy:dic] objectForKey:@"code"];
-        
-   // [socketServe ]
 }
 
 
 /*get control data*/
 - (NSString *)caoGetControlData
 {
+
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
+    [dic setObject:@"save data" forKey:@"command"];
+    [dic setObject:_info.mac forKey:@"mac"];
+    [dic setObject:[NSNumber numberWithInt:_btnId] forKey:@"btnId"];
+    [dic setObject:@"" forKey:@"btnName"];
+    [dic setObject:@"" forKey:@"voice"];
+    [dic setObject:@"" forKey:@"deviceId"];
+    [dic setObject:@"" forKey:@"state"];
+
+    //[dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
+    NSDictionary *result = [SmartHomeAPIs CaoGetCode:dic];
     
-    BOOL isGetData = NO;
-    int times = 0;
-    while (!isGetData && times< 10) {
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
-        [dic setObject:@"save data" forKey:@"command"];
-        [dic setObject:_info.mac forKey:@"mac"];
-        [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
-        NSDictionary *result = [SmartHomeAPIs CaoGetCode:dic];
+    if ([[result objectForKey:@"code"] intValue] == 0)
+    {
+        NSString * data = [result objectForKey:@"data"];
+        //NSLog(@"get code : %@",data);
         
-        if ([[result objectForKey:@"code"] intValue] == 0)
-        {
-            isGetData = YES;
-            NSString * data = [result objectForKey:@"data"];
-            //NSLog(@"get code : %@",data);
-            
-            dispatch_async(serverQueue, ^{
-                NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
-                [remoteDic setObject:@"rm2Study" forKey:@"command"];
-                [remoteDic setObject:_info.mac forKey:@"mac"];
-                [remoteDic setObject:[NSNumber numberWithInt:0] forKey:@"success"];
-                [remoteDic setObject:_rmDevice.name forKey:@"name"];
-                [remoteDic setObject:[NSNumber numberWithInt:_btnId] forKey:@"buttonId"];
-                [remoteDic setObject:data forKey:@"sendData"];
-                [SmartHomeAPIs Rm2StudyData:remoteDic];
-            });
-            
-            
-            return data;
-        }else{
-            [NSThread sleepForTimeInterval:1.0];
-            times++;
-        }
+        dispatch_async(serverQueue, ^{
+            NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
+            [remoteDic setObject:@"rm2Study" forKey:@"command"];
+            [remoteDic setObject:_info.mac forKey:@"mac"];
+            [remoteDic setObject:[NSNumber numberWithInt:0] forKey:@"success"];
+            [remoteDic setObject:_rmDevice.name forKey:@"name"];
+            [remoteDic setObject:[NSNumber numberWithInt:_btnId] forKey:@"buttonId"];
+            [remoteDic setObject:data forKey:@"sendData"];
+            [SmartHomeAPIs Rm2StudyData:remoteDic];
+        });
         
+        
+        return data;
     }
     return nil;
-    
-    
 }
 
 /*Send data command*/
@@ -132,12 +125,12 @@
 {
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
+    [dic setObject:[NSNumber numberWithInt:104] forKey:@"api_id"];
     [dic setObject:@"send data" forKey:@"command"];
     [dic setObject:_info.mac forKey:@"mac"];
     [dic setObject:data forKey:@"data"];
-    [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
-
+    //[dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
+    
     NSDictionary *result = [SmartHomeAPIs CaoSendCode:dic];
     //NSLog(@"%@", [responseData objectFromJSONData]);
     dispatch_async(serverQueue, ^{
