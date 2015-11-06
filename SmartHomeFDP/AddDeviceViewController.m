@@ -45,13 +45,6 @@ int const discoveryTimeout = 40;
     [self.navigationItem setTitle:@"添加中控"];
     //设置成no，则状态栏及导航样不为透明的，界面上的组件就是紧挨着导航栏显示了
     [self.navigationController.navigationBar setTranslucent:NO];
-
-    
-    NSString *wifiSSID=[self getCurrentWiFiSSID];
-    if(wifiSSID!=nil&&![wifiSSID isEqualToString:@""])
-    {
-        [self.wifiTextField setText:wifiSSID];
-    }
     
     
     [self.searchButton.layer setMasksToBounds:YES];
@@ -80,6 +73,13 @@ int const discoveryTimeout = 40;
 //                                               object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getIpNotification:) name:@"GetIpNotification" object:nil];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    NSString *wifiSSID=[self getCurrentWiFiSSID];
+    if(wifiSSID!=nil&&![wifiSSID isEqualToString:@""])
+    {
+        [self.wifiTextField setText:wifiSSID];
+    }
 }
 
 - (void)didReceiveMemoryWarning

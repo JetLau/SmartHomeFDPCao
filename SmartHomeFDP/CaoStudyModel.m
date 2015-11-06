@@ -89,11 +89,11 @@
     [dic setObject:[NSNumber numberWithInt:103] forKey:@"api_id"];
     [dic setObject:@"save data" forKey:@"command"];
     [dic setObject:_info.mac forKey:@"mac"];
-    [dic setObject:[NSNumber numberWithInt:_btnId] forKey:@"btnId"];
-    [dic setObject:@"" forKey:@"btnName"];
-    [dic setObject:@"" forKey:@"voice"];
-    [dic setObject:@"" forKey:@"deviceId"];
-    [dic setObject:@"" forKey:@"state"];
+//    [dic setObject:[NSNumber numberWithInt:_btnId] forKey:@"btnId"];
+//    [dic setObject:@"" forKey:@"btnName"];
+//    [dic setObject:@"" forKey:@"voice"];
+//    [dic setObject:@"" forKey:@"deviceId"];
+//    [dic setObject:@"" forKey:@"state"];
 
     //[dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
     NSDictionary *result = [SmartHomeAPIs CaoGetCode:dic];

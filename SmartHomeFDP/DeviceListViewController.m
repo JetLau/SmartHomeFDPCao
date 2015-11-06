@@ -98,6 +98,8 @@
     BLDeviceInfo *info;
     for(info in _deviceArray)
     {
+        info.type = @"RM2";
+        info.name = @"中控器";
         //if ([info.type isEqualToString:@"RM2"] || [info.type isEqualToString:@"SP2"]) {
             LJCommonItem * item = [LJCommonItem itemWithTitle:info.name icon:info.type];
             item.subtitle = [NSString stringWithFormat:@"%@ %@", info.mac, info.type];

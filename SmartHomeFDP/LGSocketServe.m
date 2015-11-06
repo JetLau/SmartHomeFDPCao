@@ -202,7 +202,7 @@ static LGSocketServe *socketServe = nil;
         //收到结果解析...
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         if([dic count]>1){
-            NSLog(@"%@",dic);
+            NSLog(@"didReadData = %@",dic);
             if(self.block){
                self.block(dic);
             }

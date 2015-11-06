@@ -55,7 +55,7 @@
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_login.action?qu=11&&requestStr=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_login.action?qu=%@&&requestStr=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
     
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -531,7 +531,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/zigbee/study_mode.action?ctlRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/zigbee/send_msg.action?ctlRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
     
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -560,7 +560,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/zigbee/study_mode.action?ctlRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/zigbee/send_msg.action?ctlRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
     
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -573,7 +573,7 @@
         {
             //NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
             
-            return [[NSDictionary alloc]initWithObjectsAndKeys:@"0",@"code",@"success",@"result",nil];
+            return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
         }
     }
     //  NSLog(@"result: %@",[SmartHomeAPIs toDictionary:data]);
@@ -587,7 +587,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/zigbee/device_control.action?ctlRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/zigbee/send_msg.action?ctlRequest=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
     
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];

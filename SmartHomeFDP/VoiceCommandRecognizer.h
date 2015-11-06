@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 @class RMDeviceManager;
 @class TCPDeviceManager;
+@class ScenePlistManager;
 
 @interface VoiceCommandRecognizer : NSObject
 
 @property(strong,nonatomic)RMDeviceManager *rmDeviceManager;
 @property(strong,nonatomic)TCPDeviceManager *tcpDeviceManager;
+@property(strong,nonatomic)ScenePlistManager *scenePlistManager;
 
 +(instancetype)createVoiceCommandRecognizer;
 

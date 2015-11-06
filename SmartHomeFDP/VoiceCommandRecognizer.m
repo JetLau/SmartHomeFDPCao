@@ -18,6 +18,8 @@
 #import "BLDeviceInfo.h"
 #import "NetworkStatus.h"
 #import "CaoStudyModel.h"
+#import "ScenePlistManager.h"
+
 #define remoteQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 @interface VoiceCommandRecognizer ()
 {
@@ -32,6 +34,7 @@
     VoiceCommandRecognizer *voiceCommandRecognizer=[[VoiceCommandRecognizer alloc]init];
     voiceCommandRecognizer.rmDeviceManager=[RMDeviceManager createRMDeviceManager];
     voiceCommandRecognizer.tcpDeviceManager=[TCPDeviceManager createTCPDeviceManager];
+    voiceCommandRecognizer.scenePlistManager=[ScenePlistManager createScenePlistManager];
     
     return voiceCommandRecognizer;
 }
@@ -40,6 +43,7 @@
 {
     NSArray *rmDeviceArray=self.rmDeviceManager.RMDeviceArray;
     NSArray *tcpDeviceArray=self.tcpDeviceManager.TCPDeviceArray;
+    NSArray *sceneArray = self.scenePlistManager.SceneArray;
     
     
     //匹配Remote设备
@@ -64,12 +68,12 @@
             CFStringTransform((__bridge CFMutableStringRef)buttonInfoPY, 0, kCFStringTransformStripCombiningMarks, NO);
             
             NSRange range=[voiceCommandPY rangeOfString:buttonInfoPY];
-           // NSLog(@"拼音    %@  %@",voiceCommandPY,buttonInfoPY);
+            // NSLog(@"拼音    %@  %@",voiceCommandPY,buttonInfoPY);
             //NSRange range=[voiceCommandStr rangeOfString:buttonInfo];
             if(range.location !=NSNotFound)
             {
                 //匹配成功
-               // [self operateStatistics:0];
+                // [self operateStatistics:0];
                 NSString *mac=[dic objectForKey:@"mac"];
                 NSString *name=[dic objectForKey:@"name"];
                 NSNumber *buttonId=[buttonDic objectForKey:@"buttonId"];
@@ -82,7 +86,7 @@
                 [dic setObject:sendData forKey:@"data"];
                 [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
                 NSLog(@"dic=%@",dic);
-
+                
                 NSString *wifiName = [[NetworkStatus sharedNetworkStatus] getCurrentWiFiSSID];
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 if ([wifiName isEqualToString:[defaults objectForKey:@"wifiName"]]) {
@@ -131,7 +135,7 @@
                     [socketServe sendMessage:josnString];
                     
                     return;
-
+                    
                 }else{
                     dispatch_async(remoteQueue, ^{
                         RMDeviceManager *rmDeviceManager = [RMDeviceManager createRMDeviceManager];
@@ -150,7 +154,7 @@
                             });
                         }
                     });
-
+                    
                 }
             }
         }
@@ -184,7 +188,7 @@
             if(range.location !=NSNotFound)
             {
                 //匹配成功
-               // [self operateStatistics:0];
+                // [self operateStatistics:0];
                 NSString *sendData=[buttonDic objectForKey:@"sendData"];
                 
                 NSString *success=[SmartHomeAPIs OperateVoiceCommand:sendData];
@@ -215,6 +219,109 @@
                 }
                 return;
             }
+        }
+    }
+    
+    //匹配场景
+    for(int i=0;i<[sceneArray count];i++)
+    {
+        NSDictionary *dic=[sceneArray objectAtIndex:i];
+        NSString *voice=[dic objectForKey:@"voice"];
+        
+        if([voice isEqualToString:@""])
+        {
+            continue;
+        }
+        NSMutableString *voiceCommandPY=[[NSMutableString alloc]initWithString:voiceCommandStr];
+        NSMutableString *buttonInfoPY=[[NSMutableString alloc]initWithString:voice];
+        CFStringTransform((__bridge CFMutableStringRef)voiceCommandPY, 0, kCFStringTransformMandarinLatin, NO);
+        CFStringTransform((__bridge CFMutableStringRef)voiceCommandPY, 0, kCFStringTransformStripCombiningMarks, NO);
+        CFStringTransform((__bridge CFMutableStringRef)buttonInfoPY, 0, kCFStringTransformMandarinLatin, NO);
+        CFStringTransform((__bridge CFMutableStringRef)buttonInfoPY, 0, kCFStringTransformStripCombiningMarks, NO);
+        
+        NSRange range=[voiceCommandPY rangeOfString:buttonInfoPY];
+        // NSLog(@"拼音    %@  %@",voiceCommandPY,buttonInfoPY);
+        //NSRange range=[voiceCommandStr rangeOfString:buttonInfo];
+        if(range.location !=NSNotFound)
+        {
+            //匹配成功
+            // [self operateStatistics:0];
+            NSArray *btnArray = [dic objectForKey:@"buttonArray"];
+            int btnCount = [btnArray count];
+            __block int failnum = 0;
+            if (btnCount == 0) {
+                [ProgressHUD showError:@"此场景未添加控制命令"];
+            }else{
+                for (int i = 0; i < btnCount; i++) {
+                    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+                    [dic setObject:[NSNumber numberWithInt:104] forKey:@"api_id"];
+                    [dic setObject:@"send data" forKey:@"command"];
+                    [dic setObject:[[btnArray objectAtIndex:i] objectForKey:@"btnMac"] forKey:@"mac"];
+                    [dic setObject:[[btnArray objectAtIndex:i] objectForKey:@"sendData"] forKey:@"data"];
+                    [dic setObject:[NSNumber numberWithInt:0] forKey:@"message_id"];
+                    
+                    
+                    NSString *wifiName = [[NetworkStatus sharedNetworkStatus] getCurrentWiFiSSID];
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    if ([wifiName isEqualToString:[defaults objectForKey:@"wifiName"]]) {
+                        
+                        LGSocketServe *socketServe = [LGSocketServe sharedSocketServe];
+                        socketServe.mac = [[btnArray objectAtIndex:i] objectForKey:@"btnMac"];
+                        
+                        socketServe.block = ^(NSDictionary *dic){
+                            NSString * code = [dic objectForKey:@"code"];
+                            if ([code intValue] == 0) {
+                                //成功进入学习模式，提示用户操作遥控器
+                                //data = [caoStudyModel caoGetControlData];
+                                
+//                                [ProgressHUD showSuccess:@"操作成功"];
+                                
+                            } else {
+                                failnum++;
+
+//                                [ProgressHUD showError:[NSString stringWithFormat:@"错误码＝%i",[code intValue]]];
+                            }
+                            
+                        };
+                        
+                        //socket连接前先断开连接以免之前socket连接没有断开导致闪退
+                        [socketServe cutOffSocket];
+                        socketServe.socket.userData = SocketOfflineByServer;
+                        [socketServe startConnectSocket];
+                        
+                        NSData *requestData = [dic JSONData];
+                        NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+                        
+                        [socketServe sendMessage:josnString];
+                    }else {
+                        dispatch_async(serverQueue, ^{
+                            NSDictionary *result = [SmartHomeAPIs CaoSendCode:dic];
+                            
+                            
+                            if ([result objectForKey:@"code"] == 0) {
+//                                dispatch_async(dispatch_get_main_queue(), ^{
+//                                    [ProgressHUD showSuccess:@"操作成功"];
+//                                });
+                                
+                            } else {
+                                failnum++;
+//                                dispatch_async(dispatch_get_main_queue(), ^{
+//                                    [ProgressHUD showSuccess:[NSString stringWithFormat:@"错误码＝%@",[result objectForKey:@"code"]]];
+//                                });
+                                
+                            }
+                        });
+                        
+                    }
+                    [NSThread sleepForTimeInterval:0.5];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ProgressHUD showSuccess:[NSString stringWithFormat:@"发送成功%d/%d个",btnCount-failnum,btnCount]];
+                });
+                
+            }
+            
+            return;
         }
     }
     

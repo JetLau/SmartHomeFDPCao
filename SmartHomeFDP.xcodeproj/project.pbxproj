@@ -126,6 +126,33 @@
 		60421DF21A0FB29F007E868D /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF11A0FB29F007E868D /* textField.png */; };
 		60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF31A0FB2AA007E868D /* textField@2x.png */; };
 		60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DF51A137CC5007E868D /* BtnStudyViewController.m */; };
+		605E3B9D1BE8735200AE5AB1 /* SceneViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3B901BE8735200AE5AB1 /* SceneViewCollectionViewCell.m */; };
+		605E3B9E1BE8735200AE5AB1 /* SceneViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3B911BE8735200AE5AB1 /* SceneViewCollectionViewCell.xib */; };
+		605E3B9F1BE8735200AE5AB1 /* ScenePlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3B931BE8735200AE5AB1 /* ScenePlistManager.m */; };
+		605E3BA01BE8735200AE5AB1 /* AddSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3B951BE8735200AE5AB1 /* AddSceneViewController.m */; };
+		605E3BA11BE8735200AE5AB1 /* AddSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3B961BE8735200AE5AB1 /* AddSceneViewController.xib */; };
+		605E3BA21BE8735200AE5AB1 /* SelectCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3B981BE8735200AE5AB1 /* SelectCommandTableViewController.m */; };
+		605E3BA31BE8735200AE5AB1 /* SelectCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3B991BE8735200AE5AB1 /* SelectCommandTableViewController.xib */; };
+		605E3BA41BE8735200AE5AB1 /* BtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3B9B1BE8735200AE5AB1 /* BtnTableViewCell.m */; };
+		605E3BA51BE8735200AE5AB1 /* BtnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3B9C1BE8735200AE5AB1 /* BtnTableViewCell.xib */; };
+		605E3BA61BE8798500AE5AB1 /* libFirstTimeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60156E1C1B8C88C700FC24C1 /* libFirstTimeConfig.a */; };
+		605E3BA81BE89A1100AE5AB1 /* defaultScenePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BA71BE89A1100AE5AB1 /* defaultScenePic.jpg */; };
+		605E3BCA1BEC3B6000AE5AB1 /* MHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BC81BEC3B6000AE5AB1 /* MHomeViewController.m */; };
+		605E3BCB1BEC3B6000AE5AB1 /* MHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BC91BEC3B6000AE5AB1 /* MHomeViewController.xib */; };
+		605E3BD81BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BCD1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.m */; };
+		605E3BD91BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BCE1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.xib */; };
+		605E3BDA1BEC3BF800AE5AB1 /* MDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BD01BEC3BF800AE5AB1 /* MDeviceManageViewController.m */; };
+		605E3BDB1BEC3BF800AE5AB1 /* MDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BD11BEC3BF800AE5AB1 /* MDeviceManageViewController.xib */; };
+		605E3BDC1BEC3BF800AE5AB1 /* TestMDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BD31BEC3BF800AE5AB1 /* TestMDeviceManageViewController.m */; };
+		605E3BDD1BEC3BF800AE5AB1 /* TestMDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BD41BEC3BF800AE5AB1 /* TestMDeviceManageViewController.xib */; };
+		605E3BDE1BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BD61BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.m */; };
+		605E3BDF1BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BD71BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.xib */; };
+		605E3BE91BEC3C1900AE5AB1 /* MStatisicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BE11BEC3C1900AE5AB1 /* MStatisicViewController.m */; };
+		605E3BEA1BEC3C1900AE5AB1 /* MStatisicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BE21BEC3C1900AE5AB1 /* MStatisicViewController.xib */; };
+		605E3BEB1BEC3C1900AE5AB1 /* MStatisticGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BE41BEC3C1900AE5AB1 /* MStatisticGraphViewController.m */; };
+		605E3BEC1BEC3C1900AE5AB1 /* MStatisticGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BE51BEC3C1900AE5AB1 /* MStatisticGraphViewController.xib */; };
+		605E3BED1BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605E3BE71BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.m */; };
+		605E3BEE1BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605E3BE81BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.xib */; };
 		606C9B7D1A070D4C003BA6AD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B761A070D4C003BA6AD /* HomeViewController.m */; };
 		606C9B811A070D4C003BA6AD /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B7C1A070D4C003BA6AD /* DeviceListViewController.m */; };
 		606DC7A01B0C1FCF001B78E8 /* GpsDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606DC79E1B0C1FCF001B78E8 /* GpsDataTableViewController.m */; };
@@ -423,22 +450,6 @@
 		60C7A27C1B018EA7005314A5 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A27A1B018EA7005314A5 /* MapViewController.mm */; };
 		60C7A27D1B018EA7005314A5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7A27B1B018EA7005314A5 /* MapViewController.xib */; };
 		60CCFC111BB0E04E0067AE44 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC101BB0E04E0067AE44 /* NavigationViewController.m */; };
-		60CCFC151BB0E0700067AE44 /* MHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC131BB0E0700067AE44 /* MHomeViewController.m */; };
-		60CCFC161BB0E0700067AE44 /* MHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC141BB0E0700067AE44 /* MHomeViewController.xib */; };
-		60CCFC231BB0E08B0067AE44 /* OEMSQueryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC181BB0E08B0067AE44 /* OEMSQueryTableViewCell.m */; };
-		60CCFC241BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC191BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib */; };
-		60CCFC251BB0E08B0067AE44 /* MDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC1B1BB0E08B0067AE44 /* MDeviceManageViewController.m */; };
-		60CCFC261BB0E08B0067AE44 /* MDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC1C1BB0E08B0067AE44 /* MDeviceManageViewController.xib */; };
-		60CCFC271BB0E08B0067AE44 /* TestMDeviceManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC1E1BB0E08B0067AE44 /* TestMDeviceManageViewController.m */; };
-		60CCFC281BB0E08B0067AE44 /* TestMDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC1F1BB0E08B0067AE44 /* TestMDeviceManageViewController.xib */; };
-		60CCFC291BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC211BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m */; };
-		60CCFC2A1BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC221BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib */; };
-		60CCFC341BB0E0BE0067AE44 /* MStatisicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC2C1BB0E0BE0067AE44 /* MStatisicViewController.m */; };
-		60CCFC351BB0E0BE0067AE44 /* MStatisicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC2D1BB0E0BE0067AE44 /* MStatisicViewController.xib */; };
-		60CCFC361BB0E0BE0067AE44 /* MStatisticGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC2F1BB0E0BE0067AE44 /* MStatisticGraphViewController.m */; };
-		60CCFC371BB0E0BE0067AE44 /* MStatisticGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC301BB0E0BE0067AE44 /* MStatisticGraphViewController.xib */; };
-		60CCFC381BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC321BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m */; };
-		60CCFC391BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC331BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib */; };
 		60CCFC401BB0E0DB0067AE44 /* MSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC3B1BB0E0DB0067AE44 /* MSettingViewController.m */; };
 		60CCFC411BB0E0DB0067AE44 /* MSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC3C1BB0E0DB0067AE44 /* MSettingViewController.xib */; };
 		60CCFC421BB0E0DB0067AE44 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC3E1BB0E0DB0067AE44 /* UserDetailViewController.m */; };
@@ -662,6 +673,45 @@
 		60421DF11A0FB29F007E868D /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		60421DF31A0FB2AA007E868D /* textField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textField@2x.png"; sourceTree = "<group>"; };
 		60421DF51A137CC5007E868D /* BtnStudyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnStudyViewController.m; sourceTree = "<group>"; };
+		605E3B8F1BE8735200AE5AB1 /* SceneViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneViewCollectionViewCell.h; sourceTree = "<group>"; };
+		605E3B901BE8735200AE5AB1 /* SceneViewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneViewCollectionViewCell.m; sourceTree = "<group>"; };
+		605E3B911BE8735200AE5AB1 /* SceneViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceneViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		605E3B921BE8735200AE5AB1 /* ScenePlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScenePlistManager.h; sourceTree = "<group>"; };
+		605E3B931BE8735200AE5AB1 /* ScenePlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScenePlistManager.m; sourceTree = "<group>"; };
+		605E3B941BE8735200AE5AB1 /* AddSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSceneViewController.h; sourceTree = "<group>"; };
+		605E3B951BE8735200AE5AB1 /* AddSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSceneViewController.m; sourceTree = "<group>"; };
+		605E3B961BE8735200AE5AB1 /* AddSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSceneViewController.xib; sourceTree = "<group>"; };
+		605E3B971BE8735200AE5AB1 /* SelectCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCommandTableViewController.h; sourceTree = "<group>"; };
+		605E3B981BE8735200AE5AB1 /* SelectCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCommandTableViewController.m; sourceTree = "<group>"; };
+		605E3B991BE8735200AE5AB1 /* SelectCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCommandTableViewController.xib; sourceTree = "<group>"; };
+		605E3B9A1BE8735200AE5AB1 /* BtnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BtnTableViewCell.h; sourceTree = "<group>"; };
+		605E3B9B1BE8735200AE5AB1 /* BtnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnTableViewCell.m; sourceTree = "<group>"; };
+		605E3B9C1BE8735200AE5AB1 /* BtnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BtnTableViewCell.xib; sourceTree = "<group>"; };
+		605E3BA71BE89A1100AE5AB1 /* defaultScenePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultScenePic.jpg; sourceTree = "<group>"; };
+		605E3BC71BEC3B6000AE5AB1 /* MHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHomeViewController.h; sourceTree = "<group>"; };
+		605E3BC81BEC3B6000AE5AB1 /* MHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHomeViewController.m; sourceTree = "<group>"; };
+		605E3BC91BEC3B6000AE5AB1 /* MHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHomeViewController.xib; sourceTree = "<group>"; };
+		605E3BCC1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSQueryTableViewCell.h; sourceTree = "<group>"; };
+		605E3BCD1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSQueryTableViewCell.m; sourceTree = "<group>"; };
+		605E3BCE1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSQueryTableViewCell.xib; sourceTree = "<group>"; };
+		605E3BCF1BEC3BF800AE5AB1 /* MDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDeviceManageViewController.h; sourceTree = "<group>"; };
+		605E3BD01BEC3BF800AE5AB1 /* MDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDeviceManageViewController.m; sourceTree = "<group>"; };
+		605E3BD11BEC3BF800AE5AB1 /* MDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDeviceManageViewController.xib; sourceTree = "<group>"; };
+		605E3BD21BEC3BF800AE5AB1 /* TestMDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMDeviceManageViewController.h; sourceTree = "<group>"; };
+		605E3BD31BEC3BF800AE5AB1 /* TestMDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMDeviceManageViewController.m; sourceTree = "<group>"; };
+		605E3BD41BEC3BF800AE5AB1 /* TestMDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMDeviceManageViewController.xib; sourceTree = "<group>"; };
+		605E3BD51BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffEnqueryDeviceTableViewController.h; sourceTree = "<group>"; };
+		605E3BD61BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffEnqueryDeviceTableViewController.m; sourceTree = "<group>"; };
+		605E3BD71BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiffEnqueryDeviceTableViewController.xib; sourceTree = "<group>"; };
+		605E3BE01BEC3C1900AE5AB1 /* MStatisicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisicViewController.h; sourceTree = "<group>"; };
+		605E3BE11BEC3C1900AE5AB1 /* MStatisicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisicViewController.m; sourceTree = "<group>"; };
+		605E3BE21BEC3C1900AE5AB1 /* MStatisicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisicViewController.xib; sourceTree = "<group>"; };
+		605E3BE31BEC3C1900AE5AB1 /* MStatisticGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisticGraphViewController.h; sourceTree = "<group>"; };
+		605E3BE41BEC3C1900AE5AB1 /* MStatisticGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisticGraphViewController.m; sourceTree = "<group>"; };
+		605E3BE51BEC3C1900AE5AB1 /* MStatisticGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisticGraphViewController.xib; sourceTree = "<group>"; };
+		605E3BE61BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSEnergyGraphViewController.h; sourceTree = "<group>"; };
+		605E3BE71BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSEnergyGraphViewController.m; sourceTree = "<group>"; };
+		605E3BE81BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSEnergyGraphViewController.xib; sourceTree = "<group>"; };
 		606C9B751A070D4C003BA6AD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		606C9B761A070D4C003BA6AD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		606C9B7B1A070D4C003BA6AD /* DeviceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListViewController.h; sourceTree = "<group>"; };
@@ -801,30 +851,6 @@
 		60C7A27B1B018EA7005314A5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		60CCFC0F1BB0E04E0067AE44 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		60CCFC101BB0E04E0067AE44 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
-		60CCFC121BB0E0700067AE44 /* MHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHomeViewController.h; sourceTree = "<group>"; };
-		60CCFC131BB0E0700067AE44 /* MHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHomeViewController.m; sourceTree = "<group>"; };
-		60CCFC141BB0E0700067AE44 /* MHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHomeViewController.xib; sourceTree = "<group>"; };
-		60CCFC171BB0E08B0067AE44 /* OEMSQueryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSQueryTableViewCell.h; sourceTree = "<group>"; };
-		60CCFC181BB0E08B0067AE44 /* OEMSQueryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSQueryTableViewCell.m; sourceTree = "<group>"; };
-		60CCFC191BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSQueryTableViewCell.xib; sourceTree = "<group>"; };
-		60CCFC1A1BB0E08B0067AE44 /* MDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDeviceManageViewController.h; sourceTree = "<group>"; };
-		60CCFC1B1BB0E08B0067AE44 /* MDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDeviceManageViewController.m; sourceTree = "<group>"; };
-		60CCFC1C1BB0E08B0067AE44 /* MDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDeviceManageViewController.xib; sourceTree = "<group>"; };
-		60CCFC1D1BB0E08B0067AE44 /* TestMDeviceManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMDeviceManageViewController.h; sourceTree = "<group>"; };
-		60CCFC1E1BB0E08B0067AE44 /* TestMDeviceManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMDeviceManageViewController.m; sourceTree = "<group>"; };
-		60CCFC1F1BB0E08B0067AE44 /* TestMDeviceManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMDeviceManageViewController.xib; sourceTree = "<group>"; };
-		60CCFC201BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffEnqueryDeviceTableViewController.h; sourceTree = "<group>"; };
-		60CCFC211BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffEnqueryDeviceTableViewController.m; sourceTree = "<group>"; };
-		60CCFC221BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiffEnqueryDeviceTableViewController.xib; sourceTree = "<group>"; };
-		60CCFC2B1BB0E0BE0067AE44 /* MStatisicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisicViewController.h; sourceTree = "<group>"; };
-		60CCFC2C1BB0E0BE0067AE44 /* MStatisicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisicViewController.m; sourceTree = "<group>"; };
-		60CCFC2D1BB0E0BE0067AE44 /* MStatisicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisicViewController.xib; sourceTree = "<group>"; };
-		60CCFC2E1BB0E0BE0067AE44 /* MStatisticGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStatisticGraphViewController.h; sourceTree = "<group>"; };
-		60CCFC2F1BB0E0BE0067AE44 /* MStatisticGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStatisticGraphViewController.m; sourceTree = "<group>"; };
-		60CCFC301BB0E0BE0067AE44 /* MStatisticGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStatisticGraphViewController.xib; sourceTree = "<group>"; };
-		60CCFC311BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMSEnergyGraphViewController.h; sourceTree = "<group>"; };
-		60CCFC321BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMSEnergyGraphViewController.m; sourceTree = "<group>"; };
-		60CCFC331BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OEMSEnergyGraphViewController.xib; sourceTree = "<group>"; };
 		60CCFC3A1BB0E0DB0067AE44 /* MSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSettingViewController.h; sourceTree = "<group>"; };
 		60CCFC3B1BB0E0DB0067AE44 /* MSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSettingViewController.m; sourceTree = "<group>"; };
 		60CCFC3C1BB0E0DB0067AE44 /* MSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSettingViewController.xib; sourceTree = "<group>"; };
@@ -887,6 +913,7 @@
 				606DCAA61B0C712C001B78E8 /* CoreGraphics.framework in Frameworks */,
 				606DCB1A1B12F91A001B78E8 /* OpenGLES.framework in Frameworks */,
 				606DCAA11B0C712C001B78E8 /* MapKit.framework in Frameworks */,
+				605E3BA61BE8798500AE5AB1 /* libFirstTimeConfig.a in Frameworks */,
 				606DCAA21B0C712C001B78E8 /* CoreLocation.framework in Frameworks */,
 				606DCAA31B0C712C001B78E8 /* AddressBook.framework in Frameworks */,
 				606DCAA41B0C712C001B78E8 /* AudioToolbox.framework in Frameworks */,
@@ -1234,6 +1261,15 @@
 				60156E451B8D5F7E00FC24C1 /* home */,
 				60156E4B1B8D601000FC24C1 /* devicemanager */,
 				60156E6D1B8F2F0C00FC24C1 /* statistics */,
+				605E3BE01BEC3C1900AE5AB1 /* MStatisicViewController.h */,
+				605E3BE11BEC3C1900AE5AB1 /* MStatisicViewController.m */,
+				605E3BE21BEC3C1900AE5AB1 /* MStatisicViewController.xib */,
+				605E3BE31BEC3C1900AE5AB1 /* MStatisticGraphViewController.h */,
+				605E3BE41BEC3C1900AE5AB1 /* MStatisticGraphViewController.m */,
+				605E3BE51BEC3C1900AE5AB1 /* MStatisticGraphViewController.xib */,
+				605E3BE61BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.h */,
+				605E3BE71BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.m */,
+				605E3BE81BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.xib */,
 				60156E511B8D60FF00FC24C1 /* setting */,
 			);
 			name = classes;
@@ -1243,9 +1279,9 @@
 		60156E451B8D5F7E00FC24C1 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				60CCFC121BB0E0700067AE44 /* MHomeViewController.h */,
-				60CCFC131BB0E0700067AE44 /* MHomeViewController.m */,
-				60CCFC141BB0E0700067AE44 /* MHomeViewController.xib */,
+				605E3BC71BEC3B6000AE5AB1 /* MHomeViewController.h */,
+				605E3BC81BEC3B6000AE5AB1 /* MHomeViewController.m */,
+				605E3BC91BEC3B6000AE5AB1 /* MHomeViewController.xib */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -1253,18 +1289,18 @@
 		60156E4B1B8D601000FC24C1 /* devicemanager */ = {
 			isa = PBXGroup;
 			children = (
-				60CCFC171BB0E08B0067AE44 /* OEMSQueryTableViewCell.h */,
-				60CCFC181BB0E08B0067AE44 /* OEMSQueryTableViewCell.m */,
-				60CCFC191BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib */,
-				60CCFC1A1BB0E08B0067AE44 /* MDeviceManageViewController.h */,
-				60CCFC1B1BB0E08B0067AE44 /* MDeviceManageViewController.m */,
-				60CCFC1C1BB0E08B0067AE44 /* MDeviceManageViewController.xib */,
-				60CCFC1D1BB0E08B0067AE44 /* TestMDeviceManageViewController.h */,
-				60CCFC1E1BB0E08B0067AE44 /* TestMDeviceManageViewController.m */,
-				60CCFC1F1BB0E08B0067AE44 /* TestMDeviceManageViewController.xib */,
-				60CCFC201BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.h */,
-				60CCFC211BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m */,
-				60CCFC221BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib */,
+				605E3BCC1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.h */,
+				605E3BCD1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.m */,
+				605E3BCE1BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.xib */,
+				605E3BCF1BEC3BF800AE5AB1 /* MDeviceManageViewController.h */,
+				605E3BD01BEC3BF800AE5AB1 /* MDeviceManageViewController.m */,
+				605E3BD11BEC3BF800AE5AB1 /* MDeviceManageViewController.xib */,
+				605E3BD21BEC3BF800AE5AB1 /* TestMDeviceManageViewController.h */,
+				605E3BD31BEC3BF800AE5AB1 /* TestMDeviceManageViewController.m */,
+				605E3BD41BEC3BF800AE5AB1 /* TestMDeviceManageViewController.xib */,
+				605E3BD51BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.h */,
+				605E3BD61BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.m */,
+				605E3BD71BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.xib */,
 			);
 			name = devicemanager;
 			sourceTree = "<group>";
@@ -1286,15 +1322,6 @@
 			isa = PBXGroup;
 			children = (
 				60156EA41B90340F00FC24C1 /* graph */,
-				60CCFC2B1BB0E0BE0067AE44 /* MStatisicViewController.h */,
-				60CCFC2C1BB0E0BE0067AE44 /* MStatisicViewController.m */,
-				60CCFC2D1BB0E0BE0067AE44 /* MStatisicViewController.xib */,
-				60CCFC2E1BB0E0BE0067AE44 /* MStatisticGraphViewController.h */,
-				60CCFC2F1BB0E0BE0067AE44 /* MStatisticGraphViewController.m */,
-				60CCFC301BB0E0BE0067AE44 /* MStatisticGraphViewController.xib */,
-				60CCFC311BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.h */,
-				60CCFC321BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m */,
-				60CCFC331BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib */,
 			);
 			name = statistics;
 			sourceTree = "<group>";
@@ -1391,6 +1418,27 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		605E3B8E1BE8734000AE5AB1 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				605E3B8F1BE8735200AE5AB1 /* SceneViewCollectionViewCell.h */,
+				605E3B901BE8735200AE5AB1 /* SceneViewCollectionViewCell.m */,
+				605E3B911BE8735200AE5AB1 /* SceneViewCollectionViewCell.xib */,
+				605E3B921BE8735200AE5AB1 /* ScenePlistManager.h */,
+				605E3B931BE8735200AE5AB1 /* ScenePlistManager.m */,
+				605E3B941BE8735200AE5AB1 /* AddSceneViewController.h */,
+				605E3B951BE8735200AE5AB1 /* AddSceneViewController.m */,
+				605E3B961BE8735200AE5AB1 /* AddSceneViewController.xib */,
+				605E3B971BE8735200AE5AB1 /* SelectCommandTableViewController.h */,
+				605E3B981BE8735200AE5AB1 /* SelectCommandTableViewController.m */,
+				605E3B991BE8735200AE5AB1 /* SelectCommandTableViewController.xib */,
+				605E3B9A1BE8735200AE5AB1 /* BtnTableViewCell.h */,
+				605E3B9B1BE8735200AE5AB1 /* BtnTableViewCell.m */,
+				605E3B9C1BE8735200AE5AB1 /* BtnTableViewCell.xib */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
 		606C9B561A065879003BA6AD /* MainViewLists */ = {
 			isa = PBXGroup;
 			children = (
@@ -1421,6 +1469,7 @@
 		60C01F2C1A072375002E3764 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				605E3B8E1BE8734000AE5AB1 /* scene */,
 				606C9B751A070D4C003BA6AD /* HomeViewController.h */,
 				606C9B761A070D4C003BA6AD /* HomeViewController.m */,
 				47D570971A22CB6600646865 /* HomeViewController.xib */,
@@ -1642,6 +1691,7 @@
 		60C020091A0A3C67002E3764 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				605E3BA71BE89A1100AE5AB1 /* defaultScenePic.jpg */,
 				60032F441A1D883E00F07B8C /* Custom_RM */,
 				60421DF11A0FB29F007E868D /* textField.png */,
 				60421DF31A0FB2AA007E868D /* textField@2x.png */,
@@ -1873,6 +1923,7 @@
 				60032F1E1A1B546A00F07B8C /* ChangeRemoteNameViewController.xib in Resources */,
 				47DC4EEE1A0E0AA700A7DBCD /* ProjectorViewController.xib in Resources */,
 				60C7A2701B0095EB005314A5 /* controller.png in Resources */,
+				605E3BDF1BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.xib in Resources */,
 				60C0206F1A0A6E12002E3764 /* voiceImgLight.jpg in Resources */,
 				60C7A27D1B018EA7005314A5 /* MapViewController.xib in Resources */,
 				60421DE91A0F81C8007E868D /* RMDeviceInfo.plist in Resources */,
@@ -1890,7 +1941,9 @@
 				60C0203E1A0A3C67002E3764 /* login_textfield_more@2x.png in Resources */,
 				60C020371A0A3C67002E3764 /* login_dropdown_bg@2x.png in Resources */,
 				60C0204C1A0A3C67002E3764 /* voice_dark.png in Resources */,
+				605E3BEE1BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.xib in Resources */,
 				60C0203B1A0A3C67002E3764 /* login_textfield_bottom@2x.png in Resources */,
+				605E3BA51BE8735200AE5AB1 /* BtnTableViewCell.xib in Resources */,
 				470DAD031A1F4EAA003A9EE8 /* SettingViewController.xib in Resources */,
 				60CCFC411BB0E0DB0067AE44 /* MSettingViewController.xib in Resources */,
 				60032F521A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib in Resources */,
@@ -1901,20 +1954,18 @@
 				60C0203C1A0A3C67002E3764 /* login_textfield_mid.png in Resources */,
 				60350DB91BD9CB3200E919F5 /* VoiceTableViewController.xib in Resources */,
 				60C0202D1A0A3C67002E3764 /* login_bg.jpg in Resources */,
+				605E3BEA1BEC3C1900AE5AB1 /* MStatisicViewController.xib in Resources */,
 				60032F2A1A1CA5E000F07B8C /* btn_tv_left.png in Resources */,
 				470DAD231A21A509003A9EE8 /* ChangeTCPButtonInfoViewController.xib in Resources */,
 				60421DF01A0FAEDF007E868D /* BtnStudyViewController.xib in Resources */,
+				605E3BCB1BEC3B6000AE5AB1 /* MHomeViewController.xib in Resources */,
 				60C0206E1A0A6E12002E3764 /* voiceImg@2x.jpg in Resources */,
-				60CCFC2A1BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.xib in Resources */,
 				602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */,
 				47BEC04D1A0B084D00FD9CDC /* TVViewController.xib in Resources */,
 				60C0204A1A0A3C67002E3764 /* setter_dark.png in Resources */,
 				60C020541A0A3C86002E3764 /* curtain.png in Resources */,
-				60CCFC241BB0E08B0067AE44 /* OEMSQueryTableViewCell.xib in Resources */,
 				60032F281A1CA5E000F07B8C /* btn_ok_press.png in Resources */,
 				60C020481A0A3C67002E3764 /* list_dark.png in Resources */,
-				60CCFC371BB0E0BE0067AE44 /* MStatisticGraphViewController.xib in Resources */,
-				60CCFC281BB0E08B0067AE44 /* TestMDeviceManageViewController.xib in Resources */,
 				60C0202E1A0A3C67002E3764 /* login_bg@2x.jpg in Resources */,
 				47B19C9D1A0209B100FFA873 /* Images.xcassets in Resources */,
 				47D5709A1A22CEF100646865 /* CustomCollectionViewCell.xib in Resources */,
@@ -1923,18 +1974,18 @@
 				606DCB381B1326FD001B78E8 /* mapapi.bundle in Resources */,
 				60C020561A0A3C86002E3764 /* tv.png in Resources */,
 				60C020401A0A3C67002E3764 /* login_textfield_more_flip@2x.png in Resources */,
+				605E3B9E1BE8735200AE5AB1 /* SceneViewCollectionViewCell.xib in Resources */,
 				60C020311A0A3C67002E3764 /* login_btn_blue_nor@2x.png in Resources */,
+				605E3BDB1BEC3BF800AE5AB1 /* MDeviceManageViewController.xib in Resources */,
 				60BBC6D31A3093120023906B /* socket.png in Resources */,
 				60C020351A0A3C67002E3764 /* login_dropdown_avatar_border@2x.png in Resources */,
 				60032F301A1CB70B00F07B8C /* AirCondition_add_press.png in Resources */,
-				60CCFC351BB0E0BE0067AE44 /* MStatisicViewController.xib in Resources */,
 				60350DAE1BD8786700E919F5 /* RegisterViewController.xib in Resources */,
 				60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */,
 				60C0204B1A0A3C67002E3764 /* setter_light.png in Resources */,
 				60C020321A0A3C67002E3764 /* login_btn_blue_press.png in Resources */,
 				606DC7A11B0C1FCF001B78E8 /* GpsDataTableViewController.xib in Resources */,
 				47D570981A22CB6600646865 /* HomeViewController.xib in Resources */,
-				60CCFC391BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.xib in Resources */,
 				60BBC6D11A2FFFD30023906B /* Default-568h@2x.png in Resources */,
 				470DACFD1A1F4E95003A9EE8 /* VoiceViewController.xib in Resources */,
 				60C020431A0A3C67002E3764 /* add_dark.png in Resources */,
@@ -1946,7 +1997,6 @@
 				470DAD191A21870D003A9EE8 /* TCPDeviceViewController.xib in Resources */,
 				60C020301A0A3C67002E3764 /* login_btn_blue_nor.png in Resources */,
 				60032F2C1A1CA5E000F07B8C /* btn_tv_up.png in Resources */,
-				60CCFC261BB0E08B0067AE44 /* MDeviceManageViewController.xib in Resources */,
 				60032F291A1CA5E000F07B8C /* btn_tv_down.png in Resources */,
 				60C0202F1A0A3C67002E3764 /* login_bg_ip5@2x.jpg in Resources */,
 				60BBC6DC1A343BB60023906B /* Settings.bundle in Resources */,
@@ -1955,23 +2005,28 @@
 				60C020471A0A3C67002E3764 /* home_light_green.png in Resources */,
 				60C0206D1A0A6E12002E3764 /* voiceImg.jpg in Resources */,
 				60C020421A0A3C67002E3764 /* login_textfield_top@2x.png in Resources */,
+				605E3BA31BE8735200AE5AB1 /* SelectCommandTableViewController.xib in Resources */,
 				60032F311A1CB70B00F07B8C /* AirCondition_power_press.png in Resources */,
 				60C0203F1A0A3C67002E3764 /* login_textfield_more_flip.png in Resources */,
 				60C020361A0A3C67002E3764 /* login_dropdown_bg.png in Resources */,
 				60C020531A0A3C86002E3764 /* aircondition.png in Resources */,
+				605E3BEC1BEC3C1900AE5AB1 /* MStatisticGraphViewController.xib in Resources */,
 				60C0204D1A0A3C67002E3764 /* voice_light.png in Resources */,
 				60C0203D1A0A3C67002E3764 /* login_textfield_more.png in Resources */,
 				60C020341A0A3C67002E3764 /* login_dropdown_avatar_border.png in Resources */,
 				60C020461A0A3C67002E3764 /* home_light.png in Resources */,
+				605E3BA11BE8735200AE5AB1 /* AddSceneViewController.xib in Resources */,
 				60C020391A0A3C67002E3764 /* login_textfield@2x.png in Resources */,
-				60CCFC161BB0E0700067AE44 /* MHomeViewController.xib in Resources */,
+				605E3BDD1BEC3BF800AE5AB1 /* TestMDeviceManageViewController.xib in Resources */,
 				606DCB161B12F639001B78E8 /* GeocodeDemoViewController.xib in Resources */,
 				60032F481A1DEF9E00F07B8C /* CustomRemoteViewController.xib in Resources */,
 				60C01F311A0724F3002E3764 /* DeviceInfo.plist in Resources */,
 				60032F2B1A1CA5E000F07B8C /* btn_tv_right.png in Resources */,
 				60C020411A0A3C67002E3764 /* login_textfield_top.png in Resources */,
 				60C020331A0A3C67002E3764 /* login_btn_blue_press@2x.png in Resources */,
+				605E3BD91BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.xib in Resources */,
 				47DC4EE11A0E090700A7DBCD /* CurtainViewController.xib in Resources */,
+				605E3BA81BE89A1100AE5AB1 /* defaultScenePic.jpg in Resources */,
 				60C020611A0A614C002E3764 /* icon_sp.png in Resources */,
 				47BEC06C1A0B522C00FD9CDC /* RemoteControlDeviceViewController.xib in Resources */,
 				60CCFC431BB0E0DB0067AE44 /* UserDetailViewController.xib in Resources */,
@@ -2132,7 +2187,6 @@
 				470DAD0A1A1F4F03003A9EE8 /* GCDAsyncUdpSocket.m in Sources */,
 				60421DD71A0E7421007E868D /* MJIvar.m in Sources */,
 				60156E281B8C88C700FC24C1 /* SmartConfigDiscoverMDNS.m in Sources */,
-				60CCFC341BB0E0BE0067AE44 /* MStatisicViewController.m in Sources */,
 				47B19C951A0209B100FFA873 /* AppDelegate.m in Sources */,
 				60C01F731A0879FA002E3764 /* SBJson4StreamParserState.m in Sources */,
 				60032F431A1D7D0300F07B8C /* CustomRemoteViewController.m in Sources */,
@@ -2140,6 +2194,7 @@
 				60032F121A1A106F00F07B8C /* AFURLConnectionOperation.m in Sources */,
 				4725720B1A0E033F002B12DE /* AirConditionViewController.m in Sources */,
 				60C01F4C1A087827002E3764 /* RecognizerFactory.m in Sources */,
+				605E3BDC1BEC3BF800AE5AB1 /* TestMDeviceManageViewController.m in Sources */,
 				60421DDD1A0E7421007E868D /* NSObject+MJKeyValue.m in Sources */,
 				470DACFC1A1F4E95003A9EE8 /* VoiceViewController.m in Sources */,
 				60421DDB1A0E7421007E868D /* MJTypeEncoding.m in Sources */,
@@ -2148,20 +2203,23 @@
 				60156FBC1B953C5100FC24C1 /* OEMSPieGraph.m in Sources */,
 				60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */,
 				60C01F891A08F19F002E3764 /* LJCommonItem.m in Sources */,
+				605E3BDA1BEC3BF800AE5AB1 /* MDeviceManageViewController.m in Sources */,
 				60156E291B8C88C700FC24C1 /* Reachability.m in Sources */,
 				60350DBC1BDDBAEA00E919F5 /* NetworkStatus.m in Sources */,
 				60156FC01B953CB400FC24C1 /* FXLabel.m in Sources */,
-				60CCFC231BB0E08B0067AE44 /* OEMSQueryTableViewCell.m in Sources */,
 				60C020651A0A689A002E3764 /* DeviceViewController.m in Sources */,
 				60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */,
 				60032F141A1A106F00F07B8C /* AFURLResponseSerialization.m in Sources */,
+				605E3B9D1BE8735200AE5AB1 /* SceneViewCollectionViewCell.m in Sources */,
 				470DAD1C1A21A455003A9EE8 /* ChangeTCPDeviceNameViewController.m in Sources */,
 				60032F111A1A106F00F07B8C /* AFSecurityPolicy.m in Sources */,
-				60CCFC151BB0E0700067AE44 /* MHomeViewController.m in Sources */,
+				605E3BA01BE8735200AE5AB1 /* AddSceneViewController.m in Sources */,
 				60421DDE1A0E7421007E868D /* NSObject+MJMember.m in Sources */,
+				605E3BD81BEC3BF800AE5AB1 /* OEMSQueryTableViewCell.m in Sources */,
 				470DACF21A1F4E88003A9EE8 /* UDPEasyConfig.m in Sources */,
 				47BEC04B1A0B083D00FD9CDC /* TVViewController.m in Sources */,
 				470DAD211A21A4FE003A9EE8 /* ChangeTCPButtonInfoViewController.m in Sources */,
+				605E3BDE1BEC3BF800AE5AB1 /* DiffEnqueryDeviceTableViewController.m in Sources */,
 				60CCFC111BB0E04E0067AE44 /* NavigationViewController.m in Sources */,
 				60156E401B8D5E7300FC24C1 /* REMenuItemView.m in Sources */,
 				60C01F341A072567002E3764 /* BLDeviceInfo.m in Sources */,
@@ -2171,6 +2229,8 @@
 				60CCFC561BB0E4C90067AE44 /* AsyncUdpSocket.m in Sources */,
 				60350DB41BD8791300E919F5 /* RootController.m in Sources */,
 				60350DAD1BD8786700E919F5 /* RegisterViewController.m in Sources */,
+				605E3BE91BEC3C1900AE5AB1 /* MStatisicViewController.m in Sources */,
+				605E3BED1BEC3C1900AE5AB1 /* OEMSEnergyGraphViewController.m in Sources */,
 				60032F101A1A106F00F07B8C /* AFNetworkReachabilityManager.m in Sources */,
 				60421DD51A0E7421007E868D /* MJConst.m in Sources */,
 				60C7A27C1B018EA7005314A5 /* MapViewController.mm in Sources */,
@@ -2191,6 +2251,7 @@
 				470DAD111A203002003A9EE8 /* TCPDevice.m in Sources */,
 				60CCFC421BB0E0DB0067AE44 /* UserDetailViewController.m in Sources */,
 				60C01FE31A0A0626002E3764 /* LJCommonViewController.m in Sources */,
+				605E3B9F1BE8735200AE5AB1 /* ScenePlistManager.m in Sources */,
 				470DAD091A1F4F03003A9EE8 /* GCDAsyncSocket.m in Sources */,
 				60032F1D1A1B546A00F07B8C /* ChangeRemoteNameViewController.m in Sources */,
 				60032F131A1A106F00F07B8C /* AFURLRequestSerialization.m in Sources */,
@@ -2204,14 +2265,16 @@
 				60156E2C1B8C8B7A00FC24C1 /* CaoConfig.m in Sources */,
 				606DC7A01B0C1FCF001B78E8 /* GpsDataTableViewController.m in Sources */,
 				60032F191A1AF27100F07B8C /* SmartHomeAPIs.m in Sources */,
+				605E3BEB1BEC3C1900AE5AB1 /* MStatisticGraphViewController.m in Sources */,
+				605E3BA41BE8735200AE5AB1 /* BtnTableViewCell.m in Sources */,
 				60C01FD41A090A88002E3764 /* LJCommonSwitchItem.m in Sources */,
+				605E3BA21BE8735200AE5AB1 /* SelectCommandTableViewController.m in Sources */,
 				60CCFC401BB0E0DB0067AE44 /* MSettingViewController.m in Sources */,
 				60421DDA1A0E7421007E868D /* MJType.m in Sources */,
 				60421DD41A0E7421007E868D /* MJArgument.m in Sources */,
 				470DAD0E1A202F8A003A9EE8 /* TCPDeviceManager.m in Sources */,
 				60350DB81BD9CB3200E919F5 /* VoiceTableViewController.m in Sources */,
 				60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */,
-				60CCFC381BB0E0BE0067AE44 /* OEMSEnergyGraphViewController.m in Sources */,
 				60C01F771A0879FA002E3764 /* SBJson4Writer.m in Sources */,
 				60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */,
 				47B19C921A0209B100FFA873 /* main.m in Sources */,
@@ -2222,13 +2285,13 @@
 				60C01FDC1A09152E002E3764 /* ProgressHUD.m in Sources */,
 				60C01F8A1A08F19F002E3764 /* LJCommonCell.m in Sources */,
 				47BEC07A1A0DDA2200FD9CDC /* RMButton.m in Sources */,
-				60CCFC361BB0E0BE0067AE44 /* MStatisticGraphViewController.m in Sources */,
 				60C01F721A0879FA002E3764 /* SBJson4StreamParser.m in Sources */,
 				60032F511A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m in Sources */,
 				60421DD81A0E7421007E868D /* MJMember.m in Sources */,
 				47BEC0641A0B13F700FD9CDC /* RemoteControlDeviceViewController.m in Sources */,
 				60C01F741A0879FA002E3764 /* SBJson4StreamTokeniser.m in Sources */,
 				60032F0E1A1A106F00F07B8C /* AFHTTPRequestOperationManager.m in Sources */,
+				605E3BCA1BEC3B6000AE5AB1 /* MHomeViewController.m in Sources */,
 				60421DD91A0E7421007E868D /* MJMethod.m in Sources */,
 				60A781911A47AC7300F48B5F /* StatisticViewController.m in Sources */,
 				60350DB11BD8786700E919F5 /* UserInfo.m in Sources */,
@@ -2237,13 +2300,10 @@
 				60350DB01BD8786700E919F5 /* LoginViewController.m in Sources */,
 				60C01F7D1A08C101002E3764 /* MainTabBarViewController.m in Sources */,
 				60C01F5C1A087966002E3764 /* JSONKit.m in Sources */,
-				60CCFC291BB0E08B0067AE44 /* DiffEnqueryDeviceTableViewController.m in Sources */,
 				60156E3F1B8D5E7300FC24C1 /* REMenuItem.m in Sources */,
 				47DC4EDF1A0E08F200A7DBCD /* CurtainViewController.m in Sources */,
-				60CCFC271BB0E08B0067AE44 /* TestMDeviceManageViewController.m in Sources */,
 				47D570A01A22F83400646865 /* DeviceInfoManagerForCell.m in Sources */,
 				60350DA11BBA372600E919F5 /* AsyncSocket.m in Sources */,
-				60CCFC251BB0E08B0067AE44 /* MDeviceManageViewController.m in Sources */,
 				470DACFB1A1F4E95003A9EE8 /* VoiceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2457,6 +2517,7 @@
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP",
@@ -2492,6 +2553,7 @@
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP",
@@ -2576,6 +2638,7 @@
 					/Users/dyy/Desktop/lab/open,
 					API,
 					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
+					"$(PROJECT_DIR)/SmartHomeFDP/Library/FTC",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SmartHomeFDP1;
@@ -2611,6 +2674,7 @@
 					/Users/dyy/Desktop/lab/open,
 					API,
 					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
+					"$(PROJECT_DIR)/SmartHomeFDP/Library/FTC",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SmartHomeFDP1;
