@@ -101,7 +101,6 @@
     if ([[result objectForKey:@"code"] intValue] == 0)
     {
         NSString * data = [result objectForKey:@"data"];
-        //NSLog(@"get code : %@",data);
         
         dispatch_async(serverQueue, ^{
             NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
