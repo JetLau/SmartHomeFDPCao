@@ -134,7 +134,8 @@
     //NSLog(@"%@", [responseData objectFromJSONData]);
     dispatch_async(serverQueue, ^{
         int success = ([[result objectForKey:@"code"] intValue]==0) ? 0:1;
-        //NSLog(@"success = %d",success);
+
+        
         NSMutableDictionary *remoteDic = [[NSMutableDictionary alloc] init];
         [remoteDic setObject:@"rm2Send" forKey:@"command"];
         [remoteDic setObject:_info.mac forKey:@"mac"];
